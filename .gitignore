@@ -1,0 +1,40 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.ipynb_checkpoints/
+
+# --- Environments ---
+.venv/
+venv/
+env/
+.env
+*.env
+
+# --- Data (keep raw/large data out of git; share via agreed storage) ---
+data/raw/*
+data/processed/*
+data/external/*
+!data/**/.gitkeep
+!data/**/README.md
+*.csv
+*.parquet
+*.jsonl
+*.db
+*.sqlite
+
+# --- Models / large artifacts ---
+*.pt
+*.pkl
+*.joblib
+models/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

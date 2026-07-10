@@ -1,0 +1,28 @@
+# Core data
+pandas
+numpy
+pyarrow
+
+# Collection (API-first; respectful HTTP)
+requests
+httpx
+python-dotenv
+
+# NLP
+spacy
+scikit-learn
+nltk
+sentence-transformers
+
+# Forecasting
+statsmodels
+prophet
+
+# Visualisation
+matplotlib
+seaborn
+plotly
+
+# Notebooks
+jupyterlab
+ipykernel
