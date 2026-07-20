@@ -1,0 +1,47 @@
+{
+  "google_jobs_hf_backfill_2023": {
+    "rows": 848,
+    "columns": [
+      "job_id",
+      "company_name",
+      "job_title",
+      "job_description",
+      "posting_date",
+      "location",
+      "job_url",
+      "employment_type",
+      "remote",
+      "country",
+      "salary_year_avg",
+      "extracted_skills",
+      "skill_categories",
+      "job_via",
+      "source",
+      "scraped_date"
+    ],
+    "file": "data/raw/google/google_jobs_hf_backfill_2023.parquet",
+    "collected_at": "2026-07-20T17:43:03+00:00",
+    "date_min": "2023-01-01",
+    "date_max": "2023-12-31",
+    "rebuild": "python src/collect_google_jobs.py hf-backfill"
+  },
+  "google_jobs_themuse": {
+    "rows": 0,
+    "columns": [
+      "job_id",
+      "company_name",
+      "job_title",
+      "job_description",
+      "posting_date",
+      "location",
+      "job_url",
+      "source",
+      "scraped_date"
+    ],
+    "file": "data/raw/google/google_jobs_themuse.parquet",
+    "collected_at": "2026-07-20T17:43:12+00:00",
+    "date_min": null,
+    "date_max": null,
+    "rebuild": "python src/collect_google_jobs.py themuse"
+  }
+}
