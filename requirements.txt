@@ -9,10 +9,16 @@ httpx
 python-dotenv
 
 # NLP
+# NOTE: src/preprocess.py (Task 03) deliberately does NOT import spacy or nltk —
+# its rules and stopwords are in-repo so all four specialists get identical
+# output with no model/corpus download step. These are here for Task 04+.
 spacy
 scikit-learn
 nltk
 sentence-transformers
+
+# Testing
+pytest
 
 # Forecasting
 statsmodels

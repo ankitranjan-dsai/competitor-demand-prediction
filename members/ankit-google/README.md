@@ -14,7 +14,9 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
 - [x] Task 01 — Data sources & legal (drafted)
 - [x] Task 02 — Data collection → `task-02-data-collection-report.md`
       (848 postings backfill 2023; Adzuna live pull ready, pending free API keys)
-- [ ] Task 03 — NLP preprocessing
+- [x] Task 03 — NLP preprocessing → `task-03-preprocessing-report.md`
+      (848 rows → 44 columns; method standard in `docs/task-03-preprocessing-methods.md`;
+      89 tests; Layer B validated on real HTML, idle until Adzuna text lands)
 - [ ] Task 04 — Skill extraction & feature engineering
 - [ ] Task 05 — Hiring trend analysis
 - [ ] Task 06 — Competitor comparison
