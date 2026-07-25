@@ -211,10 +211,18 @@ characters that would have produced two grouping keys for one value. The
 
 ## 6. Limitations carried into Task 04
 
-1. **No description text yet.** Text features wait on the Adzuna live pull
-   (blocked on free API keys — see the Task 02 report). Skill extraction in Task
-   04 therefore starts from the source's `extracted_skills` for the 67% of rows
-   that have them.
+1. **No full description text — and the Adzuna pull will not supply it.**
+   Verified 2026-07-25 with live credentials: the Adzuna search endpoint
+   truncates `description` to **500 characters**, cut mid-sentence with an
+   ellipsis. That yields the posting's marketing intro, not the "Minimum
+   qualifications" / "Preferred qualifications" sections where skills actually
+   appear. Skill extraction in Task 04 therefore works from three partial
+   signals, and should say so rather than implying full-text extraction:
+   the source's `extracted_skills` (572/848 rows), job titles, and the
+   ~500-char Adzuna intro once collected. Full posting text would require
+   fetching `redirect_url` per posting, which needs its own §4 legal checklist
+   and will often land on an aggregator whose ToS forbids it — the same
+   provenance objection that rejected the LinkedIn-derived datasets in Task 02.
 2. **Single year, single source.** All 848 rows are 2023 from one Apache-2.0
    dataset. Enough for method development; not enough for a trend claim. Task
    05 conclusions must be labelled as within-2023.
@@ -229,7 +237,12 @@ characters that would have produced two grouping keys for one value. The
 ## 7. Next
 
 - Task 04 — skill extraction & feature engineering, on the cleaned dataset.
-- Register free Adzuna keys (`ADZUNA_APP_ID` / `ADZUNA_APP_KEY` in `.env`), then
-  `python src/collect_google_jobs.py adzuna` to obtain description text and
-  posting URLs; re-run preprocessing to activate Layer B on real Google rows.
+- Adzuna keys are registered and verified working (398 Google matches in the GB
+  feed). `python src/collect_google_jobs.py adzuna` adds live postings with
+  `job_url`, salary bands and coordinates — but only ~500 chars of description
+  text (see limitation 1), so it improves coverage and traceability rather than
+  unlocking full-text extraction.
+- A Reed.co.uk key is also registered. **Reed must not be collected from until
+  `docs/legal/reed.md` exists and passes the Task 01 §4 checklist** — the key
+  being available is not the same as the source being approved.
 - Submit the repo link in the CadetX portal for Task 03.
