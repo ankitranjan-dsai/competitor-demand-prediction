@@ -1,0 +1,218 @@
+job_function,skill,skill_category,n_postings
+Analytics,SQL,Programming Language,92
+Analytics,Python,Programming Language,73
+Analytics,R,Programming Language,55
+Analytics,Looker,Analytics / BI,16
+Analytics,BigQuery,Cloud Platform,14
+Analytics,MATLAB,Programming Language,14
+Analytics,Tableau,Analytics / BI,13
+Analytics,pandas,Data Science Libraries,13
+Analytics,SAS,Analytics / BI,9
+Analytics,Excel,Analytics / BI,8
+Analytics,TensorFlow,ML / AI,8
+Analytics,Express,Web / Frontend,6
+Analytics,GCP,Cloud Platform,6
+Analytics,Java,Programming Language,6
+Analytics,Go,Programming Language,5
+Analytics,Google Sheets,Analytics / BI,5
+Analytics,Hadoop,Data Engineering,5
+Analytics,MongoDB,Database,5
+Analytics,NoSQL,Database,5
+Analytics,SPSS,Analytics / BI,5
+Analytics,Airflow,Data Engineering,4
+Analytics,C++,Programming Language,4
+Analytics,Cognos,Analytics / BI,4
+Analytics,Linux,OS / Shell,4
+Analytics,Snowflake,Cloud Platform,4
+Analytics,macOS,OS / Shell,4
+Analytics,Jupyter,Data Science Libraries,3
+Analytics,MicroStrategy,Analytics / BI,3
+Analytics,NumPy,Data Science Libraries,3
+Analytics,Power BI,Analytics / BI,3
+Analytics,Windows,OS / Shell,3
+Analytics,C,Programming Language,2
+Analytics,GitHub,DevOps / Infrastructure,2
+Analytics,JavaScript,Programming Language,2
+Analytics,Kafka,Data Engineering,2
+Analytics,MySQL,Database,2
+Analytics,React,Web / Frontend,2
+Analytics,SAP,Analytics / BI,2
+Analytics,Spark,Data Engineering,2
+Analytics,Kubernetes,DevOps / Infrastructure,1
+Analytics,Microsoft Access,Database,1
+Analytics,Oracle,Database,1
+Analytics,Qlik,Analytics / BI,1
+Analytics,Redshift,Cloud Platform,1
+Analytics,TypeScript,Programming Language,1
+Engineering,Python,Programming Language,105
+Engineering,Java,Programming Language,91
+Engineering,C++,Programming Language,58
+Engineering,Go,Programming Language,56
+Engineering,Hadoop,Data Engineering,44
+Engineering,TensorFlow,ML / AI,43
+Engineering,JavaScript,Programming Language,37
+Engineering,Machine Learning,ML / AI,36
+Engineering,NoSQL,Database,36
+Engineering,C,Programming Language,32
+Engineering,Spark,Data Engineering,28
+Engineering,Scala,Programming Language,25
+Engineering,SQL,Programming Language,22
+Engineering,Perl,Programming Language,17
+Engineering,MongoDB,Database,16
+Engineering,PyTorch,ML / AI,14
+Engineering,BigQuery,Cloud Platform,12
+Engineering,GCP,Cloud Platform,12
+Engineering,Shell,OS / Shell,12
+Engineering,C#,Programming Language,11
+Engineering,Linux,OS / Shell,11
+Engineering,Kubernetes,DevOps / Infrastructure,9
+Engineering,TypeScript,Programming Language,8
+Engineering,Airflow,Data Engineering,7
+Engineering,Docker,DevOps / Infrastructure,7
+Engineering,Terraform,DevOps / Infrastructure,7
+Engineering,Unix,OS / Shell,6
+Engineering,AWS,Cloud Platform,5
+Engineering,Azure,Cloud Platform,5
+Engineering,Keras,ML / AI,5
+Engineering,React,Web / Frontend,5
+Engineering,HTML,Web / Frontend,4
+Engineering,Jenkins,DevOps / Infrastructure,4
+Engineering,Objective-C,Programming Language,4
+Engineering,Rust,Programming Language,4
+Engineering,scikit-learn,ML / AI,4
+Engineering,Angular,Web / Frontend,3
+Engineering,Ansible,DevOps / Infrastructure,3
+Engineering,Bash,OS / Shell,3
+Engineering,Colocation,Facilities / Data Centre,3
+Engineering,Kotlin,Programming Language,3
+Engineering,Looker,Analytics / BI,3
+Engineering,MXNet,ML / AI,3
+Engineering,Splunk,DevOps / Infrastructure,3
+Engineering,Swift,Programming Language,3
+Engineering,Assembly,Programming Language,2
+Engineering,CSS,Web / Frontend,2
+Engineering,Cassandra,Database,2
+Engineering,GitHub,DevOps / Infrastructure,2
+Engineering,MySQL,Database,2
+Engineering,Snowflake,Cloud Platform,2
+Engineering,Tableau,Analytics / BI,2
+Engineering,Windows,OS / Shell,2
+Engineering,Chef,DevOps / Infrastructure,1
+Engineering,Computer Vision,ML / AI,1
+Engineering,Dart,Programming Language,1
+Engineering,Elasticsearch,Database,1
+Engineering,Flutter,Web / Frontend,1
+Engineering,OpenStack,Cloud Platform,1
+Engineering,Puppet,DevOps / Infrastructure,1
+Engineering,Redis,Database,1
+Engineering,Ruby,Programming Language,1
+Engineering,SAP,Analytics / BI,1
+Engineering,SQL Server,Database,1
+Engineering,Ubuntu,OS / Shell,1
+Engineering,VMware,Cloud Platform,1
+Facilities / Operations,Linux,OS / Shell,5
+Facilities / Operations,Colocation,Facilities / Data Centre,2
+Facilities / Operations,Assembly,Programming Language,1
+Facilities / Operations,Go,Programming Language,1
+Facilities / Operations,Looker,Analytics / BI,1
+Marketing / Communications,R,Programming Language,1
+Marketing / Communications,SQL,Programming Language,1
+Other,Python,Programming Language,9
+Other,R,Programming Language,9
+Other,SAS,Analytics / BI,7
+Other,SQL,Programming Language,4
+Other,MATLAB,Programming Language,3
+Other,Assembly,Programming Language,1
+Other,Bash,OS / Shell,1
+Other,Colocation,Facilities / Data Centre,1
+Other,Go,Programming Language,1
+Other,Machine Learning,ML / AI,1
+Other,Microsoft Word,Office / Productivity,1
+Other,SQL Server,Database,1
+Product / Program,SAP,Analytics / BI,1
+Product / Program,SQL,Programming Language,1
+Sales,BigQuery,Cloud Platform,23
+Sales,Looker,Analytics / BI,22
+Sales,SQL,Programming Language,11
+Sales,GCP,Cloud Platform,5
+Sales,Firebase,Cloud Platform,1
+Sales,Python,Programming Language,1
+Sales,R,Programming Language,1
+Science / Research,Python,Programming Language,138
+Science / Research,R,Programming Language,106
+Science / Research,SQL,Programming Language,90
+Science / Research,SAS,Analytics / BI,18
+Science / Research,TensorFlow,ML / AI,18
+Science / Research,C++,Programming Language,12
+Science / Research,MATLAB,Programming Language,12
+Science / Research,Machine Learning,ML / AI,11
+Science / Research,Tableau,Analytics / BI,10
+Science / Research,Express,Web / Frontend,9
+Science / Research,CSS,Web / Frontend,5
+Science / Research,HTML,Web / Frontend,5
+Science / Research,Hadoop,Data Engineering,5
+Science / Research,JavaScript,Programming Language,5
+Science / Research,Plotly,Data Science Libraries,5
+Science / Research,Java,Programming Language,4
+Science / Research,Looker,Analytics / BI,4
+Science / Research,PyTorch,ML / AI,3
+Science / Research,C,Programming Language,2
+Science / Research,Go,Programming Language,2
+Science / Research,Microsoft Outlook,Office / Productivity,2
+Science / Research,Microsoft Word,Office / Productivity,2
+Science / Research,Oracle,Database,2
+Science / Research,Power BI,Analytics / BI,2
+Science / Research,SPSS,Analytics / BI,2
+Science / Research,Spark,Data Engineering,2
+Science / Research,pandas,Data Science Libraries,2
+Science / Research,BigQuery,Cloud Platform,1
+Science / Research,C#,Programming Language,1
+Science / Research,NumPy,Data Science Libraries,1
+Support / Admin,SQL,Programming Language,3
+Support / Admin,Looker,Analytics / BI,2
+Support / Admin,NumPy,Data Science Libraries,2
+Support / Admin,Power BI,Analytics / BI,2
+Support / Admin,Python,Programming Language,2
+Support / Admin,R,Programming Language,2
+Support / Admin,Tableau,Analytics / BI,2
+Support / Admin,pandas,Data Science Libraries,2
+Support / Admin,scikit-learn,ML / AI,2
+Technical Sales,Python,Programming Language,45
+Technical Sales,R,Programming Language,41
+Technical Sales,Linux,OS / Shell,34
+Technical Sales,Java,Programming Language,32
+Technical Sales,Go,Programming Language,31
+Technical Sales,SQL,Programming Language,31
+Technical Sales,JavaScript,Programming Language,30
+Technical Sales,C++,Programming Language,29
+Technical Sales,Scala,Programming Language,29
+Technical Sales,Looker,Analytics / BI,23
+Technical Sales,Oracle,Database,17
+Technical Sales,SAP,Analytics / BI,15
+Technical Sales,Machine Learning,ML / AI,14
+Technical Sales,BigQuery,Cloud Platform,12
+Technical Sales,Snowflake,Cloud Platform,9
+Technical Sales,NoSQL,Database,6
+Technical Sales,Hadoop,Data Engineering,4
+Technical Sales,Spark,Data Engineering,4
+Technical Sales,Tableau,Analytics / BI,3
+Technical Sales,Ansible,DevOps / Infrastructure,2
+Technical Sales,C#,Programming Language,2
+Technical Sales,Chef,DevOps / Infrastructure,2
+Technical Sales,Docker,DevOps / Infrastructure,2
+Technical Sales,GCP,Cloud Platform,2
+Technical Sales,Jenkins,DevOps / Infrastructure,2
+Technical Sales,Kafka,Data Engineering,2
+Technical Sales,Kubernetes,DevOps / Infrastructure,2
+Technical Sales,Puppet,DevOps / Infrastructure,2
+Technical Sales,Redshift,Cloud Platform,2
+Technical Sales,Shell,OS / Shell,2
+Technical Sales,TensorFlow,ML / AI,2
+Technical Sales,GDPR,Governance / Compliance,1
+Technical Sales,MATLAB,Programming Language,1
+Technical Sales,MicroStrategy,Analytics / BI,1
+Technical Sales,Microsoft Outlook,Office / Productivity,1
+Technical Sales,MySQL,Database,1
+Technical Sales,PHP,Programming Language,1
+Technical Sales,PyTorch,ML / AI,1
+Technical Sales,SQL Server,Database,1

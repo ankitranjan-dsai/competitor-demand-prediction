@@ -43,7 +43,7 @@ Roles rotate every week; decisions/blockers/progress are documented in
 | 01 | Understanding Data Sources & Legal | Approved source list + legal review + collection plan | ✅ Drafted → `docs/task-01-data-sources-and-legal.md` |
 | 02 | Data Collection | Data Collection Report + raw dataset | ✅ Google done → `members/ankit-google/task-02-data-collection-report.md` (848 backfill postings; Adzuna live pull pending keys) |
 | 03 | NLP Preprocessing & Method Selection | Cleaned text + documented workflow | ✅ Google done → `docs/task-03-preprocessing-methods.md` (team standard) + `members/ankit-google/task-03-preprocessing-report.md` (848 rows cleaned, 89 tests) |
-| 04 | Skill Extraction & Feature Engineering | Extracted-skills dataset + feature tables | ⬜ |
+| 04 | Skill Extraction & Feature Engineering | Extracted-skills dataset + feature tables | ✅ Google done → `docs/task-04-skill-taxonomy.md` (shared taxonomy + method) + `members/ankit-google/task-04-skill-extraction-report.md` (2,340 skill rows, 91 skills, 157 tests) |
 | 05 | Hiring Trend Analysis | Trend tables + visual summaries | ⬜ |
 | 06 | Competitor Comparison | Comparison tables + visuals | ⬜ |
 | 07 | Demand Forecasting | Forecast outputs + plots | ⬜ |

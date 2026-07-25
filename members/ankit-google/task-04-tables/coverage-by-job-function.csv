@@ -1,0 +1,11 @@
+job_function,postings,postings_with_skills,mean_skills_when_present,coverage
+Analytics,155,130,3.26,0.8387
+Engineering,231,167,5.14,0.7229
+Facilities / Operations,95,9,1.11,0.0947
+Marketing / Communications,2,1,2.0,0.5
+Other,20,14,2.79,0.7
+Product / Program,3,1,2.0,0.3333
+Sales,35,28,2.29,0.8
+Science / Research,166,154,3.12,0.9277
+Support / Admin,3,3,6.33,1.0
+Technical Sales,138,94,4.69,0.6812

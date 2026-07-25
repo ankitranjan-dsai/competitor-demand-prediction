@@ -26,6 +26,11 @@ data/external/*
 *.db
 *.sqlite
 
+# Per-task aggregate tables are deliverables, not data: small summaries with no
+# row-level or personal fields, and they have to be reviewable in the repo.
+# Row-level output under data/processed/ stays ignored above.
+!members/*/task-*-tables/*.csv
+
 # --- Models / large artifacts ---
 *.pt
 *.pkl

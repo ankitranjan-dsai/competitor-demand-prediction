@@ -1,0 +1,92 @@
+skill,skill_category,n_postings,share_of_skilled,share_of_all,rank
+Python,Programming Language,373,0.6206,0.4399,1
+SQL,Programming Language,255,0.4243,0.3007,2
+R,Programming Language,215,0.3577,0.2535,3
+Java,Programming Language,133,0.2213,0.1568,4
+C++,Programming Language,103,0.1714,0.1215,5
+Go,Programming Language,96,0.1597,0.1132,6
+JavaScript,Programming Language,74,0.1231,0.0873,7
+Looker,Analytics / BI,71,0.1181,0.0837,8
+TensorFlow,ML / AI,71,0.1181,0.0837,8
+Machine Learning,ML / AI,62,0.1032,0.0731,10
+BigQuery,Cloud Platform,62,0.1032,0.0731,10
+Hadoop,Data Engineering,58,0.0965,0.0684,12
+Scala,Programming Language,54,0.0899,0.0637,13
+Linux,OS / Shell,54,0.0899,0.0637,13
+NoSQL,Database,47,0.0782,0.0554,15
+Spark,Data Engineering,36,0.0599,0.0425,16
+C,Programming Language,36,0.0599,0.0425,16
+SAS,Analytics / BI,34,0.0566,0.0401,18
+Tableau,Analytics / BI,30,0.0499,0.0354,19
+MATLAB,Programming Language,30,0.0499,0.0354,19
+GCP,Cloud Platform,25,0.0416,0.0295,21
+MongoDB,Database,21,0.0349,0.0248,22
+Oracle,Database,20,0.0333,0.0236,23
+SAP,Analytics / BI,19,0.0316,0.0224,24
+PyTorch,ML / AI,18,0.03,0.0212,25
+Perl,Programming Language,17,0.0283,0.02,26
+pandas,Data Science Libraries,17,0.0283,0.02,26
+Express,Web / Frontend,15,0.025,0.0177,28
+Snowflake,Cloud Platform,15,0.025,0.0177,28
+Shell,OS / Shell,14,0.0233,0.0165,30
+C#,Programming Language,14,0.0233,0.0165,30
+Kubernetes,DevOps / Infrastructure,12,0.02,0.0142,32
+Airflow,Data Engineering,11,0.0183,0.013,33
+Docker,DevOps / Infrastructure,9,0.015,0.0106,34
+HTML,Web / Frontend,9,0.015,0.0106,34
+TypeScript,Programming Language,9,0.015,0.0106,34
+Excel,Analytics / BI,8,0.0133,0.0094,37
+Terraform,DevOps / Infrastructure,7,0.0116,0.0083,38
+Power BI,Analytics / BI,7,0.0116,0.0083,38
+SPSS,Analytics / BI,7,0.0116,0.0083,38
+CSS,Web / Frontend,7,0.0116,0.0083,38
+React,Web / Frontend,7,0.0116,0.0083,38
+Unix,OS / Shell,6,0.01,0.0071,43
+Jenkins,DevOps / Infrastructure,6,0.01,0.0071,43
+Colocation,Facilities / Data Centre,6,0.01,0.0071,43
+NumPy,Data Science Libraries,6,0.01,0.0071,43
+scikit-learn,ML / AI,6,0.01,0.0071,43
+Windows,OS / Shell,5,0.0083,0.0059,48
+Plotly,Data Science Libraries,5,0.0083,0.0059,48
+AWS,Cloud Platform,5,0.0083,0.0059,48
+MySQL,Database,5,0.0083,0.0059,48
+Keras,ML / AI,5,0.0083,0.0059,48
+Azure,Cloud Platform,5,0.0083,0.0059,48
+Ansible,DevOps / Infrastructure,5,0.0083,0.0059,48
+Google Sheets,Analytics / BI,5,0.0083,0.0059,48
+macOS,OS / Shell,4,0.0067,0.0047,56
+MicroStrategy,Analytics / BI,4,0.0067,0.0047,56
+Cognos,Analytics / BI,4,0.0067,0.0047,56
+Bash,OS / Shell,4,0.0067,0.0047,56
+Objective-C,Programming Language,4,0.0067,0.0047,56
+GitHub,DevOps / Infrastructure,4,0.0067,0.0047,56
+Rust,Programming Language,4,0.0067,0.0047,56
+Assembly,Programming Language,4,0.0067,0.0047,56
+Kafka,Data Engineering,4,0.0067,0.0047,56
+Jupyter,Data Science Libraries,3,0.005,0.0035,65
+Swift,Programming Language,3,0.005,0.0035,65
+Redshift,Cloud Platform,3,0.005,0.0035,65
+Angular,Web / Frontend,3,0.005,0.0035,65
+Microsoft Outlook,Office / Productivity,3,0.005,0.0035,65
+Microsoft Word,Office / Productivity,3,0.005,0.0035,65
+Puppet,DevOps / Infrastructure,3,0.005,0.0035,65
+SQL Server,Database,3,0.005,0.0035,65
+Kotlin,Programming Language,3,0.005,0.0035,65
+Chef,DevOps / Infrastructure,3,0.005,0.0035,65
+MXNet,ML / AI,3,0.005,0.0035,65
+Splunk,DevOps / Infrastructure,3,0.005,0.0035,65
+Cassandra,Database,2,0.0033,0.0024,77
+VMware,Cloud Platform,1,0.0017,0.0012,78
+Ubuntu,OS / Shell,1,0.0017,0.0012,78
+GDPR,Governance / Compliance,1,0.0017,0.0012,78
+Computer Vision,ML / AI,1,0.0017,0.0012,78
+Dart,Programming Language,1,0.0017,0.0012,78
+Elasticsearch,Database,1,0.0017,0.0012,78
+Firebase,Cloud Platform,1,0.0017,0.0012,78
+Flutter,Web / Frontend,1,0.0017,0.0012,78
+Ruby,Programming Language,1,0.0017,0.0012,78
+Redis,Database,1,0.0017,0.0012,78
+Qlik,Analytics / BI,1,0.0017,0.0012,78
+PHP,Programming Language,1,0.0017,0.0012,78
+OpenStack,Cloud Platform,1,0.0017,0.0012,78
+Microsoft Access,Database,1,0.0017,0.0012,78

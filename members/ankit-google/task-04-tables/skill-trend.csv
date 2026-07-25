@@ -1,0 +1,92 @@
+skill,skill_category,n_h1,n_h2,share_h1,share_h2,delta,relative_change,emerging_skill_flag
+SQL,Programming Language,83,172,0.318,0.5059,0.1879,0.591,emerging
+R,Programming Language,86,129,0.3295,0.3794,0.0499,0.151,stable
+Looker,Analytics / BI,24,47,0.092,0.1382,0.0462,0.502,emerging
+BigQuery,Cloud Platform,22,40,0.0843,0.1176,0.0333,0.395,emerging
+C,Programming Language,11,25,0.0421,0.0735,0.0314,0.746,emerging
+Perl,Programming Language,3,14,0.0115,0.0412,0.0297,2.583,emerging
+GCP,Cloud Platform,7,18,0.0268,0.0529,0.0261,0.974,emerging
+PyTorch,ML / AI,4,14,0.0153,0.0412,0.0259,1.693,emerging
+SPSS,Analytics / BI,0,7,0.0,0.0206,0.0206,,insufficient_support
+TypeScript,Programming Language,1,8,0.0038,0.0235,0.0197,5.184,insufficient_support
+Colocation,Facilities / Data Centre,0,6,0.0,0.0176,0.0176,,insufficient_support
+Unix,OS / Shell,0,6,0.0,0.0176,0.0176,,insufficient_support
+Express,Web / Frontend,4,11,0.0153,0.0324,0.0171,1.118,emerging
+MySQL,Database,0,5,0.0,0.0147,0.0147,,insufficient_support
+Shell,OS / Shell,4,10,0.0153,0.0294,0.0141,0.922,emerging
+Power BI,Analytics / BI,1,6,0.0038,0.0176,0.0138,3.632,insufficient_support
+React,Web / Frontend,1,6,0.0038,0.0176,0.0138,3.632,insufficient_support
+Machine Learning,ML / AI,25,37,0.0958,0.1088,0.013,0.136,stable
+Airflow,Data Engineering,3,8,0.0115,0.0235,0.012,1.043,emerging
+Kafka,Data Engineering,0,4,0.0,0.0118,0.0118,,insufficient_support
+NumPy,Data Science Libraries,1,5,0.0038,0.0147,0.0109,2.868,insufficient_support
+Jenkins,DevOps / Infrastructure,1,5,0.0038,0.0147,0.0109,2.868,insufficient_support
+scikit-learn,ML / AI,1,5,0.0038,0.0147,0.0109,2.868,insufficient_support
+pandas,Data Science Libraries,6,11,0.023,0.0324,0.0094,0.409,emerging
+MXNet,ML / AI,0,3,0.0,0.0088,0.0088,,insufficient_support
+Microsoft Outlook,Office / Productivity,0,3,0.0,0.0088,0.0088,,insufficient_support
+Microsoft Word,Office / Productivity,0,3,0.0,0.0088,0.0088,,insufficient_support
+Keras,ML / AI,1,4,0.0038,0.0118,0.008,2.105,insufficient_support
+Ansible,DevOps / Infrastructure,1,4,0.0038,0.0118,0.008,2.105,insufficient_support
+Tableau,Analytics / BI,12,18,0.046,0.0529,0.0069,0.15,stable
+MicroStrategy,Analytics / BI,1,3,0.0038,0.0088,0.005,1.316,insufficient_support
+Rust,Programming Language,1,3,0.0038,0.0088,0.005,1.316,insufficient_support
+Cognos,Analytics / BI,1,3,0.0038,0.0088,0.005,1.316,insufficient_support
+Assembly,Programming Language,1,3,0.0038,0.0088,0.005,1.316,insufficient_support
+OpenStack,Cloud Platform,0,1,0.0,0.0029,0.0029,,insufficient_support
+Redis,Database,0,1,0.0,0.0029,0.0029,,insufficient_support
+Elasticsearch,Database,0,1,0.0,0.0029,0.0029,,insufficient_support
+Ubuntu,OS / Shell,0,1,0.0,0.0029,0.0029,,insufficient_support
+Ruby,Programming Language,0,1,0.0,0.0029,0.0029,,insufficient_support
+Puppet,DevOps / Infrastructure,1,2,0.0038,0.0059,0.0021,0.553,insufficient_support
+Redshift,Cloud Platform,1,2,0.0038,0.0059,0.0021,0.553,insufficient_support
+Chef,DevOps / Infrastructure,1,2,0.0038,0.0059,0.0021,0.553,insufficient_support
+Angular,Web / Frontend,1,2,0.0038,0.0059,0.0021,0.553,insufficient_support
+Kubernetes,DevOps / Infrastructure,5,7,0.0192,0.0206,0.0014,0.073,stable
+Windows,OS / Shell,2,3,0.0077,0.0088,0.0011,0.143,insufficient_support
+AWS,Cloud Platform,2,3,0.0077,0.0088,0.0011,0.143,insufficient_support
+Google Sheets,Analytics / BI,2,3,0.0077,0.0088,0.0011,0.143,insufficient_support
+Terraform,DevOps / Infrastructure,3,4,0.0115,0.0118,0.0003,0.026,insufficient_support
+MATLAB,Programming Language,13,17,0.0498,0.05,0.0002,0.004,stable
+Docker,DevOps / Infrastructure,4,5,0.0153,0.0147,-0.0006,-0.039,insufficient_support
+HTML,Web / Frontend,4,5,0.0153,0.0147,-0.0006,-0.039,insufficient_support
+Cassandra,Database,1,1,0.0038,0.0029,-0.0009,-0.237,insufficient_support
+macOS,OS / Shell,2,2,0.0077,0.0059,-0.0018,-0.234,insufficient_support
+Snowflake,Cloud Platform,7,8,0.0268,0.0235,-0.0033,-0.123,stable
+Qlik,Analytics / BI,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+VMware,Cloud Platform,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+Computer Vision,ML / AI,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+Dart,Programming Language,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+Firebase,Cloud Platform,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+Flutter,Web / Frontend,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+GDPR,Governance / Compliance,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+Microsoft Access,Database,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+PHP,Programming Language,1,0,0.0038,0.0,-0.0038,-1.0,insufficient_support
+Splunk,DevOps / Infrastructure,2,1,0.0077,0.0029,-0.0048,-0.623,insufficient_support
+Jupyter,Data Science Libraries,2,1,0.0077,0.0029,-0.0048,-0.623,insufficient_support
+Kotlin,Programming Language,2,1,0.0077,0.0029,-0.0048,-0.623,insufficient_support
+SQL Server,Database,2,1,0.0077,0.0029,-0.0048,-0.623,insufficient_support
+Swift,Programming Language,2,1,0.0077,0.0029,-0.0048,-0.623,insufficient_support
+Azure,Cloud Platform,3,2,0.0115,0.0059,-0.0056,-0.487,insufficient_support
+C#,Programming Language,7,7,0.0268,0.0206,-0.0062,-0.231,stable
+CSS,Web / Frontend,4,3,0.0153,0.0088,-0.0065,-0.425,insufficient_support
+Objective-C,Programming Language,3,1,0.0115,0.0029,-0.0086,-0.748,insufficient_support
+Bash,OS / Shell,3,1,0.0115,0.0029,-0.0086,-0.748,insufficient_support
+GitHub,DevOps / Infrastructure,3,1,0.0115,0.0029,-0.0086,-0.748,insufficient_support
+Spark,Data Engineering,17,19,0.0651,0.0559,-0.0092,-0.141,stable
+SAS,Analytics / BI,17,17,0.0651,0.05,-0.0151,-0.232,stable
+Plotly,Data Science Libraries,5,0,0.0192,0.0,-0.0192,-1.0,insufficient_support
+MongoDB,Database,12,9,0.046,0.0265,-0.0195,-0.424,declining
+TensorFlow,ML / AI,34,37,0.1303,0.1088,-0.0215,-0.165,stable
+C++,Programming Language,48,55,0.1839,0.1618,-0.0221,-0.12,stable
+Oracle,Database,12,8,0.046,0.0235,-0.0225,-0.489,declining
+SAP,Analytics / BI,12,7,0.046,0.0206,-0.0254,-0.552,declining
+JavaScript,Programming Language,36,38,0.1379,0.1118,-0.0261,-0.189,stable
+Excel,Analytics / BI,8,0,0.0307,0.0,-0.0307,-1.0,insufficient_support
+Linux,OS / Shell,28,26,0.1073,0.0765,-0.0308,-0.287,declining
+Python,Programming Language,168,205,0.6437,0.6029,-0.0408,-0.063,stable
+NoSQL,Database,28,19,0.1073,0.0559,-0.0514,-0.479,declining
+Scala,Programming Language,32,22,0.1226,0.0647,-0.0579,-0.472,declining
+Java,Programming Language,68,65,0.2605,0.1912,-0.0693,-0.266,declining
+Hadoop,Data Engineering,36,22,0.1379,0.0647,-0.0732,-0.531,declining
+Go,Programming Language,58,38,0.2222,0.1118,-0.1104,-0.497,declining

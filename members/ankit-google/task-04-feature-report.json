@@ -1,0 +1,206 @@
+{
+  "company": "google",
+  "rows_in": 848,
+  "rows_with_any_skill": 601,
+  "skill_coverage": 0.7087,
+  "rows_with_skills_by_path": {
+    "source": 568,
+    "title": 80,
+    "text": 0
+  },
+  "rows_recovered_by_title": 33,
+  "distinct_skills": 91,
+  "mean_skills_when_present": 3.89,
+  "taxonomy_size": 176,
+  "taxonomy_categories": [
+    "ML / AI",
+    "Data Engineering",
+    "Programming Language",
+    "Data Science Libraries",
+    "Cloud Platform",
+    "Database",
+    "DevOps / Infrastructure",
+    "Analytics / BI",
+    "Web / Frontend",
+    "OS / Shell",
+    "Governance / Compliance",
+    "Facilities / Data Centre",
+    "Office / Productivity"
+  ],
+  "unmapped_source_terms": {},
+  "excluded_terms_seen": {
+    "flow": 8,
+    "terminal": 1
+  },
+  "org_segments_stripped_from_titles": 256,
+  "skill_matrix_shape": [
+    599,
+    56
+  ],
+  "coverage_by_month": {
+    "2023-01": 0.7,
+    "2023-02": 0.8636,
+    "2023-03": 0.8246,
+    "2023-04": 0.5797,
+    "2023-05": 0.623,
+    "2023-06": 0.6923,
+    "2023-07": 0.7283,
+    "2023-08": 0.6667,
+    "2023-09": 0.6769,
+    "2023-10": 0.7143,
+    "2023-11": 0.75,
+    "2023-12": 0.8049
+  },
+  "coverage_min_max_by_month": [
+    0.5797,
+    0.8636
+  ],
+  "top_skills": [
+    {
+      "skill": "Python",
+      "skill_category": "Programming Language",
+      "n_postings": 373,
+      "share_of_skilled": 0.6206
+    },
+    {
+      "skill": "SQL",
+      "skill_category": "Programming Language",
+      "n_postings": 255,
+      "share_of_skilled": 0.4243
+    },
+    {
+      "skill": "R",
+      "skill_category": "Programming Language",
+      "n_postings": 215,
+      "share_of_skilled": 0.3577
+    },
+    {
+      "skill": "Java",
+      "skill_category": "Programming Language",
+      "n_postings": 133,
+      "share_of_skilled": 0.2213
+    },
+    {
+      "skill": "C++",
+      "skill_category": "Programming Language",
+      "n_postings": 103,
+      "share_of_skilled": 0.1714
+    },
+    {
+      "skill": "Go",
+      "skill_category": "Programming Language",
+      "n_postings": 96,
+      "share_of_skilled": 0.1597
+    },
+    {
+      "skill": "JavaScript",
+      "skill_category": "Programming Language",
+      "n_postings": 74,
+      "share_of_skilled": 0.1231
+    },
+    {
+      "skill": "Looker",
+      "skill_category": "Analytics / BI",
+      "n_postings": 71,
+      "share_of_skilled": 0.1181
+    },
+    {
+      "skill": "TensorFlow",
+      "skill_category": "ML / AI",
+      "n_postings": 71,
+      "share_of_skilled": 0.1181
+    },
+    {
+      "skill": "Machine Learning",
+      "skill_category": "ML / AI",
+      "n_postings": 62,
+      "share_of_skilled": 0.1032
+    },
+    {
+      "skill": "BigQuery",
+      "skill_category": "Cloud Platform",
+      "n_postings": 62,
+      "share_of_skilled": 0.1032
+    },
+    {
+      "skill": "Hadoop",
+      "skill_category": "Data Engineering",
+      "n_postings": 58,
+      "share_of_skilled": 0.0965
+    },
+    {
+      "skill": "Scala",
+      "skill_category": "Programming Language",
+      "n_postings": 54,
+      "share_of_skilled": 0.0899
+    },
+    {
+      "skill": "Linux",
+      "skill_category": "OS / Shell",
+      "n_postings": 54,
+      "share_of_skilled": 0.0899
+    },
+    {
+      "skill": "NoSQL",
+      "skill_category": "Database",
+      "n_postings": 47,
+      "share_of_skilled": 0.0782
+    },
+    {
+      "skill": "Spark",
+      "skill_category": "Data Engineering",
+      "n_postings": 36,
+      "share_of_skilled": 0.0599
+    },
+    {
+      "skill": "C",
+      "skill_category": "Programming Language",
+      "n_postings": 36,
+      "share_of_skilled": 0.0599
+    },
+    {
+      "skill": "SAS",
+      "skill_category": "Analytics / BI",
+      "n_postings": 34,
+      "share_of_skilled": 0.0566
+    },
+    {
+      "skill": "Tableau",
+      "skill_category": "Analytics / BI",
+      "n_postings": 30,
+      "share_of_skilled": 0.0499
+    },
+    {
+      "skill": "MATLAB",
+      "skill_category": "Programming Language",
+      "n_postings": 30,
+      "share_of_skilled": 0.0499
+    }
+  ],
+  "emerging_skills": [
+    "SQL",
+    "Looker",
+    "BigQuery",
+    "C",
+    "Perl",
+    "GCP",
+    "PyTorch",
+    "Express",
+    "Shell",
+    "Airflow",
+    "pandas"
+  ],
+  "declining_skills": [
+    "MongoDB",
+    "Oracle",
+    "SAP",
+    "Linux",
+    "NoSQL",
+    "Scala",
+    "Java",
+    "Hadoop",
+    "Go"
+  ],
+  "personal_data_columns_present": [],
+  "generated_at": "2026-07-25T14:46:29+00:00"
+}
