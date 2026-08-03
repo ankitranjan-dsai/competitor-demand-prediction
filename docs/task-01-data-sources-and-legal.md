@@ -106,6 +106,16 @@ Decision:                 [ ] APPROVED   [ ] REJECTED   Reviewer: ____
    (required) + recommended fields where the source provides them
    (`employment_type, department/job_category, seniority_level, salary_range,
    employment/remote flag, scraped_date`).
+
+   > **`posting_date` does not mean the same thing in every source**
+   > *(added by Task 05, [C3](corrections.md#c3--posting_date-is-an-aggregator-first-seen-date-not-a-publication-date))*.
+   > From an employer's own careers API it is a publication date. From a job
+   > board or aggregator it is usually the date that aggregator **first saw**
+   > the posting — which is why the Google backfill shows a crawler's working
+   > week (21.3% weekend against 28.6% uniform) and 25 postings sharing one
+   > day. Record which of the two you have in your source's `docs/legal/`
+   > checklist, and never read a sub-weekly pattern as employer behaviour
+   > unless the source is the employer.
 3. **Each specialist**: complete the §4 checklist for every source they use, save
    evidence in `docs/legal/`, then pull their company's postings into
    `data/raw/<company>/` as CSV/Parquet.

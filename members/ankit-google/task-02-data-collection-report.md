@@ -67,7 +67,7 @@ row counts, columns, date range, and the rebuild command.
 | `company_name` | ✅ | raw employer string (normalisation → Task 3) |
 | `job_title` | ✅ | plus dataset's `job_title_short` role bucket |
 | `job_description` | ❌ empty | **dataset limitation — see §4** |
-| `posting_date` | ✅ | daily granularity, full 2023 |
+| `posting_date` | ✅ | daily granularity, full 2023 — but **first-seen, not published**; see [C3](../../docs/corrections.md#c3--posting_date-is-an-aggregator-first-seen-date-not-a-publication-date) |
 | `location` | ✅ | city/region + `country` column |
 | `job_url` | ❌ empty | dataset limitation — Adzuna pull will fill this |
 

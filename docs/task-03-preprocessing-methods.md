@@ -71,6 +71,15 @@ Both are caught by `test_tokenizer_preserves_technical_tokens`.
 | Main risk | **silent misclassification** | dirty markup |
 | Method | ordered rule lists + explicit suspect flags | HTML strip → entity unescape → ASCII normalise → boilerplate strip |
 
+> **`posting_date` is parsed, not interpreted** *(added by Task 05,
+> [C3](corrections.md#c3--posting_date-is-an-aggregator-first-seen-date-not-a-publication-date))*.
+> Layer A normalises the field to a date and stops there, which is correct —
+> but downstream tasks were reading it as *when Google published the vacancy*,
+> and on aggregator data it records *when the aggregator first saw it*. The
+> distinction does not change any preprocessing rule; it changes what a
+> date-level pattern is allowed to mean. Anything below weekly resolution
+> describes the collector.
+
 Layer A is where the real analytical danger lives, so it gets the most
 attention below. Layer B is mechanical, but because the Google backfill carries
 no description text it would otherwise ship untested — so it is validated
