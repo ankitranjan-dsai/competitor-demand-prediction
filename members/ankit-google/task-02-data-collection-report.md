@@ -41,7 +41,18 @@ Raw data is git-ignored by design; `data-manifest.json` (committed) records
 row counts, columns, date range, and the rebuild command.
 
 - **848 postings**, 2023-01-01 → 2023-12-31, every month represented
-  (min 22 in Feb, max 102 in Aug — already a usable hiring-velocity signal).
+  (min 22 in Feb, max 102 in Aug — ~~already a usable hiring-velocity
+  signal~~).
+
+  > **Corrected by Task 05 → [C1](../../docs/corrections.md#c1--raw-monthly-counts-are-not-a-hiring-velocity-signal).**
+  > Neither extreme is a hiring signal. February's 22 postings arrive from
+  > **6 publishers** against 23 in January and 21 in March; August's 102
+  > include 24 from The Muse in its **first month** in the feed, 21 of them
+  > on `2023-08-23`. All three weekly spikes in the series are
+  > single-publisher batches. Velocity is only readable once a publisher
+  > panel is declared, and on this data the direction of 2023 volume is
+  > **not identified**.
+
 - **Company mix:** Google/Google Inc./regional Google entities (~740), plus
   Alphabet family: Waymo (49), Verily (31), DeepMind, YouTube, Google Fiber.
   Kept the family split so Task 5/6 can analyse Alphabet-wide vs core-Google.
@@ -82,6 +93,12 @@ against our own extraction), `job_via` (posting platform), `source`,
    PTE. LTD.`…) need canonicalisation in Task 3 preprocessing.
 5. **The Muse dead end for Google** (0 postings) — kept in the team toolkit
    since other specialists' companies may be covered.
+6. **The publisher panel is unbalanced** *(added by Task 05, [C1](../../docs/corrections.md#c1--raw-monthly-counts-are-not-a-hiring-velocity-signal))*.
+   The 848 postings reach us through **96 publishers**, of which exactly
+   **one** appears in all twelve months and **56** appear in a single month
+   only. The feed's field of view changes month to month, so a raw count
+   change confounds Google's hiring with our coverage. Any volume claim must
+   name the panel treatment it was computed on.
 
 ## 5. Next steps (feeds Task 3)
 
