@@ -1,0 +1,49 @@
+segment,n_h1,n_h2,share_h1,share_h2,share_delta,count_change_pct,share_change_pct,direction,dimension,panel
+Singapore,22,57,0.0584,0.121,0.0626,159.1,107.2,growth,country,raw
+Ireland,5,29,0.0133,0.0616,0.0483,480.0,363.2,growth,country,raw
+Belgium,0,12,0.0,0.0255,0.0255,,,stable,country,raw
+Italy,0,9,0.0,0.0191,0.0191,,,insufficient_support,country,raw
+India,27,42,0.0716,0.0892,0.0176,55.6,24.6,stable,country,raw
+Mexico,4,12,0.0106,0.0255,0.0149,200.0,140.6,growth,country,raw
+France,1,8,0.0027,0.017,0.0143,700.0,529.6,insufficient_support,country,raw
+Saudi Arabia,1,7,0.0027,0.0149,0.0122,600.0,451.9,insufficient_support,country,raw
+Colombia,1,4,0.0027,0.0085,0.0058,300.0,214.8,insufficient_support,country,raw
+Sweden,2,5,0.0053,0.0106,0.0053,150.0,100.0,insufficient_support,country,raw
+Finland,0,2,0.0,0.0042,0.0042,,,insufficient_support,country,raw
+Hungary,0,2,0.0,0.0042,0.0042,,,insufficient_support,country,raw
+Romania,0,2,0.0,0.0042,0.0042,,,insufficient_support,country,raw
+Philippines,0,2,0.0,0.0042,0.0042,,,insufficient_support,country,raw
+Dominican Republic,0,2,0.0,0.0042,0.0042,,,insufficient_support,country,raw
+Norway,1,3,0.0027,0.0064,0.0037,200.0,137.0,insufficient_support,country,raw
+Austria,0,1,0.0,0.0021,0.0021,,,insufficient_support,country,raw
+Thailand,0,1,0.0,0.0021,0.0021,,,insufficient_support,country,raw
+Kenya,4,6,0.0106,0.0127,0.0021,50.0,19.8,stable,country,raw
+New Zealand,0,1,0.0,0.0021,0.0021,,,insufficient_support,country,raw
+United Arab Emirates,5,7,0.0133,0.0149,0.0016,40.0,12.0,stable,country,raw
+Czechia,1,2,0.0027,0.0042,0.0015,100.0,55.6,insufficient_support,country,raw
+Germany,1,2,0.0027,0.0042,0.0015,100.0,55.6,insufficient_support,country,raw
+Israel,6,8,0.0159,0.017,0.0011,33.3,6.9,stable,country,raw
+Denmark,1,1,0.0027,0.0021,-0.0006,0.0,-22.2,insufficient_support,country,raw
+Australia,2,2,0.0053,0.0042,-0.0011,0.0,-20.8,insufficient_support,country,raw
+United Kingdom,8,9,0.0212,0.0191,-0.0021,12.5,-9.9,stable,country,raw
+Nigeria,1,0,0.0027,0.0,-0.0027,-100.0,-100.0,insufficient_support,country,raw
+Turkey,1,0,0.0027,0.0,-0.0027,-100.0,-100.0,insufficient_support,country,raw
+Qatar,2,1,0.0053,0.0021,-0.0032,-50.0,-60.4,insufficient_support,country,raw
+Netherlands,8,8,0.0212,0.017,-0.0042,0.0,-19.8,stable,country,raw
+Peru,2,0,0.0053,0.0,-0.0053,-100.0,-100.0,insufficient_support,country,raw
+Ghana,2,0,0.0053,0.0,-0.0053,-100.0,-100.0,insufficient_support,country,raw
+Sudan,7,6,0.0186,0.0127,-0.0059,-14.3,-31.7,decline,country,raw
+Switzerland,7,6,0.0186,0.0127,-0.0059,-14.3,-31.7,decline,country,raw
+Japan,9,8,0.0239,0.017,-0.0069,-11.1,-28.9,decline,country,raw
+United States,103,125,0.2732,0.2654,-0.0078,21.4,-2.9,stable,country,raw
+Uruguay,3,0,0.008,0.0,-0.008,-100.0,-100.0,insufficient_support,country,raw
+Spain,5,2,0.0133,0.0042,-0.0091,-60.0,-68.4,insufficient_support,country,raw
+Portugal,5,2,0.0133,0.0042,-0.0091,-60.0,-68.4,insufficient_support,country,raw
+China,5,0,0.0133,0.0,-0.0133,-100.0,-100.0,insufficient_support,country,raw
+Poland,15,12,0.0398,0.0255,-0.0143,-20.0,-35.9,decline,country,raw
+Canada,9,3,0.0239,0.0064,-0.0175,-66.7,-73.2,decline,country,raw
+Chile,29,26,0.0769,0.0552,-0.0217,-10.3,-28.2,decline,country,raw
+Taiwan,17,10,0.0451,0.0212,-0.0239,-41.2,-53.0,decline,country,raw
+Brazil,22,14,0.0584,0.0297,-0.0287,-36.4,-49.1,decline,country,raw
+Argentina,14,3,0.0371,0.0064,-0.0307,-78.6,-82.7,decline,country,raw
+South Korea,19,7,0.0504,0.0149,-0.0355,-63.2,-70.4,decline,country,raw

@@ -1,0 +1,213 @@
+segment,skill,n_h1,n_h2,denom_h1,denom_h2,share_h1,share_h2,share_delta,meets_support,dimension
+Analytics,R,11.0,44.0,44.0,86.0,0.25,0.5116,0.2616,True,job_function
+Analytics,Python,18.0,55.0,44.0,86.0,0.4091,0.6395,0.2304,True,job_function
+Analytics,SQL,27.0,65.0,44.0,86.0,0.6136,0.7558,0.1422,True,job_function
+Analytics,Java,0.0,6.0,44.0,86.0,0.0,0.0698,0.0698,False,job_function
+Analytics,SPSS,0.0,5.0,44.0,86.0,0.0,0.0581,0.0581,False,job_function
+Analytics,C++,0.0,4.0,44.0,86.0,0.0,0.0465,0.0465,False,job_function
+Analytics,SAS,2.0,7.0,44.0,86.0,0.0455,0.0814,0.0359,False,job_function
+Analytics,MicroStrategy,0.0,3.0,44.0,86.0,0.0,0.0349,0.0349,False,job_function
+Analytics,NumPy,0.0,3.0,44.0,86.0,0.0,0.0349,0.0349,False,job_function
+Analytics,BigQuery,4.0,10.0,44.0,86.0,0.0909,0.1163,0.0254,True,job_function
+Analytics,TensorFlow,2.0,6.0,44.0,86.0,0.0455,0.0698,0.0243,False,job_function
+Analytics,Go,1.0,4.0,44.0,86.0,0.0227,0.0465,0.0238,False,job_function
+Analytics,Hadoop,1.0,4.0,44.0,86.0,0.0227,0.0465,0.0238,False,job_function
+Analytics,C,0.0,2.0,44.0,86.0,0.0,0.0233,0.0233,False,job_function
+Analytics,JavaScript,0.0,2.0,44.0,86.0,0.0,0.0233,0.0233,False,job_function
+Analytics,Kafka,0.0,2.0,44.0,86.0,0.0,0.0233,0.0233,False,job_function
+Analytics,MySQL,0.0,2.0,44.0,86.0,0.0,0.0233,0.0233,False,job_function
+Analytics,React,0.0,2.0,44.0,86.0,0.0,0.0233,0.0233,False,job_function
+Analytics,SAP,0.0,2.0,44.0,86.0,0.0,0.0233,0.0233,False,job_function
+Analytics,Tableau,4.0,9.0,44.0,86.0,0.0909,0.1047,0.0138,True,job_function
+Analytics,Airflow,1.0,3.0,44.0,86.0,0.0227,0.0349,0.0122,False,job_function
+Analytics,Cognos,1.0,3.0,44.0,86.0,0.0227,0.0349,0.0122,False,job_function
+Analytics,Snowflake,1.0,3.0,44.0,86.0,0.0227,0.0349,0.0122,False,job_function
+Analytics,Oracle,0.0,1.0,44.0,86.0,0.0,0.0116,0.0116,False,job_function
+Analytics,TypeScript,0.0,1.0,44.0,86.0,0.0,0.0116,0.0116,False,job_function
+Analytics,Power BI,1.0,2.0,44.0,86.0,0.0227,0.0233,0.0006,False,job_function
+Analytics,MATLAB,5.0,9.0,44.0,86.0,0.1136,0.1047,-0.0089,True,job_function
+Analytics,Google Sheets,2.0,3.0,44.0,86.0,0.0455,0.0349,-0.0106,False,job_function
+Analytics,MongoDB,2.0,3.0,44.0,86.0,0.0455,0.0349,-0.0106,False,job_function
+Analytics,NoSQL,2.0,3.0,44.0,86.0,0.0455,0.0349,-0.0106,False,job_function
+Analytics,Looker,6.0,10.0,44.0,86.0,0.1364,0.1163,-0.0201,True,job_function
+Analytics,pandas,5.0,8.0,44.0,86.0,0.1136,0.093,-0.0206,True,job_function
+Analytics,Linux,2.0,2.0,44.0,86.0,0.0455,0.0233,-0.0222,False,job_function
+Analytics,macOS,2.0,2.0,44.0,86.0,0.0455,0.0233,-0.0222,False,job_function
+Analytics,Kubernetes,1.0,0.0,44.0,86.0,0.0227,0.0,-0.0227,False,job_function
+Analytics,Microsoft Access,1.0,0.0,44.0,86.0,0.0227,0.0,-0.0227,False,job_function
+Analytics,Qlik,1.0,0.0,44.0,86.0,0.0227,0.0,-0.0227,False,job_function
+Analytics,Redshift,1.0,0.0,44.0,86.0,0.0227,0.0,-0.0227,False,job_function
+Analytics,GCP,3.0,3.0,44.0,86.0,0.0682,0.0349,-0.0333,False,job_function
+Analytics,Jupyter,2.0,1.0,44.0,86.0,0.0455,0.0116,-0.0339,False,job_function
+Analytics,Windows,2.0,1.0,44.0,86.0,0.0455,0.0116,-0.0339,False,job_function
+Analytics,GitHub,2.0,0.0,44.0,86.0,0.0455,0.0,-0.0455,False,job_function
+Analytics,Spark,2.0,0.0,44.0,86.0,0.0455,0.0,-0.0455,False,job_function
+Analytics,Express,4.0,2.0,44.0,86.0,0.0909,0.0233,-0.0676,False,job_function
+Analytics,Excel,8.0,0.0,44.0,86.0,0.1818,0.0,-0.1818,False,job_function
+Engineering,Perl,3.0,14.0,75.0,92.0,0.04,0.1522,0.1122,True,job_function
+Engineering,C,10.0,22.0,75.0,92.0,0.1333,0.2391,0.1058,True,job_function
+Engineering,C++,22.0,36.0,75.0,92.0,0.2933,0.3913,0.098,True,job_function
+Engineering,Shell,2.0,10.0,75.0,92.0,0.0267,0.1087,0.082,True,job_function
+Engineering,PyTorch,3.0,11.0,75.0,92.0,0.04,0.1196,0.0796,True,job_function
+Engineering,Linux,2.0,9.0,75.0,92.0,0.0267,0.0978,0.0711,True,job_function
+Engineering,SQL,7.0,15.0,75.0,92.0,0.0933,0.163,0.0697,True,job_function
+Engineering,Unix,0.0,6.0,75.0,92.0,0.0,0.0652,0.0652,False,job_function
+Engineering,TypeScript,1.0,7.0,75.0,92.0,0.0133,0.0761,0.0628,False,job_function
+Engineering,GCP,3.0,9.0,75.0,92.0,0.04,0.0978,0.0578,True,job_function
+Engineering,HTML,0.0,4.0,75.0,92.0,0.0,0.0435,0.0435,False,job_function
+Engineering,Jenkins,0.0,4.0,75.0,92.0,0.0,0.0435,0.0435,False,job_function
+Engineering,BigQuery,4.0,8.0,75.0,92.0,0.0533,0.087,0.0337,True,job_function
+Engineering,Ansible,0.0,3.0,75.0,92.0,0.0,0.0326,0.0326,False,job_function
+Engineering,Colocation,0.0,3.0,75.0,92.0,0.0,0.0326,0.0326,False,job_function
+Engineering,Looker,0.0,3.0,75.0,92.0,0.0,0.0326,0.0326,False,job_function
+Engineering,MXNet,0.0,3.0,75.0,92.0,0.0,0.0326,0.0326,False,job_function
+Engineering,TensorFlow,18.0,25.0,75.0,92.0,0.24,0.2717,0.0317,True,job_function
+Engineering,Keras,1.0,4.0,75.0,92.0,0.0133,0.0435,0.0302,False,job_function
+Engineering,React,1.0,4.0,75.0,92.0,0.0133,0.0435,0.0302,False,job_function
+Engineering,Machine Learning,15.0,21.0,75.0,92.0,0.2,0.2283,0.0283,True,job_function
+Engineering,Airflow,2.0,5.0,75.0,92.0,0.0267,0.0543,0.0276,False,job_function
+Engineering,Kubernetes,3.0,6.0,75.0,92.0,0.04,0.0652,0.0252,False,job_function
+Engineering,CSS,0.0,2.0,75.0,92.0,0.0,0.0217,0.0217,False,job_function
+Engineering,MySQL,0.0,2.0,75.0,92.0,0.0,0.0217,0.0217,False,job_function
+Engineering,Snowflake,0.0,2.0,75.0,92.0,0.0,0.0217,0.0217,False,job_function
+Engineering,Tableau,0.0,2.0,75.0,92.0,0.0,0.0217,0.0217,False,job_function
+Engineering,Windows,0.0,2.0,75.0,92.0,0.0,0.0217,0.0217,False,job_function
+Engineering,Rust,1.0,3.0,75.0,92.0,0.0133,0.0326,0.0193,False,job_function
+Engineering,scikit-learn,1.0,3.0,75.0,92.0,0.0133,0.0326,0.0193,False,job_function
+Engineering,Chef,0.0,1.0,75.0,92.0,0.0,0.0109,0.0109,False,job_function
+Engineering,Elasticsearch,0.0,1.0,75.0,92.0,0.0,0.0109,0.0109,False,job_function
+Engineering,OpenStack,0.0,1.0,75.0,92.0,0.0,0.0109,0.0109,False,job_function
+Engineering,Puppet,0.0,1.0,75.0,92.0,0.0,0.0109,0.0109,False,job_function
+Engineering,Redis,0.0,1.0,75.0,92.0,0.0,0.0109,0.0109,False,job_function
+Engineering,Ruby,0.0,1.0,75.0,92.0,0.0,0.0109,0.0109,False,job_function
+Engineering,SAP,0.0,1.0,75.0,92.0,0.0,0.0109,0.0109,False,job_function
+Engineering,Ubuntu,0.0,1.0,75.0,92.0,0.0,0.0109,0.0109,False,job_function
+Engineering,Angular,1.0,2.0,75.0,92.0,0.0133,0.0217,0.0084,False,job_function
+Engineering,AWS,2.0,3.0,75.0,92.0,0.0267,0.0326,0.0059,False,job_function
+Engineering,Docker,3.0,4.0,75.0,92.0,0.04,0.0435,0.0035,False,job_function
+Engineering,Terraform,3.0,4.0,75.0,92.0,0.04,0.0435,0.0035,False,job_function
+Engineering,C#,5.0,6.0,75.0,92.0,0.0667,0.0652,-0.0015,True,job_function
+Engineering,Assembly,1.0,1.0,75.0,92.0,0.0133,0.0109,-0.0024,False,job_function
+Engineering,Cassandra,1.0,1.0,75.0,92.0,0.0133,0.0109,-0.0024,False,job_function
+Engineering,GitHub,1.0,1.0,75.0,92.0,0.0133,0.0109,-0.0024,False,job_function
+Engineering,JavaScript,17.0,20.0,75.0,92.0,0.2267,0.2174,-0.0093,True,job_function
+Engineering,Spark,13.0,15.0,75.0,92.0,0.1733,0.163,-0.0103,True,job_function
+Engineering,Computer Vision,1.0,0.0,75.0,92.0,0.0133,0.0,-0.0133,False,job_function
+Engineering,Dart,1.0,0.0,75.0,92.0,0.0133,0.0,-0.0133,False,job_function
+Engineering,Flutter,1.0,0.0,75.0,92.0,0.0133,0.0,-0.0133,False,job_function
+Engineering,SQL Server,1.0,0.0,75.0,92.0,0.0133,0.0,-0.0133,False,job_function
+Engineering,VMware,1.0,0.0,75.0,92.0,0.0133,0.0,-0.0133,False,job_function
+Engineering,Bash,2.0,1.0,75.0,92.0,0.0267,0.0109,-0.0158,False,job_function
+Engineering,Kotlin,2.0,1.0,75.0,92.0,0.0267,0.0109,-0.0158,False,job_function
+Engineering,Splunk,2.0,1.0,75.0,92.0,0.0267,0.0109,-0.0158,False,job_function
+Engineering,Swift,2.0,1.0,75.0,92.0,0.0267,0.0109,-0.0158,False,job_function
+Engineering,Azure,3.0,2.0,75.0,92.0,0.04,0.0217,-0.0183,False,job_function
+Engineering,Objective-C,3.0,1.0,75.0,92.0,0.04,0.0109,-0.0291,False,job_function
+Engineering,MongoDB,10.0,6.0,75.0,92.0,0.1333,0.0652,-0.0681,True,job_function
+Engineering,Python,50.0,55.0,75.0,92.0,0.6667,0.5978,-0.0689,True,job_function
+Engineering,Java,47.0,44.0,75.0,92.0,0.6267,0.4783,-0.1484,True,job_function
+Engineering,Scala,18.0,7.0,75.0,92.0,0.24,0.0761,-0.1639,True,job_function
+Engineering,NoSQL,25.0,11.0,75.0,92.0,0.3333,0.1196,-0.2137,True,job_function
+Engineering,Hadoop,30.0,14.0,75.0,92.0,0.4,0.1522,-0.2478,True,job_function
+Engineering,Go,38.0,18.0,75.0,92.0,0.5067,0.1957,-0.311,True,job_function
+Marketing / Communications,R,0.0,1.0,0.0,1.0,,1.0,,False,job_function
+Marketing / Communications,SQL,0.0,1.0,0.0,1.0,,1.0,,False,job_function
+Other,Assembly,0.0,1.0,10.0,4.0,0.0,0.25,0.25,False,job_function
+Other,Colocation,0.0,1.0,10.0,4.0,0.0,0.25,0.25,False,job_function
+Other,Go,0.0,1.0,10.0,4.0,0.0,0.25,0.25,False,job_function
+Other,Microsoft Word,0.0,1.0,10.0,4.0,0.0,0.25,0.25,False,job_function
+Other,SQL Server,0.0,1.0,10.0,4.0,0.0,0.25,0.25,False,job_function
+Other,SQL,3.0,1.0,10.0,4.0,0.3,0.25,-0.05,False,job_function
+Other,Bash,1.0,0.0,10.0,4.0,0.1,0.0,-0.1,False,job_function
+Other,Machine Learning,1.0,0.0,10.0,4.0,0.1,0.0,-0.1,False,job_function
+Other,MATLAB,3.0,0.0,10.0,4.0,0.3,0.0,-0.3,False,job_function
+Other,Python,8.0,1.0,10.0,4.0,0.8,0.25,-0.55,False,job_function
+Other,SAS,7.0,0.0,10.0,4.0,0.7,0.0,-0.7,False,job_function
+Other,R,9.0,0.0,10.0,4.0,0.9,0.0,-0.9,False,job_function
+Product / Program,SAP,0.0,1.0,0.0,1.0,,1.0,,False,job_function
+Product / Program,SQL,0.0,1.0,0.0,1.0,,1.0,,False,job_function
+Sales,GCP,0.0,5.0,6.0,22.0,0.0,0.2273,0.2273,False,job_function
+Sales,SQL,2.0,9.0,6.0,22.0,0.3333,0.4091,0.0758,True,job_function
+Sales,Python,0.0,1.0,6.0,22.0,0.0,0.0455,0.0455,False,job_function
+Sales,R,0.0,1.0,6.0,22.0,0.0,0.0455,0.0455,False,job_function
+Sales,Looker,5.0,17.0,6.0,22.0,0.8333,0.7727,-0.0606,True,job_function
+Sales,Firebase,1.0,0.0,6.0,22.0,0.1667,0.0,-0.1667,False,job_function
+Sales,BigQuery,6.0,17.0,6.0,22.0,1.0,0.7727,-0.2273,True,job_function
+Science / Research,SQL,33.0,57.0,76.0,78.0,0.4342,0.7308,0.2966,True,job_function
+Science / Research,R,47.0,59.0,76.0,78.0,0.6184,0.7564,0.138,True,job_function
+Science / Research,Express,0.0,9.0,76.0,78.0,0.0,0.1154,0.1154,False,job_function
+Science / Research,Machine Learning,3.0,8.0,76.0,78.0,0.0395,0.1026,0.0631,True,job_function
+Science / Research,Microsoft Outlook,0.0,2.0,76.0,78.0,0.0,0.0256,0.0256,False,job_function
+Science / Research,Microsoft Word,0.0,2.0,76.0,78.0,0.0,0.0256,0.0256,False,job_function
+Science / Research,Oracle,0.0,2.0,76.0,78.0,0.0,0.0256,0.0256,False,job_function
+Science / Research,Power BI,0.0,2.0,76.0,78.0,0.0,0.0256,0.0256,False,job_function
+Science / Research,SPSS,0.0,2.0,76.0,78.0,0.0,0.0256,0.0256,False,job_function
+Science / Research,Spark,0.0,2.0,76.0,78.0,0.0,0.0256,0.0256,False,job_function
+Science / Research,MATLAB,5.0,7.0,76.0,78.0,0.0658,0.0897,0.0239,True,job_function
+Science / Research,SAS,8.0,10.0,76.0,78.0,0.1053,0.1282,0.0229,True,job_function
+Science / Research,PyTorch,1.0,2.0,76.0,78.0,0.0132,0.0256,0.0124,False,job_function
+Science / Research,C,1.0,1.0,76.0,78.0,0.0132,0.0128,-0.0004,False,job_function
+Science / Research,pandas,1.0,1.0,76.0,78.0,0.0132,0.0128,-0.0004,False,job_function
+Science / Research,Looker,2.0,2.0,76.0,78.0,0.0263,0.0256,-0.0007,False,job_function
+Science / Research,Tableau,5.0,5.0,76.0,78.0,0.0658,0.0641,-0.0017,True,job_function
+Science / Research,BigQuery,1.0,0.0,76.0,78.0,0.0132,0.0,-0.0132,False,job_function
+Science / Research,C#,1.0,0.0,76.0,78.0,0.0132,0.0,-0.0132,False,job_function
+Science / Research,NumPy,1.0,0.0,76.0,78.0,0.0132,0.0,-0.0132,False,job_function
+Science / Research,Hadoop,3.0,2.0,76.0,78.0,0.0395,0.0256,-0.0139,False,job_function
+Science / Research,Go,2.0,0.0,76.0,78.0,0.0263,0.0,-0.0263,False,job_function
+Science / Research,CSS,4.0,1.0,76.0,78.0,0.0526,0.0128,-0.0398,False,job_function
+Science / Research,HTML,4.0,1.0,76.0,78.0,0.0526,0.0128,-0.0398,False,job_function
+Science / Research,JavaScript,4.0,1.0,76.0,78.0,0.0526,0.0128,-0.0398,False,job_function
+Science / Research,Java,4.0,0.0,76.0,78.0,0.0526,0.0,-0.0526,False,job_function
+Science / Research,Plotly,5.0,0.0,76.0,78.0,0.0658,0.0,-0.0658,False,job_function
+Science / Research,Python,71.0,67.0,76.0,78.0,0.9342,0.859,-0.0752,True,job_function
+Science / Research,TensorFlow,14.0,4.0,76.0,78.0,0.1842,0.0513,-0.1329,True,job_function
+Science / Research,C++,12.0,0.0,76.0,78.0,0.1579,0.0,-0.1579,True,job_function
+Support / Admin,Looker,0.0,2.0,1.0,2.0,0.0,1.0,1.0,False,job_function
+Support / Admin,NumPy,0.0,2.0,1.0,2.0,0.0,1.0,1.0,False,job_function
+Support / Admin,Power BI,0.0,2.0,1.0,2.0,0.0,1.0,1.0,False,job_function
+Support / Admin,Python,0.0,2.0,1.0,2.0,0.0,1.0,1.0,False,job_function
+Support / Admin,R,0.0,2.0,1.0,2.0,0.0,1.0,1.0,False,job_function
+Support / Admin,Tableau,0.0,2.0,1.0,2.0,0.0,1.0,1.0,False,job_function
+Support / Admin,pandas,0.0,2.0,1.0,2.0,0.0,1.0,1.0,False,job_function
+Support / Admin,scikit-learn,0.0,2.0,1.0,2.0,0.0,1.0,1.0,False,job_function
+Support / Admin,SQL,1.0,2.0,1.0,2.0,1.0,1.0,0.0,False,job_function
+Technical Sales,SQL,10.0,21.0,44.0,50.0,0.2273,0.42,0.1927,True,job_function
+Technical Sales,NoSQL,1.0,5.0,44.0,50.0,0.0227,0.1,0.0773,False,job_function
+Technical Sales,Kafka,0.0,2.0,44.0,50.0,0.0,0.04,0.04,False,job_function
+Technical Sales,Redshift,0.0,2.0,44.0,50.0,0.0,0.04,0.04,False,job_function
+Technical Sales,TensorFlow,0.0,2.0,44.0,50.0,0.0,0.04,0.04,False,job_function
+Technical Sales,Machine Learning,6.0,8.0,44.0,50.0,0.1364,0.16,0.0236,True,job_function
+Technical Sales,MATLAB,0.0,1.0,44.0,50.0,0.0,0.02,0.02,False,job_function
+Technical Sales,Microsoft Outlook,0.0,1.0,44.0,50.0,0.0,0.02,0.02,False,job_function
+Technical Sales,MySQL,0.0,1.0,44.0,50.0,0.0,0.02,0.02,False,job_function
+Technical Sales,PyTorch,0.0,1.0,44.0,50.0,0.0,0.02,0.02,False,job_function
+Technical Sales,R,19.0,22.0,44.0,50.0,0.4318,0.44,0.0082,True,job_function
+Technical Sales,Python,21.0,24.0,44.0,50.0,0.4773,0.48,0.0027,True,job_function
+Technical Sales,Ansible,1.0,1.0,44.0,50.0,0.0227,0.02,-0.0027,False,job_function
+Technical Sales,C#,1.0,1.0,44.0,50.0,0.0227,0.02,-0.0027,False,job_function
+Technical Sales,Chef,1.0,1.0,44.0,50.0,0.0227,0.02,-0.0027,False,job_function
+Technical Sales,Docker,1.0,1.0,44.0,50.0,0.0227,0.02,-0.0027,False,job_function
+Technical Sales,GCP,1.0,1.0,44.0,50.0,0.0227,0.02,-0.0027,False,job_function
+Technical Sales,Jenkins,1.0,1.0,44.0,50.0,0.0227,0.02,-0.0027,False,job_function
+Technical Sales,Kubernetes,1.0,1.0,44.0,50.0,0.0227,0.02,-0.0027,False,job_function
+Technical Sales,Puppet,1.0,1.0,44.0,50.0,0.0227,0.02,-0.0027,False,job_function
+Technical Sales,Hadoop,2.0,2.0,44.0,50.0,0.0455,0.04,-0.0055,False,job_function
+Technical Sales,Spark,2.0,2.0,44.0,50.0,0.0455,0.04,-0.0055,False,job_function
+Technical Sales,Looker,11.0,12.0,44.0,50.0,0.25,0.24,-0.01,True,job_function
+Technical Sales,C++,14.0,15.0,44.0,50.0,0.3182,0.3,-0.0182,True,job_function
+Technical Sales,Scala,14.0,15.0,44.0,50.0,0.3182,0.3,-0.0182,True,job_function
+Technical Sales,GDPR,1.0,0.0,44.0,50.0,0.0227,0.0,-0.0227,False,job_function
+Technical Sales,MicroStrategy,1.0,0.0,44.0,50.0,0.0227,0.0,-0.0227,False,job_function
+Technical Sales,PHP,1.0,0.0,44.0,50.0,0.0227,0.0,-0.0227,False,job_function
+Technical Sales,SQL Server,1.0,0.0,44.0,50.0,0.0227,0.0,-0.0227,False,job_function
+Technical Sales,JavaScript,15.0,15.0,44.0,50.0,0.3409,0.3,-0.0409,True,job_function
+Technical Sales,Shell,2.0,0.0,44.0,50.0,0.0455,0.0,-0.0455,False,job_function
+Technical Sales,BigQuery,7.0,5.0,44.0,50.0,0.1591,0.1,-0.0591,True,job_function
+Technical Sales,Go,16.0,15.0,44.0,50.0,0.3636,0.3,-0.0636,True,job_function
+Technical Sales,Tableau,3.0,0.0,44.0,50.0,0.0682,0.0,-0.0682,False,job_function
+Technical Sales,Snowflake,6.0,3.0,44.0,50.0,0.1364,0.06,-0.0764,False,job_function
+Technical Sales,Java,17.0,15.0,44.0,50.0,0.3864,0.3,-0.0864,True,job_function
+Technical Sales,Oracle,12.0,5.0,44.0,50.0,0.2727,0.1,-0.1727,True,job_function
+Technical Sales,Linux,20.0,14.0,44.0,50.0,0.4545,0.28,-0.1745,True,job_function
+Technical Sales,SAP,12.0,3.0,44.0,50.0,0.2727,0.06,-0.2127,True,job_function

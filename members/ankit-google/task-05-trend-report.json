@@ -1,0 +1,559 @@
+{
+  "company": "google",
+  "rows_in": 848,
+  "observation_window": [
+    "2023-01-01",
+    "2023-12-31"
+  ],
+  "periods": {
+    "months": 12,
+    "weeks": 53,
+    "quarters": 4,
+    "partial_months": []
+  },
+  "velocity": {
+    "first_complete_period": "2023-01",
+    "last_complete_period": "2023-12",
+    "postings_per_week_first": 20.323,
+    "postings_per_week_last": 18.516,
+    "median_postings_per_week": 15.953,
+    "min_month": "2023-02",
+    "max_month": "2023-08"
+  },
+  "publisher_panel": {
+    "n_publishers": 96,
+    "present_in_all_months": 1,
+    "present_in_one_month_only": 56,
+    "panel_publishers_at_75pct": [
+      "via BeBee",
+      "via LinkedIn",
+      "via Trabajo.org"
+    ],
+    "share_of_postings_in_panel": 0.4446
+  },
+  "panel_verdict": {
+    "direction": "growth",
+    "treatments_agree": false,
+    "detail": {
+      "raw": 91.11,
+      "balanced": 115.38,
+      "chained": 185.38,
+      "bilateral": 191.18
+    },
+    "final_index": {
+      "raw": 91.11,
+      "balanced": 115.38,
+      "chained": 185.38,
+      "bilateral": 191.18
+    }
+  },
+  "spikes": {
+    "n_flagged": 3,
+    "attributed": [
+      {
+        "period": "2023-W24",
+        "postings": 24,
+        "local_median": 15.0,
+        "excess": 9.0,
+        "top_publisher": "via Google Careers",
+        "top_publisher_postings": 14,
+        "top_publisher_typical": 0.0,
+        "excess_explained": 1.5556,
+        "largest_single_day": 8,
+        "largest_day_share_of_excess": 0.8889,
+        "distinct_publishers": 8,
+        "verdict": "publisher_batch"
+      },
+      {
+        "period": "2023-W30",
+        "postings": 35,
+        "local_median": 16.0,
+        "excess": 19.0,
+        "top_publisher": "via Recruit.net",
+        "top_publisher_postings": 15,
+        "top_publisher_typical": 0.0,
+        "excess_explained": 0.7895,
+        "largest_single_day": 13,
+        "largest_day_share_of_excess": 0.6842,
+        "distinct_publishers": 8,
+        "verdict": "publisher_batch"
+      },
+      {
+        "period": "2023-W34",
+        "postings": 46,
+        "local_median": 17.0,
+        "excess": 29.0,
+        "top_publisher": "via The Muse",
+        "top_publisher_postings": 23,
+        "top_publisher_typical": 0.0,
+        "excess_explained": 0.7931,
+        "largest_single_day": 21,
+        "largest_day_share_of_excess": 0.7241,
+        "distinct_publishers": 12,
+        "verdict": "publisher_batch"
+      }
+    ],
+    "n_batches": 8,
+    "postings_in_batches": 71,
+    "share_of_postings_in_batches": 0.0837
+  },
+  "seasonality": {
+    "month_of_year_identifiable": false,
+    "day_of_week_identifiable": true,
+    "weekend_share": 0.2134,
+    "uniform_weekend_share": 0.2857
+  },
+  "composition": {
+    "job_function": [
+      {
+        "segment": "Sales",
+        "n_h1": 10,
+        "n_h2": 25,
+        "count_change_pct": 150.0,
+        "share_change_pct": 100.4,
+        "direction": "growth"
+      },
+      {
+        "segment": "Product / Program",
+        "n_h1": 1,
+        "n_h2": 2,
+        "count_change_pct": 100.0,
+        "share_change_pct": 55.6,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Support / Admin",
+        "n_h1": 1,
+        "n_h2": 2,
+        "count_change_pct": 100.0,
+        "share_change_pct": 55.6,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Marketing / Communications",
+        "n_h1": 1,
+        "n_h2": 1,
+        "count_change_pct": 0.0,
+        "share_change_pct": -22.2,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Other",
+        "n_h1": 11,
+        "n_h2": 9,
+        "count_change_pct": -18.2,
+        "share_change_pct": -34.6,
+        "direction": "decline"
+      }
+    ],
+    "job_category": [
+      {
+        "segment": "Hardware / Silicon",
+        "n_h1": 3,
+        "n_h2": 5,
+        "count_change_pct": 66.7,
+        "share_change_pct": 32.5,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Product / Program",
+        "n_h1": 0,
+        "n_h2": 1,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Business / Strategy / Ops",
+        "n_h1": 1,
+        "n_h2": 1,
+        "count_change_pct": 0.0,
+        "share_change_pct": -22.2,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Sales / Marketing / GTM",
+        "n_h1": 2,
+        "n_h2": 1,
+        "count_change_pct": -50.0,
+        "share_change_pct": -60.4,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Research / Academic",
+        "n_h1": 2,
+        "n_h2": 0,
+        "count_change_pct": -100.0,
+        "share_change_pct": -100.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Data Engineering",
+        "n_h1": 52,
+        "n_h2": 31,
+        "count_change_pct": -40.4,
+        "share_change_pct": -52.3,
+        "direction": "decline"
+      }
+    ],
+    "country": [
+      {
+        "segment": "Singapore",
+        "n_h1": 22,
+        "n_h2": 57,
+        "count_change_pct": 159.1,
+        "share_change_pct": 107.2,
+        "direction": "growth"
+      },
+      {
+        "segment": "Ireland",
+        "n_h1": 5,
+        "n_h2": 29,
+        "count_change_pct": 480.0,
+        "share_change_pct": 363.2,
+        "direction": "growth"
+      },
+      {
+        "segment": "Italy",
+        "n_h1": 0,
+        "n_h2": 9,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Mexico",
+        "n_h1": 4,
+        "n_h2": 12,
+        "count_change_pct": 200.0,
+        "share_change_pct": 140.6,
+        "direction": "growth"
+      },
+      {
+        "segment": "France",
+        "n_h1": 1,
+        "n_h2": 8,
+        "count_change_pct": 700.0,
+        "share_change_pct": 529.6,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Saudi Arabia",
+        "n_h1": 1,
+        "n_h2": 7,
+        "count_change_pct": 600.0,
+        "share_change_pct": 451.9,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Colombia",
+        "n_h1": 1,
+        "n_h2": 4,
+        "count_change_pct": 300.0,
+        "share_change_pct": 214.8,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Sweden",
+        "n_h1": 2,
+        "n_h2": 5,
+        "count_change_pct": 150.0,
+        "share_change_pct": 100.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Finland",
+        "n_h1": 0,
+        "n_h2": 2,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Hungary",
+        "n_h1": 0,
+        "n_h2": 2,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Romania",
+        "n_h1": 0,
+        "n_h2": 2,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Philippines",
+        "n_h1": 0,
+        "n_h2": 2,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Dominican Republic",
+        "n_h1": 0,
+        "n_h2": 2,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Norway",
+        "n_h1": 1,
+        "n_h2": 3,
+        "count_change_pct": 200.0,
+        "share_change_pct": 137.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Austria",
+        "n_h1": 0,
+        "n_h2": 1,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Thailand",
+        "n_h1": 0,
+        "n_h2": 1,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "New Zealand",
+        "n_h1": 0,
+        "n_h2": 1,
+        "count_change_pct": NaN,
+        "share_change_pct": NaN,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Czechia",
+        "n_h1": 1,
+        "n_h2": 2,
+        "count_change_pct": 100.0,
+        "share_change_pct": 55.6,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Germany",
+        "n_h1": 1,
+        "n_h2": 2,
+        "count_change_pct": 100.0,
+        "share_change_pct": 55.6,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Denmark",
+        "n_h1": 1,
+        "n_h2": 1,
+        "count_change_pct": 0.0,
+        "share_change_pct": -22.2,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Australia",
+        "n_h1": 2,
+        "n_h2": 2,
+        "count_change_pct": 0.0,
+        "share_change_pct": -20.8,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Nigeria",
+        "n_h1": 1,
+        "n_h2": 0,
+        "count_change_pct": -100.0,
+        "share_change_pct": -100.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Turkey",
+        "n_h1": 1,
+        "n_h2": 0,
+        "count_change_pct": -100.0,
+        "share_change_pct": -100.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Qatar",
+        "n_h1": 2,
+        "n_h2": 1,
+        "count_change_pct": -50.0,
+        "share_change_pct": -60.4,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Peru",
+        "n_h1": 2,
+        "n_h2": 0,
+        "count_change_pct": -100.0,
+        "share_change_pct": -100.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Ghana",
+        "n_h1": 2,
+        "n_h2": 0,
+        "count_change_pct": -100.0,
+        "share_change_pct": -100.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Sudan",
+        "n_h1": 7,
+        "n_h2": 6,
+        "count_change_pct": -14.3,
+        "share_change_pct": -31.7,
+        "direction": "decline"
+      },
+      {
+        "segment": "Switzerland",
+        "n_h1": 7,
+        "n_h2": 6,
+        "count_change_pct": -14.3,
+        "share_change_pct": -31.7,
+        "direction": "decline"
+      },
+      {
+        "segment": "Japan",
+        "n_h1": 9,
+        "n_h2": 8,
+        "count_change_pct": -11.1,
+        "share_change_pct": -28.9,
+        "direction": "decline"
+      },
+      {
+        "segment": "Uruguay",
+        "n_h1": 3,
+        "n_h2": 0,
+        "count_change_pct": -100.0,
+        "share_change_pct": -100.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Spain",
+        "n_h1": 5,
+        "n_h2": 2,
+        "count_change_pct": -60.0,
+        "share_change_pct": -68.4,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Portugal",
+        "n_h1": 5,
+        "n_h2": 2,
+        "count_change_pct": -60.0,
+        "share_change_pct": -68.4,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "China",
+        "n_h1": 5,
+        "n_h2": 0,
+        "count_change_pct": -100.0,
+        "share_change_pct": -100.0,
+        "direction": "insufficient_support"
+      },
+      {
+        "segment": "Poland",
+        "n_h1": 15,
+        "n_h2": 12,
+        "count_change_pct": -20.0,
+        "share_change_pct": -35.9,
+        "direction": "decline"
+      },
+      {
+        "segment": "Canada",
+        "n_h1": 9,
+        "n_h2": 3,
+        "count_change_pct": -66.7,
+        "share_change_pct": -73.2,
+        "direction": "decline"
+      },
+      {
+        "segment": "Chile",
+        "n_h1": 29,
+        "n_h2": 26,
+        "count_change_pct": -10.3,
+        "share_change_pct": -28.2,
+        "direction": "decline"
+      },
+      {
+        "segment": "Taiwan",
+        "n_h1": 17,
+        "n_h2": 10,
+        "count_change_pct": -41.2,
+        "share_change_pct": -53.0,
+        "direction": "decline"
+      },
+      {
+        "segment": "Brazil",
+        "n_h1": 22,
+        "n_h2": 14,
+        "count_change_pct": -36.4,
+        "share_change_pct": -49.1,
+        "direction": "decline"
+      },
+      {
+        "segment": "Argentina",
+        "n_h1": 14,
+        "n_h2": 3,
+        "count_change_pct": -78.6,
+        "share_change_pct": -82.7,
+        "direction": "decline"
+      },
+      {
+        "segment": "South Korea",
+        "n_h1": 19,
+        "n_h2": 7,
+        "count_change_pct": -63.2,
+        "share_change_pct": -70.4,
+        "direction": "decline"
+      }
+    ]
+  },
+  "job_function_directions_agree_across_panels": 7,
+  "job_function_segments_checked": 10,
+  "skills": {
+    "rule_share_of_all_emitted": false,
+    "excluded_job_functions": [
+      "Facilities / Operations"
+    ],
+    "skills_with_support": 29,
+    "verdict_counts": {
+      "insufficient_support": 14,
+      "mix_dependent": 7,
+      "falling_in_all_segments": 5,
+      "rising_in_all_segments": 3
+    },
+    "overturned_by_stratification": [
+      "Looker",
+      "Python",
+      "BigQuery",
+      "Linux",
+      "C++",
+      "TensorFlow",
+      "Tableau",
+      "MATLAB"
+    ]
+  },
+  "figures": [
+    "01-monthly-volume-and-velocity.png",
+    "02-panel-sensitivity.png",
+    "03-publisher-panel.png",
+    "04-weekly-spikes.png",
+    "05-job-function-mix.png",
+    "06-skill-velocity.png",
+    "07-simpsons-paradox-looker.png",
+    "08-day-of-week.png"
+  ],
+  "personal_data_columns_present": [],
+  "generated_at": "2026-08-03T15:28:30+00:00"
+}

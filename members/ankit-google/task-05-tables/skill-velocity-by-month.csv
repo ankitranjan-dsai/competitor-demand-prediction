@@ -1,0 +1,503 @@
+period,skill,skill_category,n_postings,postings_with_skills,share_of_skilled,meets_support
+2023-01,Python,Programming Language,43,61,0.7049,True
+2023-01,R,Programming Language,29,61,0.4754,True
+2023-01,SQL,Programming Language,19,61,0.3115,True
+2023-01,SAS,Analytics / BI,14,61,0.2295,True
+2023-01,Java,Programming Language,13,61,0.2131,True
+2023-01,JavaScript,Programming Language,12,61,0.1967,True
+2023-01,C++,Programming Language,10,61,0.1639,True
+2023-01,Go,Programming Language,10,61,0.1639,True
+2023-01,Tableau,Analytics / BI,10,61,0.1639,True
+2023-01,Hadoop,Data Engineering,8,61,0.1311,True
+2023-01,MATLAB,Programming Language,8,61,0.1311,True
+2023-01,BigQuery,Cloud Platform,5,61,0.082,True
+2023-01,C,Programming Language,5,61,0.082,True
+2023-01,Plotly,Data Science Libraries,5,61,0.082,False
+2023-01,TensorFlow,ML / AI,5,61,0.082,True
+2023-01,Looker,Analytics / BI,4,61,0.0656,True
+2023-01,CSS,Web / Frontend,3,61,0.0492,False
+2023-01,HTML,Web / Frontend,3,61,0.0492,False
+2023-01,Machine Learning,ML / AI,3,61,0.0492,True
+2023-01,Spark,Data Engineering,3,61,0.0492,True
+2023-01,C#,Programming Language,2,61,0.0328,True
+2023-01,GitHub,DevOps / Infrastructure,2,61,0.0328,False
+2023-01,Kubernetes,DevOps / Infrastructure,2,61,0.0328,True
+2023-01,Oracle,Database,2,61,0.0328,True
+2023-01,SAP,Analytics / BI,2,61,0.0328,True
+2023-01,Scala,Programming Language,2,61,0.0328,True
+2023-01,Airflow,Data Engineering,1,61,0.0164,True
+2023-01,Cassandra,Database,1,61,0.0164,False
+2023-01,Cognos,Analytics / BI,1,61,0.0164,False
+2023-01,Express,Web / Frontend,1,61,0.0164,True
+2023-01,GCP,Cloud Platform,1,61,0.0164,True
+2023-01,Linux,OS / Shell,1,61,0.0164,True
+2023-01,MicroStrategy,Analytics / BI,1,61,0.0164,False
+2023-01,Microsoft Access,Database,1,61,0.0164,False
+2023-01,MongoDB,Database,1,61,0.0164,True
+2023-01,NoSQL,Database,1,61,0.0164,True
+2023-01,Perl,Programming Language,1,61,0.0164,True
+2023-01,Power BI,Analytics / BI,1,61,0.0164,False
+2023-01,Qlik,Analytics / BI,1,61,0.0164,False
+2023-01,Shell,OS / Shell,1,61,0.0164,True
+2023-01,Snowflake,Cloud Platform,1,61,0.0164,True
+2023-02,Python,Programming Language,13,19,0.6842,True
+2023-02,C++,Programming Language,9,19,0.4737,True
+2023-02,TensorFlow,ML / AI,7,19,0.3684,True
+2023-02,Go,Programming Language,6,19,0.3158,True
+2023-02,Java,Programming Language,6,19,0.3158,True
+2023-02,Linux,OS / Shell,5,19,0.2632,True
+2023-02,R,Programming Language,5,19,0.2632,True
+2023-02,Hadoop,Data Engineering,4,19,0.2105,True
+2023-02,JavaScript,Programming Language,4,19,0.2105,True
+2023-02,NoSQL,Database,4,19,0.2105,True
+2023-02,SAP,Analytics / BI,4,19,0.2105,True
+2023-02,MongoDB,Database,3,19,0.1579,True
+2023-02,Oracle,Database,3,19,0.1579,True
+2023-02,Scala,Programming Language,3,19,0.1579,True
+2023-02,Spark,Data Engineering,3,19,0.1579,True
+2023-02,BigQuery,Cloud Platform,1,19,0.0526,True
+2023-02,Dart,Programming Language,1,19,0.0526,False
+2023-02,Flutter,Web / Frontend,1,19,0.0526,False
+2023-02,Looker,Analytics / BI,1,19,0.0526,True
+2023-02,Objective-C,Programming Language,1,19,0.0526,False
+2023-02,SQL,Programming Language,1,19,0.0526,True
+2023-02,Snowflake,Cloud Platform,1,19,0.0526,True
+2023-02,Swift,Programming Language,1,19,0.0526,False
+2023-03,Python,Programming Language,30,47,0.6383,True
+2023-03,R,Programming Language,16,47,0.3404,True
+2023-03,SQL,Programming Language,14,47,0.2979,True
+2023-03,Java,Programming Language,13,47,0.2766,True
+2023-03,C++,Programming Language,9,47,0.1915,True
+2023-03,Go,Programming Language,9,47,0.1915,True
+2023-03,Hadoop,Data Engineering,8,47,0.1702,True
+2023-03,NoSQL,Database,8,47,0.1702,True
+2023-03,Machine Learning,ML / AI,7,47,0.1489,True
+2023-03,Scala,Programming Language,7,47,0.1489,True
+2023-03,TensorFlow,ML / AI,7,47,0.1489,True
+2023-03,JavaScript,Programming Language,6,47,0.1277,True
+2023-03,C,Programming Language,3,47,0.0638,True
+2023-03,Linux,OS / Shell,3,47,0.0638,True
+2023-03,C#,Programming Language,2,47,0.0426,True
+2023-03,Express,Web / Frontend,2,47,0.0426,True
+2023-03,MongoDB,Database,2,47,0.0426,True
+2023-03,Oracle,Database,2,47,0.0426,True
+2023-03,Spark,Data Engineering,2,47,0.0426,True
+2023-03,Bash,OS / Shell,1,47,0.0213,False
+2023-03,CSS,Web / Frontend,1,47,0.0213,False
+2023-03,Google Sheets,Analytics / BI,1,47,0.0213,False
+2023-03,HTML,Web / Frontend,1,47,0.0213,False
+2023-03,Jupyter,Data Science Libraries,1,47,0.0213,False
+2023-03,Keras,ML / AI,1,47,0.0213,False
+2023-03,Kotlin,Programming Language,1,47,0.0213,False
+2023-03,Looker,Analytics / BI,1,47,0.0213,True
+2023-03,Objective-C,Programming Language,1,47,0.0213,False
+2023-03,Perl,Programming Language,1,47,0.0213,True
+2023-03,PyTorch,ML / AI,1,47,0.0213,True
+2023-03,SAP,Analytics / BI,1,47,0.0213,True
+2023-03,SAS,Analytics / BI,1,47,0.0213,True
+2023-03,Shell,OS / Shell,1,47,0.0213,True
+2023-03,Swift,Programming Language,1,47,0.0213,False
+2023-03,Windows,OS / Shell,1,47,0.0213,False
+2023-03,macOS,OS / Shell,1,47,0.0213,False
+2023-03,scikit-learn,ML / AI,1,47,0.0213,False
+2023-04,Python,Programming Language,28,38,0.7368,True
+2023-04,SQL,Programming Language,11,38,0.2895,True
+2023-04,Go,Programming Language,10,38,0.2632,True
+2023-04,Java,Programming Language,10,38,0.2632,True
+2023-04,R,Programming Language,8,38,0.2105,True
+2023-04,C++,Programming Language,6,38,0.1579,True
+2023-04,BigQuery,Cloud Platform,5,38,0.1316,True
+2023-04,Looker,Analytics / BI,5,38,0.1316,True
+2023-04,Scala,Programming Language,5,38,0.1316,True
+2023-04,Linux,OS / Shell,4,38,0.1053,True
+2023-04,Excel,Analytics / BI,3,38,0.0789,False
+2023-04,Hadoop,Data Engineering,3,38,0.0789,True
+2023-04,JavaScript,Programming Language,3,38,0.0789,True
+2023-04,NoSQL,Database,3,38,0.0789,True
+2023-04,TensorFlow,ML / AI,3,38,0.0789,True
+2023-04,Airflow,Data Engineering,2,38,0.0526,True
+2023-04,C,Programming Language,2,38,0.0526,True
+2023-04,C#,Programming Language,2,38,0.0526,True
+2023-04,Docker,DevOps / Infrastructure,2,38,0.0526,False
+2023-04,Machine Learning,ML / AI,2,38,0.0526,True
+2023-04,Angular,Web / Frontend,1,38,0.0263,False
+2023-04,Assembly,Programming Language,1,38,0.0263,False
+2023-04,Azure,Cloud Platform,1,38,0.0263,False
+2023-04,Bash,OS / Shell,1,38,0.0263,False
+2023-04,Computer Vision,ML / AI,1,38,0.0263,False
+2023-04,Express,Web / Frontend,1,38,0.0263,True
+2023-04,Firebase,Cloud Platform,1,38,0.0263,False
+2023-04,GCP,Cloud Platform,1,38,0.0263,True
+2023-04,Google Sheets,Analytics / BI,1,38,0.0263,False
+2023-04,Jupyter,Data Science Libraries,1,38,0.0263,False
+2023-04,Kotlin,Programming Language,1,38,0.0263,False
+2023-04,Kubernetes,DevOps / Infrastructure,1,38,0.0263,True
+2023-04,Oracle,Database,1,38,0.0263,True
+2023-04,PHP,Programming Language,1,38,0.0263,False
+2023-04,React,Web / Frontend,1,38,0.0263,False
+2023-04,Shell,OS / Shell,1,38,0.0263,True
+2023-04,Snowflake,Cloud Platform,1,38,0.0263,True
+2023-04,Spark,Data Engineering,1,38,0.0263,True
+2023-04,Splunk,DevOps / Infrastructure,1,38,0.0263,False
+2023-04,Tableau,Analytics / BI,1,38,0.0263,True
+2023-04,Terraform,DevOps / Infrastructure,1,38,0.0263,False
+2023-04,VMware,Cloud Platform,1,38,0.0263,False
+2023-04,Windows,OS / Shell,1,38,0.0263,False
+2023-04,macOS,OS / Shell,1,38,0.0263,False
+2023-05,Python,Programming Language,31,37,0.8378,True
+2023-05,SQL,Programming Language,16,37,0.4324,True
+2023-05,Go,Programming Language,15,37,0.4054,True
+2023-05,Java,Programming Language,15,37,0.4054,True
+2023-05,R,Programming Language,11,37,0.2973,True
+2023-05,Hadoop,Data Engineering,10,37,0.2703,True
+2023-05,Scala,Programming Language,10,37,0.2703,True
+2023-05,NoSQL,Database,8,37,0.2162,True
+2023-05,C++,Programming Language,7,37,0.1892,True
+2023-05,JavaScript,Programming Language,7,37,0.1892,True
+2023-05,Spark,Data Engineering,6,37,0.1622,True
+2023-05,Excel,Analytics / BI,5,37,0.1351,False
+2023-05,TensorFlow,ML / AI,5,37,0.1351,True
+2023-05,Linux,OS / Shell,4,37,0.1081,True
+2023-05,BigQuery,Cloud Platform,3,37,0.0811,True
+2023-05,MATLAB,Programming Language,3,37,0.0811,True
+2023-05,MongoDB,Database,3,37,0.0811,True
+2023-05,SAP,Analytics / BI,3,37,0.0811,True
+2023-05,pandas,Data Science Libraries,3,37,0.0811,True
+2023-05,Oracle,Database,2,37,0.0541,True
+2023-05,PyTorch,ML / AI,2,37,0.0541,True
+2023-05,SQL Server,Database,2,37,0.0541,False
+2023-05,AWS,Cloud Platform,1,37,0.027,False
+2023-05,Azure,Cloud Platform,1,37,0.027,False
+2023-05,C#,Programming Language,1,37,0.027,True
+2023-05,Docker,DevOps / Infrastructure,1,37,0.027,False
+2023-05,GCP,Cloud Platform,1,37,0.027,True
+2023-05,GitHub,DevOps / Infrastructure,1,37,0.027,False
+2023-05,Looker,Analytics / BI,1,37,0.027,True
+2023-05,Machine Learning,ML / AI,1,37,0.027,True
+2023-05,Objective-C,Programming Language,1,37,0.027,False
+2023-05,Snowflake,Cloud Platform,1,37,0.027,True
+2023-05,Terraform,DevOps / Infrastructure,1,37,0.027,False
+2023-06,Python,Programming Language,23,54,0.4259,True
+2023-06,SQL,Programming Language,22,54,0.4074,True
+2023-06,R,Programming Language,17,54,0.3148,True
+2023-06,Looker,Analytics / BI,12,54,0.2222,True
+2023-06,Machine Learning,ML / AI,12,54,0.2222,True
+2023-06,Java,Programming Language,11,54,0.2037,True
+2023-06,BigQuery,Cloud Platform,8,54,0.1481,True
+2023-06,C++,Programming Language,7,54,0.1296,True
+2023-06,Go,Programming Language,7,54,0.1296,True
+2023-06,Linux,OS / Shell,7,54,0.1296,True
+2023-06,TensorFlow,ML / AI,7,54,0.1296,True
+2023-06,Scala,Programming Language,5,54,0.0926,True
+2023-06,GCP,Cloud Platform,4,54,0.0741,True
+2023-06,JavaScript,Programming Language,4,54,0.0741,True
+2023-06,NoSQL,Database,4,54,0.0741,True
+2023-06,Hadoop,Data Engineering,3,54,0.0556,True
+2023-06,MongoDB,Database,3,54,0.0556,True
+2023-06,Snowflake,Cloud Platform,3,54,0.0556,True
+2023-06,pandas,Data Science Libraries,3,54,0.0556,True
+2023-06,Kubernetes,DevOps / Infrastructure,2,54,0.037,True
+2023-06,MATLAB,Programming Language,2,54,0.037,True
+2023-06,Oracle,Database,2,54,0.037,True
+2023-06,SAP,Analytics / BI,2,54,0.037,True
+2023-06,SAS,Analytics / BI,2,54,0.037,True
+2023-06,Spark,Data Engineering,2,54,0.037,True
+2023-06,AWS,Cloud Platform,1,54,0.0185,False
+2023-06,Ansible,DevOps / Infrastructure,1,54,0.0185,False
+2023-06,Azure,Cloud Platform,1,54,0.0185,False
+2023-06,Bash,OS / Shell,1,54,0.0185,False
+2023-06,C,Programming Language,1,54,0.0185,True
+2023-06,Chef,DevOps / Infrastructure,1,54,0.0185,False
+2023-06,Docker,DevOps / Infrastructure,1,54,0.0185,False
+2023-06,GDPR,Governance / Compliance,1,54,0.0185,False
+2023-06,Jenkins,DevOps / Infrastructure,1,54,0.0185,False
+2023-06,NumPy,Data Science Libraries,1,54,0.0185,False
+2023-06,Perl,Programming Language,1,54,0.0185,True
+2023-06,Puppet,DevOps / Infrastructure,1,54,0.0185,False
+2023-06,PyTorch,ML / AI,1,54,0.0185,True
+2023-06,Redshift,Cloud Platform,1,54,0.0185,False
+2023-06,Rust,Programming Language,1,54,0.0185,False
+2023-06,Shell,OS / Shell,1,54,0.0185,True
+2023-06,Splunk,DevOps / Infrastructure,1,54,0.0185,False
+2023-06,Tableau,Analytics / BI,1,54,0.0185,True
+2023-06,Terraform,DevOps / Infrastructure,1,54,0.0185,False
+2023-06,TypeScript,Programming Language,1,54,0.0185,False
+2023-07,SQL,Programming Language,31,67,0.4627,True
+2023-07,Python,Programming Language,30,67,0.4478,True
+2023-07,Looker,Analytics / BI,18,67,0.2687,True
+2023-07,R,Programming Language,17,67,0.2537,True
+2023-07,BigQuery,Cloud Platform,11,67,0.1642,True
+2023-07,Java,Programming Language,9,67,0.1343,True
+2023-07,Machine Learning,ML / AI,8,67,0.1194,True
+2023-07,C++,Programming Language,7,67,0.1045,True
+2023-07,Go,Programming Language,6,67,0.0896,True
+2023-07,JavaScript,Programming Language,6,67,0.0896,True
+2023-07,NoSQL,Database,6,67,0.0896,True
+2023-07,pandas,Data Science Libraries,6,67,0.0896,True
+2023-07,GCP,Cloud Platform,5,67,0.0746,True
+2023-07,Linux,OS / Shell,5,67,0.0746,True
+2023-07,NumPy,Data Science Libraries,5,67,0.0746,False
+2023-07,TensorFlow,ML / AI,5,67,0.0746,True
+2023-07,Power BI,Analytics / BI,4,67,0.0597,False
+2023-07,Snowflake,Cloud Platform,4,67,0.0597,True
+2023-07,Tableau,Analytics / BI,4,67,0.0597,True
+2023-07,Oracle,Database,3,67,0.0448,True
+2023-07,Scala,Programming Language,3,67,0.0448,True
+2023-07,TypeScript,Programming Language,3,67,0.0448,False
+2023-07,Airflow,Data Engineering,2,67,0.0299,True
+2023-07,Docker,DevOps / Infrastructure,2,67,0.0299,False
+2023-07,Hadoop,Data Engineering,2,67,0.0299,True
+2023-07,Kubernetes,DevOps / Infrastructure,2,67,0.0299,True
+2023-07,MongoDB,Database,2,67,0.0299,True
+2023-07,SAP,Analytics / BI,2,67,0.0299,True
+2023-07,SAS,Analytics / BI,2,67,0.0299,True
+2023-07,SPSS,Analytics / BI,2,67,0.0299,False
+2023-07,Spark,Data Engineering,2,67,0.0299,True
+2023-07,scikit-learn,ML / AI,2,67,0.0299,False
+2023-07,Angular,Web / Frontend,1,67,0.0149,False
+2023-07,Ansible,DevOps / Infrastructure,1,67,0.0149,False
+2023-07,C#,Programming Language,1,67,0.0149,True
+2023-07,CSS,Web / Frontend,1,67,0.0149,False
+2023-07,Chef,DevOps / Infrastructure,1,67,0.0149,False
+2023-07,Express,Web / Frontend,1,67,0.0149,True
+2023-07,HTML,Web / Frontend,1,67,0.0149,False
+2023-07,Jenkins,DevOps / Infrastructure,1,67,0.0149,False
+2023-07,Kotlin,Programming Language,1,67,0.0149,False
+2023-07,MATLAB,Programming Language,1,67,0.0149,True
+2023-07,Microsoft Outlook,Office / Productivity,1,67,0.0149,False
+2023-07,Objective-C,Programming Language,1,67,0.0149,False
+2023-07,Puppet,DevOps / Infrastructure,1,67,0.0149,False
+2023-07,Rust,Programming Language,1,67,0.0149,False
+2023-07,Swift,Programming Language,1,67,0.0149,False
+2023-07,Unix,OS / Shell,1,67,0.0149,False
+2023-08,Python,Programming Language,43,66,0.6515,True
+2023-08,SQL,Programming Language,32,66,0.4848,True
+2023-08,R,Programming Language,29,66,0.4394,True
+2023-08,Java,Programming Language,16,66,0.2424,True
+2023-08,C++,Programming Language,13,66,0.197,True
+2023-08,Machine Learning,ML / AI,11,66,0.1667,True
+2023-08,Go,Programming Language,10,66,0.1515,True
+2023-08,TensorFlow,ML / AI,9,66,0.1364,True
+2023-08,Linux,OS / Shell,8,66,0.1212,True
+2023-08,Scala,Programming Language,8,66,0.1212,True
+2023-08,JavaScript,Programming Language,7,66,0.1061,True
+2023-08,Spark,Data Engineering,6,66,0.0909,True
+2023-08,Hadoop,Data Engineering,5,66,0.0758,True
+2023-08,PyTorch,ML / AI,5,66,0.0758,True
+2023-08,Looker,Analytics / BI,4,66,0.0606,True
+2023-08,NoSQL,Database,4,66,0.0606,True
+2023-08,BigQuery,Cloud Platform,3,66,0.0455,True
+2023-08,Assembly,Programming Language,2,66,0.0303,False
+2023-08,C,Programming Language,2,66,0.0303,True
+2023-08,C#,Programming Language,2,66,0.0303,True
+2023-08,Colocation,Facilities / Data Centre,2,66,0.0303,False
+2023-08,GCP,Cloud Platform,2,66,0.0303,True
+2023-08,Kubernetes,DevOps / Infrastructure,2,66,0.0303,True
+2023-08,MATLAB,Programming Language,2,66,0.0303,True
+2023-08,MongoDB,Database,2,66,0.0303,True
+2023-08,SAP,Analytics / BI,2,66,0.0303,True
+2023-08,SAS,Analytics / BI,2,66,0.0303,True
+2023-08,Tableau,Analytics / BI,2,66,0.0303,True
+2023-08,Unix,OS / Shell,2,66,0.0303,False
+2023-08,pandas,Data Science Libraries,2,66,0.0303,True
+2023-08,AWS,Cloud Platform,1,66,0.0152,False
+2023-08,Airflow,Data Engineering,1,66,0.0152,True
+2023-08,Azure,Cloud Platform,1,66,0.0152,False
+2023-08,Bash,OS / Shell,1,66,0.0152,False
+2023-08,Express,Web / Frontend,1,66,0.0152,True
+2023-08,MXNet,ML / AI,1,66,0.0152,False
+2023-08,Perl,Programming Language,1,66,0.0152,True
+2023-08,React,Web / Frontend,1,66,0.0152,False
+2023-08,Rust,Programming Language,1,66,0.0152,False
+2023-08,SPSS,Analytics / BI,1,66,0.0152,False
+2023-08,Shell,OS / Shell,1,66,0.0152,True
+2023-08,Splunk,DevOps / Infrastructure,1,66,0.0152,False
+2023-08,Terraform,DevOps / Infrastructure,1,66,0.0152,False
+2023-08,TypeScript,Programming Language,1,66,0.0152,False
+2023-08,Ubuntu,OS / Shell,1,66,0.0152,False
+2023-09,Python,Programming Language,26,44,0.5909,True
+2023-09,SQL,Programming Language,20,44,0.4545,True
+2023-09,R,Programming Language,16,44,0.3636,True
+2023-09,C++,Programming Language,8,44,0.1818,True
+2023-09,Java,Programming Language,7,44,0.1591,True
+2023-09,Looker,Analytics / BI,7,44,0.1591,True
+2023-09,TensorFlow,ML / AI,7,44,0.1591,True
+2023-09,BigQuery,Cloud Platform,6,44,0.1364,True
+2023-09,Go,Programming Language,5,44,0.1136,True
+2023-09,Machine Learning,ML / AI,5,44,0.1136,True
+2023-09,PyTorch,ML / AI,4,44,0.0909,True
+2023-09,Express,Web / Frontend,3,44,0.0682,True
+2023-09,JavaScript,Programming Language,3,44,0.0682,True
+2023-09,Linux,OS / Shell,3,44,0.0682,True
+2023-09,MATLAB,Programming Language,3,44,0.0682,True
+2023-09,NoSQL,Database,3,44,0.0682,True
+2023-09,Scala,Programming Language,3,44,0.0682,True
+2023-09,Airflow,Data Engineering,2,44,0.0455,True
+2023-09,C,Programming Language,2,44,0.0455,True
+2023-09,GCP,Cloud Platform,2,44,0.0455,True
+2023-09,Spark,Data Engineering,2,44,0.0455,True
+2023-09,Tableau,Analytics / BI,2,44,0.0455,True
+2023-09,scikit-learn,ML / AI,2,44,0.0455,False
+2023-09,Hadoop,Data Engineering,1,44,0.0227,True
+2023-09,Kafka,Data Engineering,1,44,0.0227,False
+2023-09,Keras,ML / AI,1,44,0.0227,False
+2023-09,Kubernetes,DevOps / Infrastructure,1,44,0.0227,True
+2023-09,MXNet,ML / AI,1,44,0.0227,False
+2023-09,MongoDB,Database,1,44,0.0227,True
+2023-09,Perl,Programming Language,1,44,0.0227,True
+2023-09,SAP,Analytics / BI,1,44,0.0227,True
+2023-09,SAS,Analytics / BI,1,44,0.0227,True
+2023-09,SPSS,Analytics / BI,1,44,0.0227,False
+2023-09,Snowflake,Cloud Platform,1,44,0.0227,True
+2023-09,Unix,OS / Shell,1,44,0.0227,False
+2023-09,pandas,Data Science Libraries,1,44,0.0227,True
+2023-10,Python,Programming Language,30,50,0.6,True
+2023-10,SQL,Programming Language,28,50,0.56,True
+2023-10,R,Programming Language,21,50,0.42,True
+2023-10,BigQuery,Cloud Platform,10,50,0.2,True
+2023-10,JavaScript,Programming Language,7,50,0.14,True
+2023-10,C,Programming Language,6,50,0.12,True
+2023-10,Go,Programming Language,6,50,0.12,True
+2023-10,Java,Programming Language,6,50,0.12,True
+2023-10,Looker,Analytics / BI,6,50,0.12,True
+2023-10,Tableau,Analytics / BI,6,50,0.12,True
+2023-10,GCP,Cloud Platform,5,50,0.1,True
+2023-10,C++,Programming Language,4,50,0.08,True
+2023-10,Linux,OS / Shell,4,50,0.08,True
+2023-10,Machine Learning,ML / AI,4,50,0.08,True
+2023-10,C#,Programming Language,3,50,0.06,True
+2023-10,Cognos,Analytics / BI,3,50,0.06,False
+2023-10,Hadoop,Data Engineering,3,50,0.06,True
+2023-10,MicroStrategy,Analytics / BI,3,50,0.06,False
+2023-10,Perl,Programming Language,3,50,0.06,True
+2023-10,Shell,OS / Shell,3,50,0.06,True
+2023-10,TensorFlow,ML / AI,3,50,0.06,True
+2023-10,Terraform,DevOps / Infrastructure,3,50,0.06,False
+2023-10,Ansible,DevOps / Infrastructure,2,50,0.04,False
+2023-10,Colocation,Facilities / Data Centre,2,50,0.04,False
+2023-10,Jenkins,DevOps / Infrastructure,2,50,0.04,False
+2023-10,MATLAB,Programming Language,2,50,0.04,True
+2023-10,MongoDB,Database,2,50,0.04,True
+2023-10,NoSQL,Database,2,50,0.04,True
+2023-10,React,Web / Frontend,2,50,0.04,False
+2023-10,Scala,Programming Language,2,50,0.04,True
+2023-10,Spark,Data Engineering,2,50,0.04,True
+2023-10,AWS,Cloud Platform,1,50,0.02,False
+2023-10,Azure,Cloud Platform,1,50,0.02,False
+2023-10,Docker,DevOps / Infrastructure,1,50,0.02,False
+2023-10,Express,Web / Frontend,1,50,0.02,True
+2023-10,GitHub,DevOps / Infrastructure,1,50,0.02,False
+2023-10,Google Sheets,Analytics / BI,1,50,0.02,False
+2023-10,HTML,Web / Frontend,1,50,0.02,False
+2023-10,MySQL,Database,1,50,0.02,False
+2023-10,Power BI,Analytics / BI,1,50,0.02,False
+2023-10,PyTorch,ML / AI,1,50,0.02,True
+2023-10,SAS,Analytics / BI,1,50,0.02,True
+2023-10,Snowflake,Cloud Platform,1,50,0.02,True
+2023-10,macOS,OS / Shell,1,50,0.02,False
+2023-10,pandas,Data Science Libraries,1,50,0.02,True
+2023-11,Python,Programming Language,32,45,0.7111,True
+2023-11,SQL,Programming Language,30,45,0.6667,True
+2023-11,R,Programming Language,19,45,0.4222,True
+2023-11,Java,Programming Language,11,45,0.2444,True
+2023-11,C++,Programming Language,10,45,0.2222,True
+2023-11,C,Programming Language,8,45,0.1778,True
+2023-11,JavaScript,Programming Language,7,45,0.1556,True
+2023-11,Hadoop,Data Engineering,5,45,0.1111,True
+2023-11,Perl,Programming Language,5,45,0.1111,True
+2023-11,Machine Learning,ML / AI,4,45,0.0889,True
+2023-11,Shell,OS / Shell,4,45,0.0889,True
+2023-11,TensorFlow,ML / AI,4,45,0.0889,True
+2023-11,Express,Web / Frontend,3,45,0.0667,True
+2023-11,Go,Programming Language,3,45,0.0667,True
+2023-11,Linux,OS / Shell,3,45,0.0667,True
+2023-11,Looker,Analytics / BI,3,45,0.0667,True
+2023-11,MATLAB,Programming Language,3,45,0.0667,True
+2023-11,Scala,Programming Language,3,45,0.0667,True
+2023-11,Spark,Data Engineering,3,45,0.0667,True
+2023-11,Windows,OS / Shell,3,45,0.0667,False
+2023-11,Airflow,Data Engineering,2,45,0.0444,True
+2023-11,BigQuery,Cloud Platform,2,45,0.0444,True
+2023-11,GCP,Cloud Platform,2,45,0.0444,True
+2023-11,HTML,Web / Frontend,2,45,0.0444,False
+2023-11,Microsoft Word,Office / Productivity,2,45,0.0444,False
+2023-11,AWS,Cloud Platform,1,45,0.0222,False
+2023-11,Ansible,DevOps / Infrastructure,1,45,0.0222,False
+2023-11,CSS,Web / Frontend,1,45,0.0222,False
+2023-11,Chef,DevOps / Infrastructure,1,45,0.0222,False
+2023-11,Docker,DevOps / Infrastructure,1,45,0.0222,False
+2023-11,Elasticsearch,Database,1,45,0.0222,False
+2023-11,Jenkins,DevOps / Infrastructure,1,45,0.0222,False
+2023-11,Keras,ML / AI,1,45,0.0222,False
+2023-11,Kubernetes,DevOps / Infrastructure,1,45,0.0222,True
+2023-11,MXNet,ML / AI,1,45,0.0222,False
+2023-11,Microsoft Outlook,Office / Productivity,1,45,0.0222,False
+2023-11,MySQL,Database,1,45,0.0222,False
+2023-11,OpenStack,Cloud Platform,1,45,0.0222,False
+2023-11,Oracle,Database,1,45,0.0222,True
+2023-11,Puppet,DevOps / Infrastructure,1,45,0.0222,False
+2023-11,PyTorch,ML / AI,1,45,0.0222,True
+2023-11,React,Web / Frontend,1,45,0.0222,False
+2023-11,Redis,Database,1,45,0.0222,False
+2023-11,SAS,Analytics / BI,1,45,0.0222,True
+2023-11,SPSS,Analytics / BI,1,45,0.0222,False
+2023-11,SQL Server,Database,1,45,0.0222,False
+2023-11,Snowflake,Cloud Platform,1,45,0.0222,True
+2023-11,TypeScript,Programming Language,1,45,0.0222,False
+2023-11,Unix,OS / Shell,1,45,0.0222,False
+2023-11,macOS,OS / Shell,1,45,0.0222,False
+2023-12,Python,Programming Language,44,64,0.6875,True
+2023-12,SQL,Programming Language,31,64,0.4844,True
+2023-12,R,Programming Language,27,64,0.4219,True
+2023-12,Java,Programming Language,16,64,0.25,True
+2023-12,C++,Programming Language,13,64,0.2031,True
+2023-12,SAS,Analytics / BI,10,64,0.1562,True
+2023-12,TensorFlow,ML / AI,9,64,0.1406,True
+2023-12,BigQuery,Cloud Platform,8,64,0.125,True
+2023-12,Go,Programming Language,8,64,0.125,True
+2023-12,JavaScript,Programming Language,8,64,0.125,True
+2023-12,Looker,Analytics / BI,8,64,0.125,True
+2023-12,C,Programming Language,7,64,0.1094,True
+2023-12,Hadoop,Data Engineering,6,64,0.0938,True
+2023-12,MATLAB,Programming Language,6,64,0.0938,True
+2023-12,Machine Learning,ML / AI,5,64,0.0781,True
+2023-12,NoSQL,Database,4,64,0.0625,True
+2023-12,Oracle,Database,4,64,0.0625,True
+2023-12,Perl,Programming Language,4,64,0.0625,True
+2023-12,Spark,Data Engineering,4,64,0.0625,True
+2023-12,Tableau,Analytics / BI,4,64,0.0625,True
+2023-12,Kafka,Data Engineering,3,64,0.0469,False
+2023-12,MySQL,Database,3,64,0.0469,False
+2023-12,PyTorch,ML / AI,3,64,0.0469,True
+2023-12,Scala,Programming Language,3,64,0.0469,True
+2023-12,TypeScript,Programming Language,3,64,0.0469,False
+2023-12,Express,Web / Frontend,2,64,0.0312,True
+2023-12,GCP,Cloud Platform,2,64,0.0312,True
+2023-12,Google Sheets,Analytics / BI,2,64,0.0312,False
+2023-12,Keras,ML / AI,2,64,0.0312,False
+2023-12,Linux,OS / Shell,2,64,0.0312,True
+2023-12,MongoDB,Database,2,64,0.0312,True
+2023-12,React,Web / Frontend,2,64,0.0312,False
+2023-12,Redshift,Cloud Platform,2,64,0.0312,False
+2023-12,SAP,Analytics / BI,2,64,0.0312,True
+2023-12,SPSS,Analytics / BI,2,64,0.0312,False
+2023-12,Shell,OS / Shell,2,64,0.0312,True
+2023-12,Airflow,Data Engineering,1,64,0.0156,True
+2023-12,Angular,Web / Frontend,1,64,0.0156,False
+2023-12,C#,Programming Language,1,64,0.0156,True
+2023-12,CSS,Web / Frontend,1,64,0.0156,False
+2023-12,Cassandra,Database,1,64,0.0156,False
+2023-12,Docker,DevOps / Infrastructure,1,64,0.0156,False
+2023-12,HTML,Web / Frontend,1,64,0.0156,False
+2023-12,Jenkins,DevOps / Infrastructure,1,64,0.0156,False
+2023-12,Jupyter,Data Science Libraries,1,64,0.0156,False
+2023-12,Kubernetes,DevOps / Infrastructure,1,64,0.0156,True
+2023-12,Microsoft Outlook,Office / Productivity,1,64,0.0156,False
+2023-12,Microsoft Word,Office / Productivity,1,64,0.0156,False
+2023-12,Power BI,Analytics / BI,1,64,0.0156,False
+2023-12,Ruby,Programming Language,1,64,0.0156,False
+2023-12,Rust,Programming Language,1,64,0.0156,False
+2023-12,Snowflake,Cloud Platform,1,64,0.0156,True
+2023-12,Unix,OS / Shell,1,64,0.0156,False
+2023-12,pandas,Data Science Libraries,1,64,0.0156,True
+2023-12,scikit-learn,ML / AI,1,64,0.0156,False

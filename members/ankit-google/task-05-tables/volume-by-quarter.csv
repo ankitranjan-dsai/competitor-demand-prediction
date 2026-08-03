@@ -1,0 +1,5 @@
+period,postings,n_publishers,days_in_period,days_observed,is_partial,postings_per_week,index_base_100,growth_pct,log_growth,rolling_mean,acceleration
+2023-Q1,169,38,90,90,False,13.144,100.0,,,13.144,
+2023-Q2,208,40,91,91,False,16.0,121.73,21.73,0.1966,14.572,
+2023-Q3,259,44,92,92,False,19.707,149.93,23.17,0.2084,16.284,1.44
+2023-Q4,212,32,92,92,False,16.13,122.72,-18.15,-0.2003,17.279,-41.32

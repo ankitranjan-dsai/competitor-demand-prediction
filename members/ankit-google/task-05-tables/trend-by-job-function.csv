@@ -1,0 +1,11 @@
+segment,n_h1,n_h2,share_h1,share_h2,share_delta,count_change_pct,share_change_pct,direction,dimension,panel
+Analytics,61,94,0.1618,0.1996,0.0378,54.1,23.4,stable,job_function,raw
+Sales,10,25,0.0265,0.0531,0.0266,150.0,100.4,growth,job_function,raw
+Technical Sales,57,81,0.1512,0.172,0.0208,42.1,13.8,stable,job_function,raw
+Product / Program,1,2,0.0027,0.0042,0.0015,100.0,55.6,insufficient_support,job_function,raw
+Support / Admin,1,2,0.0027,0.0042,0.0015,100.0,55.6,insufficient_support,job_function,raw
+Facilities / Operations,42,53,0.1114,0.1125,0.0011,26.2,1.0,stable,job_function,raw
+Marketing / Communications,1,1,0.0027,0.0021,-0.0006,0.0,-22.2,insufficient_support,job_function,raw
+Other,11,9,0.0292,0.0191,-0.0101,-18.2,-34.6,decline,job_function,raw
+Engineering,108,123,0.2865,0.2611,-0.0254,13.9,-8.9,stable,job_function,raw
+Science / Research,85,81,0.2255,0.172,-0.0535,-4.7,-23.7,stable,job_function,raw

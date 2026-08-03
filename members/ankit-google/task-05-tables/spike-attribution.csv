@@ -1,0 +1,4 @@
+period,postings,local_median,excess,top_publisher,top_publisher_postings,top_publisher_typical,excess_explained,largest_single_day,largest_day_share_of_excess,distinct_publishers,verdict
+2023-W24,24,15.0,9.0,via Google Careers,14,0.0,1.5556,8,0.8889,8,publisher_batch
+2023-W30,35,16.0,19.0,via Recruit.net,15,0.0,0.7895,13,0.6842,8,publisher_batch
+2023-W34,46,17.0,29.0,via The Muse,23,0.0,0.7931,21,0.7241,12,publisher_batch

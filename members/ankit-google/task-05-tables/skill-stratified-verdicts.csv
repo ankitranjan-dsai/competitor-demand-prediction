@@ -1,0 +1,30 @@
+skill,verdict,n_segments,up,down,segments,pooled_share_h1,pooled_share_h2,pooled_direction,pooled_delta,contradiction,overturned_by_stratification
+Looker,falling_in_all_segments,3,0,3,"['Analytics', 'Sales', 'Technical Sales']",0.092,0.1382,up,0.0462,reversed,True
+Python,mix_dependent,4,2,2,"['Analytics', 'Engineering', 'Science / Research', 'Technical Sales']",0.6437,0.6029,down,-0.0408,unsupported,True
+BigQuery,mix_dependent,4,2,2,"['Analytics', 'Engineering', 'Sales', 'Technical Sales']",0.0843,0.1176,up,0.0333,unsupported,True
+Linux,mix_dependent,2,1,1,"['Engineering', 'Technical Sales']",0.1073,0.0765,down,-0.0308,unsupported,True
+C++,mix_dependent,3,1,2,"['Engineering', 'Science / Research', 'Technical Sales']",0.1839,0.1618,down,-0.0221,unsupported,True
+TensorFlow,mix_dependent,2,1,1,"['Engineering', 'Science / Research']",0.1303,0.1088,down,-0.0215,unsupported,True
+Tableau,mix_dependent,2,1,1,"['Analytics', 'Science / Research']",0.046,0.0529,up,0.0069,unsupported,True
+MATLAB,mix_dependent,2,1,1,"['Analytics', 'Science / Research']",0.0498,0.05,up,0.0002,unsupported,True
+SQL,rising_in_all_segments,5,5,0,"['Analytics', 'Engineering', 'Sales', 'Science / Research', 'Technical Sales']",0.318,0.5059,up,0.1879,,False
+Go,falling_in_all_segments,2,0,2,"['Engineering', 'Technical Sales']",0.2222,0.1118,down,-0.1104,,False
+Hadoop,insufficient_support,1,0,1,['Engineering'],0.1379,0.0647,down,-0.0732,,False
+Java,falling_in_all_segments,2,0,2,"['Engineering', 'Technical Sales']",0.2605,0.1912,down,-0.0693,,False
+Scala,falling_in_all_segments,2,0,2,"['Engineering', 'Technical Sales']",0.1226,0.0647,down,-0.0579,,False
+NoSQL,insufficient_support,1,0,1,['Engineering'],0.1073,0.0559,down,-0.0514,,False
+R,rising_in_all_segments,3,3,0,"['Analytics', 'Science / Research', 'Technical Sales']",0.3295,0.3794,up,0.0499,,False
+C,insufficient_support,1,1,0,['Engineering'],0.0421,0.0735,up,0.0314,,False
+Perl,insufficient_support,1,1,0,['Engineering'],0.0115,0.0412,up,0.0297,,False
+GCP,insufficient_support,1,1,0,['Engineering'],0.0268,0.0529,up,0.0261,,False
+JavaScript,falling_in_all_segments,2,0,2,"['Engineering', 'Technical Sales']",0.1379,0.1118,down,-0.0261,,False
+PyTorch,insufficient_support,1,1,0,['Engineering'],0.0153,0.0412,up,0.0259,,False
+SAP,insufficient_support,1,0,1,['Technical Sales'],0.046,0.0206,down,-0.0254,,False
+Oracle,insufficient_support,1,0,1,['Technical Sales'],0.046,0.0235,down,-0.0225,,False
+MongoDB,insufficient_support,1,0,1,['Engineering'],0.046,0.0265,down,-0.0195,,False
+SAS,insufficient_support,1,1,0,['Science / Research'],0.0651,0.05,down,-0.0151,,False
+Shell,insufficient_support,1,1,0,['Engineering'],0.0153,0.0294,up,0.0141,,False
+Machine Learning,rising_in_all_segments,3,3,0,"['Engineering', 'Science / Research', 'Technical Sales']",0.0958,0.1088,up,0.013,,False
+pandas,insufficient_support,1,0,1,['Analytics'],0.023,0.0324,up,0.0094,,False
+Spark,insufficient_support,1,0,1,['Engineering'],0.0651,0.0559,down,-0.0092,,False
+C#,insufficient_support,1,0,1,['Engineering'],0.0268,0.0206,down,-0.0062,,False
