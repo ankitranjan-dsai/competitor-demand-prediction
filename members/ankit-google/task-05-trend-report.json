@@ -519,8 +519,62 @@
       }
     ]
   },
-  "job_function_directions_agree_across_panels": 7,
-  "job_function_segments_checked": 10,
+  "panel_check": {
+    "job_function": {
+      "segments": 10,
+      "directions_agree": 7,
+      "disagree": [
+        "Analytics",
+        "Other",
+        "Engineering"
+      ]
+    },
+    "job_category": {
+      "segments": 13,
+      "directions_agree": 7,
+      "disagree": [
+        "Data Science",
+        "Hardware / Silicon",
+        "Product / Program",
+        "Other",
+        "Software Engineering",
+        "Research / Academic"
+      ]
+    },
+    "country": {
+      "segments": 48,
+      "directions_agree": 21,
+      "disagree": [
+        "Singapore",
+        "Ireland",
+        "Belgium",
+        "India",
+        "Mexico",
+        "Finland",
+        "Hungary",
+        "Romania",
+        "Dominican Republic",
+        "Austria",
+        "Kenya",
+        "New Zealand",
+        "United Arab Emirates",
+        "Germany",
+        "Israel",
+        "United Kingdom",
+        "Qatar",
+        "Netherlands",
+        "Peru",
+        "Ghana",
+        "Sudan",
+        "Switzerland",
+        "Japan",
+        "Uruguay",
+        "Canada",
+        "Chile",
+        "Taiwan"
+      ]
+    }
+  },
   "skills": {
     "rule_share_of_all_emitted": false,
     "excluded_job_functions": [
@@ -555,5 +609,5 @@
     "08-day-of-week.png"
   ],
   "personal_data_columns_present": [],
-  "generated_at": "2026-08-03T15:28:30+00:00"
+  "generated_at": "2026-08-03T15:35:00+00:00"
 }

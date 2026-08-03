@@ -1,0 +1,14 @@
+segment,n_h1,n_h2,share_h1,share_h2,share_delta,count_change_pct,share_change_pct,direction,dimension,panel,n_h1_balanced,n_h2_balanced,share_change_pct_balanced,direction_balanced,directions_agree
+Data Analytics / BI,88,136,0.2334,0.2887,0.0553,54.5,23.7,stable,job_category,raw,43.0,67.0,-0.4,stable,True
+AI / ML,35,49,0.0928,0.104,0.0112,40.0,12.1,stable,job_category,raw,13.0,22.0,8.3,stable,True
+Data Science,88,115,0.2334,0.2442,0.0108,30.7,4.6,stable,job_category,raw,28.0,66.0,50.7,growth,False
+Cloud / Infrastructure,38,50,0.1008,0.1062,0.0054,31.6,5.4,stable,job_category,raw,17.0,24.0,-9.8,stable,True
+Hardware / Silicon,3,5,0.008,0.0106,0.0026,66.7,32.5,insufficient_support,job_category,raw,,,,no_panel,False
+Product / Program,0,1,0.0,0.0021,0.0021,,,insufficient_support,job_category,raw,,,,no_panel,False
+Data Center / Facilities,42,53,0.1114,0.1125,0.0011,26.2,1.0,stable,job_category,raw,10.0,16.0,2.4,stable,True
+Business / Strategy / Ops,1,1,0.0027,0.0021,-0.0006,0.0,-22.2,insufficient_support,job_category,raw,0.0,1.0,,insufficient_support,True
+Sales / Marketing / GTM,2,1,0.0053,0.0021,-0.0032,-50.0,-60.4,insufficient_support,job_category,raw,1.0,1.0,-36.8,insufficient_support,True
+Other,7,7,0.0186,0.0149,-0.0037,0.0,-19.9,stable,job_category,raw,1.0,5.0,219.1,insufficient_support,False
+Software Engineering,19,22,0.0504,0.0467,-0.0037,15.8,-7.3,stable,job_category,raw,8.0,8.0,-36.0,decline,False
+Research / Academic,2,0,0.0053,0.0,-0.0053,-100.0,-100.0,insufficient_support,job_category,raw,,,,no_panel,False
+Data Engineering,52,31,0.1379,0.0658,-0.0721,-40.4,-52.3,decline,job_category,raw,26.0,20.0,-50.8,decline,True
