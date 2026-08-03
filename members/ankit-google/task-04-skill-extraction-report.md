@@ -132,13 +132,32 @@ naive series would be modelling the collector, not the market — so
 `skill-trend.csv` compares H1 vs H2 (min 10 postings support, ±25% relative
 change). Headline movers:
 
-| Emerging | H1 → H2 share | | Declining | H1 → H2 share |
+| Emerging *(pooled)* | H1 → H2 share | | Declining *(pooled)* | H1 → H2 share |
 | --- | --- | --- | --- | --- |
 | SQL | 31.8% → 50.6% | | Hadoop | 13.8% → 6.5% |
 | Looker | 9.2% → 13.8% | | Go | 22.2% → 11.2% |
 | BigQuery | 8.4% → 11.8% | | Scala | 12.3% → 6.5% |
 | GCP | 2.7% → 5.3% | | NoSQL | 10.7% → 5.6% |
 | PyTorch | 1.5% → 4.1% | | Java | 26.1% → 19.1% |
+
+> **Corrected by Task 05 → [C2](../../docs/corrections.md#c2--five-of-task-04s-ten-headline-skill-movers-do-not-survive-stratification).**
+> The shares above are correct as *pooled* shares; the labels "emerging" and
+> "declining" are not. Stratified within `job_function`, **four of these ten
+> survive, one reverses outright, and five have no within-segment support**:
+>
+> | Verdict | Skills |
+> | --- | --- |
+> | ✅ confirmed in every supported segment | SQL (5/5 up), Go, Java, Scala (2/2 down) |
+> | ❌ **reversed** | **Looker** — pooled +4.6 pp, but down in all 3 supported functions |
+> | ⚠️ no within-segment support | BigQuery (`mix_dependent`), GCP, PyTorch, Hadoop, NoSQL (one segment each) |
+>
+> Looker is the instructive one. It rises pooled only because the mix moves
+> underneath it: Sales goes from 2.3% to 6.5% of skilled postings and
+> Analytics from 17.2% to 25.6%, while Science / Research — which barely
+> mentions Looker — falls from 29.7% to 23.2%. Inside Analytics it goes
+> 13.6% → 11.6%, inside Sales 83.3% → 77.3%, inside Technical Sales
+> 25.0% → 24.0%. Google was posting more Looker-shaped jobs, not asking for
+> Looker more often.
 
 **These are not safe on their own.** The composition of the skilled postings
 shifts between halves — Analytics rises 16.9% → 25.3% of rows, Data Engineering
@@ -156,6 +175,15 @@ So I re-ran the headline movers **within** `job_function`:
 SQL rises in *every* function and Hadoop/Go fall sharply *within Engineering*,
 so those three survive the mix explanation. The rest of the trend table should
 be treated as a candidate list, not a result, until Task 05 stratifies it.
+
+**Task 05 stratified it.** Across the 29 skills with enough support,
+**8 pooled directions were overturned**
+([`skill-stratified-verdicts.csv`](task-05-tables/skill-stratified-verdicts.csv)):
+3 rise in every segment, 5 fall in every segment, 7 are `mix_dependent`, and 14
+clear only one segment. The check above was right about SQL and Go; it was too
+generous to Hadoop, which moves the way this section says but clears a single
+segment, and it never reached Looker. From Task 06 onward every skill claim
+travels with its stratified verdict.
 
 **Every trend label here is within-2023, single-source.** One calendar year from
 one backfill cannot distinguish a market trend from a sampling change.
