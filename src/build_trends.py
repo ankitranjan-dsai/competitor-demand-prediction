@@ -17,7 +17,7 @@ time-series layer in `src/trends.py` over them, and writes:
         trend-by-job-category.csv
         trend-by-country.csv
         trend-by-seniority.csv
-        panel-check-job-function.csv   does the direction survive rebalancing
+        panel-check-<dimension>.csv    does the direction survive rebalancing
         seasonality.csv                day-of-week and month-of-year + support
         skill-velocity-by-month.csv    share_of_skilled only, Facilities out
         skill-trend-within-function.csv
@@ -323,10 +323,17 @@ def build(features: pd.DataFrame, long: pd.DataFrame, company: str) -> dict:
         segments[dim] = seg
         _write(seg, tables / fname)
 
-    panel_check = (tr.compare_panels(features, "job_function")
-                   if "job_function" in features.columns else pd.DataFrame())
-    if not panel_check.empty:
-        _write(panel_check, tables / "panel-check-job-function.csv")
+    # Rule 3 from Task 04 applies to every breakdown, not just job function:
+    # a segment that only grows because a publisher arrived mid-year is not a
+    # segment that grew.
+    checks = {}
+    for dim in segments:
+        check = tr.compare_panels(features, dim)
+        if check.empty:
+            continue
+        checks[dim] = check
+        _write(check, tables / f"panel-check-{dim.replace('_', '-')}.csv")
+    panel_check = checks.get("job_function", pd.DataFrame())
 
     seasonality = tr.seasonality_table(features)
     _write(seasonality, tables / "seasonality.csv")
@@ -477,11 +484,15 @@ def build(features: pd.DataFrame, long: pd.DataFrame, company: str) -> dict:
                           "share_change_pct", "direction"]].to_dict("records")
             for dim, seg in segments.items()
         },
-        "job_function_directions_agree_across_panels": (
-            int(panel_check.directions_agree.sum()) if not panel_check.empty
-            else None),
-        "job_function_segments_checked": (
-            int(len(panel_check)) if not panel_check.empty else 0),
+        "panel_check": {
+            dim: {
+                "segments": int(len(check)),
+                "directions_agree": int(check.directions_agree.sum()),
+                "disagree": check.loc[~check.directions_agree,
+                                      "segment"].tolist(),
+            }
+            for dim, check in checks.items()
+        },
         "skills": {
             "rule_share_of_all_emitted": "share_of_all" in skill_velocity.columns,
             "excluded_job_functions": sorted(tr.SKILL_EXCLUDED_FUNCTIONS),
@@ -521,6 +532,11 @@ def build(features: pd.DataFrame, long: pd.DataFrame, company: str) -> dict:
           f"{len(batches)} publisher batches "
           f"({100 * report['spikes']['share_of_postings_in_batches']:.1f}% of "
           f"postings)")
+    for dim, check in report["panel_check"].items():
+        print(f"panel check      {dim}: {check['directions_agree']}/"
+              f"{check['segments']} directions survive rebalancing"
+              + (f" (lost: {', '.join(check['disagree'])})"
+                 if check["disagree"] else ""))
     print(f"skill verdicts   {report['skills']['verdict_counts']}")
     print("overturned       "
           f"{report['skills']['overturned_by_stratification'] or 'none'}")
