@@ -9,8 +9,10 @@ instead of the market. This document records the shared structure, the
 denominators, the traps we hit in real data, and what each member must do.
 
 - **Code:** [`src/trends.py`](../src/trends.py) · [`src/build_trends.py`](../src/build_trends.py)
-- **Tests:** [`tests/test_trends.py`](../tests/test_trends.py) (57 tests; 214 in the suite)
+- **Tests:** [`tests/test_trends.py`](../tests/test_trends.py) (57 tests) · [`tests/test_corrections.py`](../tests/test_corrections.py) (12; 226 in the suite)
 - **Google findings:** [`members/ankit-google/task-05-trend-report.md`](../members/ankit-google/task-05-trend-report.md)
+- **What this task overturned:** [`docs/corrections.md`](corrections.md) — three
+  earlier claims, one of them Task 04's headline skill trend
 
 ```bash
 python src/build_trends.py --company google

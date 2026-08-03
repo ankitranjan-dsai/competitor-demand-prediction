@@ -25,7 +25,8 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       `docs/task-05-trend-analysis-methods.md`; 214 tests; 19 tables +
       8 figures. Volume direction is **not identified** — Dec vs Jan reads
       91 raw / 115 balanced / 185 chained; 8 of Task 04's skill trends do not
-      survive stratification, Looker first)
+      survive stratification, Looker first). Corrections it forced on Tasks
+      01–04 are registered in [`docs/corrections.md`](../../docs/corrections.md)
 - [ ] Task 06 — Competitor comparison
 - [ ] Task 07 — Demand forecasting
 - [ ] Task 08 — Company similarity scoring

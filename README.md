@@ -64,6 +64,7 @@ competitor-demand-prediction/
 ├── src/              # shared, reusable Python modules
 ├── notebooks/        # exploratory & per-task analysis notebooks
 ├── docs/             # task deliverables & documentation
+│   ├── corrections.md  # claims a later task disproved, and the evidence
 │   └── legal/        # ToS / robots.txt evidence per source
 ├── members/          # per-specialist working folders (e.g. ankit-google/)
 ├── weekly-reports/   # each member's own weekly notes
@@ -76,6 +77,12 @@ competitor-demand-prediction/
 - **Meetings:** weekly on Microsoft Teams; attendance mandatory.
 - **Everything lives in this repo** — data, code, notes, weekly reports, docs, minutes.
 - **Submission:** at the end of each task, the repo link is submitted in the CadetX portal.
+- **Corrections are recorded, not overwritten.** A task is submitted the moment
+  it closes, so when a later task disproves an earlier claim the original
+  wording stays put and gains a pointer to
+  [`docs/corrections.md`](docs/corrections.md). Three claims have been
+  corrected so far, all by Task 05, and each one is checked against its
+  evidence table by `tests/test_corrections.py`.
 
 ## Getting Started
 
