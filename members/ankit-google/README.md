@@ -20,7 +20,12 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
 - [x] Task 04 — Skill extraction & feature engineering → `task-04-skill-extraction-report.md`
       (601/848 postings skilled, 2,340 posting-skill rows, 91 skills; shared taxonomy in
       `docs/task-04-skill-taxonomy.md`; 157 tests; aggregate tables in `task-04-tables/`)
-- [ ] Task 05 — Hiring trend analysis
+- [x] Task 05 — Hiring trend analysis → `task-05-trend-report.md`
+      (velocity, publisher-panel control, spike attribution; standard in
+      `docs/task-05-trend-analysis-methods.md`; 214 tests; 19 tables +
+      8 figures. Volume direction is **not identified** — Dec vs Jan reads
+      91 raw / 115 balanced / 185 chained; 8 of Task 04's skill trends do not
+      survive stratification, Looker first)
 - [ ] Task 06 — Competitor comparison
 - [ ] Task 07 — Demand forecasting
 - [ ] Task 08 — Company similarity scoring
