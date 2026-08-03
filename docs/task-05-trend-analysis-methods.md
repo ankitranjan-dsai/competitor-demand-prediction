@@ -255,9 +255,20 @@ Machine Learning), 5 fall everywhere (Looker, Go, Java, Scala, JavaScript),
 have a pooled direction that stratification overturns.
 
 The same trap applies to volume, not just skills. `compare_panels()` recomputes
-every segment trend on the balanced panel: **7 of Google's 10 job functions
-keep their direction, 3 do not** — Analytics, Engineering and Other change
-sign or class when the panel is held stable.
+every segment trend on the balanced panel, for every breakdown:
+
+| Dimension | Segments | Directions that survive |
+| --- | --- | --- |
+| `job_function` | 10 | 7 |
+| `job_category` | 13 | 7 |
+| `country` | 48 | **21** |
+
+Geography is the least robust breakdown, and structurally so: publishers are
+regional, so a country trend on the raw feed is substantially a statement
+about which regional aggregator was connected that month. Read the failures
+carefully, though — most are the balanced panel losing enough postings to
+judge at all, not an outright sign flip. Unverifiable and wrong are different
+findings and the table distinguishes them.
 
 **Rule:** a skill or segment trend goes into Task 09's insight report only with
 its stratified verdict attached.
@@ -300,7 +311,7 @@ posting prose, so they are the deliverable and they are committed. Row-level
 data stays git-ignored. Task 05 writes no row-level output at all.
 
 ```
-members/<member>-<company>/task-05-tables/     17 CSVs (§2, §3, §4, §5, §6)
+members/<member>-<company>/task-05-tables/     19 CSVs (§2, §3, §4, §5, §6)
 members/<member>-<company>/task-05-figures/    8 PNGs
 members/<member>-<company>/task-05-trend-report.json
 ```
