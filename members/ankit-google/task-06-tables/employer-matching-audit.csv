@@ -1,0 +1,120 @@
+company,employer_string,postings,decision,brand,reason
+anthropic,Anthropic,9,matched,Anthropic,
+databricks,Databricks,304,matched,Databricks,
+databricks,Databricks Inc.,27,matched,Databricks,
+databricks,DATABRICKS ASIAPAC UNIFIED ANALYTICS PTE. LTD.,5,matched,Databricks,
+databricks,DataBricks,3,matched,Databricks,
+databricks,Databricks -,1,matched,Databricks,
+google,Geoambiente - Google Cloud Premier Partner,1,excluded,,named_third_party
+google,"Customer Engineer, Machine Learning, Google Cloud - Doha",1,excluded,,role_string
+google,Google,625,matched,Google,
+google,Google Inc.,53,matched,Google,
+google,Waymo,49,matched,Waymo,
+google,Verily,31,matched,Verily,
+google,Google Taiwan,11,matched,Google,
+google,Google Inc,10,matched,Google,
+google,Google Asia Pacific Pte. Ltd.,8,matched,Google,
+google,Google Asia,6,matched,Google,
+google,YouTube,6,matched,YouTube,
+google,GOOGLE,6,matched,Google,
+google,Google LLC,6,matched,Google,
+google,GOOGLE ASIA PACIFIC PTE. LTD.,5,matched,Google,
+google,Google Belgium,4,matched,Google,
+google,Verily LLC,4,matched,Verily,
+google,Google Dubai -,3,matched,Google,
+google,DeepMind,3,matched,DeepMind,
+google,Google Operations Center,3,matched,Google Operations Center,
+google,Google Fiber,3,matched,Google Fiber,
+google,Verily Life Sciences,2,matched,Verily,
+google,Waymo LLC,2,matched,Waymo,
+google,google,1,matched,Google,
+google,Google Switzerland GmbH,1,matched,Google,
+google,Google Germany GmbH,1,matched,Google,
+google,Mandiant (now part of Google Cloud),1,matched,Mandiant,
+google,"Google Czech Republic, s.r.o.",1,matched,Google,
+google,Google Nigeria,1,matched,Google,
+google,Verily Life Sciences LLC,1,matched,Verily,
+google,"Google, LLC",1,matched,Google,
+meta,WE ARE META,25,excluded,,named_third_party
+meta,We Are META,21,excluded,,named_third_party
+meta,We Are Meta,18,excluded,,named_third_party
+meta,Meta Soft Inc,6,excluded,,named_third_party
+meta,Meta Force Technology Staffing LLC,4,excluded,,named_third_party
+meta,Meta IT North America,3,excluded,,named_third_party
+meta,Meta Science,2,excluded,,named_third_party
+meta,Meta-Sistem S.R.L.,2,excluded,,named_third_party
+meta,Deep.Meta,1,excluded,,named_third_party
+meta,Meta Recruitment,1,excluded,,third_party_marker
+meta,Meta Materials Inc. (META®),1,excluded,,named_third_party
+meta,NoCap Meta,1,excluded,,named_third_party
+meta,Meta System spa,1,excluded,,named_third_party
+meta,Meta System Spa,1,excluded,,named_third_party
+meta,meta virus podcasts,1,excluded,,named_third_party
+meta,Meta,649,matched,Meta,
+meta,Meta Inc,153,matched,Meta,
+meta,"Meta Platforms, Inc. (f/k/a Facebook, Inc.)",53,matched,Facebook,
+meta,Facebook App,45,matched,Facebook,
+meta,Facebook,40,matched,Facebook,
+meta,Meta (Facebook),24,matched,Facebook,
+meta,Instagram,12,matched,Instagram,
+meta,Meta (formerly known as Facebook),10,matched,Facebook,
+meta,FACEBOOK SINGAPORE PTE. LTD.,7,matched,Facebook,
+meta,Facebook Singapore Pte. Ltd.,6,matched,Facebook,
+meta,META,4,matched,Meta,
+meta,"Meta Platforms, Inc.",4,matched,Meta,
+meta,"Facebook, Inc.",3,matched,Facebook,
+meta,instagram,3,matched,Instagram,
+meta,WhatsApp,3,matched,WhatsApp,
+meta,Meta Inc.,3,matched,Meta,
+meta,Meta Platforms,2,matched,Meta,
+meta,Facebook Switzerland Sàrl,2,matched,Facebook,
+meta,FACEBOOK APP,1,matched,Facebook,
+meta,Oculus VR,1,matched,Oculus,
+meta,Meta / Facebook,1,matched,Facebook,
+meta,facebook,1,matched,Facebook,
+meta,Meta Careers,1,matched,Meta,
+meta,FACEBOOK,1,matched,Facebook,
+microsoft,ShortHills Tech (Gold Microsoft Partner),3,excluded,,named_third_party
+microsoft,XMS - Microsoft Solutions Partner,2,excluded,,third_party_marker
+microsoft,Add Value – Microsoft Recruitment,2,excluded,,third_party_marker
+microsoft,Octaware Technologies | Microsoft Partner,1,excluded,,named_third_party
+microsoft,Cognizant Microsoft Business Group,1,excluded,,named_third_party
+microsoft,Delivery - Microsoft D365,1,excluded,,named_third_party
+microsoft,Microsoft,498,matched,Microsoft,
+microsoft,Microsoft Corporation,114,matched,Microsoft,
+microsoft,Nuance,9,matched,Nuance,
+microsoft,Nuance Communications,6,matched,Nuance,
+microsoft,Microsoft Deutschland GmbH,6,matched,Microsoft,
+microsoft,Microsoft Operations Pte Ltd,4,matched,Microsoft,
+microsoft,GitHub,2,matched,GitHub,
+microsoft,Organisation Microsoft,2,matched,Microsoft,
+microsoft,microsoft,1,matched,Microsoft,
+microsoft,MICROSOFT ISRAEL,1,matched,Microsoft,
+microsoft,Microsoft Canada Jobs,1,matched,Microsoft,
+microsoft,Microsoft Nigeria,1,matched,Microsoft,
+microsoft,Microsoft Research Lab,1,matched,Microsoft,
+microsoft,Microsoft India Pvt Ltd,1,matched,Microsoft,
+microsoft,Github,1,matched,GitHub,
+microsoft,Microsoft Corp.,1,matched,Microsoft,
+microsoft,Microsoft Teams,1,matched,Microsoft,
+microsoft,MICROSOFT,1,matched,Microsoft,
+microsoft,MICROSOFT OPERATIONS PTE LTD,1,matched,Microsoft,
+microsoft,Microsoft Dubai -,1,matched,Microsoft,
+microsoft,MICROSOFT INDIA (R&D) PRIVATE LIMITED,1,matched,Microsoft,
+nvidia,NVIDIA,199,matched,NVIDIA,
+nvidia,Nvidia,32,matched,NVIDIA,
+nvidia,NVIDIA Corporation,31,matched,NVIDIA,
+nvidia,CN05 NVIDIA Shanghai WFOE,2,matched,NVIDIA,
+nvidia,TW07 NVIDIA Singapore Development PTE. Ltd. Taiwan Branch,1,matched,NVIDIA,
+nvidia,AM01 NVIDIA Armenia LLC,1,matched,NVIDIA,
+nvidia,Nvidia Corporation,1,matched,NVIDIA,
+nvidia,Nvidia Graphics Pvt Ltd.,1,matched,NVIDIA,
+nvidia,"IN02 NVIDIA GraphicsPLtd,Pune",1,matched,NVIDIA,
+nvidia,CN03 NVIDIA SemiconductorChina,1,matched,NVIDIA,
+nvidia,FR01 NVIDIA France,1,matched,NVIDIA,
+openai,OpenAI,14,matched,OpenAI,
+snowflake,Snowflake,425,matched,Snowflake,
+snowflake,Snowflake Inc.,24,matched,Snowflake,
+snowflake,SNOWFLAKE COMPUTING,8,matched,Snowflake,
+snowflake,Snowflake Computing,5,matched,Snowflake,
+snowflake,Snowflake Computing Singapore Pte. Ltd.,1,matched,Snowflake,

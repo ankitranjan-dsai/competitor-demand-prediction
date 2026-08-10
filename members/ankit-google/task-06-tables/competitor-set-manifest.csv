@@ -1,0 +1,7 @@
+company,display,postings_matched,postings_after_dedup,postings_with_skills,skill_coverage,distinct_skills,publishers,countries,first_posting,last_posting,brands,unmapped_source_terms
+databricks,Databricks,340,340,340,1.0,49,39,18,2023-01-03,2023-12-30,Databricks (340),5
+google,Google,848,846,599,0.708,91,95,46,2023-01-01,2023-12-31,"Google (741), Waymo (51), Verily (38), YouTube (6), Google Operations Center (3), Google Fiber (3), DeepMind (3), Mandiant (1)",0
+meta,Meta,1029,1026,868,0.846,74,102,32,2023-01-01,2023-12-31,"Meta (813), Facebook (194), Instagram (15), WhatsApp (3), Oculus (1)",10
+microsoft,Microsoft,654,654,521,0.7966,89,88,50,2023-01-02,2023-12-31,"Microsoft (636), Nuance (15), GitHub (3)",12
+nvidia,NVIDIA,271,271,235,0.8672,86,43,25,2023-01-02,2023-12-31,NVIDIA (271),10
+snowflake,Snowflake,463,460,459,0.9978,74,37,28,2023-01-01,2023-12-31,Snowflake (460),4

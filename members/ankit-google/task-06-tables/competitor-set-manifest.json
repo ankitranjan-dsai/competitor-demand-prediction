@@ -1,0 +1,29 @@
+{
+  "source": "hf:lukebarousse/data_jobs (Apache-2.0)",
+  "source_rows": 785741,
+  "shortlist": [
+    "google",
+    "microsoft",
+    "meta",
+    "nvidia",
+    "snowflake",
+    "databricks",
+    "openai",
+    "anthropic"
+  ],
+  "included": [
+    "databricks",
+    "google",
+    "meta",
+    "microsoft",
+    "nvidia",
+    "snowflake"
+  ],
+  "excluded": [
+    "openai",
+    "anthropic"
+  ],
+  "min_postings": 250,
+  "min_months": 10,
+  "generated_at": "2026-08-10T15:28:03+00:00"
+}
