@@ -142,6 +142,13 @@ is a reseller whose name merely mentions Google. It is flagged
 `is_alphabet = False` rather than deleted, so the exclusion is visible and
 reversible.
 
+> **Corrected by Task 06 → [C4](../../docs/corrections.md#c4--googles-posting-count-is-846-not-848).**
+> There are **two**, and flagging is not enough. The flag sits downstream of
+> the row count, so every number in this report is still computed over 848.
+> The second row is `Customer Engineer, Machine Learning, Google Cloud - Doha`
+> — a role title in the `company_name` field, which no marker here looks for.
+> Task 06 excludes both at selection: **846 rows.**
+
 **The manager trap.** 60 titles contain "Manager", but **17 of them are
 individual-contributor titles** (`Program Manager`, `Technical Program
 Manager`, `Partner Technology Manager`). Only 43 are people-management. Reading

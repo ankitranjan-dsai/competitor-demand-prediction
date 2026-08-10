@@ -4,7 +4,9 @@
 
 Input: 848 Google-family postings with Task 04 skill features
 (`data/processed/google/google_features.parquet`), covering **2023-01-01 to
-2023-12-31**. Output: 19 aggregate trend tables, 8 figures and a machine-readable
+2023-12-31** — two of those rows are not Google, and the raw December index
+below moves from 91.1 to 92.13 without them; see
+[C4](../../docs/corrections.md#c4--googles-posting-count-is-846-not-848). Output: 19 aggregate trend tables, 8 figures and a machine-readable
 evidence report.
 
 - **Method rationale (team standard):** [`docs/task-05-trend-analysis-methods.md`](../../docs/task-05-trend-analysis-methods.md)

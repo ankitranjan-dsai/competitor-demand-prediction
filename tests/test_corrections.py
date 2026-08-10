@@ -40,8 +40,8 @@ def _cell(text: str) -> str:
     return text.replace("*", "").replace("`", "").strip()
 
 
-def markdown_table(heading_contains: str) -> list[dict[str, str]]:
-    """Return the first markdown table appearing after a matching heading.
+def markdown_table(heading_contains: str, nth: int = 0) -> list[dict[str, str]]:
+    """Return the nth markdown table appearing after a matching heading.
 
     Written against the register's own formatting rather than a general
     markdown parser: the register is ours, and a strict reader is the point —
@@ -54,22 +54,29 @@ def markdown_table(heading_contains: str) -> list[dict[str, str]]:
         for i, line in enumerate(lines)
         if line.startswith("#") and heading_contains.lower() in line.lower()
     )
+    tables: list[list[list[str]]] = []
     rows: list[list[str]] = []
-    for line in lines[start:]:
+    for line in lines[start + 1:]:
         stripped = line.lstrip("> ").rstrip()
         if not stripped.startswith("|"):
             if rows:
-                break
+                tables.append(rows)
+                rows = []
+            if line.startswith("#") and tables:
+                break  # next entry; stop before its tables
             continue
         cells = [_cell(c) for c in stripped.strip("|").split("|")]
         if all(set(c) <= {"-", ":"} and c for c in cells):
             continue  # separator row
         rows.append(cells)
-        if not rows:
-            break
-    if not rows:
-        raise AssertionError(f"no table found under heading {heading_contains!r}")
-    header, *body = rows
+    if rows:
+        tables.append(rows)
+    if len(tables) <= nth:
+        raise AssertionError(
+            f"no table {nth} under heading {heading_contains!r} "
+            f"({len(tables)} found)"
+        )
+    header, *body = tables[nth]
     return [dict(zip(header, row)) for row in body]
 
 
@@ -85,7 +92,7 @@ def read_table(name: str) -> pd.DataFrame:
 def test_register_lists_every_correction_as_corrected():
     """An entry with an open status is a limitation, not a correction."""
     index = markdown_table("Corrections Register")
-    assert len(index) == 3
+    assert len(index) == 4
     for row in index:
         assert row["Status"] == "✅ corrected", row
 
@@ -231,3 +238,65 @@ def test_c3_day_of_week_is_identifiable_but_month_of_year_is_not():
     by_cycle = seasonality.groupby("cycle").identifiable.all()
     assert by_cycle["day_of_week"]
     assert not by_cycle["month_of_year"]
+
+
+# --------------------------------------------------------------------------
+# C4 — Google is 846 postings, not 848
+# --------------------------------------------------------------------------
+
+TABLES_06 = REPO_ROOT / "members" / "ankit-google" / "task-06-tables"
+
+needs_task_06 = pytest.mark.skipif(
+    not TABLES_06.is_dir(), reason="Task 06 tables not present in this checkout"
+)
+
+
+@needs_task_06
+def test_c4_the_two_dropped_rows_are_the_ones_the_register_names():
+    audit = pd.read_csv(TABLES_06 / "employer-matching-audit.csv")
+    dropped = audit[(audit.company == "google") & (audit.decision == "excluded")]
+    claimed = markdown_table("C4")
+    assert len(claimed) == 2
+
+    by_string = dropped.set_index("employer_string")
+    for row in claimed:
+        name = row["Employer string"]
+        assert name in by_string.index, f"{name} is no longer excluded"
+        assert row["Audit reason"] == by_string.loc[name].reason
+
+    # And the count they explain: 848 matched by name, 846 after the rule.
+    manifest = pd.read_csv(TABLES_06 / "competitor-set-manifest.csv")
+    google = manifest.set_index("company").loc["google"]
+    assert int(google.postings_after_dedup) == 846
+    assert int(dropped.postings.sum()) == 2
+
+
+@needs_task_06
+def test_c4_only_the_raw_index_moves():
+    """The register's claim is narrow: raw shifts, the panels do not."""
+    old = read_table("panel-sensitivity.csv")
+    new = pd.read_csv(TABLES_06 / "volume-panel-sensitivity.csv")
+    new = new[new.company == "google"]
+    december = old.period.max()
+    a = old[old.period == december].iloc[0]
+    b = new[new.period == december].iloc[0]
+
+    claimed = {r["Treatment"]: r for r in markdown_table("C4", nth=1)}
+    assert set(claimed) == {"raw", "balanced", "chained", "bilateral"}
+    for treatment, row in claimed.items():
+        column = f"{treatment}_index"
+        assert float(row["Task 05 (848)"]) == pytest.approx(a[column], abs=0.005)
+        assert float(row["Task 06 (846)"]) == pytest.approx(b[column], abs=0.005)
+
+    assert a.raw_index != b.raw_index
+    for treatment in ("balanced", "chained", "bilateral"):
+        assert a[f"{treatment}_index"] == pytest.approx(b[f"{treatment}_index"])
+
+
+@needs_task_06
+def test_c4_task_05s_own_numbers_are_left_standing():
+    """The register is a register: the corrected document keeps its wording."""
+    report = (REPO_ROOT / "members" / "ankit-google" /
+              "task-05-trend-report.md").read_text(encoding="utf-8")
+    assert "848" in report
+    assert "corrections.md#" in report

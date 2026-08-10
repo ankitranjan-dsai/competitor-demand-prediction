@@ -15,6 +15,7 @@ correction — limitations belong in the task report's own limitations section.
 | [C1](#c1--raw-monthly-counts-are-not-a-hiring-velocity-signal) | Monthly posting counts are "already a usable hiring-velocity signal" | Task 02 §3 (Google) | Task 05 §1.1, §3 | ✅ corrected |
 | [C2](#c2--five-of-task-04s-ten-headline-skill-movers-do-not-survive-stratification) | 10 headline emerging/declining skills, Looker among them | Task 04 §5 (Google) | Task 05 §5 | ✅ corrected |
 | [C3](#c3--posting_date-is-an-aggregator-first-seen-date-not-a-publication-date) | `posting_date` is a posting date at "daily granularity" | Task 01 §5.2 schema, Task 02 §3, Task 03 §1.3 | Task 05 §6 | ✅ corrected |
+| [C4](#c4--googles-posting-count-is-846-not-848) | Google has **848** postings | Task 02 §1, Tasks 03–05 (Google) | Task 06 §1.1 | ✅ corrected |
 
 ---
 
@@ -146,17 +147,84 @@ own company's data (`src/trends.py`) before quoting any date-level pattern.
 
 ---
 
+## C4 — Google's posting count is 846, not 848
+
+**What Tasks 02–05 said.** 848 Google-family postings, quoted in every Google
+report since collection: "848 postings, Jan–Dec 2023" (Task 02 §1), "848 rows ×
+44 columns" (Task 03), "601 of 848 postings skilled" (Task 04), "848 postings
+indexed each to January = 100" (Task 05).
+
+**What is actually true.** Two of those 848 rows are not Google. Task 02
+selected on a name pattern alone (`collect_google_jobs.GOOGLE_FAMILY_PATTERN`).
+Task 03 *did* spot the reseller — it wrote the third-party marker list
+(`preprocess.NON_ALPHABET_MARKERS`) and set `is_alphabet = False` on that row,
+"so the exclusion is visible and reversible" — but the flag lives downstream of
+the count, so every headline number stayed at 848. The second row nothing
+caught at all. Task 06 needed one employer rule that works for six companies,
+so `src/companies.py` applies include **and** exclude at selection and adds a
+check for employer fields that are not employers; both rows drop out:
+
+| Employer string | Why it is not Google | Audit reason |
+| --- | --- | --- |
+| `Geoambiente - Google Cloud Premier Partner` | a named reseller — a partner hiring for its own Google Cloud practice | `named_third_party` |
+| `Customer Engineer, Machine Learning, Google Cloud - Doha` | not an employer at all: the source put a role title in `company_name` | `role_string` |
+
+Both are visible in `task-06-tables/employer-matching-audit.csv`, which lists
+all 119 distinct employer strings the shortlist matched and the decision taken
+on each.
+
+**Consequence — smaller than it looks, and worth stating precisely.** Both rows
+are in the *denominator* of Google's counts, not in any skill or trend result
+that survived Task 05, and neither is in the balanced panel. The only published
+number that moves is the raw January base, which loses the Geoambiente row
+(2023-01-04): 90 → 89 postings, so December's **raw index goes from 91.11 to
+92.13**. Every other treatment is unchanged, because they are computed on
+publishers that carry Google throughout:
+
+| Treatment | Task 05 (848) | Task 06 (846) |
+| --- | --- | --- |
+| raw | 91.11 | **92.13** |
+| balanced | 115.38 | 115.38 |
+| chained | 185.38 | 185.38 |
+| bilateral | 191.18 | 191.18 |
+
+C1's finding is untouched: the treatments still span decline to +91%, and the
+direction of Google's 2023 volume is still not identified.
+
+**What this changes going forward.** Task 06 onward reports Google at **846**.
+Tasks 02–05 keep their wording and their 848 — they were computed on 848 and
+rewriting them would make the register a lie — and each carries a pointer here.
+`data/raw/google/google_jobs_hf_backfill_2023.parquet` still holds all 848 rows;
+Task 06 writes its own selection to `data/raw/task-06/` and does not touch it.
+
+**The general lesson for the other three specialists.** A substring match is not
+an employer resolver. "Microsoft" catches `Metasys Technologies`; "Meta" catches
+`OpenAirlines`; every company on the shortlist has resellers, staffing agencies
+and partner firms carrying its name. Add your company to `src/companies.py` with
+both patterns, then **read your rows in the audit table** — mine had two wrong
+in 848, which is 0.2% of the count and 100% of the trust in it.
+
+Evidence: `members/ankit-google/task-06-tables/employer-matching-audit.csv`,
+`competitor-set-manifest.csv`, `volume-panel-sensitivity.csv`, against
+`members/ankit-google/task-05-tables/panel-sensitivity.csv`.
+
+---
+
 ## What every specialist should take from this
 
-The three corrections are the same mistake in three costumes: **a number
-computed over an unstable collection was read as a fact about a company.**
+The first three corrections are the same mistake in three costumes: **a number
+computed over an unstable collection was read as a fact about a company.** The
+fourth is its twin — **a number computed over an unchecked set of employers.**
 Before a claim leaves your report, check it against the collection:
 
 1. Is the publisher set behind this number stable over the window? If not, the
    number describes the panel. → C1
 2. Would this pooled share still move if the segment mix were held fixed? → C2
 3. Does this date field mean what its name implies? → C3
+4. Is every employer string in your denominator actually your company? → C4
 
-`src/trends.py` has a function for each check — `publisher_panel_table` /
-`panel_verdict`, `stratified_verdict`, and `weekend_share` / `seasonality_table`
-— and `docs/task-05-trend-analysis-methods.md` documents how to run them.
+`src/trends.py` has a function for each of the first three —
+`publisher_panel_table` / `panel_verdict`, `stratified_verdict`, and
+`weekend_share` / `seasonality_table` — and `src/companies.py` has
+`matching_audit` for the fourth. `docs/task-05-trend-analysis-methods.md` and
+`docs/task-06-competitor-comparison-methods.md` document how to run them.

@@ -3,7 +3,9 @@
 **Specialist:** Ankit Ranjan · **Company:** Google (Alphabet) · **Date:** 2026-07-25
 
 Input: 848 Google-family postings, cleaned in Task 03
-(`data/processed/google/google_jobs_clean.parquet`, calendar year 2023).
+(`data/processed/google/google_jobs_clean.parquet`, calendar year 2023) — two
+of which are not Google; see
+[C4](../../docs/corrections.md#c4--googles-posting-count-is-846-not-848).
 Output: an extracted-skills dataset of **2,340 posting-skill rows covering 91
 distinct skills**, plus per-posting features and eight aggregate tables.
 

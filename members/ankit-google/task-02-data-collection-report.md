@@ -53,6 +53,13 @@ row counts, columns, date range, and the rebuild command.
   > panel is declared, and on this data the direction of 2023 volume is
   > **not identified**.
 
+  > **Corrected by Task 06 → [C4](../../docs/corrections.md#c4--googles-posting-count-is-846-not-848).**
+  > Two of the 848 are not Google: `Geoambiente - Google Cloud Premier
+  > Partner`, a named reseller, and one row whose `company_name` is a role
+  > title. This selection matched on the name pattern alone; the third-party
+  > exclusions existed in Task 03 but ran downstream of this count. **Google
+  > is 846 postings from Task 06 onward.**
+
 - **Company mix:** Google/Google Inc./regional Google entities (~740), plus
   Alphabet family: Waymo (49), Verily (31), DeepMind, YouTube, Google Fiber.
   Kept the family split so Task 5/6 can analyse Alphabet-wide vs core-Google.
