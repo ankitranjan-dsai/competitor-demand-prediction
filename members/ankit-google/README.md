@@ -27,7 +27,18 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       91 raw / 115 balanced / 185 chained; 8 of Task 04's skill trends do not
       survive stratification, Looker first). Corrections it forced on Tasks
       01–04 are registered in [`docs/corrections.md`](../../docs/corrections.md)
-- [ ] Task 06 — Competitor comparison
+- [x] Task 06 — Competitor comparison → `task-06-comparison-report.md`
+      (six-company set — Google, Meta, Microsoft, Snowflake, Databricks, NVIDIA;
+      OpenAI and Anthropic fail the feasibility screen on 14 and 9 postings.
+      Standard in `docs/task-06-competitor-comparison-methods.md`; 359 tests;
+      33 tables + 9 figures. Cross-company **levels are not identified** —
+      Snowflake's common-panel share is 23.5% against a 40% floor. What is:
+      share of the seven-publisher common pool, where **Google's fell 4.84 pp
+      H1→H2**, holding in 4 of 6 publishers. Google has the lowest skill
+      coverage of the six and it survives standardising (70.8% → 76.4%); only
+      33 of its 182 pair-skill comparisons survive stratification. Raised
+      [C4](../../docs/corrections.md#c4--googles-posting-count-is-846-not-848):
+      Google is 846 postings, not 848)
 - [ ] Task 07 — Demand forecasting
 - [ ] Task 08 — Company similarity scoring
 - [ ] Task 09 — Insight generation & reporting

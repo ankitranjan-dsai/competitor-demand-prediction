@@ -26,6 +26,14 @@ one shared hiring-intelligence model.
 _Companies to choose from (examples): Google, Microsoft, OpenAI, Snowflake,
 Databricks, NVIDIA, Meta, Anthropic. Each member must pick a **unique** company._
 
+> While the other three seats are open, Task 06 builds the comparison set
+> itself — Meta, Microsoft, Snowflake, Databricks and NVIDIA alongside Google.
+> Those five have no specialist, so their brand ladders and exclusions were
+> written by one person and are published as an auditable table
+> (`members/ankit-google/task-06-tables/employer-matching-audit.csv`) for the
+> incoming specialists to overrule. OpenAI and Anthropic were screened out:
+> this dataset holds 14 and 9 of their 2023 postings.
+
 ## Rotating Weekly Roles
 
 Roles rotate every week; decisions/blockers/progress are documented in
@@ -45,7 +53,7 @@ Roles rotate every week; decisions/blockers/progress are documented in
 | 03 | NLP Preprocessing & Method Selection | Cleaned text + documented workflow | ✅ Google done → `docs/task-03-preprocessing-methods.md` (team standard) + `members/ankit-google/task-03-preprocessing-report.md` (848 rows cleaned, 89 tests) |
 | 04 | Skill Extraction & Feature Engineering | Extracted-skills dataset + feature tables | ✅ Google done → `docs/task-04-skill-taxonomy.md` (shared taxonomy + method) + `members/ankit-google/task-04-skill-extraction-report.md` (2,340 skill rows, 91 skills, 157 tests) |
 | 05 | Hiring Trend Analysis | Trend tables + visual summaries | ✅ Google done → `docs/task-05-trend-analysis-methods.md` (team standard) + `members/ankit-google/task-05-trend-report.md` (19 trend tables, 8 figures, 214 tests) |
-| 06 | Competitor Comparison | Comparison tables + visuals | ⬜ |
+| 06 | Competitor Comparison | Comparison tables + visuals | ✅ Google done → `docs/task-06-competitor-comparison-methods.md` (team standard) + `members/ankit-google/task-06-comparison-report.md` (six companies, 33 comparison tables, 9 figures, 359 tests) |
 | 07 | Demand Forecasting | Forecast outputs + plots | ⬜ |
 | 08 | Company Similarity Scoring | Similarity tables + heatmaps/network graphs | ⬜ |
 | 09 | Insight Generation & Reporting | Insight report + visuals | ⬜ |
@@ -80,9 +88,9 @@ competitor-demand-prediction/
 - **Corrections are recorded, not overwritten.** A task is submitted the moment
   it closes, so when a later task disproves an earlier claim the original
   wording stays put and gains a pointer to
-  [`docs/corrections.md`](docs/corrections.md). Three claims have been
-  corrected so far, all by Task 05, and each one is checked against its
-  evidence table by `tests/test_corrections.py`.
+  [`docs/corrections.md`](docs/corrections.md). Four claims have been
+  corrected so far — three by Task 05, one by Task 06 — and each one is checked
+  against its evidence table by `tests/test_corrections.py`.
 
 ## Getting Started
 
