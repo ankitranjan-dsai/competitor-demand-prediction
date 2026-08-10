@@ -1,0 +1,55 @@
+skill,skill_category,company_a,company_b,a_with_skill,a_n,a_share,b_with_skill,b_n,b_share,diff,ci_low,ci_high,p_value,q_value,significant,a_vendor_relation,b_vendor_relation,self_referential
+Java,Programming Language,google,meta,132,590,0.2237,72,838,0.0859,0.1378,0.0998,0.1771,2.3356951182696377e-13,0.0,True,,,False
+Go,Programming Language,google,meta,94,590,0.1593,19,838,0.0227,0.1366,0.1066,0.1694,4.543061424073169e-21,0.0,True,origin,,True
+Looker,Analytics / BI,google,meta,70,590,0.1186,5,838,0.006,0.1127,0.0877,0.1415,5.521943475191733e-21,0.0,True,own_product,,True
+JavaScript,Programming Language,google,meta,73,590,0.1237,17,838,0.0203,0.1034,0.0765,0.1334,2.3624977666463326e-15,0.0,True,,,False
+BigQuery,Cloud Platform,google,meta,62,590,0.1051,11,838,0.0131,0.092,0.0675,0.1199,7.903406010362024e-15,0.0,True,own_product,,True
+TensorFlow,ML / AI,google,meta,71,590,0.1203,32,838,0.0382,0.0822,0.0539,0.1129,3.44358948546108e-09,0.0,True,origin,,True
+Linux,OS / Shell,google,meta,49,590,0.0831,7,838,0.0084,0.0747,0.0532,0.1001,8.033986021064016e-13,0.0,True,,,False
+NoSQL,Database,google,meta,47,590,0.0797,5,838,0.006,0.0737,0.0529,0.0986,2.471993260696999e-13,0.0,True,,,False
+C,Programming Language,google,meta,36,590,0.061,15,838,0.0179,0.0431,0.0229,0.0665,1.5374638306790452e-05,4e-05,True,,,False
+GCP,Cloud Platform,google,meta,24,590,0.0407,1,838,0.0012,0.0395,0.0252,0.0586,2.1191696226177025e-08,0.0,True,own_product,,True
+MongoDB,Database,google,meta,21,590,0.0356,0,838,0.0,0.0356,0.0226,0.0538,3.754497465422978e-08,0.0,True,,,False
+SAP,Analytics / BI,google,meta,19,590,0.0322,2,838,0.0024,0.0298,0.0167,0.0474,4.044226346714244e-06,1e-05,True,,,False
+Oracle,Database,google,meta,20,590,0.0339,5,838,0.006,0.0279,0.0137,0.0461,7.405099177421363e-05,0.00016,True,,,False
+Snowflake,Cloud Platform,google,meta,15,590,0.0254,1,838,0.0012,0.0242,0.0128,0.0404,1.8400224526087325e-05,4e-05,True,,,False
+Kubernetes,DevOps / Infrastructure,google,meta,12,590,0.0203,0,838,0.0,0.0203,0.0105,0.0352,3.384775749562158e-05,8e-05,True,origin,,True
+Shell,OS / Shell,google,meta,14,590,0.0237,6,838,0.0072,0.0166,0.0039,0.0327,0.008701811365477262,0.0127,True,,,False
+Express,Web / Frontend,google,meta,15,590,0.0254,8,838,0.0095,0.0159,0.0023,0.0326,0.018933332839626255,0.02691,True,,,False
+C++,Programming Language,google,meta,102,590,0.1729,138,838,0.1647,0.0082,-0.0307,0.0484,0.6831080843960943,0.7031,False,,,False
+Airflow,Data Engineering,google,meta,11,590,0.0186,10,838,0.0119,0.0067,-0.0061,0.0221,0.29956112853956995,0.33013,False,,,False
+HTML,Web / Frontend,google,meta,9,590,0.0153,13,838,0.0155,-0.0003,-0.0133,0.0147,0.9688002296586276,0.9688,False,,,False
+React,Web / Frontend,google,meta,7,590,0.0119,12,838,0.0143,-0.0025,-0.0146,0.0114,0.6900762162471274,0.7031,False,,own_product,True
+CSS,Web / Frontend,google,meta,7,590,0.0119,12,838,0.0143,-0.0025,-0.0146,0.0114,0.6900762162471274,0.7031,False,,,False
+Microsoft Word,Office / Productivity,google,meta,3,590,0.0051,10,838,0.0119,-0.0068,-0.0173,0.0043,0.17969556532398542,0.20394,False,,,False
+Microsoft Outlook,Office / Productivity,google,meta,3,590,0.0051,11,838,0.0131,-0.008,-0.0188,0.0033,0.12883648660307798,0.15812,False,,,False
+Redshift,Cloud Platform,google,meta,3,590,0.0051,11,838,0.0131,-0.008,-0.0188,0.0033,0.12883648660307798,0.15812,False,,,False
+Keras,ML / AI,google,meta,5,590,0.0085,14,838,0.0167,-0.0082,-0.0204,0.0048,0.18127610644314654,0.20394,False,origin,,True
+AWS,Cloud Platform,google,meta,5,590,0.0085,16,838,0.0191,-0.0106,-0.0233,0.0028,0.10071106460197296,0.13264,False,,,False
+GraphQL,Web / Frontend,google,meta,0,590,0.0,11,838,0.0131,-0.0131,-0.0234,-0.0045,0.005210905461248643,0.00879,True,,,False
+Perl,Programming Language,google,meta,17,590,0.0288,36,838,0.043,-0.0141,-0.0334,0.0064,0.16381254292354933,0.1923,False,,,False
+Machine Learning,ML / AI,google,meta,61,590,0.1034,99,838,0.1181,-0.0147,-0.0471,0.0191,0.3842742636809278,0.41502,False,,,False
+Excel,Analytics / BI,google,meta,8,590,0.0136,25,838,0.0298,-0.0163,-0.0316,-0.0002,0.0438672298062785,0.05922,False,,,False
+Generative AI,ML / AI,google,meta,0,590,0.0,14,838,0.0167,-0.0167,-0.0278,-0.0074,0.0016046593821553911,0.003,True,,,False
+PyTorch,ML / AI,google,meta,18,590,0.0305,40,838,0.0477,-0.0172,-0.0372,0.004,0.10446246825488607,0.13431,False,,own_product,True
+Azure,Cloud Platform,google,meta,5,590,0.0085,24,838,0.0286,-0.0202,-0.0346,-0.0056,0.0078109743932407005,0.0124,True,,,False
+Seaborn,Data Science Libraries,google,meta,0,590,0.0,17,838,0.0203,-0.0203,-0.0322,-0.0103,0.0005006672724623246,0.001,True,,,False
+NumPy,Data Science Libraries,google,meta,6,590,0.0102,27,838,0.0322,-0.0221,-0.0373,-0.0066,0.006319490656656161,0.01034,True,,,False
+pandas,Data Science Libraries,google,meta,17,590,0.0288,43,838,0.0513,-0.0225,-0.0427,-0.0012,0.036915965834095905,0.05111,False,,,False
+Scala,Programming Language,google,meta,53,590,0.0898,95,838,0.1134,-0.0235,-0.0545,0.0089,0.15078645356151898,0.18094,False,,,False
+SPSS,Analytics / BI,google,meta,7,590,0.0119,32,838,0.0382,-0.0263,-0.0427,-0.0097,0.002655869620895272,0.00463,True,,,False
+Git,DevOps / Infrastructure,google,meta,0,590,0.0,28,838,0.0334,-0.0334,-0.0479,-0.0213,7.319464232046046e-06,2e-05,True,,,False
+Spark,Data Engineering,google,meta,36,590,0.061,84,838,0.1002,-0.0392,-0.0669,-0.0102,0.00852504215480236,0.0127,True,,,False
+Matplotlib,Data Science Libraries,google,meta,0,590,0.0,34,838,0.0406,-0.0406,-0.0562,-0.0275,7.3473825407153e-07,0.0,True,,,False
+ggplot2,Data Science Libraries,google,meta,0,590,0.0,35,838,0.0418,-0.0418,-0.0575,-0.0285,5.006926617164591e-07,0.0,True,,,False
+MATLAB,Programming Language,google,meta,30,590,0.0508,80,838,0.0955,-0.0446,-0.0711,-0.017,0.001847986266563292,0.00333,True,,,False
+Hadoop,Data Engineering,google,meta,58,590,0.0983,122,838,0.1456,-0.0473,-0.0806,-0.0125,0.008035104503073058,0.0124,True,,,False
+SAS,Analytics / BI,google,meta,34,590,0.0576,88,838,0.105,-0.0474,-0.0751,-0.0185,0.0016089640666761599,0.003,True,,,False
+dplyr,Data Science Libraries,google,meta,0,590,0.0,43,838,0.0513,-0.0513,-0.0684,-0.0368,2.310467680931348e-08,0.0,True,,,False
+Tableau,Analytics / BI,google,meta,30,590,0.0508,88,838,0.105,-0.0542,-0.0813,-0.026,0.00025164407879740483,0.00052,True,,,False
+scikit-learn,ML / AI,google,meta,6,590,0.0102,54,838,0.0644,-0.0543,-0.0738,-0.0354,4.82176478203026e-07,0.0,True,,,False
+PHP,Programming Language,google,meta,1,590,0.0017,59,838,0.0704,-0.0687,-0.0881,-0.0514,1.8581688270254063e-10,0.0,True,,,False
+C#,Programming Language,google,meta,14,590,0.0237,91,838,0.1086,-0.0849,-0.1097,-0.06,1.4483429989303503e-09,0.0,True,,,False
+R,Programming Language,google,meta,214,590,0.3627,463,838,0.5525,-0.1898,-0.2402,-0.1377,1.5203176953604286e-12,0.0,True,,,False
+Python,Programming Language,google,meta,372,590,0.6305,728,838,0.8687,-0.2382,-0.2832,-0.193,5.755069957571868e-26,0.0,True,,,False
+SQL,Programming Language,google,meta,255,590,0.4322,718,838,0.8568,-0.4246,-0.4698,-0.377,1.7319530728596267e-64,0.0,True,,,False

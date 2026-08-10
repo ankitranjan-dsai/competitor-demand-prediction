@@ -1,0 +1,7 @@
+company,pooled_log_share_change,publishers_tested,publishers_agreeing,verdict,direction
+databricks,0.293,6,4,mixed,gaining share
+google,-0.182,6,4,mixed,losing share
+meta,0.05,6,5,mixed,gaining share
+microsoft,0.237,6,4,mixed,gaining share
+nvidia,0.347,6,6,confirmed,gaining share
+snowflake,-1.19,6,5,mixed,losing share

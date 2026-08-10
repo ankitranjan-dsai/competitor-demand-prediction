@@ -1,0 +1,461 @@
+company,skill,skill_category,postings_with_skill,n_skilled,share_of_skilled,ci_low,ci_high,supported
+databricks,AWS,Cloud Platform,165,340,0.4853,0.4326,0.5383,True
+databricks,Angular,Web / Frontend,4,340,0.0118,0.0046,0.0299,False
+databricks,Azure,Cloud Platform,145,340,0.4265,0.375,0.4796,True
+databricks,C,Programming Language,1,340,0.0029,0.0005,0.0165,False
+databricks,C#,Programming Language,4,340,0.0118,0.0046,0.0299,False
+databricks,C++,Programming Language,35,340,0.1029,0.075,0.1398,True
+databricks,CSS,Web / Frontend,4,340,0.0118,0.0046,0.0299,False
+databricks,Cassandra,Database,18,340,0.0529,0.0337,0.0821,True
+databricks,Databricks,Cloud Platform,338,340,0.9941,0.9788,0.9984,True
+databricks,Docker,DevOps / Infrastructure,9,340,0.0265,0.014,0.0495,False
+databricks,Elasticsearch,Database,5,340,0.0147,0.0063,0.034,False
+databricks,Excel,Analytics / BI,263,340,0.7735,0.7261,0.8148,True
+databricks,GCP,Cloud Platform,113,340,0.3324,0.2844,0.3841,True
+databricks,Generative AI,ML / AI,3,340,0.0088,0.003,0.0256,False
+databricks,Git,DevOps / Infrastructure,24,340,0.0706,0.0479,0.1029,True
+databricks,GitHub,DevOps / Infrastructure,3,340,0.0088,0.003,0.0256,False
+databricks,Go,Programming Language,28,340,0.0824,0.0576,0.1164,True
+databricks,Google Sheets,Analytics / BI,19,340,0.0559,0.0361,0.0856,True
+databricks,HTML,Web / Frontend,4,340,0.0118,0.0046,0.0299,False
+databricks,Hadoop,Data Engineering,120,340,0.3529,0.304,0.4051,True
+databricks,Java,Programming Language,95,340,0.2794,0.2344,0.3294,True
+databricks,JavaScript,Programming Language,4,340,0.0118,0.0046,0.0299,False
+databricks,Jenkins,DevOps / Infrastructure,13,340,0.0382,0.0225,0.0643,True
+databricks,Jira,Office / Productivity,1,340,0.0029,0.0005,0.0165,False
+databricks,Kafka,Data Engineering,90,340,0.2647,0.2206,0.314,True
+databricks,Kubernetes,DevOps / Infrastructure,17,340,0.05,0.0314,0.0786,True
+databricks,Linux,OS / Shell,7,340,0.0206,0.01,0.0419,False
+databricks,Looker,Analytics / BI,41,340,0.1206,0.0901,0.1595,True
+databricks,Machine Learning,ML / AI,19,340,0.0559,0.0361,0.0856,True
+databricks,Microsoft Word,Office / Productivity,10,340,0.0294,0.0161,0.0533,True
+databricks,MySQL,Database,7,340,0.0206,0.01,0.0419,False
+databricks,NLTK,ML / AI,3,340,0.0088,0.003,0.0256,False
+databricks,NoSQL,Database,8,340,0.0235,0.012,0.0457,False
+databricks,Oracle,Database,6,340,0.0176,0.0081,0.038,False
+databricks,PyTorch,ML / AI,7,340,0.0206,0.01,0.0419,False
+databricks,Python,Programming Language,201,340,0.5912,0.5382,0.6421,True
+databricks,R,Programming Language,51,340,0.15,0.116,0.1919,True
+databricks,React,Web / Frontend,4,340,0.0118,0.0046,0.0299,False
+databricks,SQL,Programming Language,184,340,0.5412,0.488,0.5934,True
+databricks,SQL Server,Database,6,340,0.0176,0.0081,0.038,False
+databricks,Scala,Programming Language,169,340,0.4971,0.4442,0.5499,True
+databricks,Shell,OS / Shell,2,340,0.0059,0.0016,0.0212,False
+databricks,Spark,Data Engineering,246,340,0.7235,0.6737,0.7684,True
+databricks,Spring,Web / Frontend,8,340,0.0235,0.012,0.0457,False
+databricks,Tableau,Analytics / BI,66,340,0.1941,0.1556,0.2395,True
+databricks,TensorFlow,ML / AI,7,340,0.0206,0.01,0.0419,False
+databricks,Terraform,DevOps / Infrastructure,4,340,0.0118,0.0046,0.0299,False
+databricks,pandas,Data Science Libraries,27,340,0.0794,0.0551,0.1131,True
+databricks,scikit-learn,ML / AI,27,340,0.0794,0.0551,0.1131,True
+google,AWS,Cloud Platform,5,590,0.0085,0.0036,0.0197,False
+google,Airflow,Data Engineering,11,590,0.0186,0.0104,0.0331,True
+google,Angular,Web / Frontend,3,590,0.0051,0.0017,0.0148,False
+google,Ansible,DevOps / Infrastructure,5,590,0.0085,0.0036,0.0197,False
+google,Assembly,Programming Language,3,590,0.0051,0.0017,0.0148,False
+google,Azure,Cloud Platform,5,590,0.0085,0.0036,0.0197,False
+google,Bash,OS / Shell,4,590,0.0068,0.0026,0.0173,False
+google,BigQuery,Cloud Platform,62,590,0.1051,0.0828,0.1324,True
+google,C,Programming Language,36,590,0.061,0.0444,0.0833,True
+google,C#,Programming Language,14,590,0.0237,0.0142,0.0394,True
+google,C++,Programming Language,102,590,0.1729,0.1445,0.2055,True
+google,CSS,Web / Frontend,7,590,0.0119,0.0058,0.0243,False
+google,Cassandra,Database,2,590,0.0034,0.0009,0.0123,False
+google,Chef,DevOps / Infrastructure,3,590,0.0051,0.0017,0.0148,False
+google,Cognos,Analytics / BI,4,590,0.0068,0.0026,0.0173,False
+google,Colocation,Facilities / Data Centre,4,590,0.0068,0.0026,0.0173,False
+google,Computer Vision,ML / AI,1,590,0.0017,0.0003,0.0095,False
+google,Dart,Programming Language,1,590,0.0017,0.0003,0.0095,False
+google,Docker,DevOps / Infrastructure,9,590,0.0153,0.008,0.0287,False
+google,Elasticsearch,Database,1,590,0.0017,0.0003,0.0095,False
+google,Excel,Analytics / BI,8,590,0.0136,0.0069,0.0265,False
+google,Express,Web / Frontend,15,590,0.0254,0.0155,0.0415,True
+google,Firebase,Cloud Platform,1,590,0.0017,0.0003,0.0095,False
+google,Flutter,Web / Frontend,1,590,0.0017,0.0003,0.0095,False
+google,GCP,Cloud Platform,24,590,0.0407,0.0275,0.0598,True
+google,GDPR,Governance / Compliance,1,590,0.0017,0.0003,0.0095,False
+google,GitHub,DevOps / Infrastructure,4,590,0.0068,0.0026,0.0173,False
+google,Go,Programming Language,94,590,0.1593,0.132,0.191,True
+google,Google Sheets,Analytics / BI,5,590,0.0085,0.0036,0.0197,False
+google,HTML,Web / Frontend,9,590,0.0153,0.008,0.0287,False
+google,Hadoop,Data Engineering,58,590,0.0983,0.0768,0.125,True
+google,Java,Programming Language,132,590,0.2237,0.1919,0.2591,True
+google,JavaScript,Programming Language,73,590,0.1237,0.0996,0.1528,True
+google,Jenkins,DevOps / Infrastructure,6,590,0.0102,0.0047,0.022,False
+google,Jupyter,Data Science Libraries,3,590,0.0051,0.0017,0.0148,False
+google,Kafka,Data Engineering,4,590,0.0068,0.0026,0.0173,False
+google,Keras,ML / AI,5,590,0.0085,0.0036,0.0197,False
+google,Kotlin,Programming Language,3,590,0.0051,0.0017,0.0148,False
+google,Kubernetes,DevOps / Infrastructure,12,590,0.0203,0.0117,0.0352,True
+google,Linux,OS / Shell,49,590,0.0831,0.0634,0.1081,True
+google,Looker,Analytics / BI,70,590,0.1186,0.095,0.1472,True
+google,MATLAB,Programming Language,30,590,0.0508,0.0358,0.0717,True
+google,MXNet,ML / AI,3,590,0.0051,0.0017,0.0148,False
+google,Machine Learning,ML / AI,61,590,0.1034,0.0813,0.1306,True
+google,MicroStrategy,Analytics / BI,4,590,0.0068,0.0026,0.0173,False
+google,Microsoft Access,Database,1,590,0.0017,0.0003,0.0095,False
+google,Microsoft Outlook,Office / Productivity,3,590,0.0051,0.0017,0.0148,False
+google,Microsoft Word,Office / Productivity,3,590,0.0051,0.0017,0.0148,False
+google,MongoDB,Database,21,590,0.0356,0.0234,0.0538,True
+google,MySQL,Database,5,590,0.0085,0.0036,0.0197,False
+google,NoSQL,Database,47,590,0.0797,0.0604,0.1043,True
+google,NumPy,Data Science Libraries,6,590,0.0102,0.0047,0.022,False
+google,Objective-C,Programming Language,4,590,0.0068,0.0026,0.0173,False
+google,OpenStack,Cloud Platform,1,590,0.0017,0.0003,0.0095,False
+google,Oracle,Database,20,590,0.0339,0.022,0.0518,True
+google,PHP,Programming Language,1,590,0.0017,0.0003,0.0095,False
+google,Perl,Programming Language,17,590,0.0288,0.0181,0.0457,True
+google,Plotly,Data Science Libraries,5,590,0.0085,0.0036,0.0197,False
+google,Power BI,Analytics / BI,7,590,0.0119,0.0058,0.0243,False
+google,Puppet,DevOps / Infrastructure,3,590,0.0051,0.0017,0.0148,False
+google,PyTorch,ML / AI,18,590,0.0305,0.0194,0.0477,True
+google,Python,Programming Language,372,590,0.6305,0.5908,0.6685,True
+google,Qlik,Analytics / BI,1,590,0.0017,0.0003,0.0095,False
+google,R,Programming Language,214,590,0.3627,0.3249,0.4023,True
+google,React,Web / Frontend,7,590,0.0119,0.0058,0.0243,False
+google,Redis,Database,1,590,0.0017,0.0003,0.0095,False
+google,Redshift,Cloud Platform,3,590,0.0051,0.0017,0.0148,False
+google,Ruby,Programming Language,1,590,0.0017,0.0003,0.0095,False
+google,Rust,Programming Language,4,590,0.0068,0.0026,0.0173,False
+google,SAP,Analytics / BI,19,590,0.0322,0.0207,0.0497,True
+google,SAS,Analytics / BI,34,590,0.0576,0.0415,0.0794,True
+google,SPSS,Analytics / BI,7,590,0.0119,0.0058,0.0243,False
+google,SQL,Programming Language,255,590,0.4322,0.3928,0.4725,True
+google,SQL Server,Database,3,590,0.0051,0.0017,0.0148,False
+google,Scala,Programming Language,53,590,0.0898,0.0693,0.1156,True
+google,Shell,OS / Shell,14,590,0.0237,0.0142,0.0394,True
+google,Snowflake,Cloud Platform,15,590,0.0254,0.0155,0.0415,True
+google,Spark,Data Engineering,36,590,0.061,0.0444,0.0833,True
+google,Splunk,DevOps / Infrastructure,3,590,0.0051,0.0017,0.0148,False
+google,Swift,Programming Language,3,590,0.0051,0.0017,0.0148,False
+google,Tableau,Analytics / BI,30,590,0.0508,0.0358,0.0717,True
+google,TensorFlow,ML / AI,71,590,0.1203,0.0965,0.1491,True
+google,Terraform,DevOps / Infrastructure,7,590,0.0119,0.0058,0.0243,False
+google,TypeScript,Programming Language,9,590,0.0153,0.008,0.0287,False
+google,Ubuntu,OS / Shell,1,590,0.0017,0.0003,0.0095,False
+google,Unix,OS / Shell,6,590,0.0102,0.0047,0.022,False
+google,VMware,Cloud Platform,1,590,0.0017,0.0003,0.0095,False
+google,Windows,OS / Shell,5,590,0.0085,0.0036,0.0197,False
+google,macOS,OS / Shell,4,590,0.0068,0.0026,0.0173,False
+google,pandas,Data Science Libraries,17,590,0.0288,0.0181,0.0457,True
+google,scikit-learn,ML / AI,6,590,0.0102,0.0047,0.022,False
+meta,AWS,Cloud Platform,16,838,0.0191,0.0118,0.0308,True
+meta,Airflow,Data Engineering,10,838,0.0119,0.0065,0.0218,True
+meta,Alteryx,Analytics / BI,1,838,0.0012,0.0002,0.0067,False
+meta,Azure,Cloud Platform,24,838,0.0286,0.0193,0.0423,True
+meta,Bash,OS / Shell,4,838,0.0048,0.0019,0.0122,False
+meta,BigQuery,Cloud Platform,11,838,0.0131,0.0073,0.0234,True
+meta,C,Programming Language,15,838,0.0179,0.0109,0.0293,True
+meta,C#,Programming Language,91,838,0.1086,0.0893,0.1315,True
+meta,C++,Programming Language,138,838,0.1647,0.1411,0.1913,True
+meta,CSS,Web / Frontend,12,838,0.0143,0.0082,0.0249,True
+meta,Cognos,Analytics / BI,1,838,0.0012,0.0002,0.0067,False
+meta,Colocation,Facilities / Data Centre,3,838,0.0036,0.0012,0.0105,False
+meta,Computer Vision,ML / AI,6,838,0.0072,0.0033,0.0155,False
+meta,Databricks,Cloud Platform,7,838,0.0084,0.0041,0.0171,False
+meta,Docker,DevOps / Infrastructure,1,838,0.0012,0.0002,0.0067,False
+meta,Elasticsearch,Database,7,838,0.0084,0.0041,0.0171,False
+meta,Excel,Analytics / BI,25,838,0.0298,0.0203,0.0437,True
+meta,Express,Web / Frontend,8,838,0.0095,0.0048,0.0187,False
+meta,GCP,Cloud Platform,1,838,0.0012,0.0002,0.0067,False
+meta,Generative AI,ML / AI,14,838,0.0167,0.01,0.0278,True
+meta,Git,DevOps / Infrastructure,28,838,0.0334,0.0232,0.0479,True
+meta,GitHub,DevOps / Infrastructure,5,838,0.006,0.0026,0.0139,False
+meta,GitLab,DevOps / Infrastructure,5,838,0.006,0.0026,0.0139,False
+meta,Go,Programming Language,19,838,0.0227,0.0146,0.0351,True
+meta,GraphQL,Web / Frontend,11,838,0.0131,0.0073,0.0234,True
+meta,HTML,Web / Frontend,13,838,0.0155,0.0091,0.0264,True
+meta,Hadoop,Data Engineering,122,838,0.1456,0.1233,0.1711,True
+meta,Java,Programming Language,72,838,0.0859,0.0688,0.1068,True
+meta,JavaScript,Programming Language,17,838,0.0203,0.0127,0.0322,True
+meta,Jenkins,DevOps / Infrastructure,3,838,0.0036,0.0012,0.0105,False
+meta,Jira,Office / Productivity,5,838,0.006,0.0026,0.0139,False
+meta,Julia,Programming Language,8,838,0.0095,0.0048,0.0187,False
+meta,Keras,ML / AI,14,838,0.0167,0.01,0.0278,True
+meta,Linux,OS / Shell,7,838,0.0084,0.0041,0.0171,False
+meta,Looker,Analytics / BI,5,838,0.006,0.0026,0.0139,False
+meta,MATLAB,Programming Language,80,838,0.0955,0.0774,0.1172,True
+meta,Machine Learning,ML / AI,99,838,0.1181,0.098,0.1418,True
+meta,Matplotlib,Data Science Libraries,34,838,0.0406,0.0292,0.0562,True
+meta,MicroStrategy,Analytics / BI,2,838,0.0024,0.0007,0.0087,False
+meta,Microsoft Outlook,Office / Productivity,11,838,0.0131,0.0073,0.0234,True
+meta,Microsoft Word,Office / Productivity,10,838,0.0119,0.0065,0.0218,True
+meta,MySQL,Database,2,838,0.0024,0.0007,0.0087,False
+meta,NLP,ML / AI,3,838,0.0036,0.0012,0.0105,False
+meta,NoSQL,Database,5,838,0.006,0.0026,0.0139,False
+meta,NumPy,Data Science Libraries,27,838,0.0322,0.0222,0.0465,True
+meta,Objective-C,Programming Language,2,838,0.0024,0.0007,0.0087,False
+meta,Oracle,Database,5,838,0.006,0.0026,0.0139,False
+meta,PHP,Programming Language,59,838,0.0704,0.055,0.0898,True
+meta,Perl,Programming Language,36,838,0.043,0.0312,0.0589,True
+meta,PyTorch,ML / AI,40,838,0.0477,0.0352,0.0643,True
+meta,Python,Programming Language,728,838,0.8687,0.8442,0.8899,True
+meta,R,Programming Language,463,838,0.5525,0.5187,0.5859,True
+meta,React,Web / Frontend,12,838,0.0143,0.0082,0.0249,True
+meta,Redshift,Cloud Platform,11,838,0.0131,0.0073,0.0234,True
+meta,Rust,Programming Language,1,838,0.0012,0.0002,0.0067,False
+meta,SAP,Analytics / BI,2,838,0.0024,0.0007,0.0087,False
+meta,SAS,Analytics / BI,88,838,0.105,0.086,0.1276,True
+meta,SPSS,Analytics / BI,32,838,0.0382,0.0272,0.0534,True
+meta,SQL,Programming Language,718,838,0.8568,0.8315,0.8789,True
+meta,Scala,Programming Language,95,838,0.1134,0.0936,0.1366,True
+meta,Seaborn,Data Science Libraries,17,838,0.0203,0.0127,0.0322,True
+meta,Shell,OS / Shell,6,838,0.0072,0.0033,0.0155,False
+meta,Snowflake,Cloud Platform,1,838,0.0012,0.0002,0.0067,False
+meta,Spark,Data Engineering,84,838,0.1002,0.0817,0.1224,True
+meta,Tableau,Analytics / BI,88,838,0.105,0.086,0.1276,True
+meta,TensorFlow,ML / AI,32,838,0.0382,0.0272,0.0534,True
+meta,Unix,OS / Shell,2,838,0.0024,0.0007,0.0087,False
+meta,VBA,Programming Language,7,838,0.0084,0.0041,0.0171,False
+meta,Windows,OS / Shell,1,838,0.0012,0.0002,0.0067,False
+meta,dplyr,Data Science Libraries,43,838,0.0513,0.0383,0.0684,True
+meta,ggplot2,Data Science Libraries,35,838,0.0418,0.0302,0.0575,True
+meta,pandas,Data Science Libraries,43,838,0.0513,0.0383,0.0684,True
+meta,scikit-learn,ML / AI,54,838,0.0644,0.0497,0.0831,True
+microsoft,.NET,Web / Frontend,5,504,0.0099,0.0042,0.023,False
+microsoft,AWS,Cloud Platform,46,504,0.0913,0.0691,0.1196,True
+microsoft,Airflow,Data Engineering,8,504,0.0159,0.0081,0.031,False
+microsoft,Angular,Web / Frontend,11,504,0.0218,0.0122,0.0387,True
+microsoft,Azure,Cloud Platform,316,504,0.627,0.584,0.6681,True
+microsoft,Bash,OS / Shell,1,504,0.002,0.0004,0.0112,False
+microsoft,C,Programming Language,45,504,0.0893,0.0674,0.1174,True
+microsoft,C#,Programming Language,183,504,0.3631,0.3223,0.406,True
+microsoft,C++,Programming Language,102,504,0.2024,0.1696,0.2396,True
+microsoft,CSS,Web / Frontend,23,504,0.0456,0.0306,0.0675,True
+microsoft,Cassandra,Database,13,504,0.0258,0.0151,0.0436,True
+microsoft,Confluence,Office / Productivity,1,504,0.002,0.0004,0.0112,False
+microsoft,Data Modelling,Data Engineering,4,504,0.0079,0.0031,0.0202,False
+microsoft,Databricks,Cloud Platform,67,504,0.1329,0.1061,0.1654,True
+microsoft,Docker,DevOps / Infrastructure,26,504,0.0516,0.0354,0.0745,True
+microsoft,ETL,Data Engineering,4,504,0.0079,0.0031,0.0202,False
+microsoft,Elasticsearch,Database,4,504,0.0079,0.0031,0.0202,False
+microsoft,Excel,Analytics / BI,39,504,0.0774,0.0571,0.104,True
+microsoft,Express,Web / Frontend,8,504,0.0159,0.0081,0.031,False
+microsoft,GCP,Cloud Platform,23,504,0.0456,0.0306,0.0675,True
+microsoft,GDPR,Governance / Compliance,1,504,0.002,0.0004,0.0112,False
+microsoft,Git,DevOps / Infrastructure,12,504,0.0238,0.0137,0.0412,True
+microsoft,GitHub,DevOps / Infrastructure,12,504,0.0238,0.0137,0.0412,True
+microsoft,Go,Programming Language,25,504,0.0496,0.0338,0.0722,True
+microsoft,GraphQL,Web / Frontend,4,504,0.0079,0.0031,0.0202,False
+microsoft,HTML,Web / Frontend,7,504,0.0139,0.0067,0.0284,False
+microsoft,Hadoop,Data Engineering,80,504,0.1587,0.1294,0.1932,True
+microsoft,Hugging Face,ML / AI,4,504,0.0079,0.0031,0.0202,False
+microsoft,Java,Programming Language,140,504,0.2778,0.2405,0.3185,True
+microsoft,JavaScript,Programming Language,44,504,0.0873,0.0657,0.1152,True
+microsoft,Jenkins,DevOps / Infrastructure,3,504,0.006,0.002,0.0174,False
+microsoft,Jira,Office / Productivity,1,504,0.002,0.0004,0.0112,False
+microsoft,Julia,Programming Language,2,504,0.004,0.0011,0.0144,False
+microsoft,Jupyter,Data Science Libraries,5,504,0.0099,0.0042,0.023,False
+microsoft,Kafka,Data Engineering,20,504,0.0397,0.0258,0.0605,True
+microsoft,Keras,ML / AI,8,504,0.0159,0.0081,0.031,False
+microsoft,Kotlin,Programming Language,1,504,0.002,0.0004,0.0112,False
+microsoft,Kubernetes,DevOps / Infrastructure,39,504,0.0774,0.0571,0.104,True
+microsoft,Linux,OS / Shell,25,504,0.0496,0.0338,0.0722,True
+microsoft,MATLAB,Programming Language,14,504,0.0278,0.0166,0.0461,True
+microsoft,Machine Learning,ML / AI,11,504,0.0218,0.0122,0.0387,True
+microsoft,Matplotlib,Data Science Libraries,2,504,0.004,0.0011,0.0144,False
+microsoft,MicroStrategy,Analytics / BI,1,504,0.002,0.0004,0.0112,False
+microsoft,Microsoft Outlook,Office / Productivity,20,504,0.0397,0.0258,0.0605,True
+microsoft,Microsoft Word,Office / Productivity,15,504,0.0298,0.0181,0.0485,True
+microsoft,MongoDB,Database,20,504,0.0397,0.0258,0.0605,True
+microsoft,MySQL,Database,13,504,0.0258,0.0151,0.0436,True
+microsoft,Neo4j,Database,6,504,0.0119,0.0055,0.0257,False
+microsoft,NoSQL,Database,18,504,0.0357,0.0227,0.0557,True
+microsoft,Node.js,Web / Frontend,4,504,0.0079,0.0031,0.0202,False
+microsoft,NumPy,Data Science Libraries,6,504,0.0119,0.0055,0.0257,False
+microsoft,Oracle,Database,11,504,0.0218,0.0122,0.0387,True
+microsoft,PHP,Programming Language,1,504,0.002,0.0004,0.0112,False
+microsoft,Perl,Programming Language,30,504,0.0595,0.042,0.0837,True
+microsoft,Plotly,Data Science Libraries,2,504,0.004,0.0011,0.0144,False
+microsoft,PostgreSQL,Database,16,504,0.0317,0.0196,0.0509,True
+microsoft,Power BI,Analytics / BI,86,504,0.1706,0.1403,0.2059,True
+microsoft,PowerPoint,Office / Productivity,10,504,0.0198,0.0108,0.0361,True
+microsoft,PowerShell,OS / Shell,17,504,0.0337,0.0212,0.0534,True
+microsoft,PyTorch,ML / AI,44,504,0.0873,0.0657,0.1152,True
+microsoft,Python,Programming Language,239,504,0.4742,0.431,0.5178,True
+microsoft,Qlik,Analytics / BI,5,504,0.0099,0.0042,0.023,False
+microsoft,R,Programming Language,76,504,0.1508,0.1222,0.1847,True
+microsoft,React,Web / Frontend,24,504,0.0476,0.0322,0.0699,True
+microsoft,Redis,Database,13,504,0.0258,0.0151,0.0436,True
+microsoft,Redshift,Cloud Platform,3,504,0.006,0.002,0.0174,False
+microsoft,Ruby,Programming Language,11,504,0.0218,0.0122,0.0387,True
+microsoft,Ruby on Rails,Web / Frontend,3,504,0.006,0.002,0.0174,False
+microsoft,Rust,Programming Language,1,504,0.002,0.0004,0.0112,False
+microsoft,SAP,Analytics / BI,16,504,0.0317,0.0196,0.0509,True
+microsoft,SAS,Analytics / BI,16,504,0.0317,0.0196,0.0509,True
+microsoft,SQL,Programming Language,210,504,0.4167,0.3744,0.4602,True
+microsoft,SQL Server,Database,26,504,0.0516,0.0354,0.0745,True
+microsoft,Scala,Programming Language,29,504,0.0575,0.0404,0.0814,True
+microsoft,SharePoint,Office / Productivity,25,504,0.0496,0.0338,0.0722,True
+microsoft,Shell,OS / Shell,4,504,0.0079,0.0031,0.0202,False
+microsoft,Snowflake,Cloud Platform,20,504,0.0397,0.0258,0.0605,True
+microsoft,Spark,Data Engineering,143,504,0.2837,0.2461,0.3246,True
+microsoft,Splunk,DevOps / Infrastructure,1,504,0.002,0.0004,0.0112,False
+microsoft,Tableau,Analytics / BI,29,504,0.0575,0.0404,0.0814,True
+microsoft,TensorFlow,ML / AI,40,504,0.0794,0.0588,0.1063,True
+microsoft,Terraform,DevOps / Infrastructure,5,504,0.0099,0.0042,0.023,False
+microsoft,TypeScript,Programming Language,14,504,0.0278,0.0166,0.0461,True
+microsoft,Unix,OS / Shell,7,504,0.0139,0.0067,0.0284,False
+microsoft,Vue.js,Web / Frontend,1,504,0.002,0.0004,0.0112,False
+microsoft,Windows,OS / Shell,72,504,0.1429,0.115,0.1761,True
+microsoft,pandas,Data Science Libraries,13,504,0.0258,0.0151,0.0436,True
+microsoft,scikit-learn,ML / AI,14,504,0.0278,0.0166,0.0461,True
+nvidia,AWS,Cloud Platform,32,232,0.1379,0.0994,0.1882,True
+nvidia,Airflow,Data Engineering,8,232,0.0345,0.0176,0.0666,False
+nvidia,Alteryx,Analytics / BI,7,232,0.0302,0.0147,0.061,False
+nvidia,Angular,Web / Frontend,3,232,0.0129,0.0044,0.0373,False
+nvidia,Ansible,DevOps / Infrastructure,11,232,0.0474,0.0267,0.0829,True
+nvidia,Assembly,Programming Language,2,232,0.0086,0.0024,0.0309,False
+nvidia,Azure,Cloud Platform,19,232,0.0819,0.0531,0.1244,True
+nvidia,Bash,OS / Shell,20,232,0.0862,0.0565,0.1294,True
+nvidia,C,Programming Language,18,232,0.0776,0.0496,0.1193,True
+nvidia,C++,Programming Language,54,232,0.2328,0.183,0.2912,True
+nvidia,CSS,Web / Frontend,2,232,0.0086,0.0024,0.0309,False
+nvidia,CUDA,ML / AI,1,232,0.0043,0.0008,0.024,False
+nvidia,Cassandra,Database,6,232,0.0259,0.0119,0.0553,False
+nvidia,Chef,DevOps / Infrastructure,8,232,0.0345,0.0176,0.0666,False
+nvidia,Confluence,Office / Productivity,2,232,0.0086,0.0024,0.0309,False
+nvidia,Databricks,Cloud Platform,6,232,0.0259,0.0119,0.0553,False
+nvidia,Deep Learning,ML / AI,8,232,0.0345,0.0176,0.0666,False
+nvidia,Django,Web / Frontend,1,232,0.0043,0.0008,0.024,False
+nvidia,Docker,DevOps / Infrastructure,43,232,0.1853,0.1406,0.2403,True
+nvidia,DynamoDB,Database,1,232,0.0043,0.0008,0.024,False
+nvidia,Elasticsearch,Database,3,232,0.0129,0.0044,0.0373,False
+nvidia,Excel,Analytics / BI,9,232,0.0388,0.0205,0.0721,False
+nvidia,Flask,Web / Frontend,2,232,0.0086,0.0024,0.0309,False
+nvidia,GCP,Cloud Platform,10,232,0.0431,0.0236,0.0775,True
+nvidia,GDPR,Governance / Compliance,3,232,0.0129,0.0044,0.0373,False
+nvidia,Git,DevOps / Infrastructure,25,232,0.1078,0.0741,0.1542,True
+nvidia,GitHub,DevOps / Infrastructure,13,232,0.056,0.033,0.0935,True
+nvidia,GitLab,DevOps / Infrastructure,8,232,0.0345,0.0176,0.0666,False
+nvidia,Go,Programming Language,29,232,0.125,0.0885,0.1738,True
+nvidia,Groovy,Programming Language,1,232,0.0043,0.0008,0.024,False
+nvidia,HTML,Web / Frontend,4,232,0.0172,0.0067,0.0435,False
+nvidia,Hadoop,Data Engineering,32,232,0.1379,0.0994,0.1882,True
+nvidia,Java,Programming Language,39,232,0.1681,0.1255,0.2215,True
+nvidia,JavaScript,Programming Language,4,232,0.0172,0.0067,0.0435,False
+nvidia,Jenkins,DevOps / Infrastructure,11,232,0.0474,0.0267,0.0829,True
+nvidia,Jira,Office / Productivity,5,232,0.0216,0.0092,0.0495,False
+nvidia,Jupyter,Data Science Libraries,5,232,0.0216,0.0092,0.0495,False
+nvidia,Kafka,Data Engineering,31,232,0.1336,0.0958,0.1834,True
+nvidia,Keras,ML / AI,5,232,0.0216,0.0092,0.0495,False
+nvidia,Kubernetes,DevOps / Infrastructure,65,232,0.2802,0.2263,0.3412,True
+nvidia,LLM,ML / AI,5,232,0.0216,0.0092,0.0495,False
+nvidia,Linux,OS / Shell,66,232,0.2845,0.2303,0.3457,True
+nvidia,MXNet,ML / AI,1,232,0.0043,0.0008,0.024,False
+nvidia,Machine Learning,ML / AI,13,232,0.056,0.033,0.0935,True
+nvidia,Matplotlib,Data Science Libraries,10,232,0.0431,0.0236,0.0775,True
+nvidia,Microsoft Word,Office / Productivity,1,232,0.0043,0.0008,0.024,False
+nvidia,MongoDB,Database,9,232,0.0388,0.0205,0.0721,False
+nvidia,MySQL,Database,3,232,0.0129,0.0044,0.0373,False
+nvidia,NLP,ML / AI,1,232,0.0043,0.0008,0.024,False
+nvidia,NoSQL,Database,13,232,0.056,0.033,0.0935,True
+nvidia,Node.js,Web / Frontend,1,232,0.0043,0.0008,0.024,False
+nvidia,NumPy,Data Science Libraries,12,232,0.0517,0.0298,0.0882,True
+nvidia,OpenStack,Cloud Platform,8,232,0.0345,0.0176,0.0666,False
+nvidia,Oracle,Database,6,232,0.0259,0.0119,0.0553,False
+nvidia,Perl,Programming Language,9,232,0.0388,0.0205,0.0721,False
+nvidia,Plotly,Data Science Libraries,1,232,0.0043,0.0008,0.024,False
+nvidia,PostgreSQL,Database,5,232,0.0216,0.0092,0.0495,False
+nvidia,Power BI,Analytics / BI,7,232,0.0302,0.0147,0.061,False
+nvidia,PowerPoint,Office / Productivity,1,232,0.0043,0.0008,0.024,False
+nvidia,PowerShell,OS / Shell,1,232,0.0043,0.0008,0.024,False
+nvidia,Puppet,DevOps / Infrastructure,9,232,0.0388,0.0205,0.0721,False
+nvidia,PyTorch,ML / AI,49,232,0.2112,0.1636,0.2682,True
+nvidia,Python,Programming Language,152,232,0.6552,0.5919,0.7134,True
+nvidia,R,Programming Language,9,232,0.0388,0.0205,0.0721,False
+nvidia,React,Web / Frontend,4,232,0.0172,0.0067,0.0435,False
+nvidia,Redis,Database,1,232,0.0043,0.0008,0.024,False
+nvidia,Redshift,Cloud Platform,8,232,0.0345,0.0176,0.0666,False
+nvidia,Ruby,Programming Language,6,232,0.0259,0.0119,0.0553,False
+nvidia,SAP,Analytics / BI,13,232,0.056,0.033,0.0935,True
+nvidia,SQL,Programming Language,53,232,0.2284,0.1791,0.2866,True
+nvidia,Scala,Programming Language,26,232,0.1121,0.0776,0.1591,True
+nvidia,Shell,OS / Shell,3,232,0.0129,0.0044,0.0373,False
+nvidia,Snowflake,Cloud Platform,1,232,0.0043,0.0008,0.024,False
+nvidia,Spark,Data Engineering,68,232,0.2931,0.2383,0.3547,True
+nvidia,Splunk,DevOps / Infrastructure,12,232,0.0517,0.0298,0.0882,True
+nvidia,Tableau,Analytics / BI,16,232,0.069,0.0429,0.1091,True
+nvidia,TensorFlow,ML / AI,40,232,0.1724,0.1292,0.2263,True
+nvidia,Terraform,DevOps / Infrastructure,9,232,0.0388,0.0205,0.0721,False
+nvidia,TypeScript,Programming Language,2,232,0.0086,0.0024,0.0309,False
+nvidia,Ubuntu,OS / Shell,3,232,0.0129,0.0044,0.0373,False
+nvidia,Unix,OS / Shell,3,232,0.0129,0.0044,0.0373,False
+nvidia,VMware,Cloud Platform,5,232,0.0216,0.0092,0.0495,False
+nvidia,Windows,OS / Shell,2,232,0.0086,0.0024,0.0309,False
+nvidia,pandas,Data Science Libraries,22,232,0.0948,0.0635,0.1394,True
+nvidia,scikit-learn,ML / AI,14,232,0.0603,0.0363,0.0987,True
+snowflake,AWS,Cloud Platform,139,459,0.3028,0.2626,0.3464,True
+snowflake,Airflow,Data Engineering,58,459,0.1264,0.099,0.1599,True
+snowflake,Angular,Web / Frontend,6,459,0.0131,0.006,0.0282,False
+snowflake,Ansible,DevOps / Infrastructure,5,459,0.0109,0.0047,0.0252,False
+snowflake,Azure,Cloud Platform,137,459,0.2985,0.2584,0.3419,True
+snowflake,Bash,OS / Shell,8,459,0.0174,0.0089,0.034,False
+snowflake,BigQuery,Cloud Platform,23,459,0.0501,0.0336,0.0741,True
+snowflake,C,Programming Language,20,459,0.0436,0.0284,0.0663,True
+snowflake,C#,Programming Language,1,459,0.0022,0.0004,0.0122,False
+snowflake,C++,Programming Language,100,459,0.2179,0.1825,0.2579,True
+snowflake,Cassandra,Database,15,459,0.0327,0.0199,0.0532,True
+snowflake,Chef,DevOps / Infrastructure,4,459,0.0087,0.0034,0.0222,False
+snowflake,Confluence,Office / Productivity,5,459,0.0109,0.0047,0.0252,False
+snowflake,Databricks,Cloud Platform,3,459,0.0065,0.0022,0.019,False
+snowflake,Docker,DevOps / Infrastructure,50,459,0.1089,0.0836,0.1407,True
+snowflake,DynamoDB,Database,6,459,0.0131,0.006,0.0282,False
+snowflake,Excel,Analytics / BI,158,459,0.3442,0.3022,0.3888,True
+snowflake,Express,Web / Frontend,9,459,0.0196,0.0103,0.0368,False
+snowflake,GCP,Cloud Platform,79,459,0.1721,0.1403,0.2093,True
+snowflake,Git,DevOps / Infrastructure,16,459,0.0349,0.0216,0.0559,True
+snowflake,GitHub,DevOps / Infrastructure,3,459,0.0065,0.0022,0.019,False
+snowflake,Go,Programming Language,77,459,0.1678,0.1364,0.2047,True
+snowflake,GraphQL,Web / Frontend,3,459,0.0065,0.0022,0.019,False
+snowflake,Hadoop,Data Engineering,31,459,0.0675,0.048,0.0943,True
+snowflake,Java,Programming Language,212,459,0.4619,0.4168,0.5076,True
+snowflake,JavaScript,Programming Language,43,459,0.0937,0.0703,0.1238,True
+snowflake,Jenkins,DevOps / Infrastructure,18,459,0.0392,0.0249,0.0611,True
+snowflake,Jira,Office / Productivity,13,459,0.0283,0.0166,0.0478,True
+snowflake,Jupyter,Data Science Libraries,2,459,0.0044,0.0012,0.0157,False
+snowflake,Kafka,Data Engineering,32,459,0.0697,0.0498,0.0968,True
+snowflake,Keras,ML / AI,1,459,0.0022,0.0004,0.0122,False
+snowflake,Kotlin,Programming Language,1,459,0.0022,0.0004,0.0122,False
+snowflake,Kubernetes,DevOps / Infrastructure,49,459,0.1068,0.0817,0.1383,True
+snowflake,Linux,OS / Shell,19,459,0.0414,0.0267,0.0637,True
+snowflake,Looker,Analytics / BI,2,459,0.0044,0.0012,0.0157,False
+snowflake,Machine Learning,ML / AI,12,459,0.0261,0.015,0.0451,True
+snowflake,MicroStrategy,Analytics / BI,4,459,0.0087,0.0034,0.0222,False
+snowflake,MongoDB,Database,3,459,0.0065,0.0022,0.019,False
+snowflake,MySQL,Database,8,459,0.0174,0.0089,0.034,False
+snowflake,NoSQL,Database,4,459,0.0087,0.0034,0.0222,False
+snowflake,Node.js,Web / Frontend,19,459,0.0414,0.0267,0.0637,True
+snowflake,NumPy,Data Science Libraries,27,459,0.0588,0.0407,0.0842,True
+snowflake,OpenStack,Cloud Platform,4,459,0.0087,0.0034,0.0222,False
+snowflake,Oracle,Database,6,459,0.0131,0.006,0.0282,False
+snowflake,PHP,Programming Language,1,459,0.0022,0.0004,0.0122,False
+snowflake,Perl,Programming Language,4,459,0.0087,0.0034,0.0222,False
+snowflake,PostgreSQL,Database,8,459,0.0174,0.0089,0.034,False
+snowflake,Power BI,Analytics / BI,2,459,0.0044,0.0012,0.0157,False
+snowflake,PowerPoint,Office / Productivity,1,459,0.0022,0.0004,0.0122,False
+snowflake,Puppet,DevOps / Infrastructure,3,459,0.0065,0.0022,0.019,False
+snowflake,PyTorch,ML / AI,21,459,0.0458,0.0301,0.0689,True
+snowflake,Python,Programming Language,248,459,0.5403,0.4946,0.5854,True
+snowflake,R,Programming Language,56,459,0.122,0.0952,0.1551,True
+snowflake,React,Web / Frontend,31,459,0.0675,0.048,0.0943,True
+snowflake,Redis,Database,6,459,0.0131,0.006,0.0282,False
+snowflake,Redshift,Cloud Platform,23,459,0.0501,0.0336,0.0741,True
+snowflake,Ruby,Programming Language,4,459,0.0087,0.0034,0.0222,False
+snowflake,SQL,Programming Language,287,459,0.6253,0.5801,0.6683,True
+snowflake,SQL Server,Database,1,459,0.0022,0.0004,0.0122,False
+snowflake,Scala,Programming Language,50,459,0.1089,0.0836,0.1407,True
+snowflake,Shell,OS / Shell,5,459,0.0109,0.0047,0.0252,False
+snowflake,Snowflake,Cloud Platform,456,459,0.9935,0.981,0.9978,True
+snowflake,Spark,Data Engineering,94,459,0.2048,0.1704,0.2441,True
+snowflake,Splunk,DevOps / Infrastructure,1,459,0.0022,0.0004,0.0122,False
+snowflake,Tableau,Analytics / BI,14,459,0.0305,0.0183,0.0505,True
+snowflake,TensorFlow,ML / AI,22,459,0.0479,0.0319,0.0715,True
+snowflake,Terraform,DevOps / Infrastructure,17,459,0.037,0.0233,0.0585,True
+snowflake,TypeScript,Programming Language,48,459,0.1046,0.0798,0.1359,True
+snowflake,Unix,OS / Shell,5,459,0.0109,0.0047,0.0252,False
+snowflake,VMware,Cloud Platform,25,459,0.0545,0.0372,0.0792,True
+snowflake,Windows,OS / Shell,57,459,0.1242,0.0971,0.1575,True
+snowflake,macOS,OS / Shell,1,459,0.0022,0.0004,0.0122,False
+snowflake,pandas,Data Science Libraries,53,459,0.1155,0.0894,0.148,True
+snowflake,scikit-learn,ML / AI,48,459,0.1046,0.0798,0.1359,True

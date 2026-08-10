@@ -1,0 +1,7 @@
+company,raw_h1,raw_h2,raw_pct_change,balanced_h1,balanced_h2,balanced_pct_change,agrees
+databricks,147,193,31.3,51,123,141.2,True
+google,376,470,25.0,147,230,56.5,True
+meta,370,656,77.3,194,310,59.8,True
+microsoft,241,413,71.4,112,305,172.3,True
+nvidia,70,201,187.1,44,119,170.5,True
+snowflake,219,241,10.0,146,156,6.8,True

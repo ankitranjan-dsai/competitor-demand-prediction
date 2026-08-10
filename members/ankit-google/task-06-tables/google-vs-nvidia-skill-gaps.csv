@@ -1,0 +1,47 @@
+skill,skill_category,company_a,company_b,a_with_skill,a_n,a_share,b_with_skill,b_n,b_share,diff,ci_low,ci_high,p_value,q_value,significant,a_vendor_relation,b_vendor_relation,self_referential
+R,Programming Language,google,nvidia,214,590,0.3627,9,232,0.0388,0.3239,0.2736,0.3675,5.402342321471352e-21,0.0,True,,,False
+SQL,Programming Language,google,nvidia,255,590,0.4322,53,232,0.2284,0.2038,0.1335,0.2675,5.573473053795631e-08,0.0,True,,,False
+Looker,Analytics / BI,google,nvidia,70,590,0.1186,0,232,0.0,0.1186,0.0899,0.1472,4.129568089531089e-08,0.0,True,own_product,,True
+JavaScript,Programming Language,google,nvidia,73,590,0.1237,4,232,0.0172,0.1065,0.0708,0.1374,2.4043696195282913e-06,1e-05,True,,,False
+BigQuery,Cloud Platform,google,nvidia,62,590,0.1051,0,232,0.0,0.1051,0.0775,0.1324,2.820997515967123e-07,0.0,True,own_product,,True
+SAS,Analytics / BI,google,nvidia,34,590,0.0576,0,232,0.0,0.0576,0.0347,0.0794,0.0001881027487228182,0.00041,True,,,False
+Java,Programming Language,google,nvidia,132,590,0.2237,39,232,0.1681,0.0556,-0.0065,0.111,0.07698743981907881,0.11067,False,,,False
+MATLAB,Programming Language,google,nvidia,30,590,0.0508,0,232,0.0,0.0508,0.0287,0.0717,0.0004668938512000002,0.00089,True,,,False
+Machine Learning,ML / AI,google,nvidia,61,590,0.1034,13,232,0.056,0.0474,0.0039,0.083,0.03275683448750854,0.05381,False,,,False
+Go,Programming Language,google,nvidia,94,590,0.1593,29,232,0.125,0.0343,-0.0216,0.0827,0.21437777019059343,0.27393,False,origin,,True
+Express,Web / Frontend,google,nvidia,15,590,0.0254,0,232,0.0,0.0254,0.0063,0.0415,0.014241652258445892,0.0252,True,,,False
+C#,Programming Language,google,nvidia,14,590,0.0237,0,232,0.0,0.0237,0.0049,0.0394,0.01795566119842528,0.03059,True,,,False
+NoSQL,Database,google,nvidia,47,590,0.0797,13,232,0.056,0.0236,-0.0185,0.0574,0.24116974939958274,0.29983,False,,,False
+Snowflake,Cloud Platform,google,nvidia,15,590,0.0254,1,232,0.0043,0.0211,-0.001,0.0376,0.04859440454666343,0.07311,False,,,False
+Shell,OS / Shell,google,nvidia,14,590,0.0237,3,232,0.0129,0.0108,-0.0154,0.0287,0.3275407151293313,0.37977,False,,,False
+Oracle,Database,google,nvidia,20,590,0.0339,6,232,0.0259,0.008,-0.0237,0.0307,0.5534911309067376,0.57865,False,,,False
+GCP,Cloud Platform,google,nvidia,24,590,0.0407,10,232,0.0431,-0.0024,-0.0393,0.0249,0.8751018085051081,0.8751,False,own_product,,True
+MongoDB,Database,google,nvidia,21,590,0.0356,9,232,0.0388,-0.0032,-0.0386,0.0226,0.8257155987105946,0.84406,False,,,False
+Perl,Programming Language,google,nvidia,17,590,0.0288,9,232,0.0388,-0.01,-0.0449,0.0149,0.46183837745060363,0.50582,False,,,False
+Airflow,Data Engineering,google,nvidia,11,590,0.0186,8,232,0.0345,-0.0158,-0.0489,0.0064,0.17377868667880042,0.22839,False,,,False
+C,Programming Language,google,nvidia,36,590,0.061,18,232,0.0776,-0.0166,-0.0615,0.0192,0.3881148782143357,0.43545,False,,,False
+Tableau,Analytics / BI,google,nvidia,30,590,0.0508,16,232,0.069,-0.0181,-0.0609,0.0152,0.30905666587922037,0.37412,False,,,False
+Scala,Programming Language,google,nvidia,53,590,0.0898,26,232,0.1121,-0.0222,-0.0736,0.0208,0.3302306430898874,0.37977,False,,,False
+SAP,Analytics / BI,google,nvidia,19,590,0.0322,13,232,0.056,-0.0238,-0.063,0.0051,0.11186434400225069,0.15135,False,,,False
+Python,Programming Language,google,nvidia,372,590,0.6305,152,232,0.6552,-0.0247,-0.0951,0.0491,0.5079354824230846,0.54337,False,,,False
+Jenkins,DevOps / Infrastructure,google,nvidia,6,590,0.0102,11,232,0.0474,-0.0372,-0.0731,-0.0134,0.0007325561399572806,0.00135,True,,,False
+Ansible,DevOps / Infrastructure,google,nvidia,5,590,0.0085,11,232,0.0474,-0.0389,-0.0747,-0.0154,0.00027563202982402687,0.00055,True,,,False
+Hadoop,Data Engineering,google,nvidia,58,590,0.0983,32,232,0.1379,-0.0396,-0.0943,0.0072,0.10150440237000202,0.14149,False,,,False
+NumPy,Data Science Libraries,google,nvidia,6,590,0.0102,12,232,0.0517,-0.0416,-0.0785,-0.0167,0.0002482596818022453,0.00052,True,,,False
+Matplotlib,Data Science Libraries,google,nvidia,0,590,0.0,10,232,0.0431,-0.0431,-0.0775,-0.0225,3.897917225859684e-07,0.0,True,,,False
+Splunk,DevOps / Infrastructure,google,nvidia,3,590,0.0051,12,232,0.0517,-0.0466,-0.0833,-0.0227,6.9075147116728364e-06,2e-05,True,,,False
+GitHub,DevOps / Infrastructure,google,nvidia,4,590,0.0068,13,232,0.056,-0.0493,-0.0869,-0.024,7.964378916797357e-06,2e-05,True,,,False
+scikit-learn,ML / AI,google,nvidia,6,590,0.0102,14,232,0.0603,-0.0502,-0.089,-0.0234,2.64138017616051e-05,6e-05,True,,,False
+TensorFlow,ML / AI,google,nvidia,71,590,0.1203,40,232,0.1724,-0.0521,-0.111,-0.0002,0.04927048366381093,0.07311,False,origin,,True
+C++,Programming Language,google,nvidia,102,590,0.1729,54,232,0.2328,-0.0599,-0.1249,-0.0004,0.04878524724508305,0.07311,False,,,False
+pandas,Data Science Libraries,google,nvidia,17,590,0.0288,22,232,0.0948,-0.066,-0.1119,-0.0304,6.147180048296051e-05,0.00014,True,,,False
+Azure,Cloud Platform,google,nvidia,5,590,0.0085,19,232,0.0819,-0.0734,-0.1162,-0.0425,1.827111105300982e-08,0.0,True,,,False
+Bash,OS / Shell,google,nvidia,4,590,0.0068,20,232,0.0862,-0.0794,-0.1228,-0.0479,1.143934990775077e-09,0.0,True,,,False
+Git,DevOps / Infrastructure,google,nvidia,0,590,0.0,25,232,0.1078,-0.1078,-0.1542,-0.0734,5.60330202578472e-16,0.0,True,,,False
+Kafka,Data Engineering,google,nvidia,4,590,0.0068,31,232,0.1336,-0.1268,-0.1768,-0.0875,5.201169448934031e-16,0.0,True,,,False
+AWS,Cloud Platform,google,nvidia,5,590,0.0085,32,232,0.1379,-0.1295,-0.18,-0.0894,7.79459682734127e-16,0.0,True,,,False
+Docker,DevOps / Infrastructure,google,nvidia,9,590,0.0153,43,232,0.1853,-0.1701,-0.2255,-0.1234,1.9415123707015647e-19,0.0,True,,,False
+PyTorch,ML / AI,google,nvidia,18,590,0.0305,49,232,0.2112,-0.1807,-0.2388,-0.1301,1.566126396374584e-17,0.0,True,,,False
+Linux,OS / Shell,google,nvidia,49,590,0.0831,66,232,0.2845,-0.2014,-0.2657,-0.1417,6.714165792918645e-14,0.0,True,,,False
+Spark,Data Engineering,google,nvidia,36,590,0.061,68,232,0.2931,-0.2321,-0.2959,-0.1729,2.0793185970350162e-19,0.0,True,,,False
+Kubernetes,DevOps / Infrastructure,google,nvidia,12,590,0.0203,65,232,0.2802,-0.2598,-0.3215,-0.204,1.2106532539870596e-30,0.0,True,origin,,True

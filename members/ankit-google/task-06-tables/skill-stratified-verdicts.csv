@@ -1,0 +1,183 @@
+skill,company_a,company_b,pooled_diff,verdict,n_strata,n_agree,detail
+R,google,databricks,0.2093,mixed,5,3,Analytics: 0.423 vs 0.528; Engineering: 0.000 vs 0.080; Other: 0.643 vs 0.074; Science / Research: 0.688 vs 0.357; Technical Sales: 0.435 vs 0.206
+JavaScript,google,databricks,0.1129,mixed,5,4,Analytics: 0.015 vs 0.000; Engineering: 0.222 vs 0.018; Other: 0.000 vs 0.000; Science / Research: 0.033 vs 0.000; Technical Sales: 0.315 vs 0.000
+BigQuery,google,databricks,0.106,mixed,5,4,Analytics: 0.108 vs 0.000; Engineering: 0.072 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.006 vs 0.000; Technical Sales: 0.130 vs 0.000
+TensorFlow,google,databricks,0.1006,mixed,5,4,Analytics: 0.061 vs 0.000; Engineering: 0.258 vs 0.031; Other: 0.000 vs 0.000; Science / Research: 0.117 vs 0.000; Technical Sales: 0.022 vs 0.000
+Go,google,databricks,0.0806,confirmed,5,5,Analytics: 0.038 vs 0.000; Engineering: 0.335 vs 0.115; Other: 0.071 vs 0.037; Science / Research: 0.013 vs 0.000; Technical Sales: 0.326 vs 0.000
+C++,google,databricks,0.0705,mixed,5,4,Analytics: 0.031 vs 0.000; Engineering: 0.347 vs 0.155; Other: 0.000 vs 0.000; Science / Research: 0.078 vs 0.000; Technical Sales: 0.304 vs 0.000
+Linux,google,databricks,0.063,mixed,5,3,Analytics: 0.031 vs 0.000; Engineering: 0.066 vs 0.031; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.370 vs 0.000
+C,google,databricks,0.0586,mixed,5,3,Analytics: 0.015 vs 0.000; Engineering: 0.192 vs 0.004; Other: 0.000 vs 0.000; Science / Research: 0.013 vs 0.000; Technical Sales: 0.000 vs 0.000
+SAS,google,databricks,0.0581,mixed,5,3,Analytics: 0.069 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.500 vs 0.000; Science / Research: 0.117 vs 0.000; Technical Sales: 0.000 vs 0.000
+NoSQL,google,databricks,0.0566,mixed,5,3,Analytics: 0.038 vs 0.000; Engineering: 0.216 vs 0.031; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.065 vs 0.029
+MATLAB,google,databricks,0.0513,mixed,5,4,Analytics: 0.108 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.214 vs 0.000; Science / Research: 0.078 vs 0.000; Technical Sales: 0.011 vs 0.000
+Machine Learning,google,databricks,0.0479,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.216 vs 0.066; Other: 0.071 vs 0.000; Science / Research: 0.071 vs 0.143; Technical Sales: 0.141 vs 0.059
+MongoDB,google,databricks,0.0359,mixed,5,2,Analytics: 0.038 vs 0.000; Engineering: 0.096 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+SAP,google,databricks,0.0308,mixed,5,3,Analytics: 0.015 vs 0.000; Engineering: 0.006 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.163 vs 0.000
+Perl,google,databricks,0.0291,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.102 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Express,google,databricks,0.0256,mixed,5,2,Analytics: 0.046 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.058 vs 0.000; Technical Sales: 0.000 vs 0.000
+Snowflake,google,databricks,0.0256,mixed,5,3,Analytics: 0.031 vs 0.000; Engineering: 0.012 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.098 vs 0.000
+Airflow,google,databricks,0.0188,mixed,5,2,Analytics: 0.031 vs 0.000; Engineering: 0.042 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Microsoft Word,google,databricks,-0.0245,mixed,5,1,Analytics: 0.000 vs 0.278; Engineering: 0.000 vs 0.000; Other: 0.071 vs 0.000; Science / Research: 0.013 vs 0.000; Technical Sales: 0.000 vs 0.000
+Jenkins,google,databricks,-0.0283,mixed,5,2,Analytics: 0.000 vs 0.000; Engineering: 0.024 vs 0.035; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.147
+Kubernetes,google,databricks,-0.0299,mixed,5,1,Analytics: 0.008 vs 0.000; Engineering: 0.054 vs 0.075; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.000
+Google Sheets,google,databricks,-0.0478,mixed,5,1,Analytics: 0.038 vs 0.528; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Cassandra,google,databricks,-0.05,mixed,5,2,Analytics: 0.000 vs 0.000; Engineering: 0.012 vs 0.049; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.206
+pandas,google,databricks,-0.0545,mixed,5,3,Analytics: 0.100 vs 0.000; Engineering: 0.000 vs 0.088; Other: 0.000 vs 0.000; Science / Research: 0.013 vs 0.286; Technical Sales: 0.000 vs 0.088
+scikit-learn,google,databricks,-0.0733,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.024 vs 0.088; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.286; Technical Sales: 0.000 vs 0.088
+Git,google,databricks,-0.0712,mixed,5,2,Analytics: 0.000 vs 0.639; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.037; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+SQL,google,databricks,-0.1157,mixed,5,4,Analytics: 0.708 vs 0.972; Engineering: 0.132 vs 0.531; Other: 0.286 vs 0.333; Science / Research: 0.584 vs 0.643; Technical Sales: 0.337 vs 0.294
+Tableau,google,databricks,-0.145,mixed,5,3,Analytics: 0.100 vs 0.639; Engineering: 0.012 vs 0.181; Other: 0.000 vs 0.037; Science / Research: 0.065 vs 0.000; Technical Sales: 0.033 vs 0.000
+Hadoop,google,databricks,-0.2569,mixed,5,2,Analytics: 0.038 vs 0.000; Engineering: 0.264 vs 0.456; Other: 0.000 vs 0.000; Science / Research: 0.033 vs 0.000; Technical Sales: 0.043 vs 0.500
+Kafka,google,databricks,-0.2602,mixed,5,2,Analytics: 0.015 vs 0.000; Engineering: 0.000 vs 0.350; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.324
+GCP,google,databricks,-0.2943,confirmed,5,5,Analytics: 0.046 vs 0.139; Engineering: 0.072 vs 0.350; Other: 0.000 vs 0.111; Science / Research: 0.000 vs 0.286; Technical Sales: 0.011 vs 0.647
+Scala,google,databricks,-0.4109,confirmed,5,5,Analytics: 0.000 vs 0.028; Engineering: 0.150 vs 0.557; Other: 0.000 vs 0.296; Science / Research: 0.000 vs 0.571; Technical Sales: 0.304 vs 0.765
+Azure,google,databricks,-0.4217,confirmed,5,5,Analytics: 0.000 vs 0.139; Engineering: 0.030 vs 0.487; Other: 0.000 vs 0.111; Science / Research: 0.000 vs 0.286; Technical Sales: 0.000 vs 0.676
+AWS,google,databricks,-0.4811,confirmed,5,5,Analytics: 0.000 vs 0.528; Engineering: 0.030 vs 0.509; Other: 0.000 vs 0.111; Science / Research: 0.000 vs 0.286; Technical Sales: 0.000 vs 0.706
+Spark,google,databricks,-0.6655,confirmed,5,5,Analytics: 0.015 vs 0.417; Engineering: 0.168 vs 0.788; Other: 0.000 vs 0.259; Science / Research: 0.013 vs 0.857; Technical Sales: 0.043 vs 0.971
+Excel,google,databricks,-0.7578,confirmed,5,5,Analytics: 0.061 vs 0.833; Engineering: 0.000 vs 0.761; Other: 0.000 vs 0.630; Science / Research: 0.000 vs 0.857; Technical Sales: 0.000 vs 0.853
+Databricks,google,databricks,-0.997,confirmed,5,5,Analytics: 0.000 vs 0.972; Engineering: 0.000 vs 1.000; Other: 0.000 vs 1.000; Science / Research: 0.000 vs 1.000; Technical Sales: 0.000 vs 1.000
+Java,google,meta,0.1396,mixed,5,1,Analytics: 0.046 vs 0.056; Engineering: 0.545 vs 0.180; Other: 0.000 vs 0.048; Sales: 0.000 vs 0.000; Science / Research: 0.026 vs 0.104
+Go,google,meta,0.138,mixed,5,3,Analytics: 0.038 vs 0.000; Engineering: 0.335 vs 0.000; Other: 0.071 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.013 vs 0.073
+Looker,google,meta,0.1103,mixed,5,3,Analytics: 0.123 vs 0.005; Engineering: 0.018 vs 0.027; Other: 0.000 vs 0.000; Sales: 0.786 vs 0.000; Science / Research: 0.026 vs 0.000
+JavaScript,google,meta,0.1057,mixed,5,3,Analytics: 0.015 vs 0.003; Engineering: 0.222 vs 0.126; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.033 vs 0.004
+BigQuery,google,meta,0.0928,mixed,5,3,Analytics: 0.108 vs 0.000; Engineering: 0.072 vs 0.090; Other: 0.000 vs 0.024; Sales: 0.821 vs 0.000; Science / Research: 0.006 vs 0.000
+TensorFlow,google,meta,0.0831,mixed,5,3,Analytics: 0.061 vs 0.000; Engineering: 0.258 vs 0.000; Other: 0.000 vs 0.024; Sales: 0.000 vs 0.118; Science / Research: 0.117 vs 0.112
+Linux,google,meta,0.0754,mixed,5,2,Analytics: 0.031 vs 0.000; Engineering: 0.066 vs 0.054; Other: 0.000 vs 0.024; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+NoSQL,google,meta,0.0744,mixed,5,2,Analytics: 0.038 vs 0.007; Engineering: 0.216 vs 0.018; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+C,google,meta,0.0436,mixed,5,2,Analytics: 0.015 vs 0.003; Engineering: 0.192 vs 0.027; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.013 vs 0.043
+GCP,google,meta,0.0398,mixed,5,3,Analytics: 0.046 vs 0.000; Engineering: 0.072 vs 0.000; Other: 0.000 vs 0.024; Sales: 0.179 vs 0.000; Science / Research: 0.000 vs 0.000
+MongoDB,google,meta,0.0359,mixed,5,2,Analytics: 0.038 vs 0.000; Engineering: 0.096 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+SAP,google,meta,0.0284,mixed,5,2,Analytics: 0.015 vs 0.003; Engineering: 0.006 vs 0.000; Other: 0.000 vs 0.024; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+Oracle,google,meta,0.0282,mixed,5,1,Analytics: 0.008 vs 0.010; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.024; Sales: 0.000 vs 0.000; Science / Research: 0.013 vs 0.000
+Snowflake,google,meta,0.0244,mixed,5,2,Analytics: 0.031 vs 0.003; Engineering: 0.012 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+Kubernetes,google,meta,0.0205,mixed,5,2,Analytics: 0.008 vs 0.000; Engineering: 0.054 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+Shell,google,meta,0.0168,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.072 vs 0.054; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+Express,google,meta,0.0161,mixed,5,2,Analytics: 0.046 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.071; Sales: 0.000 vs 0.000; Science / Research: 0.058 vs 0.019
+GraphQL,google,meta,-0.0131,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.099; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+Generative AI,google,meta,-0.0167,mixed,5,2,Analytics: 0.000 vs 0.010; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.039
+Azure,google,meta,-0.0201,mixed,5,2,Analytics: 0.000 vs 0.000; Engineering: 0.030 vs 0.162; Other: 0.000 vs 0.143; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+Seaborn,google,meta,-0.0203,mixed,5,2,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.118; Science / Research: 0.000 vs 0.058
+NumPy,google,meta,-0.0254,mixed,5,1,Analytics: 0.023 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.006 vs 0.104
+SPSS,google,meta,-0.0263,mixed,5,3,Analytics: 0.038 vs 0.010; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.119; Sales: 0.000 vs 0.118; Science / Research: 0.013 vs 0.081
+Git,google,meta,-0.0335,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.054; Other: 0.000 vs 0.024; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.081
+Spark,google,meta,-0.0388,mixed,5,3,Analytics: 0.015 vs 0.061; Engineering: 0.168 vs 0.144; Other: 0.000 vs 0.048; Sales: 0.000 vs 0.000; Science / Research: 0.013 vs 0.158
+Matplotlib,google,meta,-0.0406,mixed,5,2,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.118; Science / Research: 0.000 vs 0.124
+ggplot2,google,meta,-0.0418,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.135
+MATLAB,google,meta,-0.0443,mixed,5,2,Analytics: 0.108 vs 0.047; Engineering: 0.000 vs 0.000; Other: 0.214 vs 0.119; Sales: 0.000 vs 0.118; Science / Research: 0.078 vs 0.208
+Hadoop,google,meta,-0.0466,mixed,5,3,Analytics: 0.038 vs 0.091; Engineering: 0.264 vs 0.063; Other: 0.000 vs 0.119; Sales: 0.000 vs 0.000; Science / Research: 0.033 vs 0.282
+SAS,google,meta,-0.047,mixed,5,3,Analytics: 0.069 vs 0.059; Engineering: 0.000 vs 0.009; Other: 0.500 vs 0.214; Sales: 0.000 vs 0.118; Science / Research: 0.117 vs 0.201
+dplyr,google,meta,-0.0514,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.166
+Tableau,google,meta,-0.0561,confirmed,5,5,Analytics: 0.100 vs 0.118; Engineering: 0.012 vs 0.063; Other: 0.000 vs 0.024; Sales: 0.000 vs 0.118; Science / Research: 0.065 vs 0.112
+scikit-learn,google,meta,-0.0577,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.024 vs 0.000; Other: 0.000 vs 0.024; Sales: 0.000 vs 0.118; Science / Research: 0.000 vs 0.197
+PHP,google,meta,-0.0688,mixed,5,4,Analytics: 0.000 vs 0.042; Engineering: 0.000 vs 0.243; Other: 0.000 vs 0.071; Sales: 0.000 vs 0.000; Science / Research: 0.000 vs 0.046
+C#,google,meta,-0.0848,mixed,5,4,Analytics: 0.000 vs 0.179; Engineering: 0.066 vs 0.099; Other: 0.000 vs 0.048; Sales: 0.000 vs 0.000; Science / Research: 0.006 vs 0.019
+R,google,meta,-0.1925,confirmed,5,5,Analytics: 0.423 vs 0.493; Engineering: 0.000 vs 0.018; Other: 0.643 vs 0.667; Sales: 0.036 vs 0.882; Science / Research: 0.688 vs 0.838
+Python,google,meta,-0.2361,confirmed,5,5,Analytics: 0.561 vs 0.885; Engineering: 0.629 vs 0.658; Other: 0.643 vs 0.809; Sales: 0.036 vs 0.941; Science / Research: 0.896 vs 0.938
+SQL,google,meta,-0.4293,confirmed,5,5,Analytics: 0.708 vs 0.971; Engineering: 0.132 vs 0.522; Other: 0.286 vs 0.786; Sales: 0.393 vs 0.941; Science / Research: 0.584 vs 0.826
+R,google,microsoft,0.2065,mixed,4,3,Analytics: 0.423 vs 0.194; Engineering: 0.000 vs 0.016; Other: 0.643 vs 0.043; Science / Research: 0.688 vs 0.360
+Python,google,microsoft,0.1497,confirmed,4,4,Analytics: 0.561 vs 0.500; Engineering: 0.629 vs 0.359; Other: 0.643 vs 0.391; Science / Research: 0.896 vs 0.668
+Looker,google,microsoft,0.1162,mixed,4,3,Analytics: 0.123 vs 0.000; Engineering: 0.018 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.026 vs 0.000
+Go,google,microsoft,0.114,mixed,4,2,Analytics: 0.038 vs 0.000; Engineering: 0.335 vs 0.055; Other: 0.071 vs 0.087; Science / Research: 0.013 vs 0.039
+BigQuery,google,microsoft,0.106,mixed,4,3,Analytics: 0.108 vs 0.000; Engineering: 0.072 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.006 vs 0.000
+Machine Learning,google,microsoft,0.086,mixed,4,3,Analytics: 0.000 vs 0.000; Engineering: 0.216 vs 0.019; Other: 0.071 vs 0.043; Science / Research: 0.071 vs 0.017
+NoSQL,google,microsoft,0.0479,mixed,4,2,Analytics: 0.038 vs 0.000; Engineering: 0.216 vs 0.047; Other: 0.000 vs 0.043; Science / Research: 0.000 vs 0.017
+TensorFlow,google,microsoft,0.0443,mixed,4,2,Analytics: 0.061 vs 0.000; Engineering: 0.258 vs 0.016; Other: 0.000 vs 0.261; Science / Research: 0.117 vs 0.157
+Linux,google,microsoft,0.0331,mixed,4,2,Analytics: 0.031 vs 0.028; Engineering: 0.066 vs 0.062; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.045
+Angular,google,microsoft,-0.0172,mixed,4,1,Analytics: 0.000 vs 0.000; Engineering: 0.018 vs 0.043; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+GitHub,google,microsoft,-0.0134,mixed,4,3,Analytics: 0.015 vs 0.111; Engineering: 0.012 vs 0.016; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.011
+MySQL,google,microsoft,-0.0178,mixed,4,2,Analytics: 0.015 vs 0.000; Engineering: 0.012 vs 0.047; Other: 0.000 vs 0.043; Science / Research: 0.000 vs 0.000
+scikit-learn,google,microsoft,-0.0216,mixed,4,2,Analytics: 0.000 vs 0.000; Engineering: 0.024 vs 0.000; Other: 0.000 vs 0.087; Science / Research: 0.000 vs 0.067
+PowerPoint,google,microsoft,-0.0203,mixed,4,3,Analytics: 0.000 vs 0.028; Engineering: 0.000 vs 0.004; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.045
+Ruby,google,microsoft,-0.0206,mixed,4,3,Analytics: 0.000 vs 0.056; Engineering: 0.006 vs 0.016; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.028
+Cassandra,google,microsoft,-0.0209,mixed,4,3,Analytics: 0.000 vs 0.028; Engineering: 0.012 vs 0.035; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.011
+Git,google,microsoft,-0.0223,mixed,4,2,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.031; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.017
+Redis,google,microsoft,-0.0247,mixed,4,2,Analytics: 0.000 vs 0.000; Engineering: 0.006 vs 0.047; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.006
+Microsoft Word,google,microsoft,-0.0253,mixed,4,3,Analytics: 0.000 vs 0.028; Engineering: 0.000 vs 0.008; Other: 0.071 vs 0.000; Science / Research: 0.013 vs 0.067
+Perl,google,microsoft,-0.0318,mixed,4,3,Analytics: 0.000 vs 0.056; Engineering: 0.102 vs 0.004; Other: 0.000 vs 0.087; Science / Research: 0.000 vs 0.140
+PostgreSQL,google,microsoft,-0.0304,mixed,4,1,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.059; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+Kafka,google,microsoft,-0.0337,mixed,4,3,Analytics: 0.015 vs 0.056; Engineering: 0.000 vs 0.066; Other: 0.000 vs 0.043; Science / Research: 0.000 vs 0.000
+PowerShell,google,microsoft,-0.0345,mixed,4,2,Analytics: 0.000 vs 0.111; Engineering: 0.000 vs 0.051; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+CSS,google,microsoft,-0.0347,mixed,4,2,Analytics: 0.000 vs 0.056; Engineering: 0.012 vs 0.082; Other: 0.000 vs 0.000; Science / Research: 0.033 vs 0.000
+Microsoft Outlook,google,microsoft,-0.0354,confirmed,4,4,Analytics: 0.000 vs 0.028; Engineering: 0.000 vs 0.031; Other: 0.000 vs 0.043; Science / Research: 0.013 vs 0.056
+React,google,microsoft,-0.0367,mixed,4,2,Analytics: 0.015 vs 0.056; Engineering: 0.030 vs 0.086; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000
+Docker,google,microsoft,-0.0333,confirmed,4,4,Analytics: 0.000 vs 0.056; Engineering: 0.042 vs 0.051; Other: 0.000 vs 0.087; Science / Research: 0.000 vs 0.039
+SQL Server,google,microsoft,-0.0456,confirmed,4,4,Analytics: 0.000 vs 0.056; Engineering: 0.006 vs 0.070; Other: 0.071 vs 0.130; Science / Research: 0.000 vs 0.011
+SharePoint,google,microsoft,-0.0507,confirmed,4,4,Analytics: 0.000 vs 0.083; Engineering: 0.000 vs 0.059; Other: 0.000 vs 0.174; Science / Research: 0.000 vs 0.017
+PyTorch,google,microsoft,-0.0544,mixed,4,2,Analytics: 0.000 vs 0.000; Engineering: 0.084 vs 0.016; Other: 0.000 vs 0.217; Science / Research: 0.019 vs 0.185
+Kubernetes,google,microsoft,-0.0545,confirmed,4,4,Analytics: 0.008 vs 0.056; Engineering: 0.054 vs 0.113; Other: 0.000 vs 0.174; Science / Research: 0.000 vs 0.011
+Hadoop,google,microsoft,-0.0611,mixed,4,3,Analytics: 0.038 vs 0.139; Engineering: 0.264 vs 0.094; Other: 0.000 vs 0.391; Science / Research: 0.033 vs 0.230
+Excel,google,microsoft,-0.0654,confirmed,4,4,Analytics: 0.061 vs 0.389; Engineering: 0.000 vs 0.016; Other: 0.000 vs 0.043; Science / Research: 0.000 vs 0.112
+AWS,google,microsoft,-0.0807,confirmed,4,4,Analytics: 0.000 vs 0.056; Engineering: 0.030 vs 0.098; Other: 0.000 vs 0.087; Science / Research: 0.000 vs 0.084
+Databricks,google,microsoft,-0.1359,confirmed,4,4,Analytics: 0.000 vs 0.250; Engineering: 0.000 vs 0.109; Other: 0.000 vs 0.261; Science / Research: 0.000 vs 0.135
+Windows,google,microsoft,-0.1355,confirmed,4,4,Analytics: 0.023 vs 0.194; Engineering: 0.012 vs 0.168; Other: 0.000 vs 0.130; Science / Research: 0.000 vs 0.101
+Power BI,google,microsoft,-0.1659,mixed,4,3,Analytics: 0.023 vs 0.639; Engineering: 0.000 vs 0.137; Other: 0.000 vs 0.000; Science / Research: 0.013 vs 0.157
+Spark,google,microsoft,-0.2265,confirmed,4,4,Analytics: 0.015 vs 0.417; Engineering: 0.168 vs 0.219; Other: 0.000 vs 0.348; Science / Research: 0.013 vs 0.354
+C#,google,microsoft,-0.3473,confirmed,4,4,Analytics: 0.000 vs 0.333; Engineering: 0.066 vs 0.410; Other: 0.000 vs 0.348; Science / Research: 0.006 vs 0.326
+Azure,google,microsoft,-0.6101,confirmed,4,4,Analytics: 0.000 vs 0.556; Engineering: 0.030 vs 0.742; Other: 0.000 vs 0.652; Science / Research: 0.000 vs 0.449
+R,google,nvidia,0.3212,mixed,5,4,Analytics: 0.423 vs 0.161; Engineering: 0.000 vs 0.030; Other: 0.643 vs 0.000; Science / Research: 0.688 vs 0.000; Technical Sales: 0.435 vs 0.000
+SQL,google,nvidia,0.1993,mixed,5,4,Analytics: 0.708 vs 0.484; Engineering: 0.132 vs 0.196; Other: 0.286 vs 0.077; Science / Research: 0.584 vs 0.250; Technical Sales: 0.337 vs 0.000
+Looker,google,nvidia,0.1162,mixed,5,4,Analytics: 0.123 vs 0.000; Engineering: 0.018 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.026 vs 0.000; Technical Sales: 0.250 vs 0.000
+JavaScript,google,nvidia,0.1072,mixed,5,4,Analytics: 0.015 vs 0.000; Engineering: 0.222 vs 0.030; Other: 0.000 vs 0.000; Science / Research: 0.033 vs 0.000; Technical Sales: 0.315 vs 0.000
+BigQuery,google,nvidia,0.106,mixed,5,4,Analytics: 0.108 vs 0.000; Engineering: 0.072 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.006 vs 0.000; Technical Sales: 0.130 vs 0.000
+SAS,google,nvidia,0.0581,mixed,5,3,Analytics: 0.069 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.500 vs 0.000; Science / Research: 0.117 vs 0.000; Technical Sales: 0.000 vs 0.000
+MATLAB,google,nvidia,0.0513,mixed,5,4,Analytics: 0.108 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.214 vs 0.000; Science / Research: 0.078 vs 0.000; Technical Sales: 0.011 vs 0.000
+Express,google,nvidia,0.0256,mixed,5,2,Analytics: 0.046 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.058 vs 0.000; Technical Sales: 0.000 vs 0.000
+C#,google,nvidia,0.0239,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.066 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.006 vs 0.000; Technical Sales: 0.022 vs 0.000
+Jenkins,google,nvidia,-0.038,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.024 vs 0.083; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.000
+Ansible,google,nvidia,-0.0397,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.018 vs 0.083; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.000
+NumPy,google,nvidia,-0.0458,mixed,5,4,Analytics: 0.023 vs 0.097; Engineering: 0.000 vs 0.053; Other: 0.000 vs 0.077; Science / Research: 0.006 vs 0.025; Technical Sales: 0.000 vs 0.000
+Matplotlib,google,nvidia,-0.0439,mixed,5,2,Analytics: 0.000 vs 0.097; Engineering: 0.000 vs 0.053; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Splunk,google,nvidia,-0.0475,mixed,5,2,Analytics: 0.000 vs 0.226; Engineering: 0.018 vs 0.038; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+GitHub,google,nvidia,-0.0502,mixed,5,4,Analytics: 0.015 vs 0.032; Engineering: 0.012 vs 0.030; Other: 0.000 vs 0.077; Science / Research: 0.000 vs 0.175; Technical Sales: 0.000 vs 0.000
+scikit-learn,google,nvidia,-0.0546,confirmed,5,5,Analytics: 0.000 vs 0.032; Engineering: 0.024 vs 0.030; Other: 0.000 vs 0.308; Science / Research: 0.000 vs 0.100; Technical Sales: 0.000 vs 0.091
+pandas,google,nvidia,-0.0709,confirmed,5,5,Analytics: 0.100 vs 0.194; Engineering: 0.000 vs 0.075; Other: 0.000 vs 0.308; Science / Research: 0.013 vs 0.025; Technical Sales: 0.000 vs 0.091
+Azure,google,nvidia,-0.0748,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.030 vs 0.113; Other: 0.000 vs 0.231; Science / Research: 0.000 vs 0.025; Technical Sales: 0.000 vs 0.000
+Bash,google,nvidia,-0.0809,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.018 vs 0.068; Other: 0.071 vs 0.077; Science / Research: 0.000 vs 0.250; Technical Sales: 0.000 vs 0.000
+Git,google,nvidia,-0.1096,mixed,5,3,Analytics: 0.000 vs 0.065; Engineering: 0.000 vs 0.143; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.100; Technical Sales: 0.000 vs 0.000
+Kafka,google,nvidia,-0.1291,mixed,5,2,Analytics: 0.015 vs 0.032; Engineering: 0.000 vs 0.226; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.000
+AWS,google,nvidia,-0.1318,mixed,5,4,Analytics: 0.000 vs 0.065; Engineering: 0.030 vs 0.196; Other: 0.000 vs 0.231; Science / Research: 0.000 vs 0.025; Technical Sales: 0.000 vs 0.000
+Docker,google,nvidia,-0.1732,confirmed,5,5,Analytics: 0.000 vs 0.032; Engineering: 0.042 vs 0.233; Other: 0.000 vs 0.231; Science / Research: 0.000 vs 0.100; Technical Sales: 0.022 vs 0.364
+PyTorch,google,nvidia,-0.1841,mixed,5,4,Analytics: 0.000 vs 0.000; Engineering: 0.084 vs 0.105; Other: 0.000 vs 0.385; Science / Research: 0.019 vs 0.650; Technical Sales: 0.011 vs 0.364
+Linux,google,nvidia,-0.2057,mixed,5,4,Analytics: 0.031 vs 0.258; Engineering: 0.066 vs 0.308; Other: 0.000 vs 0.385; Science / Research: 0.000 vs 0.300; Technical Sales: 0.370 vs 0.000
+Spark,google,nvidia,-0.2279,mixed,5,4,Analytics: 0.015 vs 0.129; Engineering: 0.168 vs 0.308; Other: 0.000 vs 0.308; Science / Research: 0.013 vs 0.425; Technical Sales: 0.043 vs 0.000
+Kubernetes,google,nvidia,-0.2646,mixed,5,4,Analytics: 0.008 vs 0.000; Engineering: 0.054 vs 0.286; Other: 0.000 vs 0.308; Science / Research: 0.000 vs 0.475; Technical Sales: 0.022 vs 0.364
+R,google,snowflake,0.239,mixed,5,4,Analytics: 0.423 vs 0.125; Engineering: 0.000 vs 0.155; Other: 0.643 vs 0.167; Science / Research: 0.688 vs 0.017; Technical Sales: 0.435 vs 0.000
+Looker,google,snowflake,0.114,mixed,5,4,Analytics: 0.123 vs 0.062; Engineering: 0.018 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.026 vs 0.000; Technical Sales: 0.250 vs 0.000
+Python,google,snowflake,0.0949,mixed,5,2,Analytics: 0.561 vs 0.750; Engineering: 0.629 vs 0.457; Other: 0.643 vs 0.833; Science / Research: 0.896 vs 0.983; Technical Sales: 0.478 vs 0.357
+Machine Learning,google,snowflake,0.0777,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.216 vs 0.022; Other: 0.071 vs 0.000; Science / Research: 0.071 vs 0.083; Technical Sales: 0.141 vs 0.000
+TensorFlow,google,snowflake,0.0771,mixed,5,2,Analytics: 0.061 vs 0.000; Engineering: 0.258 vs 0.022; Other: 0.000 vs 0.250; Science / Research: 0.117 vs 0.150; Technical Sales: 0.022 vs 0.024
+NoSQL,google,snowflake,0.0715,mixed,5,2,Analytics: 0.038 vs 0.062; Engineering: 0.216 vs 0.009; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.065 vs 0.000
+SAS,google,snowflake,0.0581,mixed,5,3,Analytics: 0.069 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.500 vs 0.000; Science / Research: 0.117 vs 0.000; Technical Sales: 0.000 vs 0.000
+BigQuery,google,snowflake,0.0595,mixed,5,2,Analytics: 0.108 vs 0.312; Engineering: 0.072 vs 0.009; Other: 0.000 vs 0.000; Science / Research: 0.006 vs 0.217; Technical Sales: 0.130 vs 0.000
+MATLAB,google,snowflake,0.0513,mixed,5,4,Analytics: 0.108 vs 0.000; Engineering: 0.000 vs 0.000; Other: 0.214 vs 0.000; Science / Research: 0.078 vs 0.000; Technical Sales: 0.011 vs 0.000
+Linux,google,snowflake,0.0417,mixed,5,2,Analytics: 0.031 vs 0.125; Engineering: 0.066 vs 0.053; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.370 vs 0.000
+SAP,google,snowflake,0.0308,mixed,5,3,Analytics: 0.015 vs 0.000; Engineering: 0.006 vs 0.000; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.163 vs 0.000
+MongoDB,google,snowflake,0.0293,mixed,5,2,Analytics: 0.038 vs 0.000; Engineering: 0.096 vs 0.009; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+C#,google,snowflake,0.0217,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.066 vs 0.003; Other: 0.000 vs 0.000; Science / Research: 0.006 vs 0.000; Technical Sales: 0.022 vs 0.000
+Oracle,google,snowflake,0.0231,mixed,5,3,Analytics: 0.008 vs 0.000; Engineering: 0.000 vs 0.015; Other: 0.000 vs 0.000; Science / Research: 0.013 vs 0.000; Technical Sales: 0.185 vs 0.000
+Perl,google,snowflake,0.0202,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.102 vs 0.009; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.024
+Terraform,google,snowflake,-0.0256,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.042 vs 0.053; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Jira,google,snowflake,-0.0288,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.040; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Jenkins,google,snowflake,-0.0296,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.024 vs 0.056; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.000
+Cassandra,google,snowflake,-0.0298,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.012 vs 0.047; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Git,google,snowflake,-0.0354,mixed,5,2,Analytics: 0.000 vs 0.125; Engineering: 0.000 vs 0.043; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Node.js,google,snowflake,-0.042,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.000 vs 0.059; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Redshift,google,snowflake,-0.0413,mixed,5,3,Analytics: 0.008 vs 0.312; Engineering: 0.000 vs 0.009; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.217; Technical Sales: 0.022 vs 0.000
+NumPy,google,snowflake,-0.0485,mixed,5,4,Analytics: 0.023 vs 0.125; Engineering: 0.000 vs 0.012; Other: 0.000 vs 0.167; Science / Research: 0.006 vs 0.283; Technical Sales: 0.000 vs 0.000
+VMware,google,snowflake,-0.0536,mixed,5,1,Analytics: 0.000 vs 0.000; Engineering: 0.006 vs 0.078; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+React,google,snowflake,-0.0566,mixed,5,1,Analytics: 0.015 vs 0.000; Engineering: 0.030 vs 0.096; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Kafka,google,snowflake,-0.064,mixed,5,2,Analytics: 0.015 vs 0.000; Engineering: 0.000 vs 0.087; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.095
+Kubernetes,google,snowflake,-0.0879,mixed,5,2,Analytics: 0.008 vs 0.125; Engineering: 0.054 vs 0.146; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.022 vs 0.000
+pandas,google,snowflake,-0.0916,confirmed,5,5,Analytics: 0.100 vs 0.125; Engineering: 0.000 vs 0.012; Other: 0.000 vs 0.083; Science / Research: 0.013 vs 0.750; Technical Sales: 0.000 vs 0.024
+TypeScript,google,snowflake,-0.0908,mixed,5,1,Analytics: 0.008 vs 0.000; Engineering: 0.048 vs 0.149; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+Docker,google,snowflake,-0.0952,mixed,5,3,Analytics: 0.000 vs 0.125; Engineering: 0.042 vs 0.137; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.067; Technical Sales: 0.022 vs 0.000
+scikit-learn,google,snowflake,-0.0994,mixed,5,3,Analytics: 0.000 vs 0.000; Engineering: 0.024 vs 0.006; Other: 0.000 vs 0.083; Science / Research: 0.000 vs 0.733; Technical Sales: 0.000 vs 0.024
+Airflow,google,snowflake,-0.1051,mixed,5,4,Analytics: 0.031 vs 0.375; Engineering: 0.042 vs 0.053; Other: 0.000 vs 0.167; Science / Research: 0.000 vs 0.517; Technical Sales: 0.000 vs 0.000
+Windows,google,snowflake,-0.1176,mixed,5,2,Analytics: 0.023 vs 0.125; Engineering: 0.012 vs 0.171; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.000; Technical Sales: 0.000 vs 0.000
+GCP,google,snowflake,-0.1338,mixed,5,4,Analytics: 0.046 vs 0.188; Engineering: 0.072 vs 0.211; Other: 0.000 vs 0.000; Science / Research: 0.000 vs 0.067; Technical Sales: 0.011 vs 0.095
+Spark,google,snowflake,-0.142,mixed,5,4,Analytics: 0.015 vs 0.125; Engineering: 0.168 vs 0.236; Other: 0.000 vs 0.167; Science / Research: 0.013 vs 0.000; Technical Sales: 0.043 vs 0.286
+SQL,google,snowflake,-0.1965,confirmed,5,5,Analytics: 0.708 vs 0.875; Engineering: 0.132 vs 0.562; Other: 0.286 vs 0.833; Science / Research: 0.584 vs 0.767; Technical Sales: 0.337 vs 0.738
+Java,google,snowflake,-0.239,mixed,5,2,Analytics: 0.046 vs 0.000; Engineering: 0.545 vs 0.606; Other: 0.000 vs 0.000; Science / Research: 0.026 vs 0.067; Technical Sales: 0.337 vs 0.262
+Azure,google,snowflake,-0.2923,confirmed,5,5,Analytics: 0.000 vs 0.188; Engineering: 0.030 vs 0.360; Other: 0.000 vs 0.083; Science / Research: 0.000 vs 0.067; Technical Sales: 0.000 vs 0.286
+AWS,google,snowflake,-0.2968,confirmed,5,5,Analytics: 0.000 vs 0.188; Engineering: 0.030 vs 0.366; Other: 0.000 vs 0.083; Science / Research: 0.000 vs 0.067; Technical Sales: 0.000 vs 0.286
+Excel,google,snowflake,-0.327,confirmed,5,5,Analytics: 0.061 vs 0.500; Engineering: 0.000 vs 0.301; Other: 0.000 vs 0.250; Science / Research: 0.000 vs 0.467; Technical Sales: 0.000 vs 0.429

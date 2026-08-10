@@ -1,0 +1,45 @@
+skill,skill_category,company_a,company_b,a_with_skill,a_n,a_share,b_with_skill,b_n,b_share,diff,ci_low,ci_high,p_value,q_value,significant,a_vendor_relation,b_vendor_relation,self_referential
+R,Programming Language,google,databricks,214,590,0.3627,51,340,0.15,0.2127,0.1563,0.2649,4.486661423280634e-12,0.0,True,,,False
+JavaScript,Programming Language,google,databricks,73,590,0.1237,4,340,0.0118,0.112,0.0818,0.1419,2.414552167863414e-09,0.0,True,,,False
+BigQuery,Cloud Platform,google,databricks,62,590,0.1051,0,340,0.0,0.1051,0.0802,0.1324,6.126020529310566e-10,0.0,True,own_product,,True
+TensorFlow,ML / AI,google,databricks,71,590,0.1203,7,340,0.0206,0.0998,0.0678,0.1304,1.256128013121712e-07,0.0,True,origin,,True
+Go,Programming Language,google,databricks,94,590,0.1593,28,340,0.0824,0.077,0.0333,0.1172,0.0008127875482233889,0.00135,True,origin,,True
+C++,Programming Language,google,databricks,102,590,0.1729,35,340,0.1029,0.0699,0.0234,0.1129,0.003752436816311856,0.00486,True,,,False
+Linux,OS / Shell,google,databricks,49,590,0.0831,7,340,0.0206,0.0625,0.0335,0.0897,0.00011508887386601661,0.00023,True,,,False
+C,Programming Language,google,databricks,36,590,0.061,1,340,0.0029,0.0581,0.0366,0.0805,1.277607468541315e-05,3e-05,True,,,False
+SAS,Analytics / BI,google,databricks,34,590,0.0576,0,340,0.0,0.0576,0.038,0.0794,6.494247505120249e-06,2e-05,True,,,False
+NoSQL,Database,google,databricks,47,590,0.0797,8,340,0.0235,0.0561,0.0268,0.0834,0.00047432125906416567,0.00083,True,,,False
+MATLAB,Programming Language,google,databricks,30,590,0.0508,0,340,0.0,0.0508,0.0321,0.0717,2.372165468060573e-05,5e-05,True,,,False
+Machine Learning,ML / AI,google,databricks,61,590,0.1034,19,340,0.0559,0.0475,0.0105,0.0812,0.012833118373208408,0.01526,True,,,False
+Python,Programming Language,google,databricks,372,590,0.6305,201,340,0.5912,0.0393,-0.0252,0.1045,0.23491407557312957,0.2461,False,,,False
+MongoDB,Database,google,databricks,21,590,0.0356,0,340,0.0,0.0356,0.0191,0.0538,0.0004336616124537337,0.00083,True,,,False
+SAP,Analytics / BI,google,databricks,19,590,0.0322,0,340,0.0,0.0322,0.0162,0.0497,0.0008279479934613525,0.00135,True,,,False
+Perl,Programming Language,google,databricks,17,590,0.0288,0,340,0.0,0.0288,0.0133,0.0457,0.0015833372527527061,0.0024,True,,,False
+Express,Web / Frontend,google,databricks,15,590,0.0254,0,340,0.0,0.0254,0.0105,0.0415,0.003035887549976252,0.00417,True,,,False
+Snowflake,Cloud Platform,google,databricks,15,590,0.0254,0,340,0.0,0.0254,0.0105,0.0415,0.003035887549976252,0.00417,True,,,False
+Airflow,Data Engineering,google,databricks,11,590,0.0186,0,340,0.0,0.0186,0.0048,0.0331,0.011316939567074887,0.01423,True,,,False
+Shell,OS / Shell,google,databricks,14,590,0.0237,2,340,0.0059,0.0178,-0.0002,0.0341,0.04383133058035757,0.05075,False,,,False
+Oracle,Database,google,databricks,20,590,0.0339,6,340,0.0176,0.0163,-0.0073,0.0365,0.14765979810105445,0.16243,False,,,False
+C#,Programming Language,google,databricks,14,590,0.0237,4,340,0.0118,0.012,-0.0085,0.0292,0.2021602525246105,0.21695,False,,,False
+PyTorch,ML / AI,google,databricks,18,590,0.0305,7,340,0.0206,0.0099,-0.0141,0.0301,0.36768759181819366,0.37624,False,,,False
+Looker,Analytics / BI,google,databricks,70,590,0.1186,41,340,0.1206,-0.0019,-0.0475,0.0398,0.929819560572559,0.92982,False,own_product,,True
+Microsoft Word,Office / Productivity,google,databricks,3,590,0.0051,10,340,0.0294,-0.0243,-0.0484,-0.0078,0.002340276909097211,0.00343,True,,,False
+Jenkins,DevOps / Infrastructure,google,databricks,6,590,0.0102,13,340,0.0382,-0.0281,-0.0547,-0.0084,0.0035714547378844505,0.00476,True,,,False
+Kubernetes,DevOps / Infrastructure,google,databricks,12,590,0.0203,17,340,0.05,-0.0297,-0.0596,-0.0059,0.012200498979649333,0.01491,True,origin,,True
+Google Sheets,Analytics / BI,google,databricks,5,590,0.0085,19,340,0.0559,-0.0474,-0.0775,-0.0246,1.1270797307544272e-05,3e-05,True,own_product,,True
+Cassandra,Database,google,databricks,2,590,0.0034,18,340,0.0529,-0.0496,-0.0788,-0.0284,5.253948614163733e-07,0.0,True,,,False
+pandas,Data Science Libraries,google,databricks,17,590,0.0288,27,340,0.0794,-0.0506,-0.0859,-0.0211,0.00046482497704617435,0.00083,True,,,False
+Java,Programming Language,google,databricks,132,590,0.2237,95,340,0.2794,-0.0557,-0.1149,0.0016,0.05692637391089687,0.06422,False,,,False
+scikit-learn,ML / AI,google,databricks,6,590,0.0102,27,340,0.0794,-0.0692,-0.1034,-0.0422,3.863253472070553e-08,0.0,True,,,False
+Git,DevOps / Infrastructure,google,databricks,0,590,0.0,24,340,0.0706,-0.0706,-0.1029,-0.047,6.219259506883349e-11,0.0,True,,,False
+SQL,Programming Language,google,databricks,255,590,0.4322,184,340,0.5412,-0.109,-0.1744,-0.0423,0.0013462975296771628,0.00212,True,,,False
+Tableau,Analytics / BI,google,databricks,30,590,0.0508,66,340,0.1941,-0.1433,-0.191,-0.0995,4.65141185084862e-12,0.0,True,,,False
+Hadoop,Data Engineering,google,databricks,58,590,0.0983,120,340,0.3529,-0.2546,-0.3111,-0.1989,1.977118084455573e-21,0.0,True,,,False
+Kafka,Data Engineering,google,databricks,4,590,0.0068,90,340,0.2647,-0.2579,-0.3074,-0.2126,3.202221823808442e-36,0.0,True,,,False
+GCP,Cloud Platform,google,databricks,24,590,0.0407,113,340,0.3324,-0.2917,-0.345,-0.24,1.241123300178116e-33,0.0,True,own_product,,True
+Scala,Programming Language,google,databricks,53,590,0.0898,169,340,0.4971,-0.4072,-0.4639,-0.3484,1.024256006309765e-44,0.0,True,,,False
+Azure,Cloud Platform,google,databricks,5,590,0.0085,145,340,0.4265,-0.418,-0.4713,-0.3653,1.5202537406628225e-62,0.0,True,,,False
+AWS,Cloud Platform,google,databricks,5,590,0.0085,165,340,0.4853,-0.4768,-0.53,-0.423,2.264300223868531e-73,0.0,True,,,False
+Spark,Data Engineering,google,databricks,36,590,0.061,246,340,0.7235,-0.6625,-0.7103,-0.6079,1.86618018986372e-99,0.0,True,,origin,True
+Excel,Analytics / BI,google,databricks,8,590,0.0136,263,340,0.7735,-0.76,-0.8018,-0.7108,3.1646921382942227e-133,0.0,True,,,False
+Databricks,Cloud Platform,google,databricks,0,590,0.0,338,340,0.9941,-0.9941,-0.9984,-0.9775,2.180085040304824e-202,0.0,True,,own_product,True

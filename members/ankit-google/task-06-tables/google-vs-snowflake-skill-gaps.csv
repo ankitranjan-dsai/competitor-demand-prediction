@@ -1,0 +1,52 @@
+skill,skill_category,company_a,company_b,a_with_skill,a_n,a_share,b_with_skill,b_n,b_share,diff,ci_low,ci_high,p_value,q_value,significant,a_vendor_relation,b_vendor_relation,self_referential
+R,Programming Language,google,snowflake,214,590,0.3627,56,459,0.122,0.2407,0.1905,0.2885,9.051088514130387e-19,0.0,True,,,False
+Looker,Analytics / BI,google,snowflake,70,590,0.1186,2,459,0.0044,0.1143,0.088,0.1431,3.7923180491112626e-13,0.0,True,own_product,,True
+Python,Programming Language,google,snowflake,372,590,0.6305,248,459,0.5403,0.0902,0.0302,0.1497,0.003198979107798117,0.00453,True,,,False
+Machine Learning,ML / AI,google,snowflake,61,590,0.1034,12,459,0.0261,0.0772,0.0481,0.1066,1.073612189608577e-06,0.0,True,,,False
+TensorFlow,ML / AI,google,snowflake,71,590,0.1203,22,459,0.0479,0.0724,0.0389,0.1053,4.2585062857419505e-05,7e-05,True,origin,,True
+NoSQL,Database,google,snowflake,47,590,0.0797,4,459,0.0087,0.0709,0.0475,0.0962,1.1561434441524505e-07,0.0,True,,,False
+SAS,Analytics / BI,google,snowflake,34,590,0.0576,0,459,0.0,0.0576,0.0395,0.0794,1.7091969586804387e-07,0.0,True,,,False
+BigQuery,Cloud Platform,google,snowflake,62,590,0.1051,23,459,0.0501,0.055,0.0223,0.0869,0.001207900157444469,0.00187,True,own_product,,True
+MATLAB,Programming Language,google,snowflake,30,590,0.0508,0,459,0.0,0.0508,0.0337,0.0717,9.503876276626948e-07,0.0,True,,,False
+Linux,OS / Shell,google,snowflake,49,590,0.0831,19,459,0.0414,0.0417,0.0119,0.0707,0.006559764597249473,0.0088,True,,,False
+SAP,Analytics / BI,google,snowflake,19,590,0.0322,0,459,0.0,0.0322,0.018,0.0497,0.00010447740171759423,0.00017,True,,,False
+Hadoop,Data Engineering,google,snowflake,58,590,0.0983,31,459,0.0675,0.0308,-0.0035,0.0638,0.07604935298123083,0.0902,False,,,False
+JavaScript,Programming Language,google,snowflake,73,590,0.1237,43,459,0.0937,0.03,-0.0086,0.0673,0.12370804668958488,0.13715,False,,,False
+MongoDB,Database,google,snowflake,21,590,0.0356,3,459,0.0065,0.0291,0.0116,0.0478,0.0017930046856532158,0.00262,True,,,False
+C#,Programming Language,google,snowflake,14,590,0.0237,1,459,0.0022,0.0216,0.0077,0.0374,0.0035396139415428745,0.00488,True,,,False
+Oracle,Database,google,snowflake,20,590,0.0339,6,459,0.0131,0.0208,0.0016,0.0401,0.031370924230493015,0.03902,True,,,False
+Tableau,Analytics / BI,google,snowflake,30,590,0.0508,14,459,0.0305,0.0203,-0.0047,0.0445,0.10293496672104885,0.11931,False,,,False
+Perl,Programming Language,google,snowflake,17,590,0.0288,4,459,0.0087,0.0201,0.0029,0.0378,0.021131935805303335,0.02694,True,,,False
+C,Programming Language,google,snowflake,36,590,0.061,20,459,0.0436,0.0174,-0.0107,0.0444,0.21247099518903503,0.22575,False,,,False
+Shell,OS / Shell,google,snowflake,14,590,0.0237,5,459,0.0109,0.0128,-0.0044,0.0297,0.12199260300785411,0.13715,False,,,False
+Express,Web / Frontend,google,snowflake,15,590,0.0254,9,459,0.0196,0.0058,-0.0141,0.0244,0.5319820307823754,0.54262,False,,,False
+Go,Programming Language,google,snowflake,94,590,0.1593,77,459,0.1678,-0.0084,-0.0544,0.0362,0.7137197820827712,0.71372,False,origin,,True
+PyTorch,ML / AI,google,snowflake,18,590,0.0305,21,459,0.0458,-0.0152,-0.041,0.008,0.1954927292120915,0.21213,False,,,False
+Scala,Programming Language,google,snowflake,53,590,0.0898,50,459,0.1089,-0.0191,-0.0569,0.0171,0.302345971078543,0.31469,False,,,False
+Terraform,DevOps / Infrastructure,google,snowflake,7,590,0.0119,17,459,0.037,-0.0252,-0.0475,-0.0066,0.0068286632255369845,0.00893,True,,,False
+Jira,Office / Productivity,google,snowflake,0,590,0.0,13,459,0.0283,-0.0283,-0.0478,-0.015,3.899017878659742e-05,7e-05,True,,,False
+Jenkins,DevOps / Infrastructure,google,snowflake,6,590,0.0102,18,459,0.0392,-0.029,-0.0516,-0.0105,0.001800269447170106,0.00262,True,,,False
+Cassandra,Database,google,snowflake,2,590,0.0034,15,459,0.0327,-0.0293,-0.05,-0.0137,0.0001936775154897715,0.00031,True,,,False
+Git,DevOps / Infrastructure,google,snowflake,0,590,0.0,16,459,0.0349,-0.0349,-0.0559,-0.0201,4.876988042638617e-06,1e-05,True,,,False
+Node.js,Web / Frontend,google,snowflake,0,590,0.0,19,459,0.0414,-0.0414,-0.0637,-0.0253,6.122857859964577e-07,0.0,True,,,False
+Redshift,Cloud Platform,google,snowflake,3,590,0.0051,23,459,0.0501,-0.045,-0.0692,-0.0259,3.26996998422772e-06,1e-05,True,,,False
+C++,Programming Language,google,snowflake,102,590,0.1729,100,459,0.2179,-0.045,-0.094,0.0031,0.06680625188040745,0.08112,False,,,False
+NumPy,Data Science Libraries,google,snowflake,6,590,0.0102,27,459,0.0588,-0.0487,-0.0747,-0.027,7.516000709153095e-06,1e-05,True,,,False
+VMware,Cloud Platform,google,snowflake,1,590,0.0017,25,459,0.0545,-0.0528,-0.0775,-0.0338,4.9324458083300634e-08,0.0,True,,,False
+React,Web / Frontend,google,snowflake,7,590,0.0119,31,459,0.0675,-0.0557,-0.0831,-0.0325,1.6892583235628733e-06,0.0,True,,,False
+Kafka,Data Engineering,google,snowflake,4,590,0.0068,32,459,0.0697,-0.0629,-0.0903,-0.0404,2.778784952771848e-08,0.0,True,,,False
+Kubernetes,DevOps / Infrastructure,google,snowflake,12,590,0.0203,49,459,0.1068,-0.0864,-0.1192,-0.0573,2.9768087324036844e-09,0.0,True,origin,,True
+pandas,Data Science Libraries,google,snowflake,17,590,0.0288,53,459,0.1155,-0.0867,-0.1209,-0.0556,2.4161528378939535e-08,0.0,True,,,False
+TypeScript,Programming Language,google,snowflake,9,590,0.0153,48,459,0.1046,-0.0893,-0.1215,-0.0611,2.433994347381493e-10,0.0,True,,,False
+Docker,DevOps / Infrastructure,google,snowflake,9,590,0.0153,50,459,0.1089,-0.0937,-0.1263,-0.065,6.444906442796811e-11,0.0,True,,,False
+scikit-learn,ML / AI,google,snowflake,6,590,0.0102,48,459,0.1046,-0.0944,-0.1262,-0.0669,6.671825838895064e-12,0.0,True,,,False
+Airflow,Data Engineering,google,snowflake,11,590,0.0186,58,459,0.1264,-0.1077,-0.1422,-0.0768,2.913642516377908e-12,0.0,True,,,False
+Windows,OS / Shell,google,snowflake,5,590,0.0085,57,459,0.1242,-0.1157,-0.1494,-0.0864,3.1779984265132114e-15,0.0,True,,,False
+GCP,Cloud Platform,google,snowflake,24,590,0.0407,79,459,0.1721,-0.1314,-0.1709,-0.0943,1.2759648018398113e-12,0.0,True,own_product,,True
+Spark,Data Engineering,google,snowflake,36,590,0.061,94,459,0.2048,-0.1438,-0.1864,-0.1028,2.3669365817179183e-12,0.0,True,,,False
+SQL,Programming Language,google,snowflake,255,590,0.4322,287,459,0.6253,-0.1931,-0.2514,-0.1326,5.377463688181199e-10,0.0,True,,,False
+Java,Programming Language,google,snowflake,132,590,0.2237,212,459,0.4619,-0.2381,-0.2938,-0.1808,3.622421707040951e-16,0.0,True,,,False
+Azure,Cloud Platform,google,snowflake,5,590,0.0085,137,459,0.2985,-0.29,-0.3337,-0.2484,3.053901392972534e-42,0.0,True,,,False
+AWS,Cloud Platform,google,snowflake,5,590,0.0085,139,459,0.3028,-0.2944,-0.3382,-0.2526,5.589728742973578e-43,0.0,True,,,False
+Excel,Analytics / BI,google,snowflake,8,590,0.0136,158,459,0.3442,-0.3307,-0.3758,-0.2867,5.259188977022139e-48,0.0,True,,,False
+Snowflake,Cloud Platform,google,snowflake,15,590,0.0254,456,459,0.9935,-0.968,-0.9789,-0.9477,1.1639862476014895e-214,0.0,True,,own_product,True

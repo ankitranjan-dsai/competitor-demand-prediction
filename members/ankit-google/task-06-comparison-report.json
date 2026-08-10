@@ -1,0 +1,192 @@
+{
+  "task": "06-competitor-comparison",
+  "focus_company": "google",
+  "companies": [
+    "databricks",
+    "google",
+    "meta",
+    "microsoft",
+    "nvidia",
+    "snowflake"
+  ],
+  "generated_at": "2026-08-10T15:52:10+00:00",
+  "comparability": {
+    "level_identified": false,
+    "level_reason": "common-panel coverage below the floor for snowflake (24%)",
+    "common_panel_share": {
+      "databricks": 0.538,
+      "google": 0.541,
+      "meta": 0.44,
+      "microsoft": 0.609,
+      "nvidia": 0.675,
+      "snowflake": 0.235
+    },
+    "min_common_panel_share": 0.4
+  },
+  "common_panel": {
+    "publishers": [
+      "via BeBee",
+      "via Indeed",
+      "via Ladders",
+      "via LinkedIn",
+      "via Recruit.net",
+      "via SimplyHired",
+      "via Trabajo.org"
+    ],
+    "n_publishers_window": 7,
+    "max_within_month": 3,
+    "min_within_month": 0,
+    "months_with_none": [
+      "2023-02"
+    ]
+  },
+  "volume": {
+    "identified_directions": [
+      "meta",
+      "snowflake"
+    ],
+    "not_identified": [
+      "databricks",
+      "google",
+      "microsoft",
+      "nvidia"
+    ],
+    "max_treatment_spread": 135.59,
+    "half_over_half_all_positive": true,
+    "half_over_half_agrees": true,
+    "relative_share": {
+      "databricks": 0.293,
+      "google": -0.182,
+      "meta": 0.05,
+      "microsoft": 0.237,
+      "nvidia": 0.347,
+      "snowflake": -1.19
+    },
+    "relative_share_verdicts": {
+      "databricks": "mixed",
+      "google": "mixed",
+      "meta": "mixed",
+      "microsoft": "mixed",
+      "nvidia": "confirmed",
+      "snowflake": "mixed"
+    },
+    "shared_thin_months": [
+      "2023-02",
+      "2023-04",
+      "2023-05"
+    ],
+    "publishers_first_period": 66,
+    "publishers_last_period": 51,
+    "postings_per_publisher_first": 5.02,
+    "postings_per_publisher_last": 7.59,
+    "mean_pairwise_correlation": 0.318
+  },
+  "role_mix": {
+    "max_pairwise_distance": 0.6776,
+    "min_pairwise_distance": 0.1353,
+    "mean_pairwise_distance": 0.3782,
+    "coverage_crude": {
+      "databricks": 1.0,
+      "google": 0.708,
+      "meta": 0.846,
+      "microsoft": 0.7966,
+      "nvidia": 0.8672,
+      "snowflake": 0.9978
+    },
+    "coverage_standardised": {
+      "databricks": 1.0,
+      "google": 0.7638,
+      "meta": 0.8631,
+      "microsoft": 0.7998,
+      "nvidia": 0.8862,
+      "snowflake": 0.987
+    },
+    "max_mix_effect_pp": 5.57
+  },
+  "self_reference": {
+    "own_product_share": {
+      "databricks": 0.9941,
+      "google": 0.1407,
+      "meta": 0.0507,
+      "microsoft": 0.6651,
+      "nvidia": 0.0037,
+      "snowflake": 0.9913
+    },
+    "coverage_inflation_pp": {
+      "databricks": 3.24,
+      "google": 3.31,
+      "meta": 0.1,
+      "microsoft": 11.62,
+      "nvidia": 0.37,
+      "snowflake": 1.52
+    }
+  },
+  "skills": {
+    "skills_compared": 127,
+    "top_skills": [
+      "Python",
+      "SQL",
+      "R",
+      "Java",
+      "Spark",
+      "Azure",
+      "C++",
+      "Snowflake",
+      "Excel",
+      "Hadoop",
+      "Scala",
+      "Databricks",
+      "AWS",
+      "C#",
+      "Go",
+      "GCP",
+      "Tableau",
+      "Machine Learning",
+      "TensorFlow",
+      "Kubernetes",
+      "JavaScript",
+      "pandas",
+      "Kafka",
+      "PyTorch",
+      "Linux"
+    ],
+    "focus_significant": 48,
+    "focus_significant_self_referential": 6,
+    "focus_top_lift": {
+      "BigQuery": 2.863,
+      "Looker": 2.546,
+      "NoSQL": 1.976,
+      "Shell": 1.507,
+      "MongoDB": 1.41
+    },
+    "focus_bottom_lift": {
+      "dplyr": -4.437,
+      "Matplotlib": -4.533,
+      "Azure": -4.86,
+      "Git": -5.715,
+      "Databricks": -7.713
+    },
+    "max_standardisation_effect_pp": 17.45,
+    "stratified": {
+      "mixed": 149,
+      "confirmed": 33
+    },
+    "channel_sensitive_shares": 5
+  },
+  "figures": [
+    "01-comparability-gate.png",
+    "02-volume-index-by-company.png",
+    "03-relative-share.png",
+    "04-collection-artefact-check.png",
+    "05-job-function-mix.png",
+    "06-coverage-standardised.png",
+    "07-skill-heatmap.png",
+    "08-google-distinctiveness.png",
+    "09-google-vs-rivals.png"
+  ],
+  "privacy": {
+    "tables_checked": 33,
+    "personal_data_columns_present": {},
+    "passed": true
+  }
+}

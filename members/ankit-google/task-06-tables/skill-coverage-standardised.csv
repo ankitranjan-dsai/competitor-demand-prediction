@@ -1,0 +1,7 @@
+company,metric,crude,standardised,mix_effect,weight_covered,strata_used,postings
+databricks,has_any_skill,1.0,1.0,0.0,0.9313,5,340
+google,has_any_skill,0.708,0.7638,-0.0557,0.9922,7,846
+meta,has_any_skill,0.846,0.8631,-0.0171,0.9288,6,1026
+microsoft,has_any_skill,0.7966,0.7998,-0.0031,0.9116,5,654
+nvidia,has_any_skill,0.8672,0.8862,-0.019,0.9313,5,271
+snowflake,has_any_skill,0.9978,0.987,0.0108,0.9313,5,460

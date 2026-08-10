@@ -1,0 +1,7 @@
+company,direction,treatments_agree,raw_index_final,balanced_index_final,chained_index_final,bilateral_index_final,spread
+databricks,unresolved,False,121.05,172.73,53.72,181.82,128.1
+google,growth,False,92.13,115.38,185.38,191.18,99.05
+meta,growth,True,270.21,134.62,218.36,228.57,135.59
+microsoft,growth,False,104.44,185.37,129.76,155.1,80.93
+nvidia,decline,False,108.33,80.95,102.34,82.61,27.38
+snowflake,decline,True,56.45,54.35,40.9,58.14,17.24

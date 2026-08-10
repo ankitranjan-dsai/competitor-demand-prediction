@@ -1,0 +1,7 @@
+company,postings,own_product_skills,postings_with_own_product,own_product_share,coverage,coverage_excl_own_product,coverage_inflation_pp,top_own_product,provenance
+databricks,340,3,338,0.9941,1.0,0.9676,3.24,Databricks,source (338)
+google,846,10,119,0.1407,0.708,0.6749,3.31,Looker,"source (148), source+title (15)"
+meta,1026,2,52,0.0507,0.846,0.845,0.1,PyTorch,source (52)
+microsoft,654,14,435,0.6651,0.7966,0.6804,11.62,Azure,"source (654), source+title (12), title (3)"
+nvidia,271,2,1,0.0037,0.8672,0.8635,0.37,CUDA,title (1)
+snowflake,460,1,456,0.9913,0.9978,0.9826,1.52,Snowflake,"source (454), source+title (1), title (1)"

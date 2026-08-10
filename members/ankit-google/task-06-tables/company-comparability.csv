@@ -1,0 +1,7 @@
+company,postings,publishers,months_observed,balanced_panel_publishers,balanced_panel_share,common_panel_share,own_channel_publishers,own_channel_share,top_publisher,top_publisher_share,trend_direction,treatments_agree,skill_coverage,skill_coverage_ex_facilities,facilities_share,level_comparable
+databricks,340,39,12,3,0.5118,0.5382,0,0.0,via LinkedIn,0.3059,unresolved,False,1.0,1.0,0.0,True
+google,846,95,12,3,0.4456,0.5414,2,0.0674,via LinkedIn,0.253,growth,False,0.708,0.7856,0.1123,True
+meta,1026,102,12,8,0.4912,0.4396,2,0.0429,via BeBee,0.1287,growth,True,0.846,0.8448,0.0331,True
+microsoft,654,88,12,6,0.6376,0.6086,2,0.0703,via LinkedIn,0.2462,growth,False,0.7966,0.7975,0.0336,True
+nvidia,271,43,12,3,0.6015,0.6753,0,0.0,via Trabajo.org,0.2694,decline,False,0.8672,0.8755,0.0221,True
+snowflake,460,37,12,4,0.6565,0.2348,2,0.4565,via Snowflake Careers,0.4522,decline,True,0.9978,0.9978,0.0,False
