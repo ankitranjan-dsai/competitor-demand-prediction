@@ -16,9 +16,10 @@ Google specialist's Task 02–04 runners and they write into
 `members/ankit-google/`. A competitor is *not* a specialist's own company: no
 one owns Microsoft in this team, its per-task reports are not deliverables, and
 writing them under a member folder would say otherwise. So this runner calls
-the same library functions and writes only to `data/processed/<company>/`,
-which stays git-ignored. The committed output of Task 06 is the comparison,
-plus the three audit tables that make the company selection reviewable.
+the same library functions and writes only to `data/raw/task-06/` and
+`data/processed/<company>/`, both git-ignored. The committed output of Task 06
+is the comparison, plus the three audit tables that make the company selection
+reviewable.
 
 **No new data source.** Every posting here comes from the parquet Task 02
 already downloaded and Task 01 already approved; the only new thing is which
@@ -49,7 +50,22 @@ SOURCE = REPO_ROOT / "data" / "raw" / "google" / "_hf_data_jobs_full.parquet"
 
 TABLES = REPO_ROOT / "members" / "ankit-google" / "task-06-tables"
 
+#: Task 06 keeps its own selected rows here, in its own namespace. This is
+#: deliberately *not* `data/raw/<key>/<key>_jobs_hf_backfill_2023.parquet`:
+#: for google that path is Task 02's artefact and Task 03's default input, and
+#: the two selections are not the same set — the registry's exclude pattern
+#: drops two rows Task 02 kept (docs/corrections.md C4). Writing there would
+#: let Task 06 silently redefine an earlier task's input, and the file would
+#: come back 846 rows with a new `scraped_date`. A task may add data; it may
+#: not rewrite the data an earlier task reported on.
+COMPANY_RAW = REPO_ROOT / "data" / "raw" / "task-06"
+
 SOURCE_LABEL = "hf:lukebarousse/data_jobs (Apache-2.0)"
+
+
+def company_raw_path(key: str) -> Path:
+    """Where this task's copy of a company's selected rows lives."""
+    return COMPANY_RAW / f"{key}_hf_backfill_2023.parquet"
 
 
 def stable_job_id(source: str, *parts: str) -> str:
@@ -104,9 +120,8 @@ def build_company(full: pd.DataFrame, key: str) -> dict:
     )
     raw["company_key"] = key
 
-    raw_dir = REPO_ROOT / "data" / "raw" / key
-    raw_dir.mkdir(parents=True, exist_ok=True)
-    raw.to_parquet(raw_dir / f"{key}_jobs_hf_backfill_2023.parquet", index=False)
+    COMPANY_RAW.mkdir(parents=True, exist_ok=True)
+    raw.to_parquet(company_raw_path(key), index=False)
 
     clean = pp.preprocess(raw)
     features, unmapped = sk.build_posting_features(clean)

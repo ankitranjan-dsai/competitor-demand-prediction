@@ -8,9 +8,11 @@ The ones that matter most:
 
 * substring matching is wrong in *both* directions — ``Geoambiente - Google
   Cloud Premier Partner`` is not Google, and ``Facebook App`` is Meta;
-* Task 06 must select exactly the postings Task 02 and Task 03 already
-  selected for Google, or the cross-company comparison silently disagrees with
-  the Google specialist's own committed numbers;
+* Task 06 must select the same Google postings Task 02 and Task 03 selected,
+  bar the two the registry's exclude pattern rules out (846 vs 848, recorded
+  as C4), or the cross-company comparison silently disagrees with the Google
+  specialist's own committed numbers — and it must not rewrite their files
+  while it is at it;
 * the feasibility screen is a *published finding*, not a private filter:
   OpenAI and Anthropic fail it, and their failure is a fact about the source;
 * every judgement call in the registry (LinkedIn out of Microsoft, bare
@@ -30,6 +32,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
+import build_competitor_set as bcs  # noqa: E402
 import preprocess as pp  # noqa: E402
 from collect_google_jobs import GOOGLE_FAMILY_PATTERN  # noqa: E402
 from companies import (  # noqa: E402
@@ -330,8 +333,39 @@ def test_screen_thresholds_are_named_constants():
 # Against the committed tables, when they have been built
 # ---------------------------------------------------------------------------
 
-TABLES = (Path(__file__).resolve().parents[1] / "members" / "ankit-google" /
-          "task-06-tables")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+TABLES = REPO_ROOT / "members" / "ankit-google" / "task-06-tables"
+TASK_02_BACKFILL = (REPO_ROOT / "data" / "raw" / "google" /
+                    "google_jobs_hf_backfill_2023.parquet")
+
+
+def test_task_06_writes_its_selected_rows_into_its_own_namespace():
+    # Task 06's google selection is 846 rows; Task 02's committed backfill is
+    # 848 (corrections.md C4). An earlier version of the builder wrote to
+    # data/raw/google/google_jobs_hf_backfill_2023.parquet — Task 03's default
+    # input — so running Task 06 silently shortened Task 02's own file by two
+    # rows and restamped its scraped_date. A task may add data; it may not
+    # rewrite the data an earlier task reported on.
+    path = bcs.company_raw_path("google")
+    assert path.parent.name == "task-06"
+    assert path != REPO_ROOT / "data" / "raw" / "google" / (
+        "google_jobs_hf_backfill_2023.parquet"
+    )
+    for key in SHORTLIST:
+        assert bcs.company_raw_path(key).parent == bcs.COMPANY_RAW
+
+
+@pytest.mark.skipif(not TASK_02_BACKFILL.exists(),
+                    reason="run src/collect_google_jobs.py hf-backfill first")
+def test_task_02s_backfill_still_holds_the_848_rows_every_earlier_task_reports():
+    backfill = pd.read_parquet(TASK_02_BACKFILL)
+    assert len(backfill) == 848
+    # And the two rows Task 06 drops are still in it, which is the whole
+    # content of C4: the files differ because the *rule* changed, not because
+    # the data did.
+    names = " | ".join(backfill.company_name.astype(str).unique())
+    assert "Geoambiente" in names
+    assert "Customer Engineer, Machine Learning, Google Cloud - Doha" in names
 
 
 @pytest.mark.skipif(not (TABLES / "employer-matching-audit.csv").exists(),
