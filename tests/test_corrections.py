@@ -117,7 +117,9 @@ def test_task_reports_point_at_the_register():
         Path("docs/task-01-data-sources-and-legal.md"),
         Path("docs/task-03-preprocessing-methods.md"),
         Path("members/ankit-google/task-02-data-collection-report.md"),
+        Path("members/ankit-google/task-03-preprocessing-report.md"),
         Path("members/ankit-google/task-04-skill-extraction-report.md"),
+        Path("members/ankit-google/task-05-trend-report.md"),
     ]
     for rel in corrected:
         text = (REPO_ROOT / rel).read_text(encoding="utf-8")
