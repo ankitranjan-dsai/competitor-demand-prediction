@@ -1,0 +1,16 @@
+key,n_observed,min_cell,median_denominator,mean_share,cv,chi2,df,homogeneity_p,overdispersion,signal_share,verdict,reason
+BigQuery,11,0,50.0,0.10570495345713779,0.5673161021624314,19.439,10,0.034927766211170524,1.944,0.4856,too_thin,"11 observed periods (need 8), smallest cell 0 (need 5)"
+C++,11,4,50.0,0.16464036001119783,0.2709016726278277,7.837,10,0.6459159846234326,0.784,0.0,too_thin,"11 observed periods (need 8), smallest cell 4 (need 5)"
+Go,11,3,50.0,0.16442685620265773,0.5806262162064665,28.268,10,0.0017172634820135015,2.827,0.6462,too_thin,"11 observed periods (need 8), smallest cell 3 (need 5)"
+Hadoop,11,1,50.0,0.10018586732986279,0.7101002340324397,25.547,10,0.004510367247957022,2.555,0.6086,too_thin,"11 observed periods (need 8), smallest cell 1 (need 5)"
+Java,11,6,50.0,0.227531862843533,0.3463276569922694,16.174,10,0.0942295972244548,1.617,0.3817,noise_only,constant share not rejected (p=0.094); a mean is the honest forecast
+JavaScript,11,3,50.0,0.121739943797121,0.34803544017748655,8.095,10,0.6206545830635446,0.81,0.0,too_thin,"11 observed periods (need 8), smallest cell 3 (need 5)"
+Linux,11,1,50.0,0.07882004044946168,0.4491856310936798,10.027,10,0.4383451554326524,1.003,0.0027,too_thin,"11 observed periods (need 8), smallest cell 1 (need 5)"
+Looker,11,1,50.0,0.11568105458127947,0.6803355548802004,32.374,10,0.0003834417688270828,3.237,0.6911,too_thin,"11 observed periods (need 8), smallest cell 1 (need 5)"
+Machine Learning,11,1,50.0,0.10244761771395633,0.5624919329715162,17.834,10,0.05752664373409907,1.783,0.4393,too_thin,"11 observed periods (need 8), smallest cell 1 (need 5)"
+NoSQL,11,0,50.0,0.07986753023708658,0.7880970188988191,24.73,10,0.005995118426331272,2.473,0.5956,too_thin,"11 observed periods (need 8), smallest cell 0 (need 5)"
+Python,11,23,50.0,0.6401311237103781,0.1882407759022959,31.758,10,0.0004814507052220981,3.176,0.6851,forecastable,"moves by more than sampling noise (p=0.0005, 69% of variance is signal)"
+R,11,8,50.0,0.3599132867853367,0.2309946678654534,15.354,10,0.11904739731828254,1.535,0.3487,noise_only,constant share not rejected (p=0.119); a mean is the honest forecast
+SQL,11,11,50.0,0.4425041389901512,0.25768807113986975,24.788,10,0.005875756398671816,2.479,0.5966,forecastable,"moves by more than sampling noise (p=0.0059, 60% of variance is signal)"
+Scala,11,1,50.0,0.09539472693208678,0.7493302129404451,28.016,10,0.0018798378365040965,2.802,0.6431,too_thin,"11 observed periods (need 8), smallest cell 1 (need 5)"
+TensorFlow,11,3,50.0,0.1126615204845911,0.3169082944934045,6.5,10,0.7728379369047719,0.65,0.0,too_thin,"11 observed periods (need 8), smallest cell 3 (need 5)"

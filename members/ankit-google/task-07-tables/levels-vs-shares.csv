@@ -1,0 +1,4 @@
+series,what_it_measures,n_keys,n_origins,naive_rmse_log,typical_error_factor,easier_than_shares
+panel_pool,total postings on the shared panel; no company's demand,1,6,0.29346831644941895,1.3410706888560502,True
+company_share,each company's share of that pool; the identified object,6,36,0.5344449222709475,1.7065007387548,False
+company_count,each company's panel postings; not identified,6,36,0.6464525871585161,1.9087576533542525,False

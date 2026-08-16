@@ -1,0 +1,233 @@
+{
+  "task": "07-demand-forecasting",
+  "generated_at": "2026-08-16T02:06:30+00:00",
+  "companies": [
+    "databricks",
+    "google",
+    "meta",
+    "microsoft",
+    "nvidia",
+    "snowflake"
+  ],
+  "focus": "google",
+  "thresholds": {
+    "min_train": 5,
+    "min_observations": 8,
+    "min_cell_month": 5,
+    "max_horizon": 3,
+    "alpha": 0.05,
+    "interval_level": 0.8
+  },
+  "panel": {
+    "publishers": [
+      "via BeBee",
+      "via Indeed",
+      "via Ladders",
+      "via LinkedIn",
+      "via Recruit.net",
+      "via SimplyHired",
+      "via Trabajo.org"
+    ],
+    "n_publishers": 7,
+    "periods": 12,
+    "unobserved_periods": [
+      "2023-02"
+    ],
+    "observed_periods_per_company": 11
+  },
+  "gate": {
+    "verdicts": {
+      "databricks": "too_thin",
+      "google": "forecastable",
+      "meta": "forecastable",
+      "microsoft": "too_thin",
+      "nvidia": "too_thin",
+      "snowflake": "too_thin"
+    },
+    "forecastable": [
+      "google",
+      "meta"
+    ],
+    "n_refused": 4,
+    "all_reject_a_constant_share": true,
+    "signal_share_range": [
+      0.6106,
+      0.8564
+    ],
+    "threshold_sensitivity": {
+      "3": "databricks, google, meta, microsoft",
+      "5": "google, meta",
+      "10": "google, meta"
+    }
+  },
+  "backtest": {
+    "origins_per_company": {
+      "1": 6,
+      "2": 5,
+      "3": 4
+    },
+    "models": [
+      "naive",
+      "mean",
+      "drift",
+      "ses",
+      "holt_damped",
+      "loglinear",
+      "ar1"
+    ],
+    "seasonal_model_available": false,
+    "one_step_rmse": {
+      "ses": 0.5009,
+      "naive": 0.5344,
+      "holt_damped": 0.5482,
+      "ar1": 0.5694,
+      "drift": 0.5798,
+      "loglinear": 0.5832,
+      "mean": 0.6166
+    },
+    "best_challenger": "ses",
+    "best_challenger_p": 0.2165,
+    "any_model_beats_naive": false
+  },
+  "selection": {
+    "selected": {
+      "databricks": "naive",
+      "google": "naive",
+      "meta": "naive",
+      "microsoft": "naive",
+      "nvidia": "naive",
+      "snowflake": "naive"
+    },
+    "all_naive": true,
+    "would_have_picked_differently": 4,
+    "ranking_would_have_chosen": {
+      "databricks": "mean",
+      "google": "loglinear",
+      "meta": "ses",
+      "microsoft": "naive",
+      "nvidia": "naive",
+      "snowflake": "ses"
+    }
+  },
+  "horizons": {
+    "max_useful_horizon": 0,
+    "reason": "h=1 has an interval spanning 3.15x, past the 3x limit, so it excludes nothing",
+    "detail": {
+      "1": {
+        "interval_factor": 3.148,
+        "n_residuals": 12,
+        "sufficient": true
+      },
+      "2": {
+        "interval_factor": 2.189,
+        "n_residuals": 10,
+        "sufficient": true
+      },
+      "3": {
+        "interval_factor": null,
+        "n_residuals": 8,
+        "sufficient": false
+      }
+    },
+    "max_useful_horizon_all_companies": 0,
+    "robust_to_pooling": true,
+    "interval_level_requested": 0.8,
+    "interval_level_achieved": {
+      "1": 0.8462,
+      "2": 0.8182,
+      "3": NaN
+    }
+  },
+  "forecast": {
+    "companies": [
+      "google",
+      "meta"
+    ],
+    "targets": [
+      "2024-01",
+      "2024-02",
+      "2024-03"
+    ],
+    "model": [
+      "naive"
+    ],
+    "any_row_supported": false,
+    "shares_sum_to_one": false,
+    "composition_incomplete_by": [
+      "databricks",
+      "microsoft",
+      "nvidia",
+      "snowflake"
+    ],
+    "out_of_window": true
+  },
+  "levels": {
+    "naive_rmse_pool": 0.2935,
+    "naive_rmse_share": 0.5344,
+    "naive_rmse_count": 0.6465,
+    "collection_easier_than_demand": true
+  },
+  "batch_sensitivity": {
+    "publishers_tested": 7,
+    "verdict_unchanged_in_every_case": false,
+    "largest_single_publisher_effect": {
+      "publisher": "via Trabajo.org",
+      "google_max_share_published": 0.4143,
+      "google_max_share_without": 0.4528,
+      "h1_interval_factor_without": NaN,
+      "max_useful_horizon_without": 0
+    },
+    "task05_spikes_off_panel": [
+      "via Google Careers",
+      "via The Muse"
+    ],
+    "task05_spikes_on_panel": [
+      "via Recruit.net"
+    ]
+  },
+  "correction_c5": {
+    "n_h1_with_february": 620,
+    "n_h1_without_february": 523,
+    "february_postings_on_panel": 97,
+    "focus_published_delta_pp": -4.84,
+    "focus_corrected_delta_pp": -6.56,
+    "all_signs_unchanged": true,
+    "largest_change_pp": 2.91,
+    "largest_change_company": "meta"
+  },
+  "skills": {
+    "skills_screened": 15,
+    "forecastable": [
+      "Python",
+      "SQL"
+    ],
+    "n_forecastable": 2,
+    "verdicts": {
+      "too_thin": 11,
+      "noise_only": 2,
+      "forecastable": 2
+    },
+    "february_excluded": [
+      "2023-02"
+    ]
+  },
+  "figures": [
+    "01-forecastability-gate.png",
+    "02-panel-share-series.png",
+    "03-backtest-accuracy.png",
+    "04-selection-vs-ranking.png",
+    "05-horizon-limits.png",
+    "06-levels-vs-shares.png",
+    "07-forecast.png",
+    "08-february-correction.png"
+  ],
+  "validation": {
+    "evidence": "docs/task-07-forecast-validation.md",
+    "script": "src/validate_forecast.py"
+  },
+  "privacy": {
+    "tables_checked": 15,
+    "personal_data_columns_present": {},
+    "passed": true
+  }
+}

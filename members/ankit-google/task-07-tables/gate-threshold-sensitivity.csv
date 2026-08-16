@@ -1,0 +1,4 @@
+min_cell,n_forecastable,forecastable,is_published_threshold,matches_task06_min_cell
+3,4,"databricks, google, meta, microsoft",False,False
+5,2,"google, meta",True,False
+10,2,"google, meta",False,True

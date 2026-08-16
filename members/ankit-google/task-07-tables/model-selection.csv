@@ -1,0 +1,7 @@
+key,horizon,selected,selected_by,selected_rmse,dm_p_value,dm_stat,lowest_rmse_model,lowest_rmse,would_have_picked_differently
+databricks,1,naive,benchmark_not_beaten,0.5143789213735093,,,mean,0.3497685201082408,True
+google,1,naive,benchmark_not_beaten,0.3720570387355558,,,loglinear,0.3004837587104497,True
+meta,1,naive,benchmark_not_beaten,0.22893002317309594,,,ses,0.226889394371309,True
+microsoft,1,naive,benchmark_not_beaten,0.33318609044217273,,,naive,0.33318609044217273,False
+nvidia,1,naive,benchmark_not_beaten,0.378713902740726,,,naive,0.378713902740726,False
+snowflake,1,naive,benchmark_not_beaten,1.0019630673422368,,,ses,0.9568680236776992,True

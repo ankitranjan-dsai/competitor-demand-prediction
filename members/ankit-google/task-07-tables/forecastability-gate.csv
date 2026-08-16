@@ -1,0 +1,7 @@
+key,n_observed,min_cell,median_denominator,mean_share,cv,chi2,df,homogeneity_p,overdispersion,signal_share,verdict,reason
+databricks,11,4,158.0,0.10304153371473146,0.4066076559624933,29.137,10,0.0012549674373489048,2.914,0.6568,too_thin,"11 observed periods (need 8), smallest cell 4 (need 5)"
+google,11,25,158.0,0.27655690587457465,0.2742809883968273,38.244,10,4.224312287294659e-05,3.824,0.7385,forecastable,"moves by more than sampling noise (p=0.0000, 74% of variance is signal)"
+meta,11,11,158.0,0.2435774124112031,0.3114144723121009,44.064,10,4.529285473776139e-06,4.406,0.7731,forecastable,"moves by more than sampling noise (p=0.0000, 77% of variance is signal)"
+microsoft,11,4,158.0,0.21425959999591174,0.4177504184537324,67.556,10,4.6179999885709246e-10,6.756,0.852,too_thin,"11 observed periods (need 8), smallest cell 4 (need 5)"
+nvidia,11,2,158.0,0.09212346739203481,0.45319697401529463,25.678,10,0.004309191489271729,2.568,0.6106,too_thin,"11 observed periods (need 8), smallest cell 2 (need 5)"
+snowflake,11,1,158.0,0.07044108061154425,0.8506050682720724,69.626,10,2.048375070066887e-10,6.963,0.8564,too_thin,"11 observed periods (need 8), smallest cell 1 (need 5)"
