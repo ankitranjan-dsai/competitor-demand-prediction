@@ -162,6 +162,13 @@ it is the only cross-company volume statement this data supports.
 
 Panel totals: 620 postings in H1, 1,161 in H2.
 
+> **Corrected by Task 07 —
+> [C5](corrections.md#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february).**
+> 97 of that 620 are February's, on a panel §1.3 of this document says has no
+> publishers in February. Excluding February (H1 620 → 523) every sign above
+> survives; Meta's +1.23 becomes **+4.15** and Google's −4.84 becomes
+> **−6.56**. The wording here stays as submitted — see the register.
+
 **The identifying assumption, stated so it can be attacked.** Each company's
 propensity to syndicate to these seven boards is constant between the halves.
 If Snowflake moved hiring onto its own careers site during 2023 — and 45.7% of

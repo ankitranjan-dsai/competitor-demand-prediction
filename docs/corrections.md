@@ -16,6 +16,7 @@ correction — limitations belong in the task report's own limitations section.
 | [C2](#c2--five-of-task-04s-ten-headline-skill-movers-do-not-survive-stratification) | 10 headline emerging/declining skills, Looker among them | Task 04 §5 (Google) | Task 05 §5 | ✅ corrected |
 | [C3](#c3--posting_date-is-an-aggregator-first-seen-date-not-a-publication-date) | `posting_date` is a posting date at "daily granularity" | Task 01 §5.2 schema, Task 02 §3, Task 03 §1.3 | Task 05 §6 | ✅ corrected |
 | [C4](#c4--googles-posting-count-is-846-not-848) | Google has **848** postings | Task 02 §1, Tasks 03–05 (Google) | Task 06 §1.1 | ✅ corrected |
+| [C5](#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february) | H1→H2 relative shares computed on a 620-posting H1 panel | Task 06 §3 (all six companies) | Task 07 §1.4, §10 | ✅ corrected |
 
 ---
 
@@ -207,6 +208,93 @@ in 848, which is 0.2% of the count and 100% of the trust in it.
 Evidence: `members/ankit-google/task-06-tables/employer-matching-audit.csv`,
 `competitor-set-manifest.csv`, `volume-panel-sensitivity.csv`, against
 `members/ankit-google/task-05-tables/panel-sensitivity.csv`.
+
+---
+
+## C5 — Task 06's H1 aggregate counts February on a panel that does not exist in February
+
+**What Task 06 said.** Two things, and they contradict each other.
+
+It defined the common panel as the **7 publishers that carry all six companies
+over the window**, measured that panel month by month, and reported the result
+in its own words: "within any single month the number never exceeds 3, and in
+February it is **0**" (methods §2). It then handed Task 07 the rule that
+follows from that — "February is missing for the panel entirely — treat as
+missing, not zero" (report §11).
+
+And it computed its headline H1→H2 relative shares on a **620-posting H1
+panel** ([`relative-share-by-half.csv`](../members/ankit-google/task-06-tables/relative-share-by-half.csv)),
+which includes February.
+
+**What is actually true.** **97 of those 620 postings are February's** — 15.6%
+of the H1 base. They reach the aggregate because panel membership is decided
+over the whole window: a publisher that carries all six companies *at some
+point in 2023* keeps its postings in every month, including the month in which
+no publisher carries all six. The postings are real; the panel they are
+attributed to is not one that exists in February.
+
+The month is also not a neutral 97. It is distributed nothing like the year:
+
+| Company | Feb postings | Feb share of the month | Mean monthly panel share |
+| --- | --- | --- | --- |
+| **Meta** | **39** | **40.2%** | 24.4% |
+| Google | 19 | 19.6% | 27.7% |
+| Microsoft | 16 | 16.5% | 21.4% |
+| Snowflake | 11 | 11.3% | 7.0% |
+| NVIDIA | 9 | 9.3% | 9.2% |
+| Databricks | 3 | 3.1% | 10.3% |
+
+A month in which Meta is 40% of a panel that on the year averages 24% is
+exactly the kind of month C1 warned about: it describes which boards were
+reachable in February, not who was hiring.
+
+**Recomputed with February excluded**, per Task 06's own stated rule. H1 falls
+620 → 523 postings; H2 is untouched at 1,161:
+
+| Company | H1 with Feb | H1 without | Task 06 published | Corrected | Sign |
+| --- | --- | --- | --- | --- | --- |
+| **Google** | 179 | 160 | **−4.84 pp** | **−6.56 pp** | unchanged |
+| **Meta** | 152 | 113 | **+1.23 pp** | **+4.15 pp** | unchanged |
+| Microsoft | 118 | 102 | +5.09 pp | +4.61 pp | unchanged |
+| Snowflake | 69 | 58 | −7.77 pp | −7.73 pp | unchanged |
+| Databricks | 52 | 49 | +2.89 pp | +1.91 pp | unchanged |
+| NVIDIA | 50 | 41 | +3.40 pp | +3.62 pp | unchanged |
+
+**Every sign survives.** This is a correction to magnitudes, not to
+conclusions: Google's share of the shared pool still fell, NVIDIA's and
+Microsoft's still rose, Snowflake's still collapsed. The claim Task 06 asked
+Task 09 to carry forward — that NVIDIA gained share in every publisher that
+carries all six — is untouched, because that verdict is computed publisher by
+publisher, not on the pooled halves.
+
+Two magnitudes move enough to matter. **Meta's rise more than triples**, from
++1.23 pp to +4.15 pp, because February was its strongest month on the panel and
+excluding it lowers the H1 base it is measured against. **Google's decline
+deepens** from −4.84 pp to −6.56 pp, for the mirror-image reason: February was
+one of Google's weakest panel months, so removing it raises Google's H1 share
+to 30.59%.
+
+**Consequence.** The published Task 06 wording stays as submitted — it was
+computed on 620 and rewriting it would make this register a lie — and both
+Task 06 documents now carry a pointer here. Task 07 onward derives the February
+gap from the panel rather than hardcoding it (`unobserved_periods()` in
+`src/forecast.py`), so every series the forecasting layer builds has February
+open, and the calendar-time index in `period_ordinal()` makes the Jan→Mar step
+**two months wide** rather than one.
+
+**The general lesson.** Task 06 was not careless: it identified the gap,
+measured it, and wrote the correct rule for the next task. What it did not do
+is apply that rule to its own aggregate — the gap was documented in prose and
+absent from the code path. **A rule that lives only in a report is not a rule.**
+Where a rule can be enforced by the function that builds the number, enforce it
+there: `panel_share_series()` marks February `is_observed = False` and every
+downstream consumer respects the flag, so no Task 07 aggregate can repeat this
+by inattention.
+
+Evidence: `members/ankit-google/task-07-tables/february-correction.csv` and
+`panel-share-series.csv`, against
+`members/ankit-google/task-06-tables/relative-share-by-half.csv` and
+`common-panel-by-month.csv`.
 
 ---
 

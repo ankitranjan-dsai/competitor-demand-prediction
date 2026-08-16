@@ -17,6 +17,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -92,7 +93,7 @@ def read_table(name: str) -> pd.DataFrame:
 def test_register_lists_every_correction_as_corrected():
     """An entry with an open status is a limitation, not a correction."""
     index = markdown_table("Corrections Register")
-    assert len(index) == 4
+    assert len(index) == 5
     for row in index:
         assert row["Status"] == "✅ corrected", row
 
@@ -120,6 +121,8 @@ def test_task_reports_point_at_the_register():
         Path("members/ankit-google/task-03-preprocessing-report.md"),
         Path("members/ankit-google/task-04-skill-extraction-report.md"),
         Path("members/ankit-google/task-05-trend-report.md"),
+        Path("docs/task-06-competitor-comparison-methods.md"),
+        Path("members/ankit-google/task-06-comparison-report.md"),
     ]
     for rel in corrected:
         text = (REPO_ROOT / rel).read_text(encoding="utf-8")
@@ -302,3 +305,128 @@ def test_c4_task_05s_own_numbers_are_left_standing():
               "task-05-trend-report.md").read_text(encoding="utf-8")
     assert "848" in report
     assert "corrections.md#" in report
+
+
+# --------------------------------------------------------------------------
+# C5 — Task 06's H1 panel counts February
+# --------------------------------------------------------------------------
+
+TABLES_07 = REPO_ROOT / "members" / "ankit-google" / "task-07-tables"
+
+needs_task_07 = pytest.mark.skipif(
+    not TABLES_07.is_dir(), reason="Task 07 tables not present in this checkout"
+)
+
+
+def _number(text: str) -> float:
+    """Parse a register cell: Unicode minus, trailing `pp` or `%`, bolding."""
+    cleaned = _cell(text).replace("−", "-").replace("pp", "").replace("%", "")
+    return float(cleaned.strip())
+
+
+def _key(company: str) -> str:
+    return _cell(company).lower()
+
+
+@needs_task_07
+def test_c5_february_is_the_share_of_h1_the_register_claims():
+    """The whole correction rests on 97 of 620 — check both ends of it."""
+    series = pd.read_csv(TABLES_07 / "panel-share-series.csv")
+    february = series[series.period == "2023-02"]
+
+    assert not february.is_observed.any(), "February is no longer flagged unobserved"
+    assert february.denominator.nunique() == 1
+    assert int(february.denominator.iloc[0]) == 97
+    assert int(february.numerator.sum()) == 97
+
+    halves = pd.read_csv(TABLES_06 / "relative-share-by-half.csv")
+    assert halves.panel_h1_total.nunique() == 1
+    h1_total = int(halves.panel_h1_total.iloc[0])
+    assert h1_total == 620, "Task 06's H1 base changed; re-read C5"
+
+    correction = pd.read_csv(TABLES_07 / "february-correction.csv")
+    without = h1_total - int(february.numerator.sum())
+    assert without == 523
+    # The corrected shares have to be shares of that smaller base.
+    recomputed = (
+        (halves.set_index("company").h1_postings
+         - february.set_index("key").numerator) / without
+    )
+    for company, share in recomputed.items():
+        got = correction.set_index("company").loc[company]
+        assert got.h1_share_without_february == pytest.approx(share, abs=5e-4), company
+
+
+@needs_task_07
+def test_c5_the_february_distribution_table_matches_the_data():
+    """February is not a neutral month — that is why the magnitudes move."""
+    series = pd.read_csv(TABLES_07 / "panel-share-series.csv")
+    february = series[series.period == "2023-02"].set_index("key")
+    gate = pd.read_csv(TABLES_07 / "forecastability-gate.csv").set_index("key")
+
+    claimed = markdown_table("C5", nth=0)
+    assert len(claimed) == 6, "all six companies belong in the February table"
+
+    for row in claimed:
+        key = _key(row["Company"])
+        assert int(row["Feb postings"]) == int(february.loc[key].numerator), key
+        assert _number(row["Feb share of the month"]) == pytest.approx(
+            february.loc[key].share * 100, abs=0.05
+        ), key
+        assert _number(row["Mean monthly panel share"]) == pytest.approx(
+            gate.loc[key].mean_share * 100, abs=0.05
+        ), key
+
+    meta = february.loc["meta"]
+    assert meta.numerator == february.numerator.max(), "Meta no longer tops February"
+    assert meta.share > gate.loc["meta"].mean_share, "Meta's February is no longer high"
+
+
+@needs_task_07
+def test_c5_every_sign_survives_excluding_february():
+    """The correction's central claim: magnitudes move, conclusions do not."""
+    correction = pd.read_csv(TABLES_07 / "february-correction.csv")
+    assert correction.sign_unchanged.all()
+    assert (
+        np.sign(correction.task06_published_delta_pp)
+        == np.sign(correction.corrected_delta_pp)
+    ).all()
+
+
+@needs_task_07
+def test_c5_the_recompute_table_matches_the_committed_correction():
+    correction = pd.read_csv(TABLES_07 / "february-correction.csv").set_index("company")
+    halves = pd.read_csv(TABLES_06 / "relative-share-by-half.csv").set_index("company")
+    february = pd.read_csv(TABLES_07 / "panel-share-series.csv")
+    february = february[february.period == "2023-02"].set_index("key")
+
+    claimed = markdown_table("C5", nth=1)
+    assert len(claimed) == 6
+
+    for row in claimed:
+        key = _key(row["Company"])
+        with_feb = int(halves.loc[key].h1_postings)
+        assert int(row["H1 with Feb"]) == with_feb, key
+        assert int(row["H1 without"]) == with_feb - int(february.loc[key].numerator), key
+        # The left column is Task 06's own rounding, so allow the rounding step.
+        assert _number(row["Task 06 published"]) == pytest.approx(
+            correction.loc[key].task06_published_delta_pp, abs=0.011
+        ), key
+        assert _number(row["Corrected"]) == pytest.approx(
+            correction.loc[key].corrected_delta_pp, abs=0.005
+        ), key
+        assert row["Sign"] == "unchanged", key
+
+
+@needs_task_07
+def test_c5_meta_moves_most_and_google_deepens():
+    """Both named magnitudes in the register, read off the committed table."""
+    correction = pd.read_csv(TABLES_07 / "february-correction.csv").set_index("company")
+    moves = correction.change_pp.abs()
+    assert moves.idxmax() == "meta"
+    assert correction.loc["meta"].corrected_delta_pp > (
+        3 * correction.loc["meta"].task06_published_delta_pp
+    ), "Meta's rise no longer more than triples"
+    google = correction.loc["google"]
+    assert google.corrected_delta_pp < google.task06_published_delta_pp < 0
+    assert google.h1_share_without_february > google.h1_share_with_february

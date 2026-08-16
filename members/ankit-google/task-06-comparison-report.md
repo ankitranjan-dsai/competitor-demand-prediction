@@ -119,6 +119,13 @@ panel totals 620 → 1,161):
 share fell.** Google's own panel count rose (179 → 279 postings); everyone
 else's rose faster.
 
+> **Corrected by Task 07 —
+> [C5](../../docs/corrections.md#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february).**
+> 97 of the 620 H1 postings are February's, on a panel §2 of this report says
+> carries "none at all in February". Excluding February, Google's decline is
+> **−6.56 pp**, not −4.84, and every sign in the table above is unchanged. The
+> wording here stays as submitted — see the register.
+
 That is one estimate, and the identifying assumption — that Google's
 propensity to syndicate through these publishers is the same in both halves —
 is not testable directly. What is testable is whether the result holds

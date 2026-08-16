@@ -39,7 +39,20 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       33 of its 182 pair-skill comparisons survive stratification. Raised
       [C4](../../docs/corrections.md#c4--googles-posting-count-is-846-not-848):
       Google is 846 postings, not 848)
-- [ ] Task 07 — Demand forecasting
+- [x] Task 07 — Demand forecasting → `task-07-forecast-report.md`
+      (forecastability gate, rolling-origin backtest, Diebold–Mariano selection,
+      order-statistic intervals. Standard in
+      `docs/task-07-demand-forecasting-methods.md`; 425 tests; 15 tables +
+      8 figures, cross-checked against scipy/statsmodels in
+      `docs/task-07-forecast-validation.md`. All six series carry real signal
+      (61–86%), only Google and Meta clear the 5-posting cell floor, and
+      **no model beats persistence** — the h=1 interval spans 3.15×, so the
+      **maximum useful horizon is 0** and the forecast ships marked
+      unsupported. The collection is easier to predict than any company's
+      demand (naive RMSE 0.293 on the pool against 0.534 on shares). Raised
+      [C5](../../docs/corrections.md#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february):
+      Task 06's H1 base counts February; every sign survives, Google's decline
+      deepens to −6.56 pp)
 - [ ] Task 08 — Company similarity scoring
 - [ ] Task 09 — Insight generation & reporting
 - [ ] Task 10 — Final presentation
