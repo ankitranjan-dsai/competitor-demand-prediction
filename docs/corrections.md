@@ -17,6 +17,7 @@ correction — limitations belong in the task report's own limitations section.
 | [C3](#c3--posting_date-is-an-aggregator-first-seen-date-not-a-publication-date) | `posting_date` is a posting date at "daily granularity" | Task 01 §5.2 schema, Task 02 §3, Task 03 §1.3 | Task 05 §6 | ✅ corrected |
 | [C4](#c4--googles-posting-count-is-846-not-848) | Google has **848** postings | Task 02 §1, Tasks 03–05 (Google) | Task 06 §1.1 | ✅ corrected |
 | [C5](#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february) | H1→H2 relative shares computed on a 620-posting H1 panel | Task 06 §3 (all six companies) | Task 07 §1.4, §10 | ✅ corrected |
+| [C6](#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score) | Concept skills "dominate every similarity score in Task 08"; a 1-posting skill "would dominate cosine similarity" | `docs/task-04-skill-taxonomy.md` §2.3, §6.1 | Task 08 §6 | ✅ corrected |
 
 ---
 
@@ -298,6 +299,81 @@ Evidence: `members/ankit-google/task-07-tables/february-correction.csv` and
 
 ---
 
+## C6 — Neither concept skills nor rare skills dominate a similarity score
+
+**What the Task 04 taxonomy said.** Two predictions about this task, both used
+to justify a design decision at the time.
+
+§2.3, on why concepts are split from tools: mixing them "makes the concept
+dominate every similarity score in Task 08 while carrying almost no
+discriminating information."
+
+§6.1, on why the skill matrix drops skills below `min_postings=5`: "a column
+that is 1 for a single posting is an identifier, not a feature, and it would
+dominate cosine similarity in Task 08."
+
+**What is actually true.** Neither group can dominate a cosine on share
+vectors, and the reason is arithmetic rather than empirical. A skill's
+contribution to the numerator is the **product of two shares**. A skill that
+half of each company's postings ask for contributes about 0.25; a skill that
+one posting in six hundred asks for contributes about 0.0000028 — a hundred
+thousand times less — and it contributes that whether it occupies one column
+or a hundred. Column *count* is not weight. The predictions treated a long
+tail of columns as if it were a long tail of influence.
+
+Measured on the real vocabulary of 127 skills across the six companies
+([`numerator-contribution.csv`](../members/ankit-google/task-08-tables/numerator-contribution.csv),
+15 pairs):
+
+| Group | Skills | Share of the cosine numerator (min / mean / max) |
+| --- | --- | --- |
+| **Concepts** (`is_concept`) | 8 | 0.05% / **0.36%** / 0.98% |
+| Skills in ≤ 1 posting | 8 | 0.00% / **0.00%** / 0.00% |
+| Skills in ≤ 10 postings | 39 | 0.00% / **0.005%** / 0.019% |
+| Top 5 skills of the pair | 5 | 70.2% / **80.5%** / 93.2% |
+
+Five skills carry four fifths of every score. The 39 skills below ten postings
+carry five thousandths of one percent between them, and the eight that appear
+in a single posting carry **exactly zero** — each of them is present in only
+one of the two companies, so its product term is 0 by construction.
+
+The eight concept skills present here are Computer Vision, Data Modelling,
+Deep Learning, ETL, Generative AI, LLM, Machine Learning and NLP. Removing all
+eight and rescoring
+([`concept-skill-removal.csv`](../members/ankit-google/task-08-tables/concept-skill-removal.csv))
+leaves the ranking **identical** — rank correlation 1.0, not one pair moves a
+single place — and moves the largest cosine by **0.0020**, on a scale where
+the pairs span 0.4961 to 0.9174.
+
+**Consequence.** None for Task 04's design. The concept/tool split earns its
+place for the reason §2.3 gives second — "Machine Learning" and "PyTorch" are
+not comparable evidence — and the `min_postings=5` floor still keeps the
+row-level matrix honest. What changes is what Task 08 is allowed to claim it
+has controlled for: **dropping rare skills is not a robustness check on a
+similarity score**, because there was nothing there to be robust to. A report
+that ran the sweep and announced the ranking survived it would be claiming
+credit for arithmetic.
+
+Task 08 publishes the sweep anyway
+([`support-sensitivity.csv`](../members/ankit-google/task-08-tables/support-sensitivity.csv)),
+labelled as a different question rather than as a robustness check: restricting
+to the skills every company supports asks "do they agree about the skills
+everyone measures", which has its own answer and its own ordering.
+
+**The general lesson.** The two predictions were made about a metric that had
+not been chosen yet, and they would have been **right for a set metric**.
+Jaccard counts columns, so a hundred rare skills genuinely can swamp it — and
+Jaccard is in this task's metric list, where its ranking correlates −0.04 with
+cosine's. The error was not the reasoning; it was attaching the reasoning to
+"similarity" in the abstract when the answer depends entirely on which metric
+gets used. **Name the metric before predicting what will dominate it.**
+
+Evidence: `members/ankit-google/task-08-tables/numerator-contribution.csv`,
+`concept-skill-removal.csv`, `support-sensitivity.csv` and
+`metric-concordance.csv`, against `docs/task-04-skill-taxonomy.md` §2.3, §6.1.
+
+---
+
 ## What every specialist should take from this
 
 The first three corrections are the same mistake in three costumes: **a number
@@ -310,6 +386,8 @@ Before a claim leaves your report, check it against the collection:
 2. Would this pooled share still move if the segment mix were held fixed? → C2
 3. Does this date field mean what its name implies? → C3
 4. Is every employer string in your denominator actually your company? → C4
+5. Does the claim name the metric it is about? A statement about "similarity"
+   that would be true of Jaccard and false of cosine is not a finding. → C6
 
 `src/trends.py` has a function for each of the first three —
 `publisher_panel_table` / `panel_verdict`, `stratified_verdict`, and

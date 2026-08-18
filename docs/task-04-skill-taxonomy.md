@@ -126,6 +126,15 @@ committed stack say "PyTorch". Mixing them makes the concept dominate every
 similarity score in Task 08 while carrying almost no discriminating
 information.
 
+> **Corrected by Task 08 —
+> [C6](corrections.md#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score).**
+> The concepts do not dominate a cosine similarity and cannot: on the six-company
+> vocabulary the eight concept skills present carry **0.36%** of the numerator on
+> average (max 0.98%), and removing all eight leaves the ranking identical — rank
+> correlation 1.0, largest cosine moved by 0.0020. The first two sentences above
+> stand and are the reason the split is kept; the third is true of a set metric
+> such as Jaccard and false of the prevalence-weighted metrics Task 08 leads with.
+
 ### 2.4 Corrections to the source's own categories
 
 The Hugging Face backfill ships its own `job_skills` / `job_type_skills`
@@ -288,6 +297,15 @@ skill pair. A single wide matrix forces one of those choices on everyone.
 The matrix drops skills below `min_postings=5`: a column that is 1 for a single
 posting is an identifier, not a feature, and it would dominate cosine
 similarity in Task 08.
+
+> **Corrected by Task 08 —
+> [C6](corrections.md#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score).**
+> A single-posting column contributes the *product* of two shares, so it carries
+> essentially nothing however many such columns exist: the 39 skills under ten
+> postings carry **0.005%** of the numerator between them and the eight under two
+> carry exactly **zero**, while the top five carry **80.5%**. The floor is worth
+> keeping — a 1-posting column is still an identifier rather than a feature — but
+> not for this reason.
 
 ### 6.2 Aggregate tables (committed, `members/<member>-<company>/task-04-tables/`)
 

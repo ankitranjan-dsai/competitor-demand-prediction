@@ -93,7 +93,7 @@ def read_table(name: str) -> pd.DataFrame:
 def test_register_lists_every_correction_as_corrected():
     """An entry with an open status is a limitation, not a correction."""
     index = markdown_table("Corrections Register")
-    assert len(index) == 5
+    assert len(index) == 6
     for row in index:
         assert row["Status"] == "✅ corrected", row
 
@@ -123,6 +123,7 @@ def test_task_reports_point_at_the_register():
         Path("members/ankit-google/task-05-trend-report.md"),
         Path("docs/task-06-competitor-comparison-methods.md"),
         Path("members/ankit-google/task-06-comparison-report.md"),
+        Path("docs/task-04-skill-taxonomy.md"),
     ]
     for rel in corrected:
         text = (REPO_ROOT / rel).read_text(encoding="utf-8")
@@ -430,3 +431,119 @@ def test_c5_meta_moves_most_and_google_deepens():
     google = correction.loc["google"]
     assert google.corrected_delta_pp < google.task06_published_delta_pp < 0
     assert google.h1_share_without_february > google.h1_share_with_february
+
+
+# --------------------------------------------------------------------------
+# C6 — neither concepts nor rare skills dominate a similarity score
+# --------------------------------------------------------------------------
+
+TABLES_08 = REPO_ROOT / "members" / "ankit-google" / "task-08-tables"
+
+needs_task_08 = pytest.mark.skipif(
+    not TABLES_08.is_dir(), reason="Task 08 tables not present in this checkout"
+)
+
+
+def _triple(text: str) -> list[tuple[float, float]]:
+    """Parse a `min / mean / max` register cell into (value, tolerance) pairs.
+
+    The register prints each figure at the precision it deserves — 0.00%, 0.36%,
+    80.5% — so the check is "is it right at the precision published", half a
+    unit in the last printed place, rather than one tolerance for all of them.
+    """
+    parts = [_cell(part).replace("−", "-").replace("%", "").strip()
+             for part in _cell(text).split("/")]
+    assert len(parts) == 3, text
+    return [(float(part), 0.5 * 10 ** -len(part.partition(".")[2])) for part in parts]
+
+
+@needs_task_08
+def test_c6_the_contribution_table_matches_the_committed_shares():
+    """Every cell of the register's headline table, recomputed from the CSV."""
+    contrib = pd.read_csv(TABLES_08 / "numerator-contribution.csv")
+    assert len(contrib) == 15, "the six-company panel has 15 pairs"
+
+    columns = {
+        "Concepts": ("share_concept", "n_concept"),
+        "Skills in ≤ 1 posting": ("share_postings_le_1", "n_postings_le_1"),
+        "Skills in ≤ 10 postings": ("share_postings_le_10", "n_postings_le_10"),
+        "Top 5 skills of the pair": ("share_top5", None),
+    }
+    claimed = markdown_table("C6")
+    assert len(claimed) == len(columns)
+
+    for row in claimed:
+        group = _cell(row["Group"]).split(" (")[0]
+        share, count = columns[group]
+        values = contrib[share] * 100
+        claims = _triple(row["Share of the cosine numerator (min / mean / max)"])
+        got = (values.min(), values.mean(), values.max())
+        for (claim, tol), actual in zip(claims, got):
+            assert claim == pytest.approx(actual, abs=tol), (group, claim, actual)
+        if count is not None:
+            assert contrib[count].nunique() == 1, count
+            assert int(row["Skills"]) == int(contrib[count].iloc[0]), group
+        else:
+            assert int(row["Skills"]) == 5
+
+
+@needs_task_08
+def test_c6_a_single_posting_skill_contributes_exactly_zero():
+    """Not "almost nothing" — zero, because the product term has a zero in it."""
+    contrib = pd.read_csv(TABLES_08 / "numerator-contribution.csv")
+    assert (contrib.share_postings_le_1 == 0.0).all()
+    assert contrib.n_postings_le_1.iloc[0] > 0, "no single-posting skills left to check"
+
+
+@needs_task_08
+def test_c6_five_skills_carry_four_fifths_of_every_score():
+    """The other half of the arithmetic: weight sits in the head, not the tail."""
+    contrib = pd.read_csv(TABLES_08 / "numerator-contribution.csv")
+    assert contrib.share_top5.min() > 0.70
+    assert contrib.share_top5.mean() > 0.80
+    assert (contrib.share_top5 > contrib.share_postings_le_10 * 1000).all()
+
+
+@needs_task_08
+def test_c6_removing_every_concept_skill_leaves_the_ranking_identical():
+    """The claim that would have to fail for §2.3's prediction to be right."""
+    removal = pd.read_csv(TABLES_08 / "concept-skill-removal.csv")
+    assert set(removal.metric) == {"cosine"}, "C6 is a statement about cosine"
+    assert (removal.rank_move == 0).all(), "a pair moved — re-read C6"
+    assert removal[["rank_with", "rank_without"]].corr(method="spearman").iloc[0, 1] == 1.0
+    assert removal.delta.abs().max() == pytest.approx(0.0020, abs=5e-5)
+    assert removal.with_group.min() == pytest.approx(0.4961, abs=5e-5)
+    assert removal.with_group.max() == pytest.approx(0.9174, abs=5e-5)
+
+
+@needs_task_08
+def test_c6_the_prediction_would_have_been_right_for_a_set_metric():
+    """The general lesson only holds if the two metric families really differ."""
+    concordance = pd.read_csv(TABLES_08 / "metric-concordance.csv")
+    pair = concordance[
+        (concordance.metric_a == "cosine") & (concordance.metric_b == "jaccard_supported")
+    ]
+    assert len(pair) == 1, "cosine vs jaccard is the comparison C6 rests on"
+    assert float(pair.rank_correlation.iloc[0]) == pytest.approx(-0.04, abs=0.005)
+    assert not bool(pair.same_family.iloc[0])
+
+
+@needs_task_08
+def test_c6_the_support_sweep_is_not_a_robustness_check():
+    """C6 says the sweep asks a different question — it has to move something."""
+    support = pd.read_csv(TABLES_08 / "support-sensitivity.csv")
+    assert support.rank_move.abs().sum() > 0, (
+        "restricting to core skills changed no ranking — then it is a no-op, "
+        "not a different question"
+    )
+    assert support.n_core.iloc[0] < support.n_all.iloc[0]
+
+
+@needs_task_08
+def test_c6_the_taxonomy_keeps_its_wording():
+    """A register, not an eraser: the disproved sentences stay where they were."""
+    raw = (REPO_ROOT / "docs" / "task-04-skill-taxonomy.md").read_text(encoding="utf-8")
+    taxonomy = " ".join(raw.split())  # the sentences are hard-wrapped
+    assert "dominate every similarity score in Task 08" in taxonomy
+    assert "it would dominate cosine similarity in Task 08" in taxonomy
+    assert raw.count("corrections.md#c6") == 2, "both passages carry a pointer"
