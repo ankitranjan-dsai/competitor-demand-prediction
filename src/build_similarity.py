@@ -410,23 +410,32 @@ def fig_trajectory(traj: pd.DataFrame, null: dict, path: Path) -> str:
     Left: the observed correlations against the band six independent series
     produce after closure. Right: the width of each pair's interval. Neither
     panel needs the other to make the point, which is why both are here.
+
+    The dashed −1/(D−1) sits outside the band on purpose. It is exact for
+    geometric closure and these shares are closed by their sum, so drawing it
+    where a reader would expect the band to be centred is the clearest way to
+    say the band, not the formula, is what the refusal uses.
     """
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.5, 5.4))
     block = traj.sort_values("r_log_share")
     y = np.arange(len(block))
     ax1.axvspan(null["p2_5"], null["p97_5"], color=ORANGE, alpha=0.22,
-                label="closure null, 95% of draws")
+                label=f"closure null at the panel's own dispersion (σ = {null['sigma']:.2f})")
     ax1.axvline(null["analytic"], color=ORANGE, lw=1.2, ls="--",
-                label=f"−1/(D−1) = {null['analytic']:.2f}")
+                label=f"−1/(D−1) = {null['analytic']:.2f}, exact for geometric closure")
     ax1.hlines(y, block.ci_low, block.ci_high, color=GREY, lw=2)
     ax1.scatter(block.r_log_share, y, s=40,
                 color=[BLUE if e else GREY for e in block.eligible], zorder=3)
     ax1.axvline(0, color=INK, lw=0.9)
+    mean_r = float(traj.r_log_share.mean())
+    ax1.axvline(mean_r, color=BLUE, lw=1.3,
+                label=f"observed mean = {mean_r:.2f}, inside the band")
     ax1.set_yticks(y, [_label(r) + (" *" if r.eligible else "") for r in block.itertuples()],
                    fontsize=8)
     _style(ax1, "Correlation of log panel shares, 95% Fisher intervals", "",
            "correlation (* = both members pass the Task 07 gate)")
-    ax1.legend(frameon=False, fontsize=8, loc="lower right")
+    ax1.legend(frameon=False, fontsize=8, loc="upper center",
+               bbox_to_anchor=(0.5, -0.13), ncol=1)
 
     ax2.barh(y, block.ci_width, color=GREY)
     ax2.axvline(2.0, color=RED, lw=1.1, ls="--")
@@ -438,7 +447,7 @@ def fig_trajectory(traj: pd.DataFrame, null: dict, path: Path) -> str:
                  "pair, a mean correlation inside the closure null, and "
                  "intervals half the range wide",
                  fontsize=11, color=INK, x=0.01, ha="left")
-    fig.subplots_adjust(top=0.88)
+    fig.subplots_adjust(top=0.88, bottom=0.28)
     return _save(fig, path)
 
 
@@ -600,8 +609,16 @@ def build(keys: list[str], focus: str = "google") -> dict:
     gate = pd.read_csv(TASK07 / "forecastability-gate.csv")
     traj = sim.trajectory_table(series, gate)
     _write(traj, TABLES / "trajectory-similarity.csv")
-    null = sim.closure_null(int(traj.n_periods.iloc[0]), len(keys))
+    wide = sim.panel_wide(series)
+    n_periods, sigma = int(traj.n_periods.iloc[0]), sim.calibrate_sigma(wide, seed=sim.SEED)
+    null = sim.closure_null(n_periods, len(keys), sigma=sigma, seed=sim.SEED)
     verdict = sim.trajectory_verdict(traj, null)
+    mean_r = float(traj.r_log_share.mean())
+    sens = sim.closure_sensitivity(
+        mean_r, n_periods, len(keys),
+        sorted({0.2, 0.4, 0.6, 0.8, sigma, 1.0, 1.2, 1.4}), seed=sim.SEED)
+    _write(sens, TABLES / "closure-sensitivity.csv")
+    flips = sens[~sens.inside]
     report["trajectory"] = {
         "identified": verdict.identified,
         "reason": verdict.reason,
@@ -611,6 +628,14 @@ def build(keys: list[str], focus: str = "google") -> dict:
         "highest_variation_pair": _label(traj.iloc[-1]),
         "highest_variation": float(traj.aitchison_variation.iloc[-1]),
         "february_filled": False,
+        "closure_sigma_calibrated": sigma,
+        "closure_clause_holds_across_sigma": bool(flips.empty),
+        "closure_clause_first_failing_sigma": (None if flips.empty
+                                               else float(flips.sigma.iloc[0])),
+        "closure_clause_failure_side": ("" if flips.empty
+                                        else str(flips.side_if_outside.iloc[0])),
+        "closure_gap_to_analytic_at_calibrated_sigma": float(
+            sens.loc[sens.sigma == sigma, "gap_to_analytic"].iloc[0]),
     }
 
     # -- what survives ------------------------------------------------------

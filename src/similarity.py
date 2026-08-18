@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import itertools
 import math
+from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -869,6 +870,16 @@ def closure_expectation(n_parts: int) -> float:
     a closed composition is negative before any company does anything, and
     this is that number. Pearson found it in 1897; it is still the most common
     way to read a co-movement that is not there.
+
+    It is exact for *geometric* closure — divide each period by its geometric
+    mean, which is the CLR transform — and only approximate for the
+    *arithmetic* closure a share table has, where the parts are divided by
+    their sum. The approximation errs toward zero and the error grows with
+    the dispersion of the underlying series:
+    `docs/task-08-similarity-validation.md` §5 measures both. Nothing this
+    task publishes uses the analytic number; `trajectory_verdict` reads the
+    simulated band from `closure_null`, which is arithmetically closed like
+    the data.
     """
     return -1.0 / (n_parts - 1) if n_parts > 1 else float("nan")
 
@@ -877,11 +888,18 @@ def closure_null(n_periods: int, n_parts: int, sigma: float = 0.3,
                  draws: int = N_NULL, seed: int | None = None) -> dict:
     """Mean pairwise correlation of *independent* series after closure.
 
-    The analytic ``−1/(D−1)`` assumes exchangeable parts; this simulates the
-    actual shape of the problem — independent lognormal series, closed to a
-    composition, correlated on the log scale at the sample size in hand — and
-    returns the interval an observed mean has to escape before it is evidence
-    of anything.
+    The analytic ``−1/(D−1)`` is exact for a closure this is not; see
+    `closure_expectation`. This simulates the actual shape of the problem —
+    independent lognormal series, closed by their sum, correlated on the log
+    scale at the sample size in hand — and returns the interval an observed
+    mean has to escape before it is evidence of anything.
+
+    ``sigma`` is the dispersion of the series before closure and it matters:
+    the band widens and its centre climbs toward zero as sigma grows, so the
+    default is a placeholder rather than a value with a claim behind it. Pass
+    `calibrate_sigma(wide)` to run the null at the panel's own dispersion, and
+    `closure_sensitivity` to publish how far the answer travels across the
+    range.
     """
     rng = _rng(seed)
     means = np.empty(draws)
@@ -896,8 +914,76 @@ def closure_null(n_periods: int, n_parts: int, sigma: float = 0.3,
         "p2_5": float(np.percentile(means, 2.5)),
         "p97_5": float(np.percentile(means, 97.5)),
         "draws": draws, "n_periods": n_periods, "n_parts": n_parts,
+        "sigma": float(sigma),
         "analytic": closure_expectation(n_parts),
     }
+
+
+def calibrate_sigma(wide: pd.DataFrame, n_parts: int | None = None,
+                    draws: int = 200, seed: int | None = None,
+                    lo: float = 0.01, hi: float = 3.0, tol: float = 1e-4) -> float:
+    """The dispersion `closure_null` has to run at to match this panel.
+
+    The default sigma is a guess, and the null's band moves with it, so a
+    guess is not good enough for a number a refusal rests on. This measures
+    the spread of the panel's own CLR coordinates and bisects for the sigma
+    that reproduces it, so the null describes series as volatile as the ones
+    observed rather than as volatile as a constant in a signature.
+
+    One pool of standard normals is drawn and rescaled at each step, which
+    makes the simulated spread deterministic and monotone in sigma — the
+    bisection converges on a number rather than on the noise.
+    """
+    logs = np.log(wide.to_numpy(dtype=float))
+    target = float((logs - logs.mean(axis=1, keepdims=True)).std(ddof=1))
+    n_periods, d = wide.shape
+    d = n_parts or d
+    z = _rng(seed).normal(0.0, 1.0, size=(draws, n_periods, d))
+
+    def spread(sigma: float) -> float:
+        s = np.exp(sigma * z)
+        s /= s.sum(axis=2, keepdims=True)
+        ls = np.log(s)
+        return float((ls - ls.mean(axis=2, keepdims=True)).std(ddof=1))
+
+    while hi - lo > tol:
+        mid = 0.5 * (lo + hi)
+        if spread(mid) < target:
+            lo = mid
+        else:
+            hi = mid
+    return round(0.5 * (lo + hi), 4)
+
+
+def closure_sensitivity(mean_r: float, n_periods: int, n_parts: int,
+                        sigmas: Sequence[float], draws: int = N_NULL,
+                        seed: int | None = None) -> pd.DataFrame:
+    """How far the closure clause of the refusal travels across dispersion.
+
+    The clause says an observed mean correlation sits inside what independent
+    series produce. That band depends on a simulation parameter, so the
+    honest thing is to publish the whole curve and let a reader see where the
+    clause would stop holding — and, at the sigma where it does, in which
+    direction it fails.
+    """
+    rows = []
+    for sigma in sigmas:
+        null = closure_null(n_periods, n_parts, sigma=float(sigma), draws=draws, seed=seed)
+        inside = null["p2_5"] <= mean_r <= null["p97_5"]
+        rows.append({
+            "sigma": round(float(sigma), 4),
+            "null_mean": round(null["mean"], 4),
+            "p2_5": round(null["p2_5"], 4),
+            "p97_5": round(null["p97_5"], 4),
+            "band_width": round(null["p97_5"] - null["p2_5"], 4),
+            "analytic": round(null["analytic"], 4),
+            "gap_to_analytic": round(null["mean"] - null["analytic"], 4),
+            "observed_mean_r": round(float(mean_r), 4),
+            "inside": bool(inside),
+            "side_if_outside": ("" if inside
+                                else "below" if mean_r < null["p2_5"] else "above"),
+        })
+    return pd.DataFrame(rows)
 
 
 def aitchison_variation(wide: pd.DataFrame) -> pd.DataFrame:
@@ -925,6 +1011,19 @@ def _fisher_interval(r: float, n: int, z: float = 1.96) -> tuple[float, float]:
     return math.tanh(zr - z * se), math.tanh(zr + z * se)
 
 
+def panel_wide(series: pd.DataFrame) -> pd.DataFrame:
+    """The Task 07 panel as periods x companies, on observed periods only.
+
+    The index is the *intersection* of what every company actually observed,
+    so February — which Task 07 refused to fill — is absent here rather than
+    interpolated into existence.
+    """
+    obs = {k: fc.observed(series, k).set_index("period") for k in sorted(series.key.unique())}
+    keys = sorted(obs)
+    common = sorted(set.intersection(*[set(o.index) for o in obs.values()])) if obs else []
+    return pd.DataFrame({k: obs[k].loc[common, "share"].to_numpy() for k in keys}, index=common)
+
+
 def trajectory_table(series: pd.DataFrame, gate: pd.DataFrame,
                      min_periods: int = MIN_TRAJECTORY_PERIODS) -> pd.DataFrame:
     """Pairwise co-movement of the Task 07 panel-share series, three ways.
@@ -941,10 +1040,8 @@ def trajectory_table(series: pd.DataFrame, gate: pd.DataFrame,
     bias.
     """
     ok = set(gate.loc[gate.verdict == "forecastable", "key"])
-    obs = {k: fc.observed(series, k).set_index("period") for k in sorted(series.key.unique())}
-    keys = sorted(obs)
-    common = sorted(set.intersection(*[set(o.index) for o in obs.values()])) if obs else []
-    wide = pd.DataFrame({k: obs[k].loc[common, "share"].to_numpy() for k in keys}, index=common)
+    wide = panel_wide(series)
+    keys, common = list(wide.columns), list(wide.index)
     logs = np.log(wide.to_numpy(dtype=float))
     clr = logs - logs.mean(axis=1, keepdims=True)
     var = aitchison_variation(wide)
@@ -1000,6 +1097,7 @@ def trajectory_verdict(traj: pd.DataFrame, null: dict) -> TrajectoryVerdict:
         "closure_null_p2_5": round(null["p2_5"], 4),
         "closure_null_p97_5": round(null["p97_5"], 4),
         "mean_r_inside_closure_null": bool(inside),
+        "closure_sigma": round(float(null.get("sigma", float("nan"))), 4),
         "mean_ci_width": round(mean_width, 4),
         "max_ci_width": round(widest, 4),
         "pairs_excluding_zero": int(traj.excludes_zero.sum()),
