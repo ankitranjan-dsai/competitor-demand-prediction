@@ -1,0 +1,16 @@
+company_a,company_b,metric,observed,ci_low,ci_high,rank,rank_low,rank_high,rank_stability,draws,rank_identified,tier
+google,meta,cosine,0.9174,0.8936,0.932,1,1,1,1.0,600,True,1
+google,nvidia,cosine,0.7485,0.7003,0.7771,2,2,2,1.0,600,True,2
+microsoft,nvidia,cosine,0.6769,0.6306,0.7054,3,3,7,0.4533,600,False,3
+google,microsoft,cosine,0.6707,0.638,0.697,4,3,7,0.315,600,False,3
+meta,microsoft,cosine,0.6587,0.6222,0.689,5,3,8,0.3083,600,False,3
+meta,nvidia,cosine,0.6569,0.6062,0.6921,6,3,9,0.2067,600,False,3
+databricks,microsoft,cosine,0.6498,0.6176,0.6722,7,3,8,0.3517,600,False,3
+microsoft,snowflake,cosine,0.6351,0.6098,0.654,8,5,9,0.56,600,False,3
+google,snowflake,cosine,0.616,0.5923,0.6358,9,7,10,0.7667,600,False,3
+nvidia,snowflake,cosine,0.5824,0.5404,0.6132,10,10,13,0.4633,600,False,3
+databricks,nvidia,cosine,0.5756,0.5247,0.6174,11,9,13,0.3017,600,False,3
+meta,snowflake,cosine,0.5666,0.542,0.5889,12,10,13,0.4283,600,False,3
+databricks,snowflake,cosine,0.5538,0.5299,0.5721,13,11,13,0.635,600,False,3
+databricks,meta,cosine,0.4972,0.4725,0.5218,14,14,15,0.6033,600,False,4
+databricks,google,cosine,0.4961,0.4675,0.5187,15,14,15,0.6033,600,False,4

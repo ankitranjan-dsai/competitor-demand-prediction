@@ -1,0 +1,7 @@
+metric,clusters,partition,bootstrap_support,draws,vocabulary
+cosine,2,"databricks | google,meta,microsoft,nvidia,snowflake",0.8683,600,all_skills
+cosine,3,"databricks | google,meta,microsoft,nvidia | snowflake",0.8533,600,all_skills
+cosine,4,"databricks | google,meta,nvidia | microsoft | snowflake",0.8633,600,all_skills
+cosine,2,"databricks | google,meta,microsoft,nvidia,snowflake",0.5433,600,all_products_dropped
+cosine,3,"databricks | google,meta,microsoft,snowflake | nvidia",0.9667,600,all_products_dropped
+cosine,4,"databricks | google,meta | microsoft,snowflake | nvidia",0.6783,600,all_products_dropped

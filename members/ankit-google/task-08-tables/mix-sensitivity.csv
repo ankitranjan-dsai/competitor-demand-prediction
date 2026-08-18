@@ -1,0 +1,16 @@
+company_a,company_b,metric,crude,standardised,mix_effect,skills_used,weight_covered_min,rank_crude,rank_standardised,rank_move
+google,meta,cosine,0.9177,0.9112,0.0066,80,0.9315,1,1,0
+google,nvidia,cosine,0.7511,0.7876,-0.0365,80,0.976,2,2,0
+microsoft,nvidia,cosine,0.6795,0.6593,0.0202,80,0.9139,3,7,4
+google,microsoft,cosine,0.6709,0.6786,-0.0077,80,0.9139,4,5,1
+meta,nvidia,cosine,0.6594,0.7276,-0.0681,80,0.9315,5,3,-2
+meta,microsoft,cosine,0.6589,0.7119,-0.053,80,0.9139,6,4,-2
+databricks,microsoft,cosine,0.6501,0.6606,-0.0105,80,0.9139,7,6,-1
+microsoft,snowflake,cosine,0.6354,0.6074,0.028,80,0.9139,8,10,2
+google,snowflake,cosine,0.6161,0.6265,-0.0104,80,0.976,9,9,0
+nvidia,snowflake,cosine,0.5841,0.5904,-0.0063,80,0.976,10,11,1
+databricks,nvidia,cosine,0.578,0.5583,0.0197,80,0.976,11,13,2
+meta,snowflake,cosine,0.5667,0.6436,-0.0769,80,0.9315,12,8,-4
+databricks,snowflake,cosine,0.5539,0.5475,0.0064,80,0.976,13,14,1
+databricks,meta,cosine,0.4973,0.5767,-0.0794,80,0.9315,14,12,-2
+databricks,google,cosine,0.4964,0.5206,-0.0242,80,0.976,15,15,0

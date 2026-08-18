@@ -1,0 +1,16 @@
+company_a,company_b,metric,with_group,without_group,delta,rank_with,rank_without,rank_move
+google,meta,cosine,0.9174,0.917,-0.0004,1,1,0
+google,nvidia,cosine,0.7485,0.7487,0.0002,2,2,0
+microsoft,nvidia,cosine,0.6769,0.6775,0.0006,3,3,0
+google,microsoft,cosine,0.6707,0.6726,0.002,4,4,0
+meta,microsoft,cosine,0.6587,0.6597,0.001,5,5,0
+meta,nvidia,cosine,0.6569,0.6562,-0.0007,6,6,0
+databricks,microsoft,cosine,0.6498,0.6497,-0.0001,7,7,0
+microsoft,snowflake,cosine,0.6351,0.635,-0.0001,8,8,0
+google,snowflake,cosine,0.616,0.6178,0.0018,9,9,0
+nvidia,snowflake,cosine,0.5824,0.5828,0.0005,10,10,0
+databricks,nvidia,cosine,0.5756,0.5756,-0.0,11,11,0
+meta,snowflake,cosine,0.5666,0.5674,0.0008,12,12,0
+databricks,snowflake,cosine,0.5538,0.5536,-0.0002,13,13,0
+databricks,meta,cosine,0.4972,0.4968,-0.0004,14,14,0
+databricks,google,cosine,0.4961,0.4961,0.0,15,15,0

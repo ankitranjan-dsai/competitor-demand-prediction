@@ -1,0 +1,16 @@
+company_a,company_b,rank,observed,rank_stability,family_rank_spread,vendor_rank_move,mix_rank_move,verdict,reason
+google,meta,1,0.9174,1.0,0,0,0,robust,"rank 1 in 100% of resamples, stable across metric, own products and role mix"
+google,nvidia,2,0.7485,1.0,4,7,0,vendor_dependent,dropping own products moves the rank 7 places
+microsoft,nvidia,3,0.6769,0.4533,1,2,4,unresolved,rank 3 holds in only 45% of resamples
+google,microsoft,4,0.6707,0.315,2,2,1,unresolved,rank 4 holds in only 32% of resamples
+meta,microsoft,5,0.6587,0.3083,5,1,2,unresolved,rank 5 holds in only 31% of resamples
+meta,nvidia,6,0.6569,0.2067,6,9,2,unresolved,rank 6 holds in only 21% of resamples
+databricks,microsoft,7,0.6498,0.3517,2,1,1,unresolved,rank 7 holds in only 35% of resamples
+microsoft,snowflake,8,0.6351,0.56,6,5,2,unresolved,rank 8 holds in only 56% of resamples
+google,snowflake,9,0.616,0.7667,1,3,0,unresolved,rank 9 holds in only 77% of resamples
+nvidia,snowflake,10,0.5824,0.4633,5,1,1,unresolved,rank 10 holds in only 46% of resamples
+databricks,nvidia,11,0.5756,0.3017,1,1,2,unresolved,rank 11 holds in only 30% of resamples
+meta,snowflake,12,0.5666,0.4283,1,2,4,unresolved,rank 12 holds in only 43% of resamples
+databricks,snowflake,13,0.5538,0.635,6,6,1,unresolved,rank 13 holds in only 64% of resamples
+databricks,meta,14,0.4972,0.6033,1,0,2,unresolved,rank 14 holds in only 60% of resamples
+databricks,google,15,0.4961,0.6033,1,2,0,unresolved,rank 15 holds in only 60% of resamples

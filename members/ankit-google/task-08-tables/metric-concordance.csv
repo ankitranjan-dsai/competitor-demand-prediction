@@ -1,0 +1,11 @@
+metric_a,metric_b,family_a,family_b,same_family,rank_correlation
+jensen_shannon,bray_curtis,prevalence_weighted,prevalence_weighted,True,0.9643
+cosine,bray_curtis,prevalence_weighted,prevalence_weighted,True,0.7321
+cosine,jensen_shannon,prevalence_weighted,prevalence_weighted,True,0.7214
+spearman,jaccard_supported,rank_or_set,rank_or_set,True,0.5821
+jensen_shannon,spearman,prevalence_weighted,rank_or_set,False,0.575
+bray_curtis,spearman,prevalence_weighted,rank_or_set,False,0.5036
+bray_curtis,jaccard_supported,prevalence_weighted,rank_or_set,False,0.425
+jensen_shannon,jaccard_supported,prevalence_weighted,rank_or_set,False,0.4214
+cosine,spearman,prevalence_weighted,rank_or_set,False,-0.0286
+cosine,jaccard_supported,prevalence_weighted,rank_or_set,False,-0.0429

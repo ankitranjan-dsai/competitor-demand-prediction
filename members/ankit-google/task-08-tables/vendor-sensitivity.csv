@@ -1,0 +1,16 @@
+company_a,company_b,metric,all_skills,pair_products_dropped,all_products_dropped,skills_all,skills_pair_dropped,skills_all_dropped,delta_all_products,rank_all_skills,rank_pair_products_dropped,rank_all_products_dropped,rank_move
+google,meta,cosine,0.9174,0.9443,0.946,127,112,92,0.0286,1,1,1,0
+google,nvidia,cosine,0.7485,0.7731,0.8093,127,114,92,0.0608,2,9,9,7
+microsoft,nvidia,cosine,0.6769,0.8412,0.8477,127,110,92,0.1708,3,4,5,2
+google,microsoft,cosine,0.6707,0.892,0.9417,127,99,92,0.271,4,3,2,-2
+meta,microsoft,cosine,0.6587,0.8363,0.8838,127,108,92,0.2251,5,6,4,-1
+meta,nvidia,cosine,0.6569,0.6642,0.7197,127,123,92,0.0628,6,12,15,9
+databricks,microsoft,cosine,0.6498,0.7949,0.8214,127,109,92,0.1716,7,7,8,1
+microsoft,snowflake,cosine,0.6351,0.9069,0.934,127,110,92,0.2989,8,2,3,-5
+google,snowflake,cosine,0.616,0.7779,0.8465,127,114,92,0.2305,9,8,6,-3
+nvidia,snowflake,cosine,0.5824,0.7452,0.7994,127,125,92,0.217,10,10,11,1
+databricks,nvidia,cosine,0.5756,0.6128,0.7593,127,124,92,0.1837,11,14,12,1
+meta,snowflake,cosine,0.5666,0.7281,0.8057,127,123,92,0.2391,12,11,10,-2
+databricks,snowflake,cosine,0.5538,0.8382,0.8415,127,124,92,0.2877,13,5,7,-6
+databricks,meta,cosine,0.4972,0.5986,0.74,127,122,92,0.2428,14,15,14,0
+databricks,google,cosine,0.4961,0.6142,0.7462,127,113,92,0.2501,15,13,13,-2
