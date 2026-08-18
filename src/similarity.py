@@ -658,13 +658,16 @@ def support_sensitivity(prof: pd.DataFrame, sets: dict[str, set[str]],
     return out.sort_values("all_skills", ascending=False).reset_index(drop=True)
 
 
-def numerator_contribution(prof: pd.DataFrame, groups: dict[str, list[str]]) -> pd.DataFrame:
+def numerator_contribution(prof: pd.DataFrame, groups: dict[str, list[str]],
+                           top_k: int = 5) -> pd.DataFrame:
     """What share of the cosine numerator each named group of skills carries.
 
     Written to settle Task 04's two predictions about this task rather than to
-    argue with them: the contribution of a skill to a cosine on *share* vectors
-    is the product of two shares, so a skill nobody asks for contributes
-    nothing whatever its column count. The register entry cites this table.
+    argue with them: a skill's contribution to a cosine on *share* vectors is
+    the product of two shares, so a skill almost nobody asks for contributes
+    almost nothing however many columns it occupies. ``share_top{k}`` is the
+    other end of the same arithmetic — the few skills that do carry the score —
+    and the correction register cites both columns.
     """
     rows = []
     for a, b in pairs(prof.columns):
@@ -675,6 +678,10 @@ def numerator_contribution(prof: pd.DataFrame, groups: dict[str, list[str]]) -> 
             mask = np.array([s in set(members) for s in prof.index])
             row[f"share_{name}"] = round(float(prod[mask].sum() / total), 6) if total else float("nan")
             row[f"n_{name}"] = int(mask.sum())
+        top = np.sort(prod)[::-1][:top_k]
+        row[f"share_top{top_k}"] = round(float(top.sum() / total), 6) if total else float("nan")
+        row[f"top{top_k}_skills"] = ", ".join(
+            pd.Series(prod, index=prof.index).sort_values(ascending=False).head(top_k).index)
         rows.append(row)
     return pd.DataFrame(rows)
 
