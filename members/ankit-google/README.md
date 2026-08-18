@@ -53,6 +53,21 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       [C5](../../docs/corrections.md#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february):
       Task 06's H1 base counts February; every sign survives, Google's decline
       deepens to −6.56 pp)
-- [ ] Task 08 — Company similarity scoring
+- [x] Task 08 — Company similarity scoring → `task-08-similarity-report.md`
+      (five metrics in two families, identical/unrelated nulls per pair,
+      posting-level bootstrap, rank tiers, four published sensitivities.
+      Standard in `docs/task-08-company-similarity-methods.md`; 474 tests;
+      16 tables + 8 figures, cross-checked against scipy in
+      `docs/task-08-similarity-validation.md`. **Google–Meta is the most
+      similar pair** (0.9174 raw, 0.9123 calibrated) and the only `robust`
+      one — rank 1 in 100% of resamples, under all five metrics, after
+      dropping own products and after standardising role mix. Only **2 of 15
+      ranks are identified**; 11 pairs are one tier. Google has the largest
+      own-product vocabulary of the six, and Google–Microsoft rises 0.67 → 0.94
+      when both stacks are dropped. Trajectory similarity refused: 1 eligible
+      pair, mean r inside the closure null at the panel's own dispersion.
+      Raised [C6](../../docs/corrections.md#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score):
+      concept skills carry 0.36% of a cosine numerator and single-posting
+      skills exactly 0%, against Task 04's prediction that both would dominate)
 - [ ] Task 09 — Insight generation & reporting
 - [ ] Task 10 — Final presentation
