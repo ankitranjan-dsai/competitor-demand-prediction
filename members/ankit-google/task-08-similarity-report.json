@@ -11,7 +11,7 @@
   ],
   "primary_metric": "cosine",
   "seed": 20260818,
-  "generated_at": "2026-08-18T19:07:39+00:00",
+  "generated_at": "2026-08-18T19:15:38+00:00",
   "profiles": {
     "skills_in_vocabulary": 127,
     "postings_per_company": {
@@ -135,14 +135,15 @@
   },
   "trajectory": {
     "identified": false,
-    "reason": "only 1 of 15 pairs pass the Task 07 gate on both members; mean correlation -0.175 sits inside the closure null [-0.195, -0.154]; mean 95% interval spans 1.04 of the [-1, 1] range",
+    "reason": "only 1 of 15 pairs pass the Task 07 gate on both members; mean correlation -0.175 sits inside the closure null [-0.179, -0.030]; mean 95% interval spans 1.04 of the [-1, 1] range",
     "eligible_pairs": 1,
     "total_pairs": 15,
     "mean_r_log_share": -0.1746,
-    "closure_null_mean": -0.1824,
-    "closure_null_p2_5": -0.1955,
-    "closure_null_p97_5": -0.1539,
+    "closure_null_mean": -0.1326,
+    "closure_null_p2_5": -0.1785,
+    "closure_null_p97_5": -0.0297,
     "mean_r_inside_closure_null": true,
+    "closure_sigma": 0.8901,
     "mean_ci_width": 1.0449,
     "max_ci_width": 1.1997,
     "pairs_excluding_zero": 2,
@@ -150,7 +151,12 @@
     "lowest_variation": 0.2156,
     "highest_variation_pair": "nvidia \u2013 snowflake",
     "highest_variation": 1.6738,
-    "february_filled": false
+    "february_filled": false,
+    "closure_sigma_calibrated": 0.8901,
+    "closure_clause_holds_across_sigma": false,
+    "closure_clause_first_failing_sigma": 1.2,
+    "closure_clause_failure_side": "below",
+    "closure_gap_to_analytic_at_calibrated_sigma": 0.0674
   },
   "verdicts": {
     "counts": {
@@ -174,7 +180,7 @@
     "08-trajectory-refusal.png"
   ],
   "privacy": {
-    "tables_checked": 15,
+    "tables_checked": 16,
     "forbidden_columns": [
       "country",
       "location_country",
