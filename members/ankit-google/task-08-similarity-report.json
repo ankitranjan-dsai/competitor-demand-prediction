@@ -11,7 +11,7 @@
   ],
   "primary_metric": "cosine",
   "seed": 20260818,
-  "generated_at": "2026-08-18T19:15:38+00:00",
+  "generated_at": "2026-08-18T20:06:50+00:00",
   "profiles": {
     "skills_in_vocabulary": 127,
     "postings_per_company": {

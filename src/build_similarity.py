@@ -133,12 +133,18 @@ def _label(row) -> str:
 def fig_heatmap(matrix: pd.DataFrame, cal: pd.DataFrame, path: Path) -> str:
     """The similarity matrix twice — raw, then on the calibrated scale.
 
-    The two panels look alike, and that is the honest result: with an
-    unrelated null near 0.13 and an identical null near 0.99, calibration is
-    close to an affine rescaling, so it cannot and does not reorder the pairs.
-    What it changes is the *reading* of a cell. 0.55 in the left panel invites
-    "moderately similar"; the right panel says it is halfway between two
-    companies with nothing in common and two companies that are the same one.
+    The two panels look alike, and mostly they are: with an unrelated null
+    near 0.13 and an identical null near 0.99, calibration is close to a
+    rescaling. What it changes first is the *reading* of a cell. 0.55 in the
+    left panel invites "moderately similar"; the right panel says it is
+    halfway between two companies with nothing in common and two companies
+    that are the same one.
+
+    It is not only a rescaling, though, and the caption says so. Each pair is
+    divided by its own null spread, and the nulls are not equal across pairs —
+    NVIDIA's unrelated null is the highest of the six because its marginals
+    sit on skills everyone asks for. Six of the fifteen pairs change rank
+    between the panels, the largest move being three places.
     """
     keys = list(matrix.index)
     cal_m = pd.DataFrame(np.nan, index=keys, columns=keys, dtype=float)
@@ -167,9 +173,10 @@ def fig_heatmap(matrix: pd.DataFrame, cal: pd.DataFrame, path: Path) -> str:
         for side in ax.spines.values():
             side.set_visible(False)
         fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-    fig.suptitle("Skill-demand similarity, share_of_skilled vectors — calibration "
-                 "is near-affine here, so it rescales the levels without "
-                 "reordering the pairs", fontsize=11, color=INK, x=0.01, ha="left")
+    fig.suptitle("Skill-demand similarity, share_of_skilled vectors — each pair "
+                 "is calibrated against its own two nulls, which moves 6 of the "
+                 "15 pairs (max 3 places)", fontsize=11, color=INK, x=0.01,
+                 ha="left")
     fig.subplots_adjust(top=0.88)
     return _save(fig, path)
 
