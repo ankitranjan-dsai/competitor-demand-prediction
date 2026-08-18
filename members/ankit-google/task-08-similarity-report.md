@@ -10,7 +10,7 @@ of every statistic written by hand.
 
 - **Method rationale (team standard):** [`docs/task-08-company-similarity-methods.md`](../../docs/task-08-company-similarity-methods.md)
 - **Code:** [`src/similarity.py`](../../src/similarity.py) · [`src/build_similarity.py`](../../src/build_similarity.py) · [`src/validate_similarity.py`](../../src/validate_similarity.py)
-- **Tests:** [`tests/test_similarity.py`](../../tests/test_similarity.py) (37) — **474 passing** in the suite
+- **Tests:** [`tests/test_similarity.py`](../../tests/test_similarity.py) (37) — **478 passing** in the suite
 - **Validation evidence:** [`docs/task-08-similarity-validation.md`](../../docs/task-08-similarity-validation.md) — 17/17 checks pass
 - **Machine-readable report:** [`task-08-similarity-report.json`](task-08-similarity-report.json)
 - **Tables:** [`task-08-tables/`](task-08-tables/) · **Figures:** [`task-08-figures/`](task-08-figures/)
@@ -389,7 +389,7 @@ Not supported at all:
 | Figures (8) | [`task-08-figures/`](task-08-figures/) |
 | Validation (17 checks vs scipy) | [`docs/task-08-similarity-validation.md`](../../docs/task-08-similarity-validation.md) |
 | Correction registered | [C6](../../docs/corrections.md#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score) |
-| Tests | [`tests/test_similarity.py`](../../tests/test_similarity.py) (37 of 474) |
+| Tests | [`tests/test_similarity.py`](../../tests/test_similarity.py) (37 of 478) |
 
 Row-level data stays git-ignored. All 16 tables pass the forbidden-column and
 personal-data checks before they are written (`privacy.passed` in the JSON).

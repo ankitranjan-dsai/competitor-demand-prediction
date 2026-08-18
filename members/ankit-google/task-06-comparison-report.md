@@ -346,6 +346,15 @@ skilled ones name*.
 - A skill-level baseline must respect `MIN_CELL = 10` and the FDR-adjusted
   `significant` flag, not raw p-values.
 
+> **Corrected by Task 08 — [C7](../../docs/corrections.md#c7--task-08-is-company-similarity-scoring-not-visualisation-and-not-evaluation).**
+> Task 08 is **Company Similarity Scoring**, not Evaluation, and neither
+> instruction above survived contact with it. Mix standardisation is published
+> as one of four sensitivities, not as the primary object — it is a
+> third-order effect (rank correlation 0.90) next to own-product vocabulary
+> (0.2989 on one pair). And there is no skill-level baseline to correct:
+> Task 08's unit is the **pair**, and its uncertainty is a posting-level
+> bootstrap over whole profiles.
+
 **Task 09 (Insight Generation):**
 - Every cross-company sentence carries three things: the panel it is measured
   on, the stratified verdict, and whether the skill is self-referential.

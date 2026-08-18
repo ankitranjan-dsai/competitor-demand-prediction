@@ -55,7 +55,7 @@ Roles rotate every week; decisions/blockers/progress are documented in
 | 05 | Hiring Trend Analysis | Trend tables + visual summaries | ✅ Google done → `docs/task-05-trend-analysis-methods.md` (team standard) + `members/ankit-google/task-05-trend-report.md` (19 trend tables, 8 figures, 214 tests) |
 | 06 | Competitor Comparison | Comparison tables + visuals | ✅ Google done → `docs/task-06-competitor-comparison-methods.md` (team standard) + `members/ankit-google/task-06-comparison-report.md` (six companies, 33 comparison tables, 9 figures, 359 tests) |
 | 07 | Demand Forecasting | Forecast outputs + plots | ✅ Google done → `docs/task-07-demand-forecasting-methods.md` (team standard) + `members/ankit-google/task-07-forecast-report.md` (15 tables, 8 figures, 425 tests; no model beats persistence, **max useful horizon 0**, forecast published marked unsupported) |
-| 08 | Company Similarity Scoring | Similarity tables + heatmaps/network graphs | ✅ Google done → `docs/task-08-company-similarity-methods.md` (team standard) + `members/ankit-google/task-08-similarity-report.md` (16 tables, 8 figures, 474 tests; five metrics against two nulls, **2 of 15 ranks identified**, Google–Meta the only robust pair, trajectory similarity refused) |
+| 08 | Company Similarity Scoring | Similarity tables + heatmaps/network graphs | ✅ Google done → `docs/task-08-company-similarity-methods.md` (team standard) + `members/ankit-google/task-08-similarity-report.md` (16 tables, 8 figures, 478 tests; five metrics against two nulls, **2 of 15 ranks identified**, Google–Meta the only robust pair, trajectory similarity refused) |
 | 09 | Insight Generation & Reporting | Insight report + visuals | ⬜ |
 | 10 | Final Presentation & Mentor Review | Slides + finalised repo | ⬜ |
 | +  | _(Optional)_ Automated Pipeline | Scheduled end-to-end pipeline | ⬜ |
@@ -88,10 +88,12 @@ competitor-demand-prediction/
 - **Corrections are recorded, not overwritten.** A task is submitted the moment
   it closes, so when a later task disproves an earlier claim the original
   wording stays put and gains a pointer to
-  [`docs/corrections.md`](docs/corrections.md). Six claims have been
-  corrected so far — three by Task 05, one by Task 06, one by Task 07, one by
-  Task 08 — and each one is checked against its evidence table by
-  `tests/test_corrections.py`.
+  [`docs/corrections.md`](docs/corrections.md). Seven claims have been
+  corrected so far — three by Task 05, one by Task 06, one by Task 07, two by
+  Task 08 — and each one is checked against its evidence by
+  `tests/test_corrections.py`. Six are claims about the data; the seventh is a
+  claim about the project, where a handover section named the next task wrong
+  and handed it instructions written for a task that does not exist.
 
 ## Getting Started
 

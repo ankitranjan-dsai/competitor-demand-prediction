@@ -11,7 +11,7 @@ and a heatmap is the easiest chart in this repo to over-read: it is dense, it
 is colourful, and every cell looks equally certain.
 
 - **Code:** [`src/similarity.py`](../src/similarity.py) · [`src/build_similarity.py`](../src/build_similarity.py) · [`src/validate_similarity.py`](../src/validate_similarity.py)
-- **Tests:** [`tests/test_similarity.py`](../tests/test_similarity.py) (37; 474 in the suite)
+- **Tests:** [`tests/test_similarity.py`](../tests/test_similarity.py) (37; 478 in the suite)
 - **Validation:** [`docs/task-08-similarity-validation.md`](task-08-similarity-validation.md) — every hand-written statistic checked against scipy
 - **Google findings:** [`members/ankit-google/task-08-similarity-report.md`](../members/ankit-google/task-08-similarity-report.md)
 - **What this task overturned:** [`docs/corrections.md`](corrections.md) —
@@ -30,12 +30,20 @@ python -m pytest tests/ -q
 *Company Similarity Scoring*, with "similarity tables + heatmaps/network
 graphs" as the deliverable. Two earlier documents forecast it under different
 names — §11 of the Task 06 methods calls it "Visualisation", §11 of the Google
-Task 06 report calls it "Evaluation". The brief wins; both of those sections
-were written before this task was scoped, and their substantive instructions
-(put the gate on every cross-company chart; never plot raw counts on a shared
-axis) are followed here. This is a naming drift, not a
-[correction](corrections.md) — the register is reserved for a quantitative
-claim a committed table disproves.
+Task 06 report calls it "Evaluation". The brief wins. This is registered as
+[C7](corrections.md#c7--task-08-is-company-similarity-scoring-not-visualisation-and-not-evaluation),
+because it is not only a naming drift: the Task 06 report also handed over two
+instructions written for the task it thought this was — make standardised
+shares the primary object, and build a skill-level significance baseline —
+and an instruction written for a task that does not exist gets followed
+anyway. Neither is right for a similarity task (§6.2, §5). The Task 06 methods
+document's instructions, filed under the wrong name, *were* followed: every
+cross-company figure carries its verdict and no raw count is plotted by
+company on a shared axis.
+
+The general form of the lesson, which applies to this document's own §14 as
+much as to Task 06's §11: **a handover section is a prediction, not an
+instruction.** Read the brief first.
 
 Four findings in one line each, so the rest of the document reads as their
 justification:

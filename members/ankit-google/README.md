@@ -56,7 +56,7 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
 - [x] Task 08 — Company similarity scoring → `task-08-similarity-report.md`
       (five metrics in two families, identical/unrelated nulls per pair,
       posting-level bootstrap, rank tiers, four published sensitivities.
-      Standard in `docs/task-08-company-similarity-methods.md`; 474 tests;
+      Standard in `docs/task-08-company-similarity-methods.md`; 478 tests;
       16 tables + 8 figures, cross-checked against scipy in
       `docs/task-08-similarity-validation.md`. **Google–Meta is the most
       similar pair** (0.9174 raw, 0.9123 calibrated) and the only `robust`
@@ -68,6 +68,10 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       pair, mean r inside the closure null at the panel's own dispersion.
       Raised [C6](../../docs/corrections.md#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score):
       concept skills carry 0.36% of a cosine numerator and single-posting
-      skills exactly 0%, against Task 04's prediction that both would dominate)
+      skills exactly 0%, against Task 04's prediction that both would dominate.
+      Raised [C7](../../docs/corrections.md#c7--task-08-is-company-similarity-scoring-not-visualisation-and-not-evaluation): Task 06's §11 named this task
+      "Visualisation" / "Evaluation" and handed it two instructions written for
+      a task that does not exist — a handover section is a prediction, not an
+      instruction)
 - [ ] Task 09 — Insight generation & reporting
 - [ ] Task 10 — Final presentation

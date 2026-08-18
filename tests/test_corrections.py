@@ -93,7 +93,7 @@ def read_table(name: str) -> pd.DataFrame:
 def test_register_lists_every_correction_as_corrected():
     """An entry with an open status is a limitation, not a correction."""
     index = markdown_table("Corrections Register")
-    assert len(index) == 6
+    assert len(index) == 7
     for row in index:
         assert row["Status"] == "✅ corrected", row
 
@@ -547,3 +547,63 @@ def test_c6_the_taxonomy_keeps_its_wording():
     assert "dominate every similarity score in Task 08" in taxonomy
     assert "it would dominate cosine similarity in Task 08" in taxonomy
     assert raw.count("corrections.md#c6") == 2, "both passages carry a pointer"
+
+
+# --------------------------------------------------------------------------
+# C7 — Task 08's name, and the handover written for a task that never existed
+# --------------------------------------------------------------------------
+
+
+def test_c7_the_brief_and_the_readme_agree_on_the_name():
+    """C7's evidence is committed prose, so the check is that it still says it."""
+    readme = " ".join((REPO_ROOT / "README.md").read_text(encoding="utf-8").split())
+    assert "| 08 | Company Similarity Scoring |" in readme
+    methods = REPO_ROOT / "docs" / "task-08-company-similarity-methods.md"
+    assert methods.is_file(), "C7 cites the Task 08 methods document"
+    assert "# Task 08 — Company Similarity Scoring" in methods.read_text(
+        encoding="utf-8"
+    )
+
+
+def test_c7_both_task_06_documents_keep_their_wrong_name_and_gain_a_pointer():
+    """A register, not an eraser — for a naming claim as much as a numeric one."""
+    for rel, name in (
+        ("docs/task-06-competitor-comparison-methods.md", "Task 08 (Visualisation)"),
+        ("members/ankit-google/task-06-comparison-report.md", "Task 08 (Evaluation)"),
+    ):
+        text = (REPO_ROOT / rel).read_text(encoding="utf-8")
+        assert name in text, f"{rel} no longer carries its original wording"
+        assert "corrections.md#c7" in text, f"{rel} carries no pointer to C7"
+
+
+@needs_task_08
+def test_c7_mix_standardisation_really_is_third_order():
+    """The reason Task 06's "evaluate against the standardised shares" is wrong."""
+    mix = pd.read_csv(TABLES_08 / "mix-sensitivity.csv")
+    vendor = pd.read_csv(TABLES_08 / "vendor-sensitivity.csv")
+    assert mix.mix_effect.abs().max() < vendor.delta_all_products.abs().max() / 3, (
+        "the role-mix effect is no longer small next to the own-product lever — "
+        "re-read C7"
+    )
+    assert mix[["rank_crude", "rank_standardised"]].corr(
+        method="spearman"
+    ).iloc[0, 1] == pytest.approx(0.90, abs=0.005)
+
+
+@needs_task_08
+def test_c7_task_08_has_no_skill_level_significance_test():
+    """The other half: the unit is the pair, so there is nothing to FDR-correct."""
+    skill_keyed = []
+    for path in sorted(TABLES_08.glob("*.csv")):
+        columns = set(pd.read_csv(path, nrows=1).columns)
+        assert not columns & {"p_value", "p_adjusted", "significant"}, path.name
+        if "skill" in columns:
+            skill_keyed.append(path.name)
+
+    # Exactly one table is keyed by skill, and it is a description of the
+    # profiles rather than an inference about them: one column per company and
+    # nothing else. Every other table is keyed by the pair.
+    assert skill_keyed == ["skill-profiles.csv"], skill_keyed
+    profiles = pd.read_csv(TABLES_08 / "skill-profiles.csv")
+    assert list(profiles.columns)[0] == "skill"
+    assert len(profiles.columns) == 7, "skill-profiles gained a non-company column"

@@ -7,8 +7,13 @@ marked, with a pointer to the entry here. This file is the single place to
 learn what the repo used to assert and no longer does.
 
 **Rule.** A correction is only recorded here once the contradicting evidence is
-in a committed table. "I think that looks wrong" is a limitation, not a
-correction — limitations belong in the task report's own limitations section.
+**committed**. For a claim about the data that means a committed table: "I
+think that looks wrong" is a limitation, not a correction, and limitations
+belong in the task report's own limitations section. For a claim about the
+*project* — what a task is, what it hands over — the evidence is the brief and
+the task table in [`README.md`](../README.md). C7 is the only entry of the
+second kind so far, and it is here because a wrong handover instruction is
+acted on exactly like a wrong number.
 
 | # | Corrected claim | Origin | Overturned by | Status |
 | --- | --- | --- | --- | --- |
@@ -18,6 +23,7 @@ correction — limitations belong in the task report's own limitations section.
 | [C4](#c4--googles-posting-count-is-846-not-848) | Google has **848** postings | Task 02 §1, Tasks 03–05 (Google) | Task 06 §1.1 | ✅ corrected |
 | [C5](#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february) | H1→H2 relative shares computed on a 620-posting H1 panel | Task 06 §3 (all six companies) | Task 07 §1.4, §10 | ✅ corrected |
 | [C6](#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score) | Concept skills "dominate every similarity score in Task 08"; a 1-posting skill "would dominate cosine similarity" | `docs/task-04-skill-taxonomy.md` §2.3, §6.1 | Task 08 §6 | ✅ corrected |
+| [C7](#c7--task-08-is-company-similarity-scoring-not-visualisation-and-not-evaluation) | Task 08 is "Visualisation" / "Evaluation", and inherits a skill-level significance baseline | Task 06 §11 (methods), Task 06 §11 (Google) | Task 08 §1, README task table | ✅ corrected |
 
 ---
 
@@ -371,6 +377,58 @@ gets used. **Name the metric before predicting what will dominate it.**
 Evidence: `members/ankit-google/task-08-tables/numerator-contribution.csv`,
 `concept-skill-removal.csv`, `support-sensitivity.csv` and
 `metric-concordance.csv`, against `docs/task-04-skill-taxonomy.md` §2.3, §6.1.
+
+---
+
+## C7 — Task 08 is Company Similarity Scoring, not "Visualisation" and not "Evaluation"
+
+**What Task 06 said.** Both of Task 06's documents close with a handover
+section, and both name the next-but-one task wrong — differently wrong.
+
+`docs/task-06-competitor-comparison-methods.md` §11 heads its paragraph
+**"Task 08 (Visualisation)"**. `members/ankit-google/task-06-comparison-report.md`
+§11 heads its paragraph **"Task 08 (Evaluation)"**, and hands over two
+instructions:
+
+> Evaluate against the **standardised** shares, and report the crude ones
+> beside them; the gap is 5.57 pp for Google alone.
+> A skill-level baseline must respect `MIN_CELL = 10` and the FDR-adjusted
+> `significant` flag, not raw p-values.
+
+**What is actually true.** The brief and the task table in
+[`README.md`](../README.md) both call Task 08 **Company Similarity Scoring**,
+deliverable "similarity tables + heatmaps/network graphs". That is what was
+built.
+
+The naming half of this is harmless drift. The handover half is not, and it is
+why this is a correction rather than a typo — **an instruction written for a
+task that does not exist gets followed anyway.** Taken literally, Task 06's
+report told Task 08 to make standardised shares its primary object and to
+build a skill-level significance baseline. Neither is right for a similarity
+task:
+
+| Task 06 §11 said | Task 08 actually does | Why |
+| --- | --- | --- |
+| Evaluate against the **standardised** shares | Publishes mix standardisation as **one of four sensitivities**, crude shares primary | Standardising to a pooled role mix moves the ranking by rank correlation 0.90, max 0.0794 — a third-order effect next to the own-product lever (0.2989). Making it primary would have hidden the lever that matters. |
+| A **skill-level** baseline with `MIN_CELL = 10` and the FDR-adjusted flag | No skill-level significance test at all | Task 08's unit is the **pair**, not the skill. Its uncertainty is a posting-level bootstrap over whole profiles; there is no per-skill hypothesis to correct for, and a 127-way FDR correction would be answering a question nobody asked. |
+
+Task 06 §11's *other* instructions, the ones filed under the wrong name, were
+followed: every cross-company figure carries its verdict, and no raw count is
+plotted by company on a shared axis.
+
+**Consequence.** None for Task 06's own findings — §11 is a forward-looking
+section and nothing upstream of it depends on the name. What changes is the
+standing of a handover paragraph. **A §11 is a prediction, not an
+instruction**, and Task 08's own §14 is written the same way: it will be wrong
+in the same manner if Task 09 turns out to be scoped differently from what
+this repo expects. Read the brief first, then the handover.
+
+Both Task 06 documents keep their wording, marked in place.
+
+Evidence: the task table in `README.md` and
+`docs/task-08-company-similarity-methods.md` §1, against
+`docs/task-06-competitor-comparison-methods.md` §11 and
+`members/ankit-google/task-06-comparison-report.md` §11.
 
 ---
 

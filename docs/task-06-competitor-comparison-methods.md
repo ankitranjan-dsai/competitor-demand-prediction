@@ -502,6 +502,11 @@ competitor contacted, profiled or scraped.
 - **Task 08 (Visualisation):** every cross-company chart needs its gate on it.
   Figure 01 in `task-06-figures/` is the pattern — the comparability verdict is
   drawn, not footnoted. Do not plot raw counts by company on a shared axis.
+
+  > **Corrected by Task 08 — [C7](corrections.md#c7--task-08-is-company-similarity-scoring-not-visualisation-and-not-evaluation).**
+  > Task 08 is **Company Similarity Scoring**, not Visualisation — the brief
+  > and the README task table both name it. Both instructions in this bullet
+  > were followed; only the name is wrong.
 - **Task 09 (Insight Generation):** the only unqualified cross-company volume
   sentence this data supports is **"NVIDIA gained share of the shared
   publisher pool between H1 and H2 2023, in every publisher that carries
