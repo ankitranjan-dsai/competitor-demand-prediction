@@ -523,10 +523,17 @@ def rank_tiers(boot: pd.DataFrame) -> pd.DataFrame:
 def metric_concordance(pt: pd.DataFrame) -> pd.DataFrame:
     """Rank correlation between every pair of metrics, plus their families.
 
-    The diagonal block structure is the finding. Within a family the metrics
-    are near-substitutes; across the divide they carry almost no common
-    information, and a report that quotes one without naming it is quoting a
-    coin flip between two orderings.
+    The block structure is weaker than the family labels suggest, and the
+    weakness is the finding. On the real six companies the lowest
+    within-family correlation is 0.58 and the highest cross-family one is
+    0.58 — the families separate by 0.007, which is nothing. What actually
+    stands apart is `cosine`: it correlates 0.72 with the rest of its own
+    family and −0.03 / −0.04 with the rank and set metrics, while
+    Jensen–Shannon and Bray–Curtis correlate 0.42–0.58 across the same
+    divide. Since `cosine` is `PRIMARY_METRIC`, the headline ordering is the
+    one least like the ordering a rank-based reader would produce, and a
+    report that quotes it without naming it is quoting one of two orderings
+    that share almost no information.
     """
     present = [m for m in ALL_METRICS if f"rank_{m}" in pt.columns]
     ranks = pt[[f"rank_{m}" for m in present]]
