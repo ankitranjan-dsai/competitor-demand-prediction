@@ -1,0 +1,4 @@
+publisher,company_a,company_b,n_a,n_b,median_a,median_b,median_diff,ci_low,ci_high,spans_zero,feasible,reason,modal_function_a,modal_function_share_a,senior_share_a,modal_function_b,modal_function_share_b,senior_share_b
+via Ai-Jobs.net,google,databricks,10,33,151076.5,89100.0,61976.5,35628.0,75800.0,False,True,,Science / Research,70.0,0.0,Engineering,42.4,9.1
+via Ai-Jobs.net,google,snowflake,10,16,151076.5,147500.0,3576.5,-13673.5,22775.0,True,True,,Science / Research,70.0,0.0,Science / Research,43.8,18.8
+via Ladders,google,meta,18,38,185000.0,200000.0,-15000.0,-25000.0,37500.0,True,True,,Science / Research,83.3,0.0,Analytics,44.7,13.2

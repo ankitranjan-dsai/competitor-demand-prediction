@@ -1,0 +1,97 @@
+{
+  "task": "09 \u2014 insight generation and reporting",
+  "generated": "2026-08-21T02:01:22+00:00",
+  "focus": "google",
+  "companies": [
+    "databricks",
+    "google",
+    "meta",
+    "microsoft",
+    "nvidia",
+    "snowflake"
+  ],
+  "salary": {
+    "focus": "google",
+    "disclosed_pct": 4.02,
+    "country_shift_pp": 49.52,
+    "publishers_carrying_two_companies": 3,
+    "unstratified_pairs": 3,
+    "unstratified_pairs_excluding_zero": 1,
+    "stratified_cells_tested": 2,
+    "stratified_cells_identified": 0,
+    "benchmark_available": false,
+    "verdict": "refused: salary disclosure is a publisher behaviour, not a company one, so a company-level pay figure conditions on publisher and through it on country and role"
+  },
+  "c8": {
+    "companies_whose_verdict_moves_with_the_floor": 3,
+    "companies_that_gain_confirmation_by_dropping_tests": 3,
+    "nvidia_tested_at_floor_0": 6,
+    "nvidia_tested_at_floor_10": 1,
+    "nvidia_p_at_floor_0": 0.0312,
+    "min_publishers_for_significant_unanimity": 6
+  },
+  "yield": {
+    "generated": 436,
+    "published": 102,
+    "published_qualified": 18,
+    "refused": 316,
+    "yield_pct": 27.5,
+    "blocked_by": {
+      "identification": 306,
+      "lint": 9,
+      "evidence": 1
+    }
+  },
+  "gates": {
+    "evidence_failures": 1,
+    "lint_failures": 9,
+    "identification_failures": 306,
+    "consistency_failures": 0,
+    "prohibited_patterns": 9,
+    "patterns_that_fired": 9
+  },
+  "position": {
+    "focus": "google",
+    "profile_available": true,
+    "level_available": false,
+    "trajectory_available": false,
+    "nearest_pair": "meta",
+    "nearest_score": 0.9174,
+    "nearest_verdict": "robust",
+    "distinctive_skills": 48,
+    "detail": "position as a profile is available: 48 skills separate Google from the other five after FDR control, and its nearest neighbour is Meta at 0.9174 (robust). Position as a level is not \u2014 a posting count is a count of the boards that syndicate it. Position as a trajectory is not \u2014 trajectory similarity is refused."
+  },
+  "promises": {
+    "partly paid": 2,
+    "not payable": 1,
+    "paid": 2,
+    "not paid": 1
+  },
+  "conflicts": {
+    "restated_quantities": 3,
+    "in_conflict": 3,
+    "registers": [
+      "C5"
+    ]
+  },
+  "figures": [
+    "01-insight-yield.png",
+    "02-gate-attrition.png",
+    "03-audience-reach.png",
+    "04-publisher-cell-floor.png",
+    "05-salary-missingness.png",
+    "06-brief-promises.png",
+    "07-claim-provenance.png",
+    "08-refusal-ledger.png"
+  ],
+  "privacy": {
+    "tables_checked": 25,
+    "forbidden_columns": [
+      "country",
+      "location_country",
+      "share_of_all"
+    ],
+    "offenders": {},
+    "passed": true
+  }
+}

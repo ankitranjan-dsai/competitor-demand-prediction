@@ -1,0 +1,10 @@
+rule,source,why,claims_caught,refusals_exempted
+forecast,task-07 §8,"no model beats persistence and the h=1 interval spans 3.15x, so the maximum useful horizon is 0",1,0
+convergence,task-08 §8,trajectory similarity is refused: 1 of 15 pairs is eligible and the mean correlation sits inside the closure null,1,0
+cross_company_level,task-06 §1.3,levels are not identified: a company's posting count is a count of the boards that syndicate it,1,0
+product_launch,task-09 §5,no table in this repository links a posting to a product decision; the construct is never measured,1,0
+unmeasured_construct,task-02 scope,"the collected schema holds postings, not the company; the construct has no column",1,0
+bare_share_of_all,task-04 §7,the skill denominator is share_of_skilled; share_of_all confounds demand with description coverage,1,0
+seasonal,task-05 §6,month-of-year seasonality needs more than one cycle and this collection has zero complete ones,1,0
+causal_strategy,task-05 §1,"posting_date is an aggregator first-seen date; the series describes discovery, which cannot carry an intent story",1,0
+country_split,task-05 §9,"publishers are regional, so a country figure compares aggregator footprints, not hiring",1,0

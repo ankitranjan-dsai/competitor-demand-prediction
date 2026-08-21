@@ -1,0 +1,7 @@
+company,verdict_at_floor_0,floors_confirmed,publishers_tested_range,min_tested,floor_dependent,confirmation_gained_by_dropping_tests,sign_test_p_at_floor_0,clears_005_at_floor_0,detail
+databricks,mixed,none,6-2,2,False,False,0.6875,False,same verdict at every floor (mixed); test set 6 -> 2
+google,mixed,10,6-3,3,True,True,0.6875,False,not confirmed at floor 0 and confirmed at a stricter one; the test set falls 6 -> 3
+meta,mixed,none,6-4,4,False,False,0.2188,False,same verdict at every floor (mixed); test set 6 -> 4
+microsoft,mixed,"5, 10",6-3,3,True,True,0.6875,False,not confirmed at floor 0 and confirmed at a stricter one; the test set falls 6 -> 3
+nvidia,confirmed,"0, 3, 5, 10",6-1,1,False,False,0.0312,True,same verdict at every floor (confirmed); test set 6 -> 1
+snowflake,mixed,"3, 5, 10",6-2,2,True,True,0.2188,False,not confirmed at floor 0 and confirmed at a stricter one; the test set falls 6 -> 2

@@ -1,0 +1,25 @@
+cell_floor,company,publishers_tested,publishers_agreeing,publishers_dropped,unanimous,verdict,sign_test_p,clears_005,pooled_log_share_change,pooled_direction
+0,databricks,6,4,0,False,mixed,0.6875,False,0.293,gaining share
+3,databricks,3,1,3,False,mixed,1.0,False,0.293,gaining share
+5,databricks,3,1,3,False,mixed,1.0,False,0.293,gaining share
+10,databricks,2,1,4,False,mixed,1.0,False,0.293,gaining share
+0,google,6,4,0,False,mixed,0.6875,False,-0.182,losing share
+3,google,5,3,1,False,mixed,1.0,False,-0.182,losing share
+5,google,5,3,1,False,mixed,1.0,False,-0.182,losing share
+10,google,3,3,3,True,confirmed,0.25,False,-0.182,losing share
+0,meta,6,5,0,False,mixed,0.2188,False,0.05,gaining share
+3,meta,6,5,0,False,mixed,0.2188,False,0.05,gaining share
+5,meta,5,4,1,False,mixed,0.375,False,0.05,gaining share
+10,meta,4,3,2,False,mixed,0.625,False,0.05,gaining share
+0,microsoft,6,4,0,False,mixed,0.6875,False,0.237,gaining share
+3,microsoft,5,4,1,False,mixed,0.375,False,0.237,gaining share
+5,microsoft,4,4,2,True,confirmed,0.125,False,0.237,gaining share
+10,microsoft,3,3,3,True,confirmed,0.25,False,0.237,gaining share
+0,nvidia,6,6,0,True,confirmed,0.0312,True,0.347,gaining share
+3,nvidia,4,4,2,True,confirmed,0.125,False,0.347,gaining share
+5,nvidia,4,4,2,True,confirmed,0.125,False,0.347,gaining share
+10,nvidia,1,1,5,True,confirmed,1.0,False,0.347,gaining share
+0,snowflake,6,5,0,False,mixed,0.2188,False,-1.19,losing share
+3,snowflake,2,2,4,True,confirmed,0.5,False,-1.19,losing share
+5,snowflake,2,2,4,True,confirmed,0.5,False,-1.19,losing share
+10,snowflake,2,2,4,True,confirmed,0.5,False,-1.19,losing share

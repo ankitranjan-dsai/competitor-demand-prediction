@@ -1,0 +1,2 @@
+focus,profile_available,level_available,trajectory_available,nearest_pair,nearest_score,nearest_verdict,distinctive_skills,detail
+google,True,False,False,meta,0.9174,robust,48,"position as a profile is available: 48 skills separate Google from the other five after FDR control, and its nearest neighbour is Meta at 0.9174 (robust). Position as a level is not — a posting count is a count of the boards that syndicate it. Position as a trajectory is not — trajectory similarity is refused."

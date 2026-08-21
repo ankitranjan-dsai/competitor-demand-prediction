@@ -1,0 +1,6 @@
+question,generated,answerable,verdict_firm,verdict_qualified,answer
+hiring_patterns,33,21,6,15,answerable
+skill_demand,31,8,8,0,answerable
+tech_stack,310,81,81,0,answerable
+future_demand,10,2,0,2,answerable only on a qualified verdict
+position,52,8,7,1,answerable

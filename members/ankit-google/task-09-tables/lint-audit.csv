@@ -1,0 +1,10 @@
+claim_id,family,rule,matched,source,exempt,why
+tempting-forecast,tempting,forecast,expected to,task-07 §8,False,"no model beats persistence and the h=1 interval spans 3.15x, so the maximum useful horizon is 0"
+tempting-convergence,tempting,convergence,converging,task-08 §8,False,trajectory similarity is refused: 1 of 15 pairs is eligible and the mean correlation sits inside the closure null
+tempting-level,tempting,cross_company_level,more jobs than,task-06 §1.3,False,levels are not identified: a company's posting count is a count of the boards that syndicate it
+tempting-seasonal,tempting,seasonal,seasonal pattern,task-05 §6,False,month-of-year seasonality needs more than one cycle and this collection has zero complete ones
+tempting-strategy,tempting,causal_strategy,because google,task-05 §1,False,"posting_date is an aggregator first-seen date; the series describes discovery, which cannot carry an intent story"
+tempting-product,tempting,product_launch,points to a new product,task-09 §5,False,no table in this repository links a posting to a product decision; the construct is never measured
+tempting-headcount,tempting,unmeasured_construct,headcount,task-02 scope,False,"the collected schema holds postings, not the company; the construct has no column"
+tempting-country,tempting,country_split,Singapore,task-05 §9,False,"publishers are regional, so a country figure compares aggregator footprints, not hiring"
+tempting-share-of-all,tempting,bare_share_of_all,of all postings,task-04 §7,False,the skill denominator is share_of_skilled; share_of_all confounds demand with description coverage

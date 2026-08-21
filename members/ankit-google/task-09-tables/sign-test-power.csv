@@ -1,0 +1,8 @@
+publishers_tested,unanimous_agreeing,sign_test_p,clears_005,note
+1,1,1.0,False,unanimity alone cannot clear 0.05 at this panel size
+2,2,0.5,False,unanimity alone cannot clear 0.05 at this panel size
+3,3,0.25,False,unanimity alone cannot clear 0.05 at this panel size
+4,4,0.125,False,unanimity alone cannot clear 0.05 at this panel size
+5,5,0.0625,False,unanimity alone cannot clear 0.05 at this panel size
+6,6,0.0312,True,unanimity clears 0.05
+7,7,0.0156,True,unanimity clears 0.05

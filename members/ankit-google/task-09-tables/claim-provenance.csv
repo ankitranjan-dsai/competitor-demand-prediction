@@ -1,0 +1,6 @@
+source_task,claims,tables_cited,families
+05,15,2,"segment_mix, skill_trend"
+06,95,5,"distinctiveness, panel_structure, relative_share, skill_gap, volume"
+07,2,1,forecastability
+08,2,1,similarity
+09,6,1,salary_coverage

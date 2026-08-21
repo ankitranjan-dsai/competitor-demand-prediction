@@ -1,0 +1,7 @@
+company,postings,disclosed,disclosed_pct,publishers_disclosing,publishers_total,modal_country,modal_share_all_pct,modal_share_disclosed_pct,country_shift_pp,usable,reason
+databricks,340,38,11.18,5,39,Costa Rica,25.59,7.89,-17.69,True,
+google,846,34,4.02,7,95,United States,26.95,76.47,49.52,True,
+meta,1026,142,13.84,15,102,United States,71.93,95.77,23.84,True,
+microsoft,654,17,2.6,7,88,India,19.27,0.0,-19.27,True,
+nvidia,271,11,4.06,4,43,United States,26.94,100.0,73.06,True,
+snowflake,460,21,4.57,4,37,United States,25.87,57.14,31.27,True,

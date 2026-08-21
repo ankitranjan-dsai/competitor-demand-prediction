@@ -1,0 +1,7 @@
+promise,question,generated,published,published_qualified,refused,status,detail,settled_by
+"Forecast future demand for skills, technologies and roles",future_demand,9,0,2,7,partly paid,0 of 9 rest on a firm verdict; 2 publish on a verdict that is itself qualified,task-07 §8.3
+Predict competitor product launches,tech_stack,0,0,0,0,not payable,no table in this repository measures the construct,task-02 scope
+Identify emerging technologies and market skill gaps,skill_demand,338,89,0,249,paid,89 of 338 proposed claims publish on a firm upstream verdict,"task-05 §9, task-06 §7"
+Plan hiring and training,skill_demand,39,8,7,24,paid,8 of 39 proposed claims publish on a firm upstream verdict,task-05 §6
+Benchmark salaries,position,15,0,0,15,not paid,all 15 proposed claims are refused,task-09 §7
+Detect early signs of expansion or slowdown,hiring_patterns,12,0,8,4,partly paid,0 of 12 rest on a firm verdict; 8 publish on a verdict that is itself qualified,"task-05 §4, task-06 §3"

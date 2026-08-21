@@ -1,0 +1,4 @@
+quantity,earlier_citation,earlier_value,later_citation,later_value,unit,delta,conflict,wins,register
+google H1 to H2 change in share of the common panel,task-06-tables/relative-share-by-half.csv#share_change_pp@company=google,-4.84,task-07-tables/february-correction.csv#corrected_delta_pp@company=google,-6.5617264736834295,pp,-1.7217,True,later,C5
+meta H1 to H2 change in share of the common panel,task-06-tables/relative-share-by-half.csv#share_change_pp@company=meta,1.23,task-07-tables/february-correction.csv#corrected_delta_pp@company=meta,4.147542090536446,pp,2.9175,True,later,C5
+nvidia H1 to H2 change in share of the common panel,task-06-tables/relative-share-by-half.csv#share_change_pp@company=nvidia,3.4,task-07-tables/february-correction.csv#corrected_delta_pp@company=nvidia,3.61625354288434,pp,0.2163,True,later,C5
