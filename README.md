@@ -56,7 +56,7 @@ Roles rotate every week; decisions/blockers/progress are documented in
 | 06 | Competitor Comparison | Comparison tables + visuals | ✅ Google done → `docs/task-06-competitor-comparison-methods.md` (team standard) + `members/ankit-google/task-06-comparison-report.md` (six companies, 33 comparison tables, 9 figures, 359 tests) |
 | 07 | Demand Forecasting | Forecast outputs + plots | ✅ Google done → `docs/task-07-demand-forecasting-methods.md` (team standard) + `members/ankit-google/task-07-forecast-report.md` (15 tables, 8 figures, 425 tests; no model beats persistence, **max useful horizon 0**, forecast published marked unsupported) |
 | 08 | Company Similarity Scoring | Similarity tables + heatmaps/network graphs | ✅ Google done → `docs/task-08-company-similarity-methods.md` (team standard) + `members/ankit-google/task-08-similarity-report.md` (16 tables, 8 figures, 478 tests; five metrics against two nulls, **2 of 15 ranks identified**, Google–Meta the only robust pair, trajectory similarity refused) |
-| 09 | Insight Generation & Reporting | Insight report + visuals | ⬜ |
+| 09 | Insight Generation & Reporting | Insight report + visuals | ✅ Google done → `docs/task-09-insight-generation-methods.md` (team standard) + `members/ankit-google/task-09-insight-report.md` (25 tables, 8 figures, 557 tests; 436 claims generated and gated, **120 publishable — a 27.5% yield**, salary benchmarking refused, investors get nothing) |
 | 10 | Final Presentation & Mentor Review | Slides + finalised repo | ⬜ |
 | +  | _(Optional)_ Automated Pipeline | Scheduled end-to-end pipeline | ⬜ |
 | +  | _(Optional)_ Fine-Tune Skill Extraction Model | Fine-tuned model + metrics | ⬜ |
@@ -88,10 +88,10 @@ competitor-demand-prediction/
 - **Corrections are recorded, not overwritten.** A task is submitted the moment
   it closes, so when a later task disproves an earlier claim the original
   wording stays put and gains a pointer to
-  [`docs/corrections.md`](docs/corrections.md). Seven claims have been
+  [`docs/corrections.md`](docs/corrections.md). Eight claims have been
   corrected so far — three by Task 05, one by Task 06, one by Task 07, two by
-  Task 08 — and each one is checked against its evidence by
-  `tests/test_corrections.py`. Six are claims about the data; the seventh is a
+  Task 08, one by Task 09 — and each one is checked against its evidence by
+  `tests/test_corrections.py`. Seven are claims about the data; the eighth is a
   claim about the project, where a handover section named the next task wrong
   and handed it instructions written for a task that does not exist.
 

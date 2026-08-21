@@ -34,7 +34,9 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       33 tables + 9 figures. Cross-company **levels are not identified** —
       Snowflake's common-panel share is 23.5% against a 40% floor. What is:
       share of the seven-publisher common pool, where **Google's fell 4.84 pp
-      H1→H2**, holding in 4 of 6 publishers. Google has the lowest skill
+      H1→H2** (−6.56 pp after [C5](../../docs/corrections.md#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february)),
+      holding in 4 of 6 publishers — a count later withdrawn as a robustness
+      statistic by [C8](../../docs/corrections.md#c8--a-unanimity-count-is-not-a-robustness-statistic-when-the-number-of-tests-moves-with-the-threshold). Google has the lowest skill
       coverage of the six and it survives standardising (70.8% → 76.4%); only
       33 of its 182 pair-skill comparisons survive stratification. Raised
       [C4](../../docs/corrections.md#c4--googles-posting-count-is-846-not-848):
@@ -73,5 +75,25 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       "Visualisation" / "Evaluation" and handed it two instructions written for
       a task that does not exist — a handover section is a prediction, not an
       instruction)
-- [ ] Task 09 — Insight generation & reporting
+- [x] Task 09 — Insight generation & reporting → `task-09-insight-report.md`
+      (four gates in a fixed order — evidence, lint, identification,
+      consistency — over **436 mechanically generated candidate claims**, so
+      the yield denominator is not the author's shortlist. Standard in
+      `docs/task-09-insight-generation-methods.md`; 557 tests; 25 tables +
+      8 figures. **120 publish (27.5%)**, 102 of them about Google; **306 of
+      the 316 refusals fail on identification**, not on phrasing. Position is
+      available as a *profile* — 48 distinctive skills, nearest neighbour Meta
+      at 0.9174 — and refused as a level and as a trajectory. Of those 48, only
+      14 are skills Google asks for **more** than the other five, and two of
+      its own products (GCP, Kubernetes) sit on the negative side. Google leads
+      just **2 of 33** stratified pair-skill gaps. **Salary benchmarking is
+      refused**: disclosure is a publisher behaviour (4.02% of Google's 846
+      postings, and the disclosed subset is 76.5% US against 27.0% overall),
+      and the one pair that excluded zero has no testable job-function stratum.
+      **Investors get 0 claims** — every investor question is a level, a
+      trajectory or a forecast. Raised
+      [C8](../../docs/corrections.md#c8--a-unanimity-count-is-not-a-robustness-statistic-when-the-number-of-tests-moves-with-the-threshold):
+      Task 06's publisher-agreement floor applies to the publisher's total, not
+      the company's own cell, so three of six companies *gain* `confirmed` by
+      dropping tests and NVIDIA's 6/6 runs p 0.0312 → 1.0000 as the floor rises)
 - [ ] Task 10 — Final presentation
