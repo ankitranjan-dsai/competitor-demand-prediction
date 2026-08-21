@@ -135,6 +135,15 @@ Google's decline appears in **4 of 6**, so the verdict is `mixed`
 **Only NVIDIA is `confirmed`** (6/6). Everything else in that table — Google
 included — is directional, not settled.
 
+> **Corrected by Task 09 —
+> [C8](../../docs/corrections.md#c8--a-unanimity-count-is-not-a-robustness-statistic-when-the-number-of-tests-moves-with-the-threshold).**
+> The publisher votes are not floored on each company's own cell. Under a
+> per-company floor Google itself becomes `confirmed` at a floor of 10 — on 3
+> publishers instead of 6 — which is the clearest sign that the count was
+> measuring how many tests survived rather than how robust the direction is.
+> Google's 4-of-6 and its −4.84 pp (see C5, −6.56 pp) both stand; what is
+> withdrawn is the idea that NVIDIA's 6/6 settles anything the others do not.
+
 ![Relative share](task-06-figures/03-relative-share.png)
 
 > **The claim to carry forward:** *within 2023, on the seven publishers that

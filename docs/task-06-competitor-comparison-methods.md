@@ -194,6 +194,17 @@ publisher that carries it** — the single cross-company volume finding in this
 task that is not qualified into uselessness. Everything else is directional at
 best.
 
+> **Corrected by Task 09 —
+> [C8](corrections.md#c8--a-unanimity-count-is-not-a-robustness-statistic-when-the-number-of-tests-moves-with-the-threshold).**
+> `min_half` floors the publisher's total across all six companies, not the
+> company's own cell, so a publisher holding one NVIDIA posting per half casts
+> a full vote. Recount with a per-company floor and Google, Microsoft and
+> Snowflake all *gain* `confirmed` by dropping tests, while NVIDIA's test set
+> falls 6 → 1 and its sign-test p runs 0.0312 → 1.0000. Six publishers is the
+> smallest panel on which unanimity reaches 0.05 at all. The pooled directions
+> in the table above are unaffected; the `confirmed` label is withdrawn, and
+> there is no unqualified cross-company volume sentence in this repository.
+
 **Rule:** no cross-company volume claim leaves this repo without
 `relative-share-verdict.csv` next to it.
 

@@ -24,6 +24,7 @@ acted on exactly like a wrong number.
 | [C5](#c5--task-06s-h1-aggregate-counts-february-on-a-panel-that-does-not-exist-in-february) | H1→H2 relative shares computed on a 620-posting H1 panel | Task 06 §3 (all six companies) | Task 07 §1.4, §10 | ✅ corrected |
 | [C6](#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score) | Concept skills "dominate every similarity score in Task 08"; a 1-posting skill "would dominate cosine similarity" | `docs/task-04-skill-taxonomy.md` §2.3, §6.1 | Task 08 §6 | ✅ corrected |
 | [C7](#c7--task-08-is-company-similarity-scoring-not-visualisation-and-not-evaluation) | Task 08 is "Visualisation" / "Evaluation", and inherits a skill-level significance baseline | Task 06 §11 (methods), Task 06 §11 (Google) | Task 08 §1, README task table | ✅ corrected |
+| [C8](#c8--a-unanimity-count-is-not-a-robustness-statistic-when-the-number-of-tests-moves-with-the-threshold) | NVIDIA's 6/6 publisher agreement is "the single cross-company volume finding … not qualified into uselessness" | Task 06 §2 (methods), Task 06 §3 (Google) | Task 09 §8 | ✅ corrected |
 
 ---
 
@@ -432,6 +433,94 @@ Evidence: the task table in `README.md` and
 
 ---
 
+## C8 — A unanimity count is not a robustness statistic when the number of tests moves with the threshold
+
+**What Task 06 said.** `relative_share_verdict()` recomputes each company's
+H1→H2 share move inside every publisher separately and counts how many agree
+in sign. Unanimous agreement is reported as `confirmed`:
+
+> | Company | Publishers agreeing | Verdict |
+> | --- | --- | --- |
+> | NVIDIA | **6 / 6** | `confirmed` |
+> | Meta | 5 / 6 | `mixed` |
+> | … | … | … |
+>
+> One company clears it. **NVIDIA gained share of the shared pool in every
+> publisher that carries it** — the single cross-company volume finding in this
+> task that is not qualified into uselessness.
+
+`docs/task-06-competitor-comparison-methods.md` §2. The Google report repeats
+it at §3 — "**Only NVIDIA is `confirmed`** (6/6)" — and §10's checklist tells
+every specialist to carry their relative-share row "with its
+`publishers_agreeing` count."
+
+**What is wrong.** The function's `min_half` floor applies to the
+**publisher's total across all six companies**, not to the company's own cell.
+A publisher carrying one NVIDIA posting in H1 and one in H2 clears that floor
+on the strength of the other five companies and then casts a full vote on
+NVIDIA's direction.
+
+Task 09 recounts with a floor on both halves of each company's *own* cell
+([`publisher-cell-floor.csv`](../members/ankit-google/task-09-tables/publisher-cell-floor.csv)):
+
+| Company | Verdict at floor 0 | Floors confirmed | Publishers tested |
+| --- | --- | --- | --- |
+| databricks | mixed | none | 6 → 2 |
+| google | mixed | **10** | 6 → 3 |
+| meta | mixed | none | 6 → 4 |
+| microsoft | mixed | **5, 10** | 6 → 3 |
+| nvidia | **confirmed** | 0, 3, 5, 10 | 6 → 1 |
+| snowflake | mixed | **3, 5, 10** | 6 → 2 |
+
+**Three of six companies gain `confirmed` by raising the floor** — that is, by
+discarding tests. Google, Microsoft and Snowflake are all `mixed` on six
+publishers and unanimous on three, three and two. A statistic that improves as
+evidence is removed is not measuring robustness; it is measuring how few tests
+are left.
+
+**What unanimity is worth here.** Under a two-sided exact sign test, unanimous
+agreement across *n* publishers gives p = 2/2ⁿ
+([`sign-test-power.csv`](../members/ankit-google/task-09-tables/sign-test-power.csv)):
+
+| Publishers tested | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| p | 1.0000 | 0.5000 | 0.2500 | 0.1250 | 0.0625 | **0.0312** | **0.0156** |
+
+**Six is the smallest panel on which unanimity can reach 0.05 at all.** Every
+`confirmed` gained at a stricter floor above is gained on 2, 3 or 4 tests,
+where unanimity is arithmetic rather than evidence.
+
+NVIDIA is the case Task 06 built its sentence on, and it is the one that
+survives least well. It is `confirmed` at every floor, so the verdict never
+flips — but its test set falls 6 → 1 and its p-value runs 0.0312 → 0.1250 →
+0.1250 → 1.0000. It is the only company clearing 0.05 at floor 0, and it
+clears it **only** while cells holding a single posting per half are allowed
+to vote.
+
+**What this does not change.** The pooled direction is identical at every
+floor for all six companies — NVIDIA gaining, Google losing, Snowflake losing
+hardest. C8 corrects the **confirmation**, not the finding. Task 06's
+directions stand; its `confirmed` labels do not travel.
+
+**Consequence.** Task 06 §2's "the single cross-company volume finding … not
+qualified into uselessness" is withdrawn: there is no unqualified
+cross-company volume sentence in this repository. Task 09 publishes all six
+relative-share claims as `published_qualified`, each carrying the clause
+"unanimity here is floor-dependent, see C8" and the falsifier "the same sign
+count under a per-company cell floor of 5 postings a half". Task 06 §10's
+checklist item 5 still holds — `mixed` still means directional — but the
+converse it implies does not: `confirmed` does not mean measured.
+
+Both Task 06 documents keep their wording, marked in place.
+
+Evidence:
+[`publisher-cell-floor.csv`](../members/ankit-google/task-09-tables/publisher-cell-floor.csv),
+[`unanimity-verdict.csv`](../members/ankit-google/task-09-tables/unanimity-verdict.csv),
+[`sign-test-power.csv`](../members/ankit-google/task-09-tables/sign-test-power.csv),
+against `members/ankit-google/task-06-tables/relative-share-verdict.csv`.
+
+---
+
 ## What every specialist should take from this
 
 The first three corrections are the same mistake in three costumes: **a number
@@ -446,6 +535,9 @@ Before a claim leaves your report, check it against the collection:
 4. Is every employer string in your denominator actually your company? → C4
 5. Does the claim name the metric it is about? A statement about "similarity"
    that would be true of Jaccard and false of cosine is not a finding. → C6
+6. Does your agreement count hold the **number of tests** fixed? If a stricter
+   threshold makes a verdict look stronger, it is the denominator moving, not
+   the evidence. → C8
 
 `src/trends.py` has a function for each of the first three —
 `publisher_panel_table` / `panel_verdict`, `stratified_verdict`, and

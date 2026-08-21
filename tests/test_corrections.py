@@ -93,7 +93,7 @@ def read_table(name: str) -> pd.DataFrame:
 def test_register_lists_every_correction_as_corrected():
     """An entry with an open status is a limitation, not a correction."""
     index = markdown_table("Corrections Register")
-    assert len(index) == 7
+    assert len(index) == 8
     for row in index:
         assert row["Status"] == "✅ corrected", row
 
@@ -607,3 +607,92 @@ def test_c7_task_08_has_no_skill_level_significance_test():
     profiles = pd.read_csv(TABLES_08 / "skill-profiles.csv")
     assert list(profiles.columns)[0] == "skill"
     assert len(profiles.columns) == 7, "skill-profiles gained a non-company column"
+
+
+# --------------------------------------------------------------------------
+# C8 — unanimity, and the tests that vanish when the floor rises
+# --------------------------------------------------------------------------
+
+TABLES_09 = REPO_ROOT / "members" / "ankit-google" / "task-09-tables"
+
+needs_task_09 = pytest.mark.skipif(
+    not TABLES_09.is_dir(),
+    reason="Google Task 09 tables not present in this checkout",
+)
+
+
+@needs_task_09
+def test_c8_the_register_floor_table_matches_the_sweep():
+    """Six rows of prose against the committed recount, cell by cell."""
+    register = {row["Company"]: row for row in markdown_table("C8 —", nth=1)}
+    committed = pd.read_csv(TABLES_09 / "unanimity-verdict.csv")
+    assert set(register) == set(committed.company)
+    for _, row in committed.iterrows():
+        entry = register[row.company]
+        assert entry["Verdict at floor 0"] == row.verdict_at_floor_0
+        assert entry["Floors confirmed"] == row.floors_confirmed
+        low, high = row.publishers_tested_range.split("-")
+        assert entry["Publishers tested"] == f"{low} → {high}"
+
+
+@needs_task_09
+def test_c8_three_companies_gain_confirmation_by_dropping_tests():
+    """The correction in one line: a verdict that improves as evidence goes."""
+    committed = pd.read_csv(TABLES_09 / "unanimity-verdict.csv")
+    gained = committed[committed.confirmation_gained_by_dropping_tests]
+    assert sorted(gained.company) == ["google", "microsoft", "snowflake"]
+    assert (gained.verdict_at_floor_0 == "mixed").all()
+    assert (gained.min_tested < 6).all()
+
+
+@needs_task_09
+def test_c8_the_sign_test_power_table_matches_the_register():
+    power = pd.read_csv(TABLES_09 / "sign-test-power.csv")
+    quoted = markdown_table("C8 —", nth=2)[0]
+    for _, row in power.iterrows():
+        assert quoted[str(row.publishers_tested)] == f"{row.sign_test_p:.4f}"
+    # Six is the smallest panel on which unanimity can reach 0.05 at all.
+    assert power[power.clears_005].publishers_tested.min() == 6
+
+
+@needs_task_09
+def test_c8_nvidia_clears_005_only_by_admitting_one_posting_cells():
+    """The verdict never flips; the evidence under it evaporates."""
+    sweep = pd.read_csv(TABLES_09 / "publisher-cell-floor.csv")
+    nvidia = sweep[sweep.company == "nvidia"].set_index("cell_floor")
+    assert (nvidia.verdict == "confirmed").all(), "NVIDIA is confirmed at every floor"
+    assert list(nvidia.clears_005) == [True, False, False, False]
+    assert list(nvidia.publishers_tested) == [6, 4, 4, 1]
+    assert nvidia.loc[10, "sign_test_p"] == pytest.approx(1.0)
+
+
+@needs_task_09
+def test_c8_the_pooled_direction_never_moves_with_the_floor():
+    """What C8 does *not* correct — Task 06's directions stand."""
+    sweep = pd.read_csv(TABLES_09 / "publisher-cell-floor.csv")
+    for company, rows in sweep.groupby("company"):
+        assert rows.pooled_direction.nunique() == 1, company
+        assert rows.pooled_log_share_change.nunique() == 1, company
+
+
+@needs_task_09
+def test_c8_no_relative_share_claim_publishes_unqualified():
+    """The consequence, enforced: Task 06 §2's unqualified sentence is gone."""
+    ledger = pd.read_csv(TABLES_09 / "claim-ledger.csv")
+    shares = ledger[ledger.family == "relative_share"]
+    published = shares[shares.status.str.startswith("published")]
+    assert len(published) == 6
+    assert (published.status == "published_qualified").all()
+    assert published.clause.str.contains("floor-dependent, see C8").all()
+
+
+def test_c8_both_task_06_documents_keep_their_wording_and_gain_a_pointer():
+    for rel, quote in (
+        ("docs/task-06-competitor-comparison-methods.md",
+         "the single cross-company volume finding in this"),
+        ("members/ankit-google/task-06-comparison-report.md",
+         "**Only NVIDIA is `confirmed`** (6/6)"),
+    ):
+        text = (REPO_ROOT / rel).read_text(encoding="utf-8")
+        assert quote in text, f"{rel} no longer carries its original wording"
+        assert "corrections.md#c8" in text, f"{rel} carries no pointer to C8"
