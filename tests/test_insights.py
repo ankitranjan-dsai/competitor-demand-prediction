@@ -738,3 +738,36 @@ def test_only_the_top_pair_is_called_the_closest_competitor(ledger):
     closest = pairs[pairs.action.str.contains("closest talent competitor")]
     assert len(closest) == 1
     assert closest.iloc[0].claim_id == "pair-google-meta"
+
+
+def test_insights_module_imports_no_heavy_stats_dependency():
+    """The no-scipy promise, pinned at the source.
+
+    `validate_insights.py` cross-checks `sign_test_p` against
+    `scipy.stats.binomtest` and `salary_pair_estimate` against
+    `scipy.stats.bootstrap` precisely because this module implements both by
+    hand, and that argument collapses the moment someone adds a convenience
+    import here. The check is on the source text rather than on `sys.modules`,
+    because pytest itself pulls scipy in through the validator suites.
+    """
+    source = (Path(ins.__file__)).read_text()
+    for banned in ("scipy", "statsmodels", "prophet", "sklearn"):
+        assert f"import {banned}" not in source, (
+            f"insights.py imports {banned}; the module is meant to run in an "
+            "environment that has none of them, and validate_insights.py's "
+            "cross-check is only meaningful while that stays true")
+
+
+def test_sign_test_hardcodes_the_null_it_is_valid_for():
+    """`sign_test_p` doubles one tail, which is only right at p0 = 0.5.
+
+    §1.1 of the validation evidence records that the doubling shortcut is
+    exact against `binomtest` for a symmetric null and wrong for any other,
+    so the module must not grow a `p0` argument without also growing a real
+    two-sided rule. This pins the narrower interface.
+    """
+    import inspect
+    params = list(inspect.signature(ins.sign_test_p).parameters)
+    assert params == ["n_agree", "n_tested"], (
+        "sign_test_p gained a parameter; if that is a null probability, the "
+        "tail-doubling in its body is no longer a valid two-sided test")
