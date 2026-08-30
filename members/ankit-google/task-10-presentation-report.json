@@ -1,0 +1,86 @@
+{
+  "task": 10,
+  "generated": "2026-08-30T16:52:42+00:00",
+  "focus": "google",
+  "deck": {
+    "slides": 19,
+    "sections": 19,
+    "required_sections": [
+      "legal",
+      "identification",
+      "refusals",
+      "corrections",
+      "quality"
+    ],
+    "bullets": 61,
+    "by_kind": {
+      "plain": 38,
+      "fact": 10,
+      "claim": 9,
+      "refusal": 4
+    },
+    "read_from_slide": [
+      "skilltrend-looker"
+    ],
+    "carries": [
+      "C8"
+    ],
+    "violations": 0
+  },
+  "bank": {
+    "questions": 21,
+    "answer_lines": 48,
+    "verdicts": {
+      "refused": 11,
+      "answered": 6,
+      "explained": 4
+    },
+    "violations": 0,
+    "prohibitions_answered": 9,
+    "prohibitions_open": []
+  },
+  "ledger": {
+    "rows": 436,
+    "spent_on_deck": 13,
+    "spent_in_bank": 17
+  },
+  "workspace": {
+    "checks": 37,
+    "failing": 0,
+    "failures": []
+  },
+  "facts": {
+    "postings_focus": 846,
+    "publishers_focus": 95,
+    "months_observed": 12,
+    "companies_compared": 6,
+    "companies_screened_out": 2,
+    "postings_pool": 3605,
+    "skills_observed": 91,
+    "claims_generated": 436,
+    "claims_published": 120,
+    "claims_refused": 316,
+    "claim_yield_pct": 27.5,
+    "distinctive_skills": 48,
+    "nearest_score": 0.9174,
+    "tests_total": 646,
+    "tasks_total": 10,
+    "corrections_total": 9,
+    "tables_committed": 127,
+    "figures_committed": 49
+  },
+  "figures": [
+    "01-deck-provenance.png",
+    "02-answer-shape.png",
+    "03-workspace-audit.png",
+    "04-ledger-coverage.png",
+    "05-slide-density.png",
+    "06-refusal-coverage.png",
+    "07-suite-growth.png",
+    "08-section-order.png"
+  ],
+  "privacy": {
+    "personal_data_columns_present": [],
+    "row_level_written": false
+  }
+}

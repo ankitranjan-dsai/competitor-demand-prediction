@@ -1,0 +1,19 @@
+key,value,description,source
+postings_focus,846,postings collected for the focus company,task-06-tables/company-comparability.csv#postings
+publishers_focus,95,publishers syndicating the focus company,task-06-tables/company-comparability.csv#publishers
+months_observed,12,months the focus company is present in,task-06-tables/company-comparability.csv#months_observed
+companies_compared,6,companies that passed the feasibility screen,task-06-tables/company-feasibility-screen.csv#verdict
+companies_screened_out,2,companies the screen excluded,task-06-tables/company-feasibility-screen.csv#verdict
+postings_pool,"3,605",postings across every included company,task-06-tables/company-feasibility-screen.csv#postings
+skills_observed,91,distinct skills the taxonomy matched,task-04-tables/skill-frequency.csv (rows)
+claims_generated,436,candidate claims Task 09 generated,task-09-tables/insight-yield.csv#generated@question=all
+claims_published,120,claims that cleared all four gates,task-09-tables/insight-yield.csv#published+published_qualified
+claims_refused,316,claims refused at a gate,task-09-tables/insight-yield.csv#refused@question=all
+claim_yield_pct,27.5,publishable share of generated claims,task-09-tables/insight-yield.csv#yield_pct@question=all
+distinctive_skills,48,skills separating the focus company after FDR,task-09-tables/strategy-position.csv#distinctive_skills
+nearest_score,0.9174,cosine similarity to the nearest company,task-09-tables/strategy-position.csv#nearest_score
+tests_total,646,tests the suite collects,pytest --collect-only over tests/
+tasks_total,10,numbered tasks in the README table,README.md task table
+corrections_total,9,entries in the corrections register,docs/corrections.md headings
+tables_committed,127,aggregate tables committed across all tasks,members/*/task-*-tables/*.csv
+figures_committed,49,figures committed across all tasks,members/*/task-*-figures/*.png

@@ -1,0 +1,20 @@
+order,section,purpose,required,slides,present
+1,title,"Who, what, and how much data",False,1,True
+2,problem,The question the brief asks,False,2,True
+3,legal,"The legal gate, before any collection",True,3,True
+4,data,What was actually collected,False,4,True
+5,pipeline,From posting text to a skill table,False,5,True
+6,identification,What a posting count counts,True,6,True
+7,trends,"Hiring trends, within one year",False,7,True
+8,comparison,"Six companies, compared where comparison holds",False,8,True
+9,forecast,Demand forecasting,False,9,True
+10,similarity,Company similarity,False,10,True
+11,insights,From evidence to sentences,False,11,True
+12,position,The focus company's position,False,12,True
+13,stack,What the stack difference says,False,13,True
+14,refusals,What this project will not say,True,14,True
+15,corrections,The corrections register,True,15,True
+16,quality,How any of this is checked,True,16,True
+17,workspace,The repository the team inherits,False,17,True
+18,next,What would change the answers,False,18,True
+19,qa,Backup — the question bank,False,19,True

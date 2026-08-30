@@ -1,0 +1,38 @@
+area,check,subject,status,detail
+readme,task_row_backed,task 01,pass,✅ with 1 deliverable(s) on disk
+readme,task_row_path,docs/task-01-data-sources-and-legal.md,pass,path quoted in the task table
+readme,task_row_backed,task 02,pass,✅ with 1 deliverable(s) on disk
+readme,task_row_path,members/ankit-google/task-02-data-collection-report.md,pass,path quoted in the task table
+readme,task_row_backed,task 03,pass,✅ with 2 deliverable(s) on disk
+readme,task_row_path,docs/task-03-preprocessing-methods.md,pass,path quoted in the task table
+readme,task_row_path,members/ankit-google/task-03-preprocessing-report.md,pass,path quoted in the task table
+readme,task_row_backed,task 04,pass,✅ with 2 deliverable(s) on disk
+readme,task_row_path,docs/task-04-skill-taxonomy.md,pass,path quoted in the task table
+readme,task_row_path,members/ankit-google/task-04-skill-extraction-report.md,pass,path quoted in the task table
+readme,task_row_backed,task 05,pass,✅ with 2 deliverable(s) on disk
+readme,task_row_path,docs/task-05-trend-analysis-methods.md,pass,path quoted in the task table
+readme,task_row_path,members/ankit-google/task-05-trend-report.md,pass,path quoted in the task table
+readme,task_row_backed,task 06,pass,✅ with 2 deliverable(s) on disk
+readme,task_row_path,docs/task-06-competitor-comparison-methods.md,pass,path quoted in the task table
+readme,task_row_path,members/ankit-google/task-06-comparison-report.md,pass,path quoted in the task table
+readme,task_row_backed,task 07,pass,✅ with 2 deliverable(s) on disk
+readme,task_row_path,docs/task-07-demand-forecasting-methods.md,pass,path quoted in the task table
+readme,task_row_path,members/ankit-google/task-07-forecast-report.md,pass,path quoted in the task table
+readme,task_row_backed,task 08,pass,✅ with 2 deliverable(s) on disk
+readme,task_row_path,docs/task-08-company-similarity-methods.md,pass,path quoted in the task table
+readme,task_row_path,members/ankit-google/task-08-similarity-report.md,pass,path quoted in the task table
+readme,task_row_backed,task 09,pass,✅ with 2 deliverable(s) on disk
+readme,task_row_path,docs/task-09-insight-generation-methods.md,pass,path quoted in the task table
+readme,task_row_path,members/ankit-google/task-09-insight-report.md,pass,path quoted in the task table
+readme,task_row_backed,task 10,pass,✅ with 2 deliverable(s) on disk
+readme,task_row_path,docs/task-10-final-presentation-methods.md,pass,path quoted in the task table
+readme,task_row_path,members/ankit-google/task-10-presentation-report.md,pass,path quoted in the task table
+readme,suite_size_current,task 10,pass,"quotes 646 tests, and the suite collects 646"
+docs,link_resolves,315 relative links,pass,315 of 315 resolve
+members,member_readme,ankit-google,pass,a member folder carries its own README
+folders,working_dir_used,notebooks,pass,2 file(s) beyond the placeholder
+folders,working_dir_used,weekly-reports,pass,6 file(s) beyond the placeholder
+folders,working_dir_used,meeting-minutes,pass,1 file(s) beyond the placeholder
+privacy,env_untracked,.env,pass,the credentials file is never committed
+privacy,row_data_untracked,0 file(s),pass,row-level data under data/ stays git-ignored
+privacy,personal_data_columns_present,127 tables,pass,no committed table names a person

@@ -1,0 +1,22 @@
+question_id,question,backs_slide,opens_with,refusals,claims,facts,narration,verdict
+q-forecast,So can you forecast their hiring for next quarter?,9,refusal,2,0,0,1,refused
+q-who-is-biggest,Which of the six is hiring the most?,8,refusal,1,1,0,1,refused
+q-direction,Is the focus company hiring more or less than at the start of the year?,7,refusal,1,0,0,1,refused
+q-february,What happened in February?,6,refusal,1,0,0,1,refused
+q-converging,Are the two most similar companies converging?,10,refusal,1,1,0,1,refused
+q-salary,Who pays more?,14,refusal,1,0,0,1,refused
+q-country,How does hiring differ between countries?,14,refusal,1,0,0,1,refused
+q-headcount,Does this tell you whether the company grew?,6,refusal,1,0,0,1,refused
+q-product,Can you tell what they are about to launch?,13,refusal,1,1,0,1,refused
+q-why-shift,Why did the job function mix shift?,7,refusal,1,0,0,1,refused
+q-denominator,Why are skill shares out of skilled postings rather than all of them?,5,refusal,1,0,0,1,refused
+q-simpsons,Has any of your own headlines been wrong?,15,claim,0,1,1,1,answered
+q-sample,Is that enough postings to say anything?,4,fact,0,0,1,1,answered
+q-why-rules,Why rule-based extraction and not a language model?,5,fact,0,0,1,1,answered
+q-scraping,Did you scrape any of this?,3,plain,0,0,0,2,explained
+q-privacy,Is there any personal data in here?,3,plain,0,0,0,2,explained
+q-investor,What would you tell an investor?,14,plain,0,0,0,2,explained
+q-useful,So what is any of it actually good for?,13,claim,0,1,1,1,answered
+q-reproduce,Could someone else rebuild this?,16,fact,0,0,1,1,answered
+q-next,What is the single change that would help most?,18,plain,0,0,0,2,explained
+q-team,How does this fit with the other three companies?,17,fact,0,0,1,1,answered
