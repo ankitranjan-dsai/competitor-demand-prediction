@@ -96,4 +96,22 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       Task 06's publisher-agreement floor applies to the publisher's total, not
       the company's own cell, so three of six companies *gain* `confirmed` by
       dropping tests and NVIDIA's 6/6 runs p 0.0312 → 1.0000 as the floor rises)
-- [ ] Task 10 — Final presentation
+- [x] Task 10 — Final presentation & mentor review → `task-10-presentation-report.md`
+      (a **deck compiler**, not a deck: every bullet is a typed record, so a
+      numeral reaches a slide only through a claim row or a resolved fact.
+      Standard in `docs/task-10-final-presentation-methods.md`; 82 new tests,
+      **646 in the suite**; 11 tables + 8 figures. 19 slides in a fixed order,
+      five of which cannot be dropped for time; 61 bullets — 13 bound to the
+      claim ledger, 10 to the fact register, 38 narration that may carry no
+      number at all. **26 rules** run over the deck and the **21-question
+      mentor bank**, where **11 answers are refusals** and all nine standing
+      prohibitions are pre-answered. The build then audits the repository:
+      **35 checks, 4 failures**, all of them about the workspace rather than
+      the analysis — three working directories that had held nothing but a
+      placeholder since Task 01, and a stale suite size. Fixed here with two
+      executed notebooks, six weekly reports compiled from the commit record,
+      and a minutes folder that says what minutes are. Raised
+      [C9](../../docs/corrections.md#c9--a-deck-is-checkable-the-delivery-is-what-is-not):
+      Task 09 §13 predicted this task's output could not be checked by a test;
+      six of its instructions turned out to be properties of a file and are now
+      named rules — what stays unchecked is the delivery, not the deck)

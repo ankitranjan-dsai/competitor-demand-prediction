@@ -57,7 +57,7 @@ Roles rotate every week; decisions/blockers/progress are documented in
 | 07 | Demand Forecasting | Forecast outputs + plots | ✅ Google done → `docs/task-07-demand-forecasting-methods.md` (team standard) + `members/ankit-google/task-07-forecast-report.md` (15 tables, 8 figures, 425 tests; no model beats persistence, **max useful horizon 0**, forecast published marked unsupported) |
 | 08 | Company Similarity Scoring | Similarity tables + heatmaps/network graphs | ✅ Google done → `docs/task-08-company-similarity-methods.md` (team standard) + `members/ankit-google/task-08-similarity-report.md` (16 tables, 8 figures, 478 tests; five metrics against two nulls, **2 of 15 ranks identified**, Google–Meta the only robust pair, trajectory similarity refused) |
 | 09 | Insight Generation & Reporting | Insight report + visuals | ✅ Google done → `docs/task-09-insight-generation-methods.md` (team standard) + `members/ankit-google/task-09-insight-report.md` (25 tables, 8 figures, 557 tests; 436 claims generated and gated, **120 publishable — a 27.5% yield**, salary benchmarking refused, investors get nothing) |
-| 10 | Final Presentation & Mentor Review | Slides + finalised repo | ⬜ |
+| 10 | Final Presentation & Mentor Review | Slides + finalised repo | ✅ Google done → `docs/task-10-final-presentation-methods.md` (team standard) + `members/ankit-google/task-10-presentation-report.md` (19-slide deck compiled from the claim ledger, 11 tables, 8 figures, 646 tests; 26 rules over the deck and a 21-question mentor bank in which **11 answers are refusals**; a 35-check workspace audit that found four defects and fixed them) |
 | +  | _(Optional)_ Automated Pipeline | Scheduled end-to-end pipeline | ⬜ |
 | +  | _(Optional)_ Fine-Tune Skill Extraction Model | Fine-tuned model + metrics | ⬜ |
 
@@ -70,12 +70,12 @@ competitor-demand-prediction/
 │   ├── processed/    # cleaned / feature-engineered datasets
 │   └── external/     # third-party / public datasets
 ├── src/              # shared, reusable Python modules
-├── notebooks/        # exploratory & per-task analysis notebooks
+├── notebooks/        # exploratory & per-task analysis notebooks (2)
 ├── docs/             # task deliverables & documentation
 │   ├── corrections.md  # claims a later task disproved, and the evidence
 │   └── legal/        # ToS / robots.txt evidence per source
 ├── members/          # per-specialist working folders (e.g. ankit-google/)
-├── weekly-reports/   # each member's own weekly notes
+├── weekly-reports/   # each member's own weekly notes (6)
 └── meeting-minutes/  # Scrum Leader's weekly meeting notes
 ```
 
@@ -88,12 +88,14 @@ competitor-demand-prediction/
 - **Corrections are recorded, not overwritten.** A task is submitted the moment
   it closes, so when a later task disproves an earlier claim the original
   wording stays put and gains a pointer to
-  [`docs/corrections.md`](docs/corrections.md). Eight claims have been
+  [`docs/corrections.md`](docs/corrections.md). Nine claims have been
   corrected so far — three by Task 05, one by Task 06, one by Task 07, two by
-  Task 08, one by Task 09 — and each one is checked against its evidence by
-  `tests/test_corrections.py`. Seven are claims about the data; the eighth is a
-  claim about the project, where a handover section named the next task wrong
-  and handed it instructions written for a task that does not exist.
+  Task 08, one by Task 09, one by Task 10 — and each one is checked against its
+  evidence by `tests/test_corrections.py`. Seven are claims about the data; two
+  are claims about the project — one where a handover section named the next
+  task wrong and handed it instructions written for a task that does not exist,
+  and one where that same section predicted its own successor could not be
+  checked by a test.
 
 ## Getting Started
 
