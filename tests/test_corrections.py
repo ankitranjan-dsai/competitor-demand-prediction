@@ -92,8 +92,10 @@ def read_table(name: str) -> pd.DataFrame:
 
 def test_register_lists_every_correction_as_corrected():
     """An entry with an open status is a limitation, not a correction."""
+    entries = re.findall(r"^## (C\d+) —", REGISTER.read_text(encoding="utf-8"), re.M)
     index = markdown_table("Corrections Register")
-    assert len(index) == 8
+    listed = [re.match(r"\[(C\d+)\]", row["#"]).group(1) for row in index]
+    assert listed == entries, "the index and the entries have drifted apart"
     for row in index:
         assert row["Status"] == "✅ corrected", row
 
@@ -696,3 +698,203 @@ def test_c8_both_task_06_documents_keep_their_wording_and_gain_a_pointer():
         text = (REPO_ROOT / rel).read_text(encoding="utf-8")
         assert quote in text, f"{rel} no longer carries its original wording"
         assert "corrections.md#c8" in text, f"{rel} carries no pointer to C8"
+
+
+# --------------------------------------------------------------------------
+# C9 — the prediction that a deck cannot be checked
+# --------------------------------------------------------------------------
+#
+# C9 is a correction to a claim about testability, so a test for it is the
+# only honest form the correction can take: an entry that says "this is
+# checkable now" and is itself unchecked would be making its predecessor's
+# mistake in the opposite direction.
+
+TABLES_10 = REPO_ROOT / "members" / "ankit-google" / "task-10-tables"
+REPORT_09 = REPO_ROOT / "members" / "ankit-google" / "task-09-insight-report.md"
+
+needs_task_10 = pytest.mark.skipif(
+    not TABLES_10.is_dir(),
+    reason="Task 10 build outputs not present in this checkout",
+)
+
+#: A rule name is the fourth argument of `_v` and the second of the `here`
+#: partial that wraps it. Read off the source rather than imported, because
+#: the claim under test is about *wording*: the register names rules in prose,
+#: and prose does not fail when a rule is renamed.
+RULE_LITERAL = re.compile(
+    r'here\(\s*-?\w+,\s*"([a-z_]+)"'
+    r'|_v\(\s*[^,\n]+,\s*[^,\n]+,\s*-?\w+,\s*"([a-z_]+)"'
+)
+
+PREDICTION = (
+    "Task 10 is the final presentation, and it is the first task in this "
+    "project whose output is not checkable by a test."
+)
+
+
+def lint_rule_names() -> set[str]:
+    """Every rule `src/present.py` can name in a violation."""
+    source = (REPO_ROOT / "src" / "present.py").read_text(encoding="utf-8")
+    return {first or second for first, second in RULE_LITERAL.findall(source)}
+
+
+def entry_text(heading_contains: str) -> str:
+    """The register entry under a heading, up to the next one."""
+    lines = REGISTER.read_text(encoding="utf-8").splitlines()
+    start = next(
+        i
+        for i, line in enumerate(lines)
+        if line.startswith("#") and heading_contains.lower() in line.lower()
+    )
+    end = next(
+        (
+            i
+            for i, line in enumerate(lines[start + 1:], start + 1)
+            if line.startswith("#")
+        ),
+        len(lines),
+    )
+    return "\n".join(lines[start:end])
+
+
+def backticked_rules(text: str) -> set[str]:
+    """Rule names a passage claims exist, from its right-hand table cells."""
+    found = set()
+    for line in text.splitlines():
+        line = line.lstrip("> ").rstrip()
+        if not line.startswith("|"):
+            continue
+        found.update(re.findall(r"`([a-z_]+)`", line.strip("|").split("|")[-1]))
+    return found
+
+
+def c9_marking() -> str:
+    """The block Task 10 inserted into Task 09 §13, and nothing around it.
+
+    Scoped to the one quote block rather than every ``>`` line in the report,
+    because §13 is not the only passage in that file carrying a correction.
+    """
+    lines = REPORT_09.read_text(encoding="utf-8").splitlines()
+    pointer = next(
+        i for i, line in enumerate(lines) if "corrections.md#c9" in line
+    )
+    end = next(
+        (i for i, line in enumerate(lines[pointer:], pointer)
+         if not line.startswith(">")),
+        len(lines),
+    )
+    return "\n".join(line.lstrip("> ") for line in lines[pointer:end])
+
+
+def presentation_report() -> dict:
+    import json
+
+    path = TABLES_10.parent / "task-10-presentation-report.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def test_c9_task_09_keeps_its_prediction_and_gains_a_pointer():
+    """A register, not an eraser — the sentence C9 overturns stays where it was."""
+    report = REPORT_09.read_text(encoding="utf-8")
+    flat = " ".join(report.split())
+    assert PREDICTION in flat, "Task 09 §13 no longer carries its prediction"
+    assert "corrections.md#c9" in report, "§13 carries no pointer to C9"
+    quoted = " ".join(
+        line.lstrip("> ") for line in entry_text("C9 —").splitlines()
+    ).split()
+    assert PREDICTION in " ".join(quoted), (
+        "the register no longer quotes the sentence it corrects"
+    )
+
+
+def test_c9_every_rule_the_correction_names_is_one_the_linter_can_fire():
+    """C9's argument is that each §13 instruction became a named rule.
+
+    The six-row table is the argument in full, so an unrecognised name in it
+    is the correction quietly ceasing to be true. That each rule *fires* on
+    the case it was written for is ``tests/test_presentation.py``'s job; this
+    checks only that the register is naming rules that exist.
+    """
+    vocabulary = lint_rule_names()
+    entry = entry_text("C9 —")
+    named = backticked_rules(entry)
+
+    instructions = [
+        line for line in entry.splitlines()
+        if line.startswith("| ") and "`" in line.split("|")[-2]
+    ]
+    assert len(instructions) == 6, "C9 maps §13's six instructions, one per row"
+
+    unknown = named - vocabulary
+    assert not unknown, f"C9 names rules src/present.py does not emit: {unknown}"
+    assert {"claim_exists", "refusals_intact", "clause_travels",
+            "correction_carried", "asset_exists"} <= named
+
+    marking = c9_marking()
+    in_place = set(re.findall(r"`([a-z_]+)`", marking))
+    assert in_place, "the in-place marking in §13 names no rule at all"
+    assert in_place <= vocabulary, (
+        f"the in-place marking names rules that do not exist: "
+        f"{in_place - vocabulary}"
+    )
+    assert in_place <= named, "§13 is marked with a rule C9 does not argue for"
+
+
+@needs_task_10
+def test_c9_the_deck_the_register_describes_is_the_deck_that_shipped():
+    """Every count in the entry, read back off the build's own report."""
+    prose = " ".join(entry_text("C9 —").split())
+    report = presentation_report()
+    rules = len(lint_rule_names())
+
+    assert f"{report['deck']['slides']} slides and " \
+           f"{report['deck']['bullets']} bullets" in prose
+    assert f"{rules} rules run over the deck and the " \
+           f"{report['bank']['questions']}-question mentor bank" in prose
+    assert f"{rules} rules run over it" in " ".join(c9_marking().split()), (
+        "the marking left in Task 09 §13 quotes a different number of rules"
+    )
+
+    collected = len(pd.read_csv(TABLES_10 / "deck-lint.csv"))
+    assert collected == report["deck"]["violations"] == 0, (
+        "the shipped deck no longer lints clean — rebuild before trusting C9"
+    )
+    assert len(pd.read_csv(TABLES_10 / "qa-lint.csv")) == \
+        report["bank"]["violations"] == 0
+
+
+@needs_task_10
+def test_c9_the_test_count_it_quotes_is_the_suite_that_exists():
+    """The staleness C9 caught in a README, applied to C9 itself."""
+    import subprocess
+    import sys
+
+    suite = REPO_ROOT / "tests" / "test_presentation.py"
+    run = subprocess.run(
+        [sys.executable, "-m", "pytest", str(suite), "--collect-only", "-q",
+         "-p", "no:cacheprovider"],
+        cwd=REPO_ROOT, capture_output=True, text=True,
+    )
+    found = re.search(r"^(\d+) tests? collected", run.stdout, re.M)
+    assert found, f"could not collect {suite.name}:\n{run.stdout[-800:]}"
+    prose = " ".join(entry_text("C9 —").split())
+    assert f"{found.group(1)} tests in" in prose, (
+        f"the register quotes a stale suite size; {suite.name} now collects "
+        f"{found.group(1)}"
+    )
+
+
+@needs_task_10
+def test_c9_the_audit_still_runs_the_checks_that_found_the_four_defects():
+    """C9's second half: the defects were found by checks, not by reading.
+
+    The failures themselves are Task 10's to fix, so this pins the checks
+    rather than their verdicts — the four defects are only evidence for C9 if
+    something in the repository was looking for them.
+    """
+    audit = pd.read_csv(TABLES_10 / "workspace-audit.csv")
+    assert "suite_size_current" in set(audit.check), "nothing checks README staleness"
+    folders = audit[audit.check == "working_dir_used"]
+    assert set(folders.subject) == {"notebooks", "weekly-reports", "meeting-minutes"}, (
+        "C9 cites three directories named in the layout and never used"
+    )

@@ -25,6 +25,7 @@ acted on exactly like a wrong number.
 | [C6](#c6--neither-concept-skills-nor-rare-skills-dominate-a-similarity-score) | Concept skills "dominate every similarity score in Task 08"; a 1-posting skill "would dominate cosine similarity" | `docs/task-04-skill-taxonomy.md` §2.3, §6.1 | Task 08 §6 | ✅ corrected |
 | [C7](#c7--task-08-is-company-similarity-scoring-not-visualisation-and-not-evaluation) | Task 08 is "Visualisation" / "Evaluation", and inherits a skill-level significance baseline | Task 06 §11 (methods), Task 06 §11 (Google) | Task 08 §1, README task table | ✅ corrected |
 | [C8](#c8--a-unanimity-count-is-not-a-robustness-statistic-when-the-number-of-tests-moves-with-the-threshold) | NVIDIA's 6/6 publisher agreement is "the single cross-company volume finding … not qualified into uselessness" | Task 06 §2 (methods), Task 06 §3 (Google) | Task 09 §8 | ✅ corrected |
+| [C9](#c9--a-deck-is-checkable-the-delivery-is-what-is-not) | Task 10 "is the first task in this project whose output is not checkable by a test" | Task 09 §13 (Google) | Task 10 §1, §4 | ✅ corrected |
 
 ---
 
@@ -521,6 +522,73 @@ against `members/ankit-google/task-06-tables/relative-share-verdict.csv`.
 
 ---
 
+## C9 — A deck is checkable; the delivery is what is not
+
+**What Task 09 said.** [`members/ankit-google/task-09-insight-report.md`](../members/ankit-google/task-09-insight-report.md)
+§13 opens its handover with:
+
+> Task 10 is the final presentation, and it is the first task in this project
+> whose output is not checkable by a test.
+
+**What is actually true.** The sentence conflates the performance with the
+artefact. The performance is not checkable, and Task 10 does not pretend
+otherwise: pace, tone, whether the refusal slide survives a clock running
+down, and which slide to lead with are all judgement, and no rule in
+[`src/present.py`](../src/present.py) touches any of them. The artefact is
+text, and text is checkable exactly when every number in it is bound.
+
+The evidence is §13 itself. Its six numbered instructions were written as
+things a careful presenter would remember. Each one is a property of a file:
+
+| §13 instruction | Rule that enforces it |
+| --- | --- |
+| "`claim-ledger.csv` is the source of every sentence on every slide" | `claim_exists` — a bullet names a ledger row, or it is not a claim |
+| "A number on a slide that is not in that table is a number nothing checked" | `fact_numerals_bound`, `plain_numerals_bound` — a numeral is bound to a resolver or it is a violation |
+| "The refusals are content … the first things a deck drops" | `refusals_intact` — at least four bullets bound to a **refused** row; narration about refusing does not count |
+| "`published` does not mean uncaveated … Rendering text without clause publishes a different claim" | `clause_travels`, plus verbatim rendering — a claim bullet has no text of its own to render |
+| "C8 travels with any NVIDIA or Google share sentence" | `correction_carried` — the slide carries every correction its claims depend on |
+| "The four figures worth showing are 01, 03, 05 and 06" | `asset_exists` — a figure resolves to a committed PNG |
+
+Task 10 builds the deck from the ledger instead of beside it: 19 slides and 61
+bullets, of which every one is a published claim, a refused claim, a template
+over a resolver that reads this repository, or narration carrying no numeral
+at all. 26 rules run over the deck and the 21-question mentor bank, the build
+fails on any violation, and 82 tests in
+[`tests/test_presentation.py`](../tests/test_presentation.py) check that each
+rule fires on the case it was written for.
+
+The workspace audit makes the point twice over. §13's claim was made about a
+task whose second deliverable is "a complete, well-structured GitHub
+workspace", and the first run of the audit found four real defects in it — a
+README quoting a suite size 84 tests out of date, and three directories that
+had been named in the layout since Task 01 and never used.
+
+**What this does not change.** Nothing upstream. §13's six instructions were
+all correct, and all six were followed. This is a correction to a claim about
+*testability*, not to any finding, and not to the observation underneath it —
+which was sound. Task 09 was right that no later analysis re-derives Task 10's
+numbers, and right that a deck is where an unchecked number would finally get
+through. The remedy it drew from that was resignation.
+
+**Consequence.** The standing lesson is the one C7 raised, in its sharper
+form. C7 established that **a handover section is a prediction, not an
+instruction**. C9 adds the case that costs the most: a prediction that a
+deliverable *cannot* be checked is self-fulfilling, because nobody writes a
+test for something already agreed to be untestable. The question to ask of any
+such sentence is which specific property is unobservable — and here the honest
+answer was "the delivery", which is a much smaller claim than the one written.
+
+Google's Task 09 report keeps its wording, marked in place.
+
+Evidence: [`src/present.py`](../src/present.py),
+[`tests/test_presentation.py`](../tests/test_presentation.py),
+[`deck-lint.csv`](../members/ankit-google/task-10-tables/deck-lint.csv),
+[`qa-lint.csv`](../members/ankit-google/task-10-tables/qa-lint.csv) and
+[`workspace-audit.csv`](../members/ankit-google/task-10-tables/workspace-audit.csv),
+against `members/ankit-google/task-09-insight-report.md` §13.
+
+---
+
 ## What every specialist should take from this
 
 The first three corrections are the same mistake in three costumes: **a number
@@ -538,6 +606,18 @@ Before a claim leaves your report, check it against the collection:
 6. Does your agreement count hold the **number of tests** fixed? If a stricter
    threshold makes a verdict look stronger, it is the denominator moving, not
    the evidence. → C8
+
+C7 and C9 are the two entries of the second kind — corrections to claims
+about the *project* rather than about the data — and they fail the same way.
+A handover paragraph is written at the end of a task, about a task nobody has
+started, and it is read as an instruction by someone who has not yet read the
+brief. So:
+
+7. Does the handover you are following describe the task the brief describes?
+   → C7
+8. If it says something cannot be checked, does it say **which property** is
+   unobservable? "A deck is a performance" is true of the delivery and false
+   of the file. → C9
 
 `src/trends.py` has a function for each of the first three —
 `publisher_panel_table` / `panel_verdict`, `stratified_verdict`, and

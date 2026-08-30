@@ -514,6 +514,15 @@ is 0" costs, counted in sentences.
 Task 10 is the final presentation, and it is the first task in this project
 whose output is not checkable by a test. So:
 
+> **Corrected by Task 10 — [C9](../../docs/corrections.md#c9--a-deck-is-checkable-the-delivery-is-what-is-not).**
+> The delivery is not checkable; the artefact is. Each of the six instructions
+> below turned out to be a property of a file, and each is now enforced by a
+> named rule: `claim_exists`, `refusals_intact`, `clause_travels`,
+> `correction_carried` and `asset_exists` among them. The deck is built from
+> [`claim-ledger.csv`](task-09-tables/claim-ledger.csv) rather than beside it,
+> 26 rules run over it and over the mentor question bank, and the build fails
+> on any violation. The instructions themselves all stand.
+
 1. **[`claim-ledger.csv`](task-09-tables/claim-ledger.csv) is the source of
    every sentence on every slide.** A number on a slide that is not in that
    table is a number nothing checked. The `sentence()` renderer emits text and
