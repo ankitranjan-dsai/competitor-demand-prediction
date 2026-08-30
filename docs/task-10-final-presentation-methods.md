@@ -267,7 +267,9 @@ what the project claims.
 ## 8. The workspace audit: the deck grades the repository
 
 "A complete, well-structured GitHub workspace" is a claim about files, so the
-build checks it: 35 checks in five areas, written to
+build checks it: nine checks over five areas, each run once per subject it
+applies to — 37 runs in this build, and a number that grows with the repository
+— written to
 [`workspace-audit.csv`](../members/ankit-google/task-10-tables/workspace-audit.csv).
 
 | Area | Check | What it asserts |
@@ -293,10 +295,15 @@ The first run failed four checks, and all four were real:
 
 Those four are what Task 10 actually had to fix, and the fix is the deliverable
 rather than the audit: two executed notebooks, six weekly reports compiled from
-the commit record, a minutes folder that says what minutes are, and both
-READMEs corrected. The privacy checks are the standing ones and are re-run every
-task; `personal_data_columns_present` has passed over every committed table
-since Task 02, and no committed column name contains `candidate`.
+the commit record, a minutes folder that says what minutes are, and a Task 10
+row in both READMEs that quotes the suite as it now stands. Task 09's rows keep
+the 557 they shipped with: `suite_size_current` grades only the newest done row,
+because an earlier row is a snapshot and rewriting it would be the move the
+corrections register exists to prevent.
+
+The privacy checks are the standing ones and are re-run every task;
+`personal_data_columns_present` has passed over every committed table since
+Task 02, and no committed column name contains `candidate`.
 
 ---
 

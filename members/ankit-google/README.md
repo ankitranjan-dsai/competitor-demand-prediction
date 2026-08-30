@@ -106,8 +106,9 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       number at all. **26 rules** run over the deck and the **21-question
       mentor bank**, where **11 answers are refusals** and all nine standing
       prohibitions are pre-answered. The build then audits the repository:
-      **35 checks, 4 failures**, all of them about the workspace rather than
-      the analysis — three working directories that had held nothing but a
+      **37 checks, all passing** — four of them failed on the first run, when
+      the audit stood at 35 because this row had nothing to quote yet, and none
+      of the four was in the analysis: three working directories that had held nothing but a
       placeholder since Task 01, and a stale suite size. Fixed here with two
       executed notebooks, six weekly reports compiled from the commit record,
       and a minutes folder that says what minutes are. Raised
