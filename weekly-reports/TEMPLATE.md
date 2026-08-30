@@ -15,4 +15,7 @@
 -
 
 ## Links (commits / notebooks / data)
+
+The list runs to the commit at which this file was written.
+
 -
