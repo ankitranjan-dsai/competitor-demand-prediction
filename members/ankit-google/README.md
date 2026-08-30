@@ -99,8 +99,8 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
 - [x] Task 10 — Final presentation & mentor review → `task-10-presentation-report.md`
       (a **deck compiler**, not a deck: every bullet is a typed record, so a
       numeral reaches a slide only through a claim row or a resolved fact.
-      Standard in `docs/task-10-final-presentation-methods.md`; 82 new tests,
-      **646 in the suite**; 11 tables + 8 figures. 19 slides in a fixed order,
+      Standard in `docs/task-10-final-presentation-methods.md`; 83 new tests,
+      **647 in the suite**; 11 tables + 8 figures. 19 slides in a fixed order,
       five of which cannot be dropped for time; 61 bullets — 13 bound to the
       claim ledger, 10 to the fact register, 38 narration that may carry no
       number at all. **26 rules** run over the deck and the **21-question

@@ -17,7 +17,7 @@ then turns on the repository itself, because "finalise the workspace" is a
 claim about files and can be checked like one.
 
 - **Code:** [`src/present.py`](../src/present.py) · [`src/build_presentation.py`](../src/build_presentation.py)
-- **Tests:** [`tests/test_presentation.py`](../tests/test_presentation.py) (82; 646 in the suite)
+- **Tests:** [`tests/test_presentation.py`](../tests/test_presentation.py) (83; 647 in the suite)
 - **Google deck:** [`members/ankit-google/task-10-slides.md`](../members/ankit-google/task-10-slides.md)
 - **Google findings:** [`members/ankit-google/task-10-presentation-report.md`](../members/ankit-google/task-10-presentation-report.md)
 - **Notebooks:** [`notebooks/01-google-evidence-walk.ipynb`](../notebooks/01-google-evidence-walk.ipynb) · [`notebooks/02-the-refusal-boundary.ipynb`](../notebooks/02-the-refusal-boundary.ipynb)
@@ -154,7 +154,7 @@ committed table:
 | `claim_yield_pct` | 27.5 | derived from the three above |
 | `distinctive_skills` | 48 | the distinctiveness table |
 | `nearest_score` | 0.9174 | the similarity table |
-| `tests_total` | 646 | `pytest --collect-only` |
+| `tests_total` | 647 | `pytest --collect-only` |
 | `tasks_total` / `corrections_total` | 10 / 9 | the README task table, the register |
 | `tables_committed` / `figures_committed` | 127 / 49 | the repository itself |
 
@@ -287,7 +287,7 @@ applies to — 37 runs in this build, and a number that grows with the repositor
 The first run failed four checks, and all four were real:
 
 - `suite_size_current` — the README and the member README both quoted **557
-  tests** against a suite that collects **646**. The figure was true when Task
+  tests** against a suite that then collected **646**. The figure was true when Task
   09 shipped and had been false since.
 - `working_dir_used` × 3 — `notebooks/`, `weekly-reports/` and
   `meeting-minutes/` had been in the layout diagram since Task 01 and held
@@ -383,7 +383,7 @@ letting 26 passing rules imply otherwise.
    is not broken, not that the document it points at is worth reading.
    `working_dir_used` counts files, and a directory can be filled with anything.
    What stops that here is the commit record, not the check.
-5. **`tests_total` is a count.** 646 passing tests is a fact about coverage of
+5. **`tests_total` is a count.** 647 passing tests is a fact about coverage of
    the rules that exist, and says nothing about the rules nobody wrote.
 
 ---

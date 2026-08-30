@@ -15,7 +15,7 @@
   fact register resolved from the committed tables, 26 lint rules over the deck
   and the mentor question bank, and a fixpoint build that re-resolves its own
   numbers.
-- Pinned it with 82 tests, one case per rule.
+- Pinned it with 83 tests, one case per rule.
 - Registered C9: a deck is checkable; the delivery is what is not.
 - Wrote the two notebooks the working directory had been missing, and compiled
   these weekly reports from the commit record.

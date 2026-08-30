@@ -6,11 +6,11 @@ Input: the claim ledger Task 09 committed, and the repository itself. Output: a
 **19-slide deck compiled from that ledger**, a **21-question mentor bank** whose
 answers are ledger rows rather than improvisation, and an **audit of the
 workspace** that found four defects and drove the rest of this task. 11 tables,
-8 figures, 82 tests, and one correction against Task 09.
+8 figures, 83 tests, and one correction against Task 09.
 
 - **Method rationale (team standard):** [`docs/task-10-final-presentation-methods.md`](../../docs/task-10-final-presentation-methods.md)
 - **Code:** [`src/present.py`](../../src/present.py) · [`src/build_presentation.py`](../../src/build_presentation.py)
-- **Tests:** [`tests/test_presentation.py`](../../tests/test_presentation.py) (82) — **646 passing** in the suite
+- **Tests:** [`tests/test_presentation.py`](../../tests/test_presentation.py) (83) — **647 passing** in the suite
 - **The deck:** [`task-10-slides.md`](task-10-slides.md)
 - **Machine-readable report:** [`task-10-presentation-report.json`](task-10-presentation-report.json)
 - **Tables:** [`task-10-tables/`](task-10-tables/) · **Figures:** [`task-10-figures/`](task-10-figures/)
@@ -162,7 +162,7 @@ was in the analysis:
 
 | Check | Subject | What it found |
 | --- | --- | --- |
-| `suite_size_current` | task 09 | quotes **557 tests**; the suite collects **646** |
+| `suite_size_current` | task 09 | quoted **557 tests**; the suite collected **646** |
 | `working_dir_used` | `notebooks/` | 0 files beyond the placeholder |
 | `working_dir_used` | `weekly-reports/` | 0 files beyond the placeholder |
 | `working_dir_used` | `meeting-minutes/` | 0 files beyond the placeholder |
@@ -195,7 +195,7 @@ promises and a placeholder file.
   are snapshots that cannot be verified without archaeology. Task 09's row was
   the newest, and it had gone stale. It stays as written — the same rule that
   governs the corrections register governs a README — and Task 10's row now
-  quotes 646, which is what `pytest` collects. The check moves with the newest
+  quotes 647, which is what `pytest` collects. The check moves with the newest
   row, so the number it grades is always one somebody can check today.
 
 ---

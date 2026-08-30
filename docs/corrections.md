@@ -553,7 +553,7 @@ Task 10 builds the deck from the ledger instead of beside it: 19 slides and 61
 bullets, of which every one is a published claim, a refused claim, a template
 over a resolver that reads this repository, or narration carrying no numeral
 at all. 26 rules run over the deck and the 21-question mentor bank, the build
-fails on any violation, and 82 tests in
+fails on any violation, and 83 tests in
 [`tests/test_presentation.py`](../tests/test_presentation.py) check that each
 rule fires on the case it was written for.
 
