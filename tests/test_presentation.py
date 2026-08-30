@@ -1,18 +1,17 @@
 """Tests for the Task 10 presentation layer.
 
-Task 09 §13 made a prediction about this task:
+Task 09's Google report §13 made a prediction about this task:
 
-    "Task 10's output is the first in this project that is not checkable by a
-    test. A deck is a performance."
+    "Task 10 is the final presentation, and it is the first task in this
+    project whose output is not checkable by a test."
 
-Half of that is true and the half that is true is not the interesting half.
-Delivery is not checkable here — pace, tone, whether the refusal slide gets
-rushed when the clock runs down — and nothing in this file pretends
-otherwise. But a slide is not a performance. A slide is a claim plus an
-attachment, and both halves are files in this repository: the claim is a row
-of the Task 09 ledger, and the attachment is a committed table or figure. That
-is checkable, it is checked here, and the prediction is recorded as overturned
-in C9.
+Part of that is true, and it is not the interesting part. Delivery is not
+checkable here — pace, tone, whether the refusal slide gets rushed when the
+clock runs down — and nothing in this file pretends otherwise. But a slide is
+a claim plus an attachment, and both halves are files in this repository: the
+claim is a row of the Task 09 ledger, and the attachment is a committed table
+or figure. That is checkable, it is checked below, and the prediction is
+recorded as overturned in C9.
 
 The traps below were live while `src/present.py` was being written, and they
 are the reason this suite is worth reading rather than skimming:

@@ -43,11 +43,11 @@ recomputable repo property, every claim bullet carries its clause, Task 09's
 prohibited-pattern list runs over the rendered text, and the refusals that the
 project earned are present rather than dropped.
 
-**That is the correction this task raises.** Task 09 §13 called Task 10 "the
-first task in this project whose output is not checkable by a test". A deck is
-text, and text is checkable when every number in it is bound — which is the
-same argument Task 09 made about a report and then declined to make about a
-slide. See C9 in `docs/corrections.md`.
+**That is the correction this task raises.** Task 09's Google report §13
+called Task 10 "the first task in this project whose output is not checkable
+by a test". A deck is text, and text is checkable when every number in it is
+bound — which is the same argument Task 09 made about a report and then
+declined to make about a slide. See C9 in `docs/corrections.md`.
 
 Everything runs on pandas, `re` and the standard library, in keeping with
 Tasks 05 to 09 — no scipy in a core module.
@@ -916,9 +916,9 @@ def deck_spec(focus: str = "google") -> tuple[Slide, ...]:
 # D. The deck linter
 # ---------------------------------------------------------------------------
 #
-# Task 09 §13 predicted that this task's output would be the first in the
-# project not checkable by a test. That prediction is what this section
-# overturns, and the argument is short: a slide is a claim plus an attachment,
+# Task 09's Google report §13 predicted that this task's output would be the
+# first in the project not checkable by a test. That prediction is what this
+# section overturns, and the argument is short: a slide is a claim plus an attachment,
 # and both halves are files in this repository. The prose is bound to the
 # ledger, the numbers are bound to committed tables, the figures are bound to
 # committed PNGs, and the caveats are bound to the corrections register.
