@@ -458,6 +458,17 @@ def _emit(deck: list[pr.Slide], bank: list[pr.Question], ledger: pd.DataFrame,
     slides_path.write_text(pr.deck_markdown(deck, bank, ledger, facts, focus),
                            encoding="utf-8")
 
+    # The audit reads the markdown it finds on disk, and the deck is markdown
+    # on disk — so the run above graded the *previous* build's deck. A link
+    # broken in `deck_markdown` would ship once, under an audit line reading
+    # "all checks pass", and be reported only on the next build. It happened:
+    # the deck went out quoting a filename for the standard that has never
+    # existed. So the audit is re-run over the deck this build just wrote, and
+    # the table is rewritten before the figure draws it. The early run stays,
+    # because `asset_exists` needs the table on disk before the deck lints.
+    audit = pr.workspace_audit(REPO_ROOT, OUT)
+    _write(audit, TABLES / "workspace-audit.csv")
+
     figs = [
         fig_provenance(bullets, FIGURES / "01-deck-provenance.png"),
         fig_answer_shape(shape, FIGURES / "02-answer-shape.png"),

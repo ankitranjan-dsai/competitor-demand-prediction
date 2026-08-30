@@ -876,3 +876,25 @@ def test_the_shipped_deck_quotes_the_repository_as_it_stands(facts):
     assert not drifted, (
         f"the deck quotes {drifted}, written as (on the slide, in the repo) — "
         "re-run `python src/build_presentation.py`")
+
+
+@needs_ledger
+def test_every_link_the_deck_writes_resolves(ledger, facts, deck, bank):
+    """The audit reads the deck it *finds*, not the deck about to be written.
+
+    `link_resolves` walks the tracked markdown on disk, and the runner emits
+    the deck after it. So a link broken inside ``deck_markdown`` ships once
+    and is reported on the next build — which is how the deck went out quoting
+    `task-10-final-presentation-standard.md`, a filename that has never
+    existed, under an audit line reading "all checks pass". The emitter now
+    re-runs the audit after writing the deck; this test is the half that fails
+    before anything is committed.
+    """
+    markdown = pr.deck_markdown(deck, bank, ledger, facts, "google")
+    broken = sorted(
+        target for target in
+        (t.split("#")[0].strip() for t in pr.MD_LINK.findall(markdown))
+        if target and not target.startswith(("http", "mailto:"))
+        and not (MEMBER / target).exists()
+    )
+    assert not broken, f"the deck points at {broken}"

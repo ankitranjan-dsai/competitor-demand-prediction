@@ -1786,8 +1786,8 @@ def deck_markdown(deck, bank, ledger: pd.DataFrame, facts: dict,
         "number, a section mark or the collection year.",
         "",
         "The slot order is the team standard in "
-        "[`docs/task-10-final-presentation-standard.md`]"
-        "(../../docs/task-10-final-presentation-standard.md); the checks are "
+        "[`docs/task-10-final-presentation-methods.md`]"
+        "(../../docs/task-10-final-presentation-methods.md); the checks are "
         "in [`src/present.py`](../../src/present.py) and "
         "[`tests/test_presentation.py`](../../tests/test_presentation.py).",
         "",
