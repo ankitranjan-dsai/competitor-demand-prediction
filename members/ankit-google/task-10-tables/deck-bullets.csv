@@ -1,7 +1,7 @@
 slide,section,bullet,kind,claim_id,status,source,citation,characters,delivery,text
 1,title,0,plain,,,narration,,89,spoken,"Ankit Ranjan — specialist for Google, one of four company seats feeding one shared model."
 1,title,1,fact,,,task-06-tables/company-comparability.csv#postings; task-06-tables/company-comparability.csv#publishers; task-06-tables/company-comparability.csv#months_observed,"postings_focus, publishers_focus, months_observed",55,spoken,"Google: 846 postings, 95 publishers, 12 months of 2023."
-1,title,2,fact,,,README.md task table; members/*/task-*-tables/*.csv; members/*/task-*-figures/*.png; pytest --collect-only over tests/,"tasks_total, tables_committed, figures_committed, tests_total",54,spoken,"10 tasks, 127 committed tables, 49 figures, 646 tests."
+1,title,2,fact,,,README.md task table; members/*/task-*-tables/*.csv; members/*/task-*-figures/*.png; pytest --collect-only over tests/,"tasks_total, tables_committed, figures_committed, tests_total",54,spoken,"10 tasks, 127 committed tables, 49 figures, 647 tests."
 2,problem,0,plain,,,narration,,98,spoken,"The brief: forecast competitor demand, skill trends and market direction from public job postings."
 2,problem,1,plain,,,narration,,94,spoken,A posting states intent before a hire reaches any financial report — that is the whole appeal.
 2,problem,2,plain,,,narration,,115,spoken,A posting is also a document a job board chose to syndicate. Everything in this deck turns on that second sentence.
@@ -48,7 +48,7 @@ slide,section,bullet,kind,claim_id,status,source,citation,characters,delivery,te
 15,corrections,0,fact,,,docs/corrections.md headings,corrections_total,94,spoken,"9 corrections are on the record, and each one is checked against the committed table it cites."
 15,corrections,1,plain,,,narration,,109,spoken,A submitted task is never silently rewritten. The original wording stays and gains a pointer to the register.
 15,corrections,2,plain,,,narration,,72,spoken,Almost all of them have one shape: a sentence outran the table under it.
-16,quality,0,fact,,,pytest --collect-only over tests/,tests_total,99,spoken,"646 tests, including one for every registered correction, so the prose cannot drift from a rebuild."
+16,quality,0,fact,,,pytest --collect-only over tests/,tests_total,99,spoken,"647 tests, including one for every registered correction, so the prose cannot drift from a rebuild."
 16,quality,1,plain,,,narration,,185,spoken,"Core modules import no scipy: the statistics are hand-rolled and cross-checked against scipy in separate validation scripts, so a reviewer can rebuild without matching a solver version."
 16,quality,2,plain,,,narration,,141,spoken,This deck is linted too — every figure on a slide resolves to a claim that passed the gates or to a repository fact recomputed at build time.
 17,workspace,0,fact,,,members/*/task-*-tables/*.csv; members/*/task-*-figures/*.png; README.md task table,"tables_committed, figures_committed, tasks_total",96,spoken,"127 committed tables and 49 figures across 10 tasks, with row-level data git-ignored throughout."
