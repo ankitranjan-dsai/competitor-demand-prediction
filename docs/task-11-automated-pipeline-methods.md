@@ -21,7 +21,7 @@ of this task is not that the pipeline runs — it is what the rules found when
 they were pointed at ten tasks of accumulated practice.
 
 - **Code:** [`src/pipeline.py`](../src/pipeline.py) · [`src/run_pipeline.py`](../src/run_pipeline.py)
-- **Tests:** [`tests/test_pipeline.py`](../tests/test_pipeline.py) (94; 746 in the suite)
+- **Tests:** [`tests/test_pipeline.py`](../tests/test_pipeline.py) (95; 747 in the suite)
 - **Workflow:** [`.github/workflows/pipeline.yml`](../.github/workflows/pipeline.yml)
 - **Google findings:** [`members/ankit-google/task-11-pipeline-report.md`](../members/ankit-google/task-11-pipeline-report.md)
 - **What this task overturned:** [`docs/corrections.md`](corrections.md) —
@@ -379,6 +379,13 @@ developer on 3.12 is told the code will not run on 3.11 before pushing rather
 than after, and `ci_python_versions` keeps the workflow's two pins equal to the
 declared floor. `python src/run_pipeline.py` prints the verdict next to the
 schedule mode.
+
+The scan's own first draft repeated the mistake it was written for: it used
+`token.FSTRING_START`, a constant 3.12 added alongside the syntax it detects,
+and so failed on 3.11 at the same step. It now branches — tokenise above the
+floor, `ast.parse` at or below it — and the claim is checked rather than
+asserted: `uv run --python 3.11 --with-requirements requirements.txt python -m
+pytest` collects **747 passing on a real 3.11**.
 
 This is not a register entry. C1–C10 correct claims, and Task 09 never claimed
 which interpreters it ran on — the defect is that nothing did.

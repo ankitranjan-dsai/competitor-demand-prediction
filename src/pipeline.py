@@ -1487,46 +1487,74 @@ def _quote_of(tok: str) -> str | None:
 
 
 def interpreter_floor_scan(repo_root: Path = REPO_ROOT) -> pd.DataFrame:
-    """Sources whose f-strings need a newer interpreter than `PYTHON_FLOOR`.
+    """Sources that need a newer interpreter than `PYTHON_FLOOR`.
 
-    Tokenises every tracked `.py` file and reports each replacement field that
-    reuses a quote character still open around it. Columns: `path`, `line`,
-    `construct`.
+    Columns: `path`, `line`, `construct`. Never imports, so a file that cannot
+    run on this interpreter is still readable.
 
-    Two things this deliberately does not do. It does not import, so a file
-    that cannot run is still readable. And it does not try to be a general
-    version checker — a runtime call to a 3.12-only library function would
-    sail past it. It checks the one class of incompatibility that fails at
-    *parse* time, because that is the one that takes the whole pipeline down
-    with it rather than failing a single stage.
+    **The check has two halves, and which one runs depends on the interpreter
+    you are standing on.** That is not an implementation detail to hide; it is
+    the shape of the problem. CI found this out the hard way: the first version
+    of this function used `token.FSTRING_START`, which 3.12 added along with
+    the syntax it detects, so the check written to catch a version-dependent
+    defect was itself version-dependent and died on the floor it was policing.
+
+    - **Above the floor** (3.12+, where the syntax is legal): tokenise, and
+      report every replacement field that reuses a quote still open around it.
+      Nothing here fails, so a structural scan is the only way to see it.
+    - **At or below the floor** (< 3.12, where the syntax is a `SyntaxError`):
+      `ast.parse` each file and report what will not parse. The interpreter is
+      the check; the scan just collects its verdicts instead of dying on the
+      first one.
+
+    What it does not attempt: a runtime call to a 3.12-only library function
+    sails past both halves. This covers the class that fails at *parse* time,
+    because that is the one that takes the whole pipeline down with it rather
+    than failing a single stage.
     """
+    import ast as _ast
     import token as _token
     import tokenize as _tokenize
 
+    fstring_start = getattr(_token, "FSTRING_START", None)
+    fstring_end = getattr(_token, "FSTRING_END", None)
     rows = []
+
     for path in sorted(repo_root.rglob("*.py")):
         if ".git" in path.parts:
             continue
+        source = path.read_bytes()
+
+        if fstring_start is None:
+            # Below the floor: parsing is the verdict.
+            try:
+                _ast.parse(source, str(path))
+            except SyntaxError as exc:
+                rows.append((path, exc.lineno or 0, exc.msg))
+            continue
+
         try:
             with open(path, "rb") as handle:
                 toks = list(_tokenize.tokenize(handle.readline))
-        except (SyntaxError, _tokenize.TokenError):
-            # Unparseable on *this* interpreter, which the suite reports
-            # elsewhere; the floor scan has nothing to say about it.
+        except (SyntaxError, _tokenize.TokenError) as exc:
+            rows.append((path, getattr(exc, "lineno", 0) or 0,
+                         "does not tokenise"))
             continue
+
         open_quotes: list[str | None] = []
         for tok in toks:
-            if tok.type == _token.FSTRING_START:
+            if tok.type == fstring_start:
                 quote = _quote_of(tok.string)
                 if quote in open_quotes:
                     rows.append((path, tok.start[0], "nested f-string"))
                 open_quotes.append(quote)
-            elif tok.type == _token.FSTRING_END:
+            elif tok.type == fstring_end:
                 if open_quotes:
                     open_quotes.pop()
             elif tok.type == _token.STRING and open_quotes:
                 if _quote_of(tok.string) in open_quotes:
                     rows.append((path, tok.start[0], "nested string"))
+
     return pd.DataFrame(
         [(str(p.relative_to(repo_root)), line, kind) for p, line, kind in rows],
         columns=["path", "line", "construct"],

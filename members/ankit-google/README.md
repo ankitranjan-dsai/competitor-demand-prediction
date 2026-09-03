@@ -121,7 +121,7 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       records, 22 edges — 14 data, 8 sequencing — and **13 rules over 42
       checks**, all passing. Standard in
       `docs/task-11-automated-pipeline-methods.md`; 5 new register tests,
-      **746 in the suite**; 11 tables + 5 figures. It found a defect the repo has carried
+      **747 in the suite**; 11 tables + 5 figures. It found a defect the repo has carried
       since Task 06: **nine committed paths have two writers apiece**, and
       `google_features.parquet` is **848 rows** or **846** depending on which
       ran last — `trends` reads the Task 04 build, everything from Task 06 on

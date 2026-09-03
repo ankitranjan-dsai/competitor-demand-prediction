@@ -783,3 +783,23 @@ def test_ci_installs_the_floor_this_module_declares():
     versions = pl.ci_python_versions()
     assert versions, "the workflow pins no python-version at all"
     assert set(versions) == {floor}
+
+
+def test_the_floor_scan_runs_below_the_floor_as_well(tmp_path, monkeypatch):
+    # The first version of this scan reached for `token.FSTRING_START`, which
+    # 3.12 introduced alongside the syntax it detects — so the check written
+    # to catch a version-dependent defect died on the very interpreter it was
+    # policing. Hiding the constant reproduces a pre-3.12 tokeniser, where
+    # `ast.parse` is the verdict instead.
+    #
+    # Note what this can and cannot assert from up here: on 3.12 the offending
+    # f-string parses, so the fixture has to be a file that is broken on both
+    # sides. The branch is exercised; the version semantics are verified by
+    # running the suite on a real 3.11, which is what CI is for.
+    import token as _token
+    monkeypatch.delattr(_token, "FSTRING_START", raising=False)
+    (tmp_path / "broken.py").write_text("def f(:\n")
+    (tmp_path / "sound.py").write_text("x = 1\n")
+    scan = pl.interpreter_floor_scan(tmp_path)
+    assert list(scan.path) == ["broken.py"]
+    assert list(scan.line) == [1]

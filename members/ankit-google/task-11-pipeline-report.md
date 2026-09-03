@@ -12,7 +12,7 @@ failed on a Python version floor nobody had declared (§6).
 
 - **Method rationale (team standard):** [`docs/task-11-automated-pipeline-methods.md`](../../docs/task-11-automated-pipeline-methods.md)
 - **Code:** [`src/pipeline.py`](../../src/pipeline.py) · [`src/run_pipeline.py`](../../src/run_pipeline.py)
-- **Tests:** [`tests/test_pipeline.py`](../../tests/test_pipeline.py) (94) — **746 passing** in the suite
+- **Tests:** [`tests/test_pipeline.py`](../../tests/test_pipeline.py) (95) — **747 passing** in the suite
 - **Workflow:** [`.github/workflows/pipeline.yml`](../../.github/workflows/pipeline.yml)
 - **Machine-readable report:** [`task-11-pipeline-report.json`](task-11-pipeline-report.json)
 - **Tables:** [`task-11-tables/`](task-11-tables/) · **Figures:** [`task-11-figures/`](task-11-figures/)
@@ -183,7 +183,7 @@ or absent and never as a value.
 | Contested paths | 9 — **0 unordered, 0 unpinned** |
 | Audit | 41 checks, **6 findings**, all standing tensions |
 | Reproducibility | 209 artefacts — **192 identical, 9 volatile-only, 8 changed** |
-| Suite | **746 passing** |
+| Suite | **747 passing** — and 747 on a real Python 3.11 |
 | Interpreter floor | Python **3.11** — every source parses, CI pins match |
 
 The eight changed artefacts were all the Task 10 deck, which is §3. The nine
@@ -234,6 +234,29 @@ worth keeping is that the floor now lives in one place — `PYTHON_FLOOR` in
 
 Both run in the suite, and `python src/run_pipeline.py` prints the verdict
 beside the schedule mode.
+
+**The second run failed too, and this one is the better story.** My first
+`interpreter_floor_scan` reached for `token.FSTRING_START` — a constant Python
+3.12 added *alongside the syntax it detects*. So the check I had just written
+to catch a version-dependent defect was itself version-dependent, and it died
+on 3.11 with `AttributeError` at the same step in the same job. Two runs, two
+failures, one mistake made twice: I wrote code that could only be correct on
+the machine I was sitting at, and then I wrote the detector for it the same
+way.
+
+The scan now has two halves, and which one runs depends on which side of the
+floor you are standing on. Above it, where the syntax is legal and nothing
+fails, tokenising is the only way to see the construct at all. At or below it,
+where the syntax is a `SyntaxError`, the interpreter *is* the check — the scan
+just collects its verdicts instead of dying on the first one. The docstring
+says this in as many words, because a reader who does not know it will
+reasonably assume one implementation is the fallback for the other.
+
+Then I stopped guessing and ran it: `uv run --python 3.11 --with-requirements
+requirements.txt python -m pytest` — **747 passing on a real 3.11**, and the
+scan reports the repository clean there and catches the Task 09 line when it is
+handed back as a fixture. The floor is now a verified claim rather than a
+version string in a YAML file.
 
 This is not a correction, and I considered whether it should be. C1–C10 all
 overturn a claim someone made. Task 09 never claimed which interpreters it ran
