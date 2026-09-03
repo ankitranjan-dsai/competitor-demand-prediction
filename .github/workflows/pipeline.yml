@@ -65,7 +65,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           # `fact_drift` reads `deck-facts.csv` at the pinned Task 10
-          # submission commit, so a shallow clone would lose the C10 evidence.
+          # submission commit, so a shallow clone would lose the drift baseline.
           fetch-depth: 0
 
       - uses: actions/setup-python@v5

@@ -310,7 +310,7 @@ STAGES: tuple[Stage, ...] = (
         volatility="clock_stamped",
         note="Counts the repository, and the repository contains its own "
              "output. Within a run it iterates to a fixpoint; across tasks it "
-             "cannot — see C10.",
+             "cannot — see §8.",
     ),
     Stage(
         name="tests",
@@ -1380,7 +1380,7 @@ def fact_drift(repo_root: Path = REPO_ROOT,
     shipped Task 10; `committed` is the value in git now; `live` is what the
     repository resolves to today. `moved` compares the last two — is the deck
     in git stale? — and `moved_since_submission` compares the first and last,
-    which is the permanent C10 evidence and does not settle when the deck is
+    which is anchored to a commit and so does not settle when the deck is
     rebuilt.
 
     Called *after* the current run has written its own tables and figures,
@@ -1388,7 +1388,7 @@ def fact_drift(repo_root: Path = REPO_ROOT,
     would answer a different question on a first run than on a second, and an
     audit whose answer depends on how many times it has been run is not an
     audit. Task 11's own artefacts moving the deck's counts is not a flaw in
-    the measurement; it is the finding — see C10.
+    the measurement; it is the thing being measured.
 
     Imported lazily: `present` shells out to pytest to count the suite, and a
     module-level import would make every test that touches `pipeline` pay for
@@ -1433,12 +1433,12 @@ def fact_drift(repo_root: Path = REPO_ROOT,
 
 
 def drift_summary(drift: pd.DataFrame) -> dict:
-    """`moved` is the live question; `since_submission` is the C10 record.
+    """`moved` is the live question; `since_submission` is the historical one.
 
     Once the pipeline rebuilds the deck, `moved` goes to zero and stays there —
     that is the mechanism working. `moved_since_submission` does not, because
-    it is measured against a pinned commit, so the evidence for C10 survives
-    every future rebuild.
+    it is measured against a pinned commit, so what the mentor saw stays
+    readable after every future rebuild.
     """
     moved = drift[drift.moved] if len(drift) else drift
     since = drift[drift.moved_since_submission] if len(drift) else drift
@@ -1559,7 +1559,8 @@ FAILURE_MODES = (
      "reports that its output is nonetheless committed."),
     ("fixpoint_stale", "presentation",
      "The deck counts a repository that later tasks keep changing.",
-     "`fact_drift` compares the committed register against the live one. C10."),
+     "`fact_drift` compares the committed register against the live one, so "
+     "the stale key can be named rather than merely detected."),
 )
 
 

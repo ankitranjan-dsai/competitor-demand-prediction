@@ -303,7 +303,7 @@ def figure_drift(drift: pd.DataFrame, path: Path) -> Path:
                 color="white" if row.moved_since_submission else INK)
     moved = int(rows.moved_since_submission.sum())
     ax.set_title(f"Task 10's self-counts, at the submission commit against "
-                 f"live — {moved} of {len(rows)} have moved (C10)",
+                 f"live — {moved} of {len(rows)} have moved since submission",
                  loc="left", fontsize=11, color=INK, pad=10)
     return _save(fig, path)
 
@@ -512,8 +512,9 @@ def main() -> None:
 
     drift = report["fact_drift"]
     if drift["stale"]:
-        print(f"deck facts: {drift['moved']} of {drift['facts']} have moved "
-              f"since Task 10 ({', '.join(drift['keys'])})")
+        print(f"deck facts: {drift['moved']} of {drift['facts']} differ "
+              f"between the committed deck and this repository "
+              f"({', '.join(drift['keys'])}) — rebuild and commit")
     else:
         print(f"deck facts: all {drift['facts']} still match the repository")
 

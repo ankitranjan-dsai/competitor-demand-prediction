@@ -37,8 +37,8 @@ the reason the rules take the shape they do.
   the tables and figures in the workspace, and this task writes eight tables
   and five figures. Measuring drift before those landed gave a first run and a
   second run different answers to the same question. It is measured last, and
-  anchored to a pinned commit so the C10 evidence survives the rebuild that
-  fixes it. ``test_drift_is_anchored_to_a_pinned_commit``.
+  anchored to a pinned commit so what the submission asserted survives the
+  rebuild that fixes it. ``test_drift_is_anchored_to_a_pinned_commit``.
 * **a diff is not a change.** Every JSON report stamps the wall clock, so a
   full rebuild moves bytes in ten files and content in none. A schedule that
   reported that as a change would commit noise until nobody read the diffs.
@@ -666,7 +666,7 @@ def test_the_audit_never_stops_the_build(audit):
 
 
 # ---------------------------------------------------------------------------
-# Fact drift — the C10 evidence
+# Fact drift — three readings of one number
 # ---------------------------------------------------------------------------
 
 
@@ -681,7 +681,7 @@ def test_drift_is_anchored_to_a_pinned_commit(drift):
 
 
 def test_the_submitted_deck_counted_127_tables_and_49_figures(drift):
-    """C10's fixed record: what the Task 10 submission asserted."""
+    """The fixed record: what the Task 10 submission asserted."""
     indexed = drift.set_index("key")
     assert indexed.loc["tables_committed", "submitted"] == "127"
     assert indexed.loc["figures_committed", "submitted"] == "49"
@@ -689,7 +689,7 @@ def test_the_submitted_deck_counted_127_tables_and_49_figures(drift):
 
 
 def test_task_11_moved_the_decks_self_counts(drift):
-    """The C10 claim itself: adding a task moves numbers the deck asserts."""
+    """Adding a task moves numbers the deck asserts about the repository."""
     summary = pl.drift_summary(drift)
     assert summary["moved_since_submission"] >= 2
     assert {"tables_committed", "figures_committed"} <= set(
