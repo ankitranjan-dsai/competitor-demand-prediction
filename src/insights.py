@@ -1493,7 +1493,7 @@ def candidates_volume(root: Path = DEFAULT_MEMBER, focus: str = "google"):
             measures="posting volume, 2023, four panel treatments",
             text=(f"{company.title()}'s 2023 posting volume reads as "
                   f"{row.direction}, and the four panel treatments spread "
-                  f"{_fmt(_cell(row, "spread"))} index points around it"),
+                  f"{_fmt(_cell(row, 'spread'))} index points around it"),
             citation=f"task-06-tables/volume-verdict.csv#spread@company={company}",
             value=_cell(row, "spread"),
             verdict_source=("volume_treatments:task-06-tables/volume-verdict."
@@ -1708,9 +1708,9 @@ def candidates_distinctiveness(root: Path = DEFAULT_MEMBER,
             subject=f"{focus}:{skill}",
             measures="share of skilled postings against the other five "
                      "companies pooled",
-            text=(f"{focus.title()} asks for {skill} in {_pct(_cell(row, "share"))} of "
-                  f"its skilled postings against {_pct(_cell(row, "rest_share"))} across "
-                  f"the other five, a difference of {_fmt(_cell(row, "diff"), 4)}"),
+            text=(f"{focus.title()} asks for {skill} in {_pct(_cell(row, 'share'))} of "
+                  f"its skilled postings against {_pct(_cell(row, 'rest_share'))} across "
+                  f"the other five, a difference of {_fmt(_cell(row, 'diff'), 4)}"),
             citation=(f"task-06-tables/skill-distinctiveness-{focus}.csv"
                       f"#diff@skill={skill}"),
             value=_cell(row, "diff"),

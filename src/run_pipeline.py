@@ -510,6 +510,16 @@ def main() -> None:
     sources = report["sources"]
     print(f"schedule mode: {sources['mode']} — {sources['reason']}")
 
+    floor = ".".join(str(part) for part in pl.PYTHON_FLOOR)
+    scan = pl.interpreter_floor_scan()
+    if len(scan):
+        print(f"interpreter floor: {len(scan)} line(s) need newer syntax "
+              f"than Python {floor}, which is what CI installs")
+        for row in scan.itertuples():
+            print(f"  ! {row.path}:{row.line} — {row.construct}")
+    else:
+        print(f"interpreter floor: every source parses on Python {floor}")
+
     drift = report["fact_drift"]
     if drift["stale"]:
         print(f"deck facts: {drift['moved']} of {drift['facts']} differ "

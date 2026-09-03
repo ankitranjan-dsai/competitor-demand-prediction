@@ -739,3 +739,47 @@ def test_every_failure_mode_names_what_the_pipeline_does():
     modes = pl.failure_mode_table()
     assert modes.what_the_pipeline_does.str.strip().ne("").all()
     assert "cache_absent" in set(modes["mode"])
+
+
+# ---------------------------------------------------------------------------
+# The interpreter floor
+# ---------------------------------------------------------------------------
+
+
+def test_no_source_needs_syntax_the_floor_does_not_have():
+    scan = pl.interpreter_floor_scan()
+    assert scan.empty, scan.to_string(index=False)
+
+
+def test_the_floor_scan_catches_the_line_that_broke_ci(tmp_path):
+    # The shape of the four Task 09 lines, reduced to one: a double-quoted
+    # subscript inside a double-quoted f-string. Legal from 3.12, a
+    # SyntaxError on 3.11, and invisible to anything that only runs the code.
+    (tmp_path / "offender.py").write_text(
+        'row = {"spread": 1}\n'
+        'text = f"{row["spread"]} index points"\n'
+    )
+    scan = pl.interpreter_floor_scan(tmp_path)
+    assert list(scan.path) == ["offender.py"]
+    assert list(scan.line) == [2]
+
+
+def test_the_floor_scan_leaves_alternating_quotes_alone():
+    # The fix, not a suppression: the same expression with the inner quotes
+    # switched is legal all the way back, and must not be reported.
+    assert pl.interpreter_floor_scan.__doc__  # the rule is documented
+    from tempfile import TemporaryDirectory
+    with TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        (root / "fixed.py").write_text(
+            'row = {"spread": 1}\n'
+            'text = f"{row[\'spread\']} index points"\n'
+        )
+        assert pl.interpreter_floor_scan(root).empty
+
+
+def test_ci_installs_the_floor_this_module_declares():
+    floor = ".".join(str(part) for part in pl.PYTHON_FLOOR)
+    versions = pl.ci_python_versions()
+    assert versions, "the workflow pins no python-version at all"
+    assert set(versions) == {floor}

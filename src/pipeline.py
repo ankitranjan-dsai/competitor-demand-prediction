@@ -1454,7 +1454,95 @@ def drift_summary(drift: pd.DataFrame) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# H. The run ledger
+# H. The interpreter floor — syntax a CI runner may not have
+# ---------------------------------------------------------------------------
+#
+# The pipeline's first CI run failed before it linted anything: `insights.py`
+# would not parse. Four lines written during Task 09 reuse the enclosing
+# quote inside an f-string replacement field, which PEP 701 legalised in
+# Python 3.12 and which is a SyntaxError on 3.11.
+#
+# Nothing in the repository was wrong on the machine it was written on, and
+# nothing ever will be — that is the whole difficulty. A version floor is
+# invisible to every run that happens to satisfy it, so it is not discovered
+# by running the code. It is discovered by running the code somewhere else,
+# and until this task there was nowhere else.
+#
+# The scan below never imports, so it answers on the interpreter that is too
+# new as well as the one that is too old: a developer on 3.12 is told that
+# four lines will not run on 3.11 *before* pushing, instead of after.
+
+#: The oldest interpreter the workflows install, and therefore the oldest one
+#: this repository claims to run on. `.github/workflows/pipeline.yml` pins the
+#: same string in both jobs; `test_ci_installs_the_floor_this_module_declares`
+#: keeps the two from drifting apart.
+PYTHON_FLOOR = (3, 11)
+
+
+def _quote_of(tok: str) -> str | None:
+    for ch in tok:
+        if ch in "'\"":
+            return ch
+    return None
+
+
+def interpreter_floor_scan(repo_root: Path = REPO_ROOT) -> pd.DataFrame:
+    """Sources whose f-strings need a newer interpreter than `PYTHON_FLOOR`.
+
+    Tokenises every tracked `.py` file and reports each replacement field that
+    reuses a quote character still open around it. Columns: `path`, `line`,
+    `construct`.
+
+    Two things this deliberately does not do. It does not import, so a file
+    that cannot run is still readable. And it does not try to be a general
+    version checker — a runtime call to a 3.12-only library function would
+    sail past it. It checks the one class of incompatibility that fails at
+    *parse* time, because that is the one that takes the whole pipeline down
+    with it rather than failing a single stage.
+    """
+    import token as _token
+    import tokenize as _tokenize
+
+    rows = []
+    for path in sorted(repo_root.rglob("*.py")):
+        if ".git" in path.parts:
+            continue
+        try:
+            with open(path, "rb") as handle:
+                toks = list(_tokenize.tokenize(handle.readline))
+        except (SyntaxError, _tokenize.TokenError):
+            # Unparseable on *this* interpreter, which the suite reports
+            # elsewhere; the floor scan has nothing to say about it.
+            continue
+        open_quotes: list[str | None] = []
+        for tok in toks:
+            if tok.type == _token.FSTRING_START:
+                quote = _quote_of(tok.string)
+                if quote in open_quotes:
+                    rows.append((path, tok.start[0], "nested f-string"))
+                open_quotes.append(quote)
+            elif tok.type == _token.FSTRING_END:
+                if open_quotes:
+                    open_quotes.pop()
+            elif tok.type == _token.STRING and open_quotes:
+                if _quote_of(tok.string) in open_quotes:
+                    rows.append((path, tok.start[0], "nested string"))
+    return pd.DataFrame(
+        [(str(p.relative_to(repo_root)), line, kind) for p, line, kind in rows],
+        columns=["path", "line", "construct"],
+    )
+
+
+def ci_python_versions(repo_root: Path = REPO_ROOT) -> list[str]:
+    """Every `python-version:` the pipeline workflow pins, in file order."""
+    workflow = repo_root / ".github" / "workflows" / "pipeline.yml"
+    if not workflow.is_file():
+        return []
+    return re.findall(r'python-version:\s*"([^"]+)"', workflow.read_text())
+
+
+# ---------------------------------------------------------------------------
+# I. The run ledger
 # ---------------------------------------------------------------------------
 
 RUN_STATUSES = ("ok", "failed", "blocked", "skipped")
