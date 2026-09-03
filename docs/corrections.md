@@ -26,6 +26,7 @@ acted on exactly like a wrong number.
 | [C7](#c7--task-08-is-company-similarity-scoring-not-visualisation-and-not-evaluation) | Task 08 is "Visualisation" / "Evaluation", and inherits a skill-level significance baseline | Task 06 §11 (methods), Task 06 §11 (Google) | Task 08 §1, README task table | ✅ corrected |
 | [C8](#c8--a-unanimity-count-is-not-a-robustness-statistic-when-the-number-of-tests-moves-with-the-threshold) | NVIDIA's 6/6 publisher agreement is "the single cross-company volume finding … not qualified into uselessness" | Task 06 §2 (methods), Task 06 §3 (Google) | Task 09 §8 | ✅ corrected |
 | [C9](#c9--a-deck-is-checkable-the-delivery-is-what-is-not) | Task 10 "is the first task in this project whose output is not checkable by a test" | Task 09 §13 (Google) | Task 10 §1, §4 | ✅ corrected |
+| [C10](#c10--fixing-the-seed-does-not-fix-the-input) | Fixed seeds mean "the committed tables rebuild bit-for-bit" | Task 08 §2 (methods) | Task 11 §4 | ✅ corrected |
 
 ---
 
@@ -589,6 +590,85 @@ against `members/ankit-google/task-09-insight-report.md` §13.
 
 ---
 
+## C10 — Fixing the seed does not fix the input
+
+**What Task 08 said.** [`docs/task-08-company-similarity-methods.md`](task-08-company-similarity-methods.md)
+§2, third of the decisions declared before the ranking was read:
+
+> 3. `N_BOOTSTRAP = 600`, `N_NULL = 300`, `SEED = 20260818` — fixed, so the
+>    committed tables rebuild bit-for-bit.
+
+**What is actually true.** The seed fixes the resampling. It says nothing about
+the frame being resampled, and that frame is not fixed by anything Task 08
+declares. `data/processed/google/google_features.parquet` has **two** writers:
+
+- [`src/build_features.py`](../src/build_features.py) writes **848** rows —
+  every posting whose employer string matched the Google family at Task 02.
+- [`src/build_competitor_set.py`](../src/build_competitor_set.py) writes
+  **846** — the same frame after the employer audit that raised
+  [C4](#c4--googles-posting-count-is-846-not-848).
+
+Both are correct, and the register already says so. What nothing said until
+this task is **which one Task 08 reads** — and the answer is not a property of
+Task 08. It is a property of the order the two writers happen to run in, and
+that order lived nowhere: not in a Makefile, not in a README, not in an import.
+Run `build_competitor_set.py` before `build_features.py` and every Task 08
+table rebuilds from 848 rows, with the same seed, and nothing fails. Nothing is
+missing, nothing is malformed, no assertion fires. The numbers are simply the
+other set.
+
+[`pipeline-contested-artefacts.csv`](../members/ankit-google/task-11-tables/pipeline-contested-artefacts.csv)
+counts the exposure: **nine** committed paths have two writers apiece — five
+processed Google frames and four Task 06 tables — and **41** stage-reads land
+on one of them. For each, the table names the writer whose version the reader
+actually sees. The row that matters:
+
+| Path | Writers | `trends` sees | `similarity` sees |
+| --- | --- | --- | --- |
+| `google_features.parquet` | `features`, `competitor-set` | `features` (848) | `competitor-set` (846) |
+
+That is C4's arithmetic restated as a scheduling constraint, and it is why Task
+05 reporting 848 and Task 08 reporting 846 is coherent rather than
+contradictory: they read the same path at different times. The repository
+reproduces only under the interleaving `features` → `trends` →
+`competitor-set` → `similarity`, and until this task nothing anywhere required
+it.
+
+**What this does not change.** No published number. Every table and figure in
+Tasks 05–10 was produced under the correct interleaving and stands; C4 is
+untouched, and so is the seed, which does exactly what §2 item 3 says once the
+input is pinned. This is a correction to the *scope* of a reproducibility
+claim, not to a result.
+
+It also does not make the two writers a defect. One frame before the employer
+audit and one after is the right design — C4 exists because the audit found
+something. What was wrong was leaving the order implicit.
+
+**Consequence.** `Stage.after` and two lint rules, because this failure mode
+has no symptom. `contested_writes_ordered` requires every pair of writers of
+one path to be ancestrally ordered, so exactly one wins by declaration.
+`contested_reads_pinned` requires every reader to sit on one side or the other
+of every writer, so no stage can land in an order-dependent position. Neither
+rule existed when this registry was first written — and that first version put
+`competitor-set` ahead of `trends`, which silently reversed C4 across the whole
+downstream repository and failed nothing.
+
+The same gap sits in weaker form in
+[`docs/task-06-competitor-comparison-methods.md`](task-06-competitor-comparison-methods.md)
+§8: "any reviewer can rebuild every published number from this repo without
+matching a solver version." True about the solver, which is what the sentence
+is about; not sufficient for the rebuild, which is what it promises.
+
+Task 08's methods doc keeps its wording, marked in place.
+
+Evidence: [`pipeline-contested-artefacts.csv`](../members/ankit-google/task-11-tables/pipeline-contested-artefacts.csv),
+[`pipeline-lint.csv`](../members/ankit-google/task-11-tables/pipeline-lint.csv),
+`contested_artefacts` and `lint_dag` in [`src/pipeline.py`](../src/pipeline.py),
+[`tests/test_pipeline.py`](../tests/test_pipeline.py), against
+`docs/task-08-company-similarity-methods.md` §2.
+
+---
+
 ## What every specialist should take from this
 
 The first three corrections are the same mistake in three costumes: **a number
@@ -618,6 +698,22 @@ brief. So:
 8. If it says something cannot be checked, does it say **which property** is
    unobservable? "A deck is a performance" is true of the delivery and false
    of the file. → C9
+
+C10 is a third kind, and it is the one the earlier nine would never have
+caught, because it is not about whether a number is right. It is about **when**
+it is right. A seed pins one half of a computation — the resampling — and
+leaves the other half, the frame being resampled, to whichever writer ran last.
+A claim that quietly promises both halves fails without a symptom: the rebuild
+completes, every file is well-formed, no assertion fires, and the numbers are
+the ones from some other interleaving. So:
+
+9.  Does anything else write the file you are about to read? A seed pins the
+    sampling, not the sample, and a path with two writers has no content of its
+    own until something fixes the order. → C10
+
+[`src/pipeline.py`](../src/pipeline.py) has a function for the last one —
+`contested_artefacts` — and `python src/run_pipeline.py` runs it without
+executing a stage.
 
 `src/trends.py` has a function for each of the first three —
 `publisher_panel_table` / `panel_verdict`, `stratified_verdict`, and

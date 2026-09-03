@@ -115,6 +115,18 @@ choices is large enough to reach almost any headline:
 4. Every sensitivity in §6 is **published**, not applied. None of them
    filters the primary table.
 
+> **Corrected by Task 11 —
+> [C10](corrections.md#c10--fixing-the-seed-does-not-fix-the-input).**
+> Item 3 pins the resampling and not the frame being resampled.
+> `data/processed/google/google_features.parquet` has two writers —
+> `build_features.py` (848 rows) and `build_competitor_set.py` (846, after the
+> C4 employer audit) — so which of them Task 08 reads is a property of the run
+> order, not of this module. The committed tables rebuild bit-for-bit under the
+> interleaving `features` → `trends` → `competitor-set` → `similarity`, and
+> under any other they rebuild cleanly from the other frame. `Stage.after` and
+> the two `contested_*` rules in `src/pipeline.py` now require that order; the
+> seed, and every number in this document, are unaffected.
+
 The last rule is the one that costs something. Vendor self-reference (§6.1)
 looks like contamination, and dropping it would produce a cleaner story. It is
 published as a sensitivity because "Snowflake postings ask for Snowflake" is a
