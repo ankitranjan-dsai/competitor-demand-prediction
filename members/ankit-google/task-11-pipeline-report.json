@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-03T01:25:21+00:00",
-  "mode": "check",
+  "generated_at": "2026-09-03T01:28:01+00:00",
+  "mode": "run",
   "focus": "google",
   "stages_declared": 16,
   "stages_planned": [
@@ -61,13 +61,9 @@
   },
   "fact_drift": {
     "facts": 18,
-    "moved": 3,
-    "keys": [
-      "tests_total",
-      "tasks_total",
-      "corrections_total"
-    ],
-    "stale": true,
+    "moved": 0,
+    "keys": [],
+    "stale": false,
     "submission_ref": "24cb4dc",
     "moved_since_submission": 5,
     "keys_since_submission": [
@@ -79,13 +75,15 @@
     ]
   },
   "run": {
-    "state": "not_run",
-    "stages_run": 0,
+    "state": "drifted",
+    "stages_run": 11,
     "failed": [],
     "blocked": [],
-    "artefacts_changed": 0,
-    "artefacts_volatile_only": 0,
-    "changed_paths": []
+    "artefacts_changed": 1,
+    "artefacts_volatile_only": 10,
+    "changed_paths": [
+      "members/ankit-google/task-10-tables/workspace-audit.csv"
+    ]
   },
   "tables": [
     "deck-fact-drift.csv",
@@ -95,6 +93,8 @@
     "pipeline-failure-modes.csv",
     "pipeline-lint.csv",
     "pipeline-stages.csv",
+    "reproducibility-audit.csv",
+    "run-ledger.csv",
     "schedule-rationale.csv",
     "source-refreshability.csv"
   ],
@@ -102,6 +102,7 @@
     "deck-fact-drift.png",
     "pipeline-checks.png",
     "pipeline-dag.png",
+    "pipeline-run.png",
     "source-refreshability.png"
   ]
 }

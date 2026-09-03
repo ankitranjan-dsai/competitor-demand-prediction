@@ -172,20 +172,20 @@ members/ankit-google/task-09-tables/strategy-position.csv,identical,byte for byt
 members/ankit-google/task-09-tables/unanimity-verdict.csv,identical,byte for byte
 members/ankit-google/task-10-figures/01-deck-provenance.png,identical,byte for byte
 members/ankit-google/task-10-figures/02-answer-shape.png,identical,byte for byte
-members/ankit-google/task-10-figures/03-workspace-audit.png,changed,content differs
+members/ankit-google/task-10-figures/03-workspace-audit.png,identical,byte for byte
 members/ankit-google/task-10-figures/04-ledger-coverage.png,identical,byte for byte
 members/ankit-google/task-10-figures/05-slide-density.png,identical,byte for byte
 members/ankit-google/task-10-figures/06-refusal-coverage.png,identical,byte for byte
-members/ankit-google/task-10-figures/07-suite-growth.png,changed,content differs
+members/ankit-google/task-10-figures/07-suite-growth.png,identical,byte for byte
 members/ankit-google/task-10-figures/08-section-order.png,identical,byte for byte
-members/ankit-google/task-10-presentation-report.json,changed,content differs
-members/ankit-google/task-10-slides.md,changed,content differs
-members/ankit-google/task-10-tables/deck-bullets.csv,changed,content differs
-members/ankit-google/task-10-tables/deck-facts.csv,changed,content differs
+members/ankit-google/task-10-presentation-report.json,volatile_only,bytes moved; content did not
+members/ankit-google/task-10-slides.md,identical,byte for byte
+members/ankit-google/task-10-tables/deck-bullets.csv,identical,byte for byte
+members/ankit-google/task-10-tables/deck-facts.csv,identical,byte for byte
 members/ankit-google/task-10-tables/deck-lint.csv,identical,byte for byte
 members/ankit-google/task-10-tables/deck-sections.csv,identical,byte for byte
 members/ankit-google/task-10-tables/deck-slides.csv,identical,byte for byte
-members/ankit-google/task-10-tables/mentor-qa.csv,changed,content differs
+members/ankit-google/task-10-tables/mentor-qa.csv,identical,byte for byte
 members/ankit-google/task-10-tables/qa-lint.csv,identical,byte for byte
 members/ankit-google/task-10-tables/qa-shape.csv,identical,byte for byte
 members/ankit-google/task-10-tables/refusal-coverage.csv,identical,byte for byte
