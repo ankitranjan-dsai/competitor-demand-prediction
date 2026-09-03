@@ -5,4 +5,4 @@ credentials_absent,collect,No Adzuna keys in the environment.,"Backfill-only, wh
 dependency_drift,any,A pandas or numpy release changes a default under unchanged code.,"The weekly verify run reports `drifted` with the artefact list. This is the only thing the schedule can find on a frozen source, and it is why the schedule exists."
 clock_noise,any stage writing JSON,"Every report carries the wall clock, so bytes always move.","Stable digests strip the registered clock keys, so the run reports `volatile_only` instead of committing ten meaningless lines."
 rolling_feed,validate-text,A live public feed returns different postings every call.,Declared `source_volatile` and kept out of the schedule; the audit reports that its output is nonetheless committed.
-fixpoint_stale,presentation,The deck counts a repository that later tasks keep changing.,`fact_drift` compares the committed register against the live one. C10.
+fixpoint_stale,presentation,The deck counts a repository that later tasks keep changing.,"`fact_drift` compares the committed register against the live one, so the stale key can be named rather than merely detected."

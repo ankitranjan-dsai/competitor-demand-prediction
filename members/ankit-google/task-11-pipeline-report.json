@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-03T01:01:03+00:00",
-  "mode": "run",
+  "generated_at": "2026-09-03T01:25:21+00:00",
+  "mode": "check",
   "focus": "google",
   "stages_declared": 16,
   "stages_planned": [
@@ -64,37 +64,28 @@
     "moved": 3,
     "keys": [
       "tests_total",
-      "tables_committed",
-      "figures_committed"
+      "tasks_total",
+      "corrections_total"
     ],
     "stale": true,
     "submission_ref": "24cb4dc",
-    "moved_since_submission": 3,
+    "moved_since_submission": 5,
     "keys_since_submission": [
       "tests_total",
+      "tasks_total",
+      "corrections_total",
       "tables_committed",
       "figures_committed"
     ]
   },
   "run": {
-    "state": "failed",
-    "stages_run": 11,
-    "failed": [
-      "tests"
-    ],
+    "state": "not_run",
+    "stages_run": 0,
+    "failed": [],
     "blocked": [],
-    "artefacts_changed": 8,
-    "artefacts_volatile_only": 9,
-    "changed_paths": [
-      "members/ankit-google/task-10-figures/03-workspace-audit.png",
-      "members/ankit-google/task-10-figures/07-suite-growth.png",
-      "members/ankit-google/task-10-presentation-report.json",
-      "members/ankit-google/task-10-slides.md",
-      "members/ankit-google/task-10-tables/deck-bullets.csv",
-      "members/ankit-google/task-10-tables/deck-facts.csv",
-      "members/ankit-google/task-10-tables/mentor-qa.csv",
-      "members/ankit-google/task-10-tables/workspace-audit.csv"
-    ]
+    "artefacts_changed": 0,
+    "artefacts_volatile_only": 0,
+    "changed_paths": []
   },
   "tables": [
     "deck-fact-drift.csv",
@@ -104,8 +95,6 @@
     "pipeline-failure-modes.csv",
     "pipeline-lint.csv",
     "pipeline-stages.csv",
-    "reproducibility-audit.csv",
-    "run-ledger.csv",
     "schedule-rationale.csv",
     "source-refreshability.csv"
   ],
@@ -113,7 +102,6 @@
     "deck-fact-drift.png",
     "pipeline-checks.png",
     "pipeline-dag.png",
-    "pipeline-run.png",
     "source-refreshability.png"
   ]
 }

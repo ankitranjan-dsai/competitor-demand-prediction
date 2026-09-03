@@ -17,7 +17,7 @@ The slot order is the team standard in [`docs/task-10-final-presentation-methods
 
 - Ankit Ranjan — specialist for Google, one of four company seats feeding one shared model.
 - Google: 846 postings, 95 publishers, 12 months of 2023.
-- 10 tasks, 138 committed tables, 54 figures, 737 tests.
+- 12 tasks, 138 committed tables, 54 figures, 742 tests.
 
 **Notes.** Open on the constraint, not the result: this is a single year from a single aggregator, and that decides what the rest of the talk is allowed to claim.
 
@@ -231,7 +231,7 @@ Evidence: [`task-06-tables/company-feasibility-screen.csv`](task-06-tables/compa
 
 *Section: `corrections`  ·  **mandatory in every deck***
 
-- 9 corrections are on the record, and each one is checked against the committed table it cites.
+- 10 corrections are on the record, and each one is checked against the committed table it cites.
 - A submitted task is never silently rewritten. The original wording stays and gains a pointer to the register.
 - Almost all of them have one shape: a sentence outran the table under it.
 
@@ -247,7 +247,7 @@ Evidence: [`docs/corrections.md`](../../docs/corrections.md)
 
 *Section: `quality`  ·  **mandatory in every deck***
 
-- 737 tests, including one for every registered correction, so the prose cannot drift from a rebuild.
+- 742 tests, including one for every registered correction, so the prose cannot drift from a rebuild.
 - Core modules import no scipy: the statistics are hand-rolled and cross-checked against scipy in separate validation scripts, so a reviewer can rebuild without matching a solver version.
 - This deck is linted too — every figure on a slide resolves to a claim that passed the gates or to a repository fact recomputed at build time.
 
@@ -261,7 +261,7 @@ Evidence: [`docs/corrections.md`](../../docs/corrections.md)
 
 *Section: `workspace`*
 
-- 138 committed tables and 54 figures across 10 tasks, with row-level data git-ignored throughout.
+- 138 committed tables and 54 figures across 12 tasks, with row-level data git-ignored throughout.
 - Shared, company-agnostic code sits in the top-level source folder; each specialist's outputs sit in their own member folder.
 - Three seats are open. The comparison set they inherit was written by one person and is published as an auditable table they are invited to overrule.
 
@@ -366,7 +366,7 @@ Answers are bound the same way bullets are. A question with no bound answer is a
 **q-simpsons** (slide 15) — *Has any of your own headlines been wrong?*
 
 - Demand for Looker at Google is falling inside every one of the 3 job functions tested, while the pooled share across them runs the other way, 0.0920 to 0.1382 of skilled postings — a Simpson's reversal, and the within-function direction is the identified one — share of skilled postings, never of all postings; the pooled figure disagrees with the within-function direction and does not overrule it `[skilltrend-looker]`
-- Yes — 9 times, and each one is on the record with the table that overturned it.
+- Yes — 10 times, and each one is on the record with the table that overturned it.
 - This one reversed inside every job function while the pooled figure ran the other way. The within-function direction is the identified one.
 
 **q-sample** (slide 4) — *Is that enough postings to say anything?*
@@ -402,7 +402,7 @@ Answers are bound the same way bullets are. A question with no bound answer is a
 
 **q-reproduce** (slide 16) — *Could someone else rebuild this?*
 
-- Yes — 737 tests, 138 committed tables and 54 figures, and the core modules import no solver library.
+- Yes — 742 tests, 138 committed tables and 54 figures, and the core modules import no solver library.
 - The statistics are hand-rolled and cross-checked against a library in separate validation scripts, so a rebuild does not depend on matching a version.
 
 **q-next** (slide 18) — *What is the single change that would help most?*
