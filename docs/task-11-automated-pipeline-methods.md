@@ -21,7 +21,7 @@ of this task is not that the pipeline runs — it is what the rules found when
 they were pointed at ten tasks of accumulated practice.
 
 - **Code:** [`src/pipeline.py`](../src/pipeline.py) · [`src/run_pipeline.py`](../src/run_pipeline.py)
-- **Tests:** [`tests/test_pipeline.py`](../tests/test_pipeline.py) (90; 742 in the suite)
+- **Tests:** [`tests/test_pipeline.py`](../tests/test_pipeline.py) (94; 746 in the suite)
 - **Workflow:** [`.github/workflows/pipeline.yml`](../.github/workflows/pipeline.yml)
 - **Google findings:** [`members/ankit-google/task-11-pipeline-report.md`](../members/ankit-google/task-11-pipeline-report.md)
 - **What this task overturned:** [`docs/corrections.md`](corrections.md) —
@@ -359,6 +359,31 @@ commits.
 
 `PYTHONHASHSEED: "0"` and `fetch-depth: 0`, the latter because §8's `committed`
 column needs history a shallow clone does not have.
+
+**What the first CI run found, and it was not the DAG.** `check` failed before
+it linted anything: `src/insights.py` would not parse. Four lines written in
+Task 09 reuse the enclosing quote inside an f-string replacement field —
+`f"{_cell(row, "spread")}"` — which [PEP 701] legalised in Python 3.12 and
+which is a `SyntaxError` on the 3.11 the workflow installs. Every local run had
+passed, every test had passed, and the suite had grown past seven hundred tests
+without one of them noticing, because the machine the code was written on
+satisfies a floor nobody had written down.
+
+That is the general shape of the thing: **a version floor is invisible to every
+run that meets it.** It is not found by running the code more times; it is
+found by running it somewhere else, and until this task there was nowhere else.
+The four lines are fixed by alternating the quotes, and the floor is now
+declared in one place, `pipeline.PYTHON_FLOOR`, with two rules over it —
+`interpreter_floor_scan` tokenises every source *without importing it*, so a
+developer on 3.12 is told the code will not run on 3.11 before pushing rather
+than after, and `ci_python_versions` keeps the workflow's two pins equal to the
+declared floor. `python src/run_pipeline.py` prints the verdict next to the
+schedule mode.
+
+This is not a register entry. C1–C10 correct claims, and Task 09 never claimed
+which interpreters it ran on — the defect is that nothing did.
+
+[PEP 701]: https://peps.python.org/pep-0701/
 
 ---
 

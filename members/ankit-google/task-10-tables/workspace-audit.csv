@@ -31,8 +31,8 @@ readme,task_row_backed,task 11,pass,✅ with 2 deliverable(s) on disk
 readme,task_row_path,docs/task-11-automated-pipeline-methods.md,pass,path quoted in the task table
 readme,task_row_path,members/ankit-google/task-11-pipeline-report.md,pass,path quoted in the task table
 readme,task_row_backed,task 12,pass,⬜ with 0 deliverable(s) on disk
-readme,suite_size_current,task 11,pass,"quotes 742 tests, and the suite collects 742"
-docs,link_resolves,412 relative links,pass,412 of 412 resolve
+readme,suite_size_current,task 11,pass,"quotes 746 tests, and the suite collects 746"
+docs,link_resolves,413 relative links,pass,413 of 413 resolve
 members,member_readme,ankit-google,pass,a member folder carries its own README
 folders,working_dir_used,notebooks,pass,2 file(s) beyond the placeholder
 folders,working_dir_used,weekly-reports,pass,6 file(s) beyond the placeholder

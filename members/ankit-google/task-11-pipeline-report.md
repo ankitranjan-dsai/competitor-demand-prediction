@@ -5,12 +5,14 @@
 Input: ten tasks of scripts that had only ever been run by hand, in an order
 nobody had written down. Output: a **sixteen-stage registry** those scripts are
 derived from, **13 rules over 42 checks** that run before anything executes,
-and **one correction** — a latent defect that had been in this repository since
-Task 06 and would have silently reversed C4 across every downstream table.
+**one correction** — a latent defect that had been in this repository since
+Task 06 and would have silently reversed C4 across every downstream table — and
+the first run this code has ever had on a machine that is not mine, which
+failed on a Python version floor nobody had declared (§6).
 
 - **Method rationale (team standard):** [`docs/task-11-automated-pipeline-methods.md`](../../docs/task-11-automated-pipeline-methods.md)
 - **Code:** [`src/pipeline.py`](../../src/pipeline.py) · [`src/run_pipeline.py`](../../src/run_pipeline.py)
-- **Tests:** [`tests/test_pipeline.py`](../../tests/test_pipeline.py) (90) — **742 passing** in the suite
+- **Tests:** [`tests/test_pipeline.py`](../../tests/test_pipeline.py) (94) — **746 passing** in the suite
 - **Workflow:** [`.github/workflows/pipeline.yml`](../../.github/workflows/pipeline.yml)
 - **Machine-readable report:** [`task-11-pipeline-report.json`](task-11-pipeline-report.json)
 - **Tables:** [`task-11-tables/`](task-11-tables/) · **Figures:** [`task-11-figures/`](task-11-figures/)
@@ -181,7 +183,8 @@ or absent and never as a value.
 | Contested paths | 9 — **0 unordered, 0 unpinned** |
 | Audit | 41 checks, **6 findings**, all standing tensions |
 | Reproducibility | 209 artefacts — **192 identical, 9 volatile-only, 8 changed** |
-| Suite | **742 passing** |
+| Suite | **746 passing** |
+| Interpreter floor | Python **3.11** — every source parses, CI pins match |
 
 The eight changed artefacts were all the Task 10 deck, which is §3. The nine
 volatile-only moved a timestamp and no content — `stable_digest` strips the
@@ -194,7 +197,55 @@ resolving by deleting the check.
 
 ---
 
-## 6. What I would tell the next specialist
+## 6. The floor nobody declared
+
+The workflow's first real run failed, and not on anything this task wrote.
+`check` never reached the linter: `src/insights.py` would not parse on the
+runner. Four lines from Task 09 put a double-quoted subscript inside a
+double-quoted f-string —
+
+```python
+f"{_fmt(_cell(row, "spread"))} index points around it"
+```
+
+— which is legal from Python 3.12 and a `SyntaxError` on 3.11, the version the
+workflow installs. My machine runs 3.12.7, so the four lines had been correct
+every single time anyone looked at them.
+
+I want to be precise about what was wrong here, because the obvious reading is
+that I picked the wrong version in the workflow. The repository declares no
+Python version anywhere — no `requires-python`, no `setup.py`, no note in the
+README. The workflow was the first file in ten tasks to name one, and naming
+one is what turned an unstated assumption into a testable claim. **The defect
+was the silence, not the number.** Any teammate installing 3.11 would have hit
+an unreadable `SyntaxError` on import, and nothing in the repository would have
+told them why.
+
+The fix is four alternated quote characters, which is not interesting. What is
+worth keeping is that the floor now lives in one place — `PYTHON_FLOOR` in
+[`src/pipeline.py`](../../src/pipeline.py) — with two rules over it:
+
+- `interpreter_floor_scan` tokenises every `.py` file **without importing it**,
+  so it answers on the interpreter that is too new as well as the one that is
+  too old. On 3.12 it says the four lines will not run on 3.11 *before* the
+  push, which is the only version of this warning that is any use.
+- `ci_python_versions` reads the workflow's pins back and requires them to
+  equal the declared floor, so the two cannot drift.
+
+Both run in the suite, and `python src/run_pipeline.py` prints the verdict
+beside the schedule mode.
+
+This is not a correction, and I considered whether it should be. C1–C10 all
+overturn a claim someone made. Task 09 never claimed which interpreters it ran
+on — the register has nothing to correct, because nothing was ever asserted.
+That is exactly why ten tasks of tests could not catch it: **a test can check a
+claim, and this was an absence of one.** The only instrument that finds an
+unstated environment assumption is a second environment, and this task is the
+first time this repository has ever had one.
+
+---
+
+## 7. What I would tell the next specialist
 
 **Automating a working repository is not bookkeeping.** The order in which
 things run is a claim, and it is the one claim ten tasks of tests never made.
@@ -215,7 +266,7 @@ Three things generalise:
 
 ---
 
-## 7. Limitations
+## 8. Limitations
 
 1. **The registry is transcribed from prose, and prose was already wrong once.**
    Nothing checks `reads`/`writes` against what a script actually opens at
@@ -233,7 +284,7 @@ Three things generalise:
 
 ---
 
-## 8. Handover
+## 9. Handover
 
 Task 12 is the other optional extension — a fine-tuned skill extractor. Read
 the brief before this section

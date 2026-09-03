@@ -17,7 +17,7 @@ The slot order is the team standard in [`docs/task-10-final-presentation-methods
 
 - Ankit Ranjan — specialist for Google, one of four company seats feeding one shared model.
 - Google: 846 postings, 95 publishers, 12 months of 2023.
-- 12 tasks, 138 committed tables, 54 figures, 742 tests.
+- 12 tasks, 138 committed tables, 54 figures, 746 tests.
 
 **Notes.** Open on the constraint, not the result: this is a single year from a single aggregator, and that decides what the rest of the talk is allowed to claim.
 
@@ -247,7 +247,7 @@ Evidence: [`docs/corrections.md`](../../docs/corrections.md)
 
 *Section: `quality`  ·  **mandatory in every deck***
 
-- 742 tests, including one for every registered correction, so the prose cannot drift from a rebuild.
+- 746 tests, including one for every registered correction, so the prose cannot drift from a rebuild.
 - Core modules import no scipy: the statistics are hand-rolled and cross-checked against scipy in separate validation scripts, so a reviewer can rebuild without matching a solver version.
 - This deck is linted too — every figure on a slide resolves to a claim that passed the gates or to a repository fact recomputed at build time.
 
@@ -402,7 +402,7 @@ Answers are bound the same way bullets are. A question with no bound answer is a
 
 **q-reproduce** (slide 16) — *Could someone else rebuild this?*
 
-- Yes — 742 tests, 138 committed tables and 54 figures, and the core modules import no solver library.
+- Yes — 746 tests, 138 committed tables and 54 figures, and the core modules import no solver library.
 - The statistics are hand-rolled and cross-checked against a library in separate validation scripts, so a rebuild does not depend on matching a version.
 
 **q-next** (slide 18) — *What is the single change that would help most?*

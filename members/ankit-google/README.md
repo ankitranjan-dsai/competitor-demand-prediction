@@ -121,7 +121,7 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       records, 22 edges — 14 data, 8 sequencing — and **13 rules over 42
       checks**, all passing. Standard in
       `docs/task-11-automated-pipeline-methods.md`; 5 new register tests,
-      **742 in the suite**; 11 tables + 5 figures. It found a defect the repo has carried
+      **746 in the suite**; 11 tables + 5 figures. It found a defect the repo has carried
       since Task 06: **nine committed paths have two writers apiece**, and
       `google_features.parquet` is **848 rows** or **846** depending on which
       ran last — `trends` reads the Task 04 build, everything from Task 06 on
@@ -136,4 +136,9 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       Also ships `deck-fact-drift.csv`, which reads Task 10's 18 registered
       facts at three refs — submitted, committed, live — so a stale number can
       be **named** and not just detected; 5 of the 18 moved during this task,
-      all of them its own doing)
+      all of them its own doing. The **first CI run failed on none of that**:
+      four Task 09 lines use PEP 701 f-strings and will not parse on the 3.11
+      the workflow installs, so the repository had an undeclared interpreter
+      floor that ten tasks of tests could not see — a test checks a claim, and
+      nothing had ever claimed a Python version. Now `PYTHON_FLOOR` with a
+      scan that tokenises without importing)
