@@ -126,6 +126,7 @@ def test_task_reports_point_at_the_register():
         Path("docs/task-06-competitor-comparison-methods.md"),
         Path("members/ankit-google/task-06-comparison-report.md"),
         Path("docs/task-04-skill-taxonomy.md"),
+        Path("docs/task-08-company-similarity-methods.md"),
     ]
     for rel in corrected:
         text = (REPO_ROOT / rel).read_text(encoding="utf-8")
@@ -897,4 +898,133 @@ def test_c9_the_audit_still_runs_the_checks_that_found_the_four_defects():
     folders = audit[audit.check == "working_dir_used"]
     assert set(folders.subject) == {"notebooks", "weekly-reports", "meeting-minutes"}, (
         "C9 cites three directories named in the layout and never used"
+    )
+
+
+# --------------------------------------------------------------------------
+# Task 11 build outputs
+# --------------------------------------------------------------------------
+
+TABLES_11 = REPO_ROOT / "members" / "ankit-google" / "task-11-tables"
+
+needs_task_11 = pytest.mark.skipif(
+    not TABLES_11.is_dir(),
+    reason="Task 11 build outputs not present in this checkout",
+)
+
+
+# --------------------------------------------------------------------------
+# C10 — fixing the seed does not fix the input
+# --------------------------------------------------------------------------
+#
+# C10 is the one entry whose evidence is an *absence* in every earlier task: no
+# committed file said which of two writers a reader sees. So the tests pin the
+# thing that replaced the absence — the contested table and the two rules that
+# read it — plus the two row counts that make the hazard real rather than
+# theoretical.
+
+CONTESTED_FRAME = "data/processed/google/google_features.parquet"
+
+
+def contested_table() -> pd.DataFrame:
+    return pd.read_csv(TABLES_11 / "pipeline-contested-artefacts.csv")
+
+
+@needs_task_11
+def test_c10_the_contested_paths_are_the_ones_the_entry_counts():
+    """Nine paths, five processed frames and four Task 06 tables."""
+    contested = contested_table()
+    frames = contested.path.str.startswith("data/processed/google/")
+    tables = contested.path.str.contains("task-06-tables/")
+    assert len(contested) == 9, (
+        f"C10 counts nine contested paths; the table has {len(contested)}"
+    )
+    assert frames.sum() == 5 and tables.sum() == 4
+    assert (frames | tables).all(), "a contested path C10 does not account for"
+
+    prose = " ".join(entry_text("C10 —").split())
+    assert "**nine** committed paths have two writers apiece" in prose
+    assert "five processed Google frames and four Task 06 tables" in prose
+
+
+@needs_task_11
+def test_c10_the_feature_frame_is_read_on_both_sides_of_the_audit():
+    """The row C10 quotes: `trends` sees 848, `similarity` sees 846.
+
+    This is the correction in one line. Both readers are legitimate, both get
+    a complete frame, and the difference between them is C4.
+    """
+    contested = contested_table()
+    row = contested[contested.path == CONTESTED_FRAME]
+    assert len(row) == 1, f"{CONTESTED_FRAME} is no longer a contested path"
+    row = row.iloc[0]
+
+    assert set(row.writers.split("; ")) == {"features", "competitor-set"}
+    sees = dict(pair.split("=") for pair in row.sees.split("; "))
+    assert sees["trends"] == "features", (
+        "trends no longer reads the pre-audit frame — Task 05's committed "
+        "848-row numbers would rebuild as 846"
+    )
+    assert sees["similarity"] == "competitor-set", (
+        "similarity no longer reads the post-audit frame — Task 08 would "
+        "rebuild from 848 rows, with the same seed"
+    )
+    assert bool(row.writers_ordered) and bool(row.readers_pinned)
+
+
+@needs_task_11
+def test_c10_both_row_counts_it_names_are_committed():
+    """848 and 846 are not an argument, they are two tables in this repo."""
+    before = read_table("volume-by-month.csv").postings.sum()
+    after = pd.read_csv(
+        REPO_ROOT / "members" / "ankit-google" / "task-06-tables"
+        / "company-comparability.csv"
+    ).set_index("company").postings["google"]
+    assert (before, after) == (848, 846), (before, after)
+
+    prose = " ".join(entry_text("C10 —").split())
+    assert f"writes **{before}** rows" in prose
+    assert f"writes\n  **{after}**" in entry_text("C10 —")
+
+
+@needs_task_11
+def test_c10_the_two_rules_it_names_exist_and_hold():
+    """The remedy, checked where the entry says it lives.
+
+    That each rule *fires* on a constructed violation is
+    ``tests/test_pipeline.py``'s job. This checks the register is naming rules
+    the linter emits, and that they are currently passing — a correction whose
+    remedy is failing is a limitation.
+    """
+    lint = pd.read_csv(TABLES_11 / "pipeline-lint.csv")
+    named = {"contested_writes_ordered", "contested_reads_pinned"}
+    assert named <= set(lint.rule), (
+        f"C10 names rules the linter does not emit: {named - set(lint.rule)}"
+    )
+    rows = lint[lint.rule.isin(named)]
+    assert (rows.status == "pass").all(), rows.to_dict("records")
+
+    reads = rows[rows.rule == "contested_reads_pinned"].iloc[0].subject
+    assert f"**{reads.split()[0]}** stage-reads land on one of them" in \
+        " ".join(entry_text("C10 —").split()), (
+        f"C10 quotes a different number of contested reads than the {reads}"
+    )
+    source = (REPO_ROOT / "src" / "pipeline.py").read_text(encoding="utf-8")
+    assert re.search(r"^    after: tuple\[str, \.\.\.\] = \(\)", source, re.M), (
+        "C10's remedy is a sequencing edge; Stage no longer declares `after`"
+    )
+
+
+def test_c10_task_08_keeps_its_claim_and_gains_a_pointer():
+    """§2 item 3 stays as written; the scope it omitted is marked beside it."""
+    methods = (REPO_ROOT / "docs"
+               / "task-08-company-similarity-methods.md").read_text(encoding="utf-8")
+    claim = "fixed, so the\n   committed tables rebuild bit-for-bit."
+    assert claim in methods, "Task 08 §2 no longer carries the corrected claim"
+    assert "corrections.md#c10" in methods, "§2 carries no pointer to C10"
+    quoted = " ".join(
+        line.lstrip("> ") for line in entry_text("C10 —").splitlines()
+    )
+    assert " ".join(claim.split()) in quoted, (
+        "the register no longer quotes the sentence it corrects"
     )

@@ -218,7 +218,10 @@ def test_collected_suite_is_at_least_the_number_of_test_functions():
 
 
 def test_counts_read_the_repository_rather_than_a_constant():
-    assert pr.count_tasks(REPO_ROOT) == 10
+    # Floors, not snapshots: the ten numbered tasks are the brief's, and the
+    # two optional ones are numbered 11 and 12 once they are attempted, so an
+    # equality here would have to be edited by every task that lands.
+    assert pr.count_tasks(REPO_ROOT) >= 10
     assert pr.count_corrections(REPO_ROOT) >= 8
     assert pr.count_committed_tables(REPO_ROOT) > 0
     assert pr.count_committed_figures(REPO_ROOT) > 0
