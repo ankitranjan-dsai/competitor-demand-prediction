@@ -27,7 +27,7 @@ readme,task_row_path,members/ankit-google/task-09-insight-report.md,pass,path qu
 readme,task_row_backed,task 10,pass,✅ with 2 deliverable(s) on disk
 readme,task_row_path,docs/task-10-final-presentation-methods.md,pass,path quoted in the task table
 readme,task_row_path,members/ankit-google/task-10-presentation-report.md,pass,path quoted in the task table
-readme,suite_size_current,task 10,pass,"quotes 647 tests, and the suite collects 647"
+readme,suite_size_current,task 10,fail,quotes 647 tests; the suite collects 737
 docs,link_resolves,362 relative links,pass,362 of 362 resolve
 members,member_readme,ankit-google,pass,a member folder carries its own README
 folders,working_dir_used,notebooks,pass,2 file(s) beyond the placeholder
@@ -35,4 +35,4 @@ folders,working_dir_used,weekly-reports,pass,6 file(s) beyond the placeholder
 folders,working_dir_used,meeting-minutes,pass,1 file(s) beyond the placeholder
 privacy,env_untracked,.env,pass,the credentials file is never committed
 privacy,row_data_untracked,0 file(s),pass,row-level data under data/ stays git-ignored
-privacy,personal_data_columns_present,127 tables,pass,no committed table names a person
+privacy,personal_data_columns_present,138 tables,pass,no committed table names a person

@@ -1,0 +1,6 @@
+cadence,when,detects,adopted,why
+on_push,every push and pull request,a code change that breaks a stage or moves a number,True,detects something no other trigger does
+weekly,"Mondays, 06:00 UTC",dependency and environment drift — a pandas or numpy release that changes a default under unchanged code,True,detects something no other trigger does
+daily,every night,"the same as weekly, seven times as often",False,weekly already covers dependency drift; daily multiplies runs without widening what they can find
+monthly,the first of the month,"new postings, if any source were refreshable",False,"no approved source is refreshable (4 checked, 0 refreshable), so a refresh cadence detects nothing"
+on_demand,workflow_dispatch,whatever a human is investigating,True,detects something no other trigger does

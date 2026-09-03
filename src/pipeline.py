@@ -1376,6 +1376,13 @@ def fact_drift(repo_root: Path = REPO_ROOT,
                focus: str = "google") -> pd.DataFrame:
     """Every Task 10 fact, as committed against as it resolves today.
 
+    Three columns, three questions. `submitted` is the value at the commit that
+    shipped Task 10; `committed` is the value in git now; `live` is what the
+    repository resolves to today. `moved` compares the last two — is the deck
+    in git stale? — and `moved_since_submission` compares the first and last,
+    which is the permanent C10 evidence and does not settle when the deck is
+    rebuilt.
+
     Called *after* the current run has written its own tables and figures,
     because several of these facts count exactly those files. Measuring before
     would answer a different question on a first run than on a second, and an
@@ -1392,13 +1399,25 @@ def fact_drift(repo_root: Path = REPO_ROOT,
     committed_path = member_root / "task-10-tables" / "deck-facts.csv"
     if not committed_path.exists():
         return pd.DataFrame(columns=list(DRIFT_COLUMNS))
-    committed = pd.read_csv(committed_path, dtype=str).set_index("key")
+
+    # From git, not from the working tree. The column is called `committed` and
+    # it has to mean that: reading the file on disk made an *uncommitted*
+    # rebuild look committed, which is the one state this table exists to
+    # catch. Falling back to the file keeps a shallow clone working, and says
+    # so rather than quietly answering a different question.
+    committed = facts_at(ref="HEAD", repo_root=repo_root)
+    basis = "HEAD"
+    if not committed:
+        committed = dict(pd.read_csv(committed_path, dtype=str)
+                         .set_index("key").value.astype(str))
+        basis = "working tree (git could not read HEAD)"
+
     live = pr.resolve_facts(repo_root, member_root, focus)
     submitted = facts_at(repo_root=repo_root)
 
     rows = []
     for key, entry in live.items():
-        was = str(committed.value.get(key, ""))
+        was = str(committed.get(key, ""))
         then = submitted.get(key, "")
         now = entry["text"]
         rows.append({"key": key,
@@ -1408,7 +1427,9 @@ def fact_drift(repo_root: Path = REPO_ROOT,
                      "moved": was != now,
                      "moved_since_submission": bool(then) and then != now,
                      "source": entry["source"]})
-    return pd.DataFrame(rows, columns=list(DRIFT_COLUMNS))
+    out = pd.DataFrame(rows, columns=list(DRIFT_COLUMNS))
+    out.attrs["committed_basis"] = basis
+    return out
 
 
 def drift_summary(drift: pd.DataFrame) -> dict:

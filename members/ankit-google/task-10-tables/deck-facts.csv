@@ -12,8 +12,8 @@ claims_refused,316,claims refused at a gate,task-09-tables/insight-yield.csv#ref
 claim_yield_pct,27.5,publishable share of generated claims,task-09-tables/insight-yield.csv#yield_pct@question=all
 distinctive_skills,48,skills separating the focus company after FDR,task-09-tables/strategy-position.csv#distinctive_skills
 nearest_score,0.9174,cosine similarity to the nearest company,task-09-tables/strategy-position.csv#nearest_score
-tests_total,647,tests the suite collects,pytest --collect-only over tests/
+tests_total,737,tests the suite collects,pytest --collect-only over tests/
 tasks_total,10,numbered tasks in the README table,README.md task table
 corrections_total,9,entries in the corrections register,docs/corrections.md headings
-tables_committed,127,aggregate tables committed across all tasks,members/*/task-*-tables/*.csv
-figures_committed,49,figures committed across all tasks,members/*/task-*-figures/*.png
+tables_committed,138,aggregate tables committed across all tasks,members/*/task-*-tables/*.csv
+figures_committed,54,figures committed across all tasks,members/*/task-*-figures/*.png

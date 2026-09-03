@@ -697,11 +697,17 @@ def test_task_11_moved_the_decks_self_counts(drift):
 
 
 def test_the_committed_deck_matches_the_repository(drift):
-    """The invariant the pipeline exists to hold: rebuild after you add files."""
+    """The invariant the pipeline exists to hold: rebuild after you add files.
+
+    `committed` reads git, not the working tree, so a rebuild that has not been
+    committed still fails here. That is deliberate — an uncommitted deck is
+    exactly as stale to anyone cloning the repository as one never rebuilt.
+    """
     stale = drift[drift.moved]
     assert list(stale.key) == [], (
-        "the deck's self-counts have drifted; run "
-        "`python src/run_pipeline.py --run --only presentation`")
+        "the deck's self-counts have drifted from what git holds; run "
+        "`python src/run_pipeline.py --run --only presentation` "
+        "and commit the rebuilt deck")
 
 
 def test_missing_history_degrades_rather_than_fails():

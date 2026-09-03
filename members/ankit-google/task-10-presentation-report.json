@@ -1,6 +1,6 @@
 {
   "task": 10,
-  "generated": "2026-08-30T16:56:50+00:00",
+  "generated": "2026-09-03T01:00:57+00:00",
   "focus": "google",
   "deck": {
     "slides": 19,
@@ -46,8 +46,14 @@
   },
   "workspace": {
     "checks": 37,
-    "failing": 0,
-    "failures": []
+    "failing": 1,
+    "failures": [
+      {
+        "check": "suite_size_current",
+        "subject": "task 10",
+        "detail": "quotes 647 tests; the suite collects 737"
+      }
+    ]
   },
   "facts": {
     "postings_focus": 846,
@@ -63,11 +69,11 @@
     "claim_yield_pct": 27.5,
     "distinctive_skills": 48,
     "nearest_score": 0.9174,
-    "tests_total": 647,
+    "tests_total": 737,
     "tasks_total": 10,
     "corrections_total": 9,
-    "tables_committed": 127,
-    "figures_committed": 49
+    "tables_committed": 138,
+    "figures_committed": 54
   },
   "figures": [
     "01-deck-provenance.png",

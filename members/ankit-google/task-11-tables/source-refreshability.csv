@@ -1,0 +1,5 @@
+source,task,licence,window,verdict,refreshable,blocker,falsifier
+hf:lukebarousse/data_jobs,2,Apache-2.0,"2023 only, single snapshot",frozen,False,"A published snapshot of 2023 data-role postings. Re-downloading returns the same 785k rows; the file is the dataset, not a feed.",The dataset publishes a later revision covering 2024+.
+adzuna,2,"official API, free tier","live, rolling",blocked,False,"No ADZUNA_APP_ID / ADZUNA_APP_KEY in the environment, and the search endpoint truncates `description` to 500 characters, so even with keys the Layer B text path stays idle.",Credentials are provisioned and a pull returns Google postings with untruncated descriptions.
+themuse,2,public API,"live, rolling",live_empty,False,"Live and reachable, but lists no Google postings (checked at Task 02, 2026-07-20).",A Muse pull returns one or more Google postings.
+google-careers,1,rejected,n/a,blocked,False,Rejected on robots.txt at Task 01. Not a scheduling question.,"None that this project would act on; the rejection is legal, not technical."

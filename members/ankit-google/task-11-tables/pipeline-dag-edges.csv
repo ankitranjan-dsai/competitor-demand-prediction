@@ -1,0 +1,23 @@
+parent,child,via,edge
+collect,preprocess,data/raw/google/google_jobs_hf_backfill_2023.parquet,data
+preprocess,features,data/processed/google/google_jobs_clean.parquet,data
+features,trends,data/processed/google/google_features.parquet; data/processed/google/google_skills_long.parquet,data
+collect,competitor-set,data/raw/google/_hf_data_jobs_full.parquet,data
+trends,competitor-set,,sequencing
+validate-skills,competitor-set,,sequencing
+competitor-set,comparison,data/processed/; data/processed/google/google_features.parquet; data/processed/google/google_skills_long.parquet; members/ankit-google/task-06-tables/company-feasibility-screen.csv,data
+features,comparison,data/processed/google/google_features.parquet; data/processed/google/google_skill_matrix.parquet; data/processed/google/google_skills_long.parquet,data
+comparison,forecast,members/ankit-google/task-06-tables/,data
+comparison,similarity,,sequencing
+forecast,similarity,members/ankit-google/task-07-tables/forecastability-gate.csv; members/ankit-google/task-07-tables/panel-share-series.csv,data
+trends,insights,,sequencing
+comparison,insights,members/ankit-google/task-06-tables/,data
+forecast,insights,,sequencing
+similarity,insights,,sequencing
+insights,presentation,members/ankit-google/task-09-tables/claim-ledger.csv; members/ankit-google/task-09-tables/prohibited-patterns.csv,data
+presentation,tests,,sequencing
+features,validate-skills,data/processed/google/google_features.parquet; data/processed/google/google_skill_matrix.parquet; data/processed/google/google_skills_long.parquet,data
+forecast,validate-forecast,members/ankit-google/task-07-tables/,data
+similarity,validate-similarity,members/ankit-google/task-08-tables/,data
+insights,validate-insights,members/ankit-google/task-09-tables/,data
+preprocess,validate-text,,sequencing

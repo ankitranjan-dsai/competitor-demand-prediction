@@ -1,0 +1,42 @@
+area,check,subject,status,detail
+privacy,row_level_ignored,data/processed/,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/processed/google/google_features.parquet,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/processed/google/google_jobs_clean.csv,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/processed/google/google_jobs_clean.parquet,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/processed/google/google_skill_matrix.parquet,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/processed/google/google_skills_long.parquet,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/raw/google/_hf_data_jobs_full.parquet,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/raw/google/google_jobs_hf_backfill_2023.csv,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/raw/google/google_jobs_hf_backfill_2023.parquet,pass,output under data/ is git-ignored by the Task 01 rule
+privacy,row_level_ignored,data/raw/task-06/,pass,output under data/ is git-ignored by the Task 01 rule
+outputs,committed_output_tracked,members/ankit-google/data-manifest.json,pass,collect writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-03-quality-report.json,pass,preprocess writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-04-feature-report.json,pass,features writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-05-trend-report.json,pass,trends writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-06-tables/company-feasibility-screen.csv,pass,competitor-set writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-06-tables/employer-matching-audit.csv,pass,competitor-set writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-06-tables/competitor-set-manifest.csv,pass,competitor-set writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-06-tables/competitor-set-manifest.json,pass,competitor-set writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-06-comparison-report.json,pass,comparison writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-07-forecast-report.json,pass,forecast writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-08-similarity-report.json,pass,similarity writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-09-insight-report.json,pass,insights writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-10-slides.md,pass,presentation writes a deliverable git carries
+outputs,committed_output_tracked,members/ankit-google/task-10-presentation-report.json,pass,presentation writes a deliverable git carries
+outputs,committed_output_tracked,docs/task-04-skill-extraction-validation.md,pass,validate-skills writes a deliverable git carries
+outputs,committed_output_tracked,docs/task-07-forecast-validation.md,pass,validate-forecast writes a deliverable git carries
+outputs,committed_output_tracked,docs/task-08-similarity-validation.md,pass,validate-similarity writes a deliverable git carries
+outputs,committed_output_tracked,docs/task-09-insight-validation.md,pass,validate-insights writes a deliverable git carries
+outputs,committed_output_tracked,docs/task-03-text-pipeline-validation.md,pass,validate-text writes a deliverable git carries
+volatility,source_volatile_not_committed,validate-text,fail,commits docs/task-03-text-pipeline-validation.md — every run rewrites it from a rolling feed
+inputs,input_present,presentation: README.md,pass,an input no stage produces is present in the working tree
+inputs,input_present,presentation: docs/corrections.md,pass,an input no stage produces is present in the working tree
+inputs,input_present,presentation: tests/,pass,an input no stage produces is present in the working tree
+inputs,input_present,tests: tests/,pass,an input no stage produces is present in the working tree
+inputs,input_present,tests: src/,pass,an input no stage produces is present in the working tree
+sources,refresh_possible,4 approved,fail,"no approved source can return a posting the repository does not already hold, so the schedule verifies rather than refreshes"
+sources,source_verdict,hf:lukebarousse/data_jobs,fail,"frozen: A published snapshot of 2023 data-role postings. Re-downloading returns the same 785k rows; the file is the dataset, not a feed."
+sources,source_verdict,adzuna,fail,"blocked: No ADZUNA_APP_ID / ADZUNA_APP_KEY in the environment, and the search endpoint truncates `description` to 500 characters, so even with keys the Layer B text path stays idle."
+sources,source_verdict,themuse,fail,"live_empty: Live and reachable, but lists no Google postings (checked at Task 02, 2026-07-20)."
+sources,source_verdict,google-careers,fail,blocked: Rejected on robots.txt at Task 01. Not a scheduling question.
+secrets,env_untracked,.env,pass,credentials are never committed; the workflow reads repository secrets

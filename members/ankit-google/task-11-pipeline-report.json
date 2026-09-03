@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-09-03T01:01:03+00:00",
+  "mode": "run",
+  "focus": "google",
+  "stages_declared": 16,
+  "stages_planned": [
+    "collect",
+    "preprocess",
+    "features",
+    "trends",
+    "competitor-set",
+    "comparison",
+    "forecast",
+    "similarity",
+    "insights",
+    "presentation",
+    "tests"
+  ],
+  "run_order": [
+    "collect",
+    "preprocess",
+    "features",
+    "validate-text",
+    "trends",
+    "validate-skills",
+    "competitor-set",
+    "comparison",
+    "forecast",
+    "similarity",
+    "validate-forecast",
+    "insights",
+    "validate-similarity",
+    "presentation",
+    "validate-insights",
+    "tests"
+  ],
+  "lint": {
+    "checks": 42,
+    "violations": 0
+  },
+  "audit": {
+    "checks": 41,
+    "findings": 6,
+    "finding_checks": [
+      "refresh_possible",
+      "source_verdict",
+      "source_volatile_not_committed"
+    ]
+  },
+  "sources": {
+    "sources_checked": 4,
+    "refreshable": 0,
+    "refreshable_names": [],
+    "mode": "verify",
+    "reason": "no approved source can return a posting the repository does not already hold, so the schedule verifies rather than refreshes"
+  },
+  "credentials": {
+    "env_file_present": true,
+    "adzuna_credentials": false,
+    "note": "presence only; no value is ever read into a report or a log"
+  },
+  "fact_drift": {
+    "facts": 18,
+    "moved": 3,
+    "keys": [
+      "tests_total",
+      "tables_committed",
+      "figures_committed"
+    ],
+    "stale": true,
+    "submission_ref": "24cb4dc",
+    "moved_since_submission": 3,
+    "keys_since_submission": [
+      "tests_total",
+      "tables_committed",
+      "figures_committed"
+    ]
+  },
+  "run": {
+    "state": "failed",
+    "stages_run": 11,
+    "failed": [
+      "tests"
+    ],
+    "blocked": [],
+    "artefacts_changed": 8,
+    "artefacts_volatile_only": 9,
+    "changed_paths": [
+      "members/ankit-google/task-10-figures/03-workspace-audit.png",
+      "members/ankit-google/task-10-figures/07-suite-growth.png",
+      "members/ankit-google/task-10-presentation-report.json",
+      "members/ankit-google/task-10-slides.md",
+      "members/ankit-google/task-10-tables/deck-bullets.csv",
+      "members/ankit-google/task-10-tables/deck-facts.csv",
+      "members/ankit-google/task-10-tables/mentor-qa.csv",
+      "members/ankit-google/task-10-tables/workspace-audit.csv"
+    ]
+  },
+  "tables": [
+    "deck-fact-drift.csv",
+    "pipeline-audit.csv",
+    "pipeline-contested-artefacts.csv",
+    "pipeline-dag-edges.csv",
+    "pipeline-failure-modes.csv",
+    "pipeline-lint.csv",
+    "pipeline-stages.csv",
+    "reproducibility-audit.csv",
+    "run-ledger.csv",
+    "schedule-rationale.csv",
+    "source-refreshability.csv"
+  ],
+  "figures": [
+    "deck-fact-drift.png",
+    "pipeline-checks.png",
+    "pipeline-dag.png",
+    "pipeline-run.png",
+    "source-refreshability.png"
+  ]
+}

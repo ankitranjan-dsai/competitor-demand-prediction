@@ -1,0 +1,19 @@
+key,submitted,committed,live,moved,moved_since_submission,source
+postings_focus,846,846,846,False,False,task-06-tables/company-comparability.csv#postings
+publishers_focus,95,95,95,False,False,task-06-tables/company-comparability.csv#publishers
+months_observed,12,12,12,False,False,task-06-tables/company-comparability.csv#months_observed
+companies_compared,6,6,6,False,False,task-06-tables/company-feasibility-screen.csv#verdict
+companies_screened_out,2,2,2,False,False,task-06-tables/company-feasibility-screen.csv#verdict
+postings_pool,"3,605","3,605","3,605",False,False,task-06-tables/company-feasibility-screen.csv#postings
+skills_observed,91,91,91,False,False,task-04-tables/skill-frequency.csv (rows)
+claims_generated,436,436,436,False,False,task-09-tables/insight-yield.csv#generated@question=all
+claims_published,120,120,120,False,False,task-09-tables/insight-yield.csv#published+published_qualified
+claims_refused,316,316,316,False,False,task-09-tables/insight-yield.csv#refused@question=all
+claim_yield_pct,27.5,27.5,27.5,False,False,task-09-tables/insight-yield.csv#yield_pct@question=all
+distinctive_skills,48,48,48,False,False,task-09-tables/strategy-position.csv#distinctive_skills
+nearest_score,0.9174,0.9174,0.9174,False,False,task-09-tables/strategy-position.csv#nearest_score
+tests_total,647,647,737,True,True,pytest --collect-only over tests/
+tasks_total,10,10,10,False,False,README.md task table
+corrections_total,9,9,9,False,False,docs/corrections.md headings
+tables_committed,127,127,138,True,True,members/*/task-*-tables/*.csv
+figures_committed,49,49,54,True,True,members/*/task-*-figures/*.png

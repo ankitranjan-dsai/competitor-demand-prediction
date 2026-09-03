@@ -1,0 +1,17 @@
+stage,task,run_order,kind,title,command,requires,after,reads,writes,volatility,scheduled,optional
+collect,2,0,collect,Collect the approved backfill,python src/collect_google_jobs.py hf-backfill,,,1,4,clock_stamped,True,False
+preprocess,3,1,transform,Clean and normalise to the shared schema,python src/preprocess.py --company google,collect,,1,3,clock_stamped,True,False
+features,4,2,transform,Extract skills and build the feature tables,python src/build_features.py --company google,preprocess,,1,5,clock_stamped,True,False
+validate-text,3,3,validate,Exercise the Layer B cleaner on live posting HTML,python src/validate_text_pipeline.py,preprocess,,1,1,source_volatile,False,True
+trends,5,4,analyse,Hiring trends on a declared publisher panel,python src/build_trends.py --company google,features,,2,3,clock_stamped,True,False
+validate-skills,4,5,validate,Cross-check skill extraction against scikit-learn,python src/validate_skill_extraction.py,features,,1,1,deterministic,True,True
+competitor-set,6,6,transform,Build the five rivals through the same pipeline,python src/build_competitor_set.py,collect trends,validate-skills,1,8,clock_stamped,True,False
+comparison,6,7,analyse,Compare the six on a common publisher pool,python src/build_comparison.py,competitor-set features,,2,3,clock_stamped,True,False
+forecast,7,8,analyse,"Gate, backtest and publish the forecast",python src/build_forecast.py,comparison,,2,3,clock_stamped,True,False
+similarity,8,9,analyse,Score company similarity against two nulls,python src/build_similarity.py,comparison forecast,,3,3,clock_stamped,True,False
+validate-forecast,7,10,validate,Cross-check the forecast against scipy and statsmodels,python src/validate_forecast.py,forecast,,1,1,clock_stamped,True,True
+insights,9,11,analyse,Generate every candidate claim and gate it,python src/build_insights.py,trends comparison forecast similarity,,2,3,clock_stamped,True,False
+validate-similarity,8,12,validate,Cross-check similarity against scipy,python src/validate_similarity.py,similarity,,1,1,deterministic,True,True
+presentation,10,13,publish,Compile the deck and audit the workspace,python src/build_presentation.py,insights,,6,4,clock_stamped,True,False
+validate-insights,9,14,validate,Cross-check Task 09's hand-written statistics against scipy,python src/validate_insights.py,insights,,1,1,deterministic,True,True
+tests,11,15,gate,"The suite, as the gate on everything above",python -m pytest tests/ -q,presentation,,2,0,deterministic,True,False

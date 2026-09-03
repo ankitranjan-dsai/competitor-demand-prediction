@@ -1,0 +1,43 @@
+rule,subject,status,detail
+dag_acyclic,16 stages,pass,dependencies admit a run order
+order_covers_registry,16 ordered,pass,every registered stage appears in the run order exactly once
+requires_known,22 edges,pass,every dependency names a registered stage
+order_is_topological,16 stages,pass,no stage runs before something it depends on
+command_resolves,collect: src/collect_google_jobs.py,pass,the script the stage runs exists
+writes_declared,collect,pass,a stage that is not a gate declares an output
+command_resolves,preprocess: src/preprocess.py,pass,the script the stage runs exists
+writes_declared,preprocess,pass,a stage that is not a gate declares an output
+command_resolves,features: src/build_features.py,pass,the script the stage runs exists
+writes_declared,features,pass,a stage that is not a gate declares an output
+command_resolves,trends: src/build_trends.py,pass,the script the stage runs exists
+writes_declared,trends,pass,a stage that is not a gate declares an output
+command_resolves,competitor-set: src/build_competitor_set.py,pass,the script the stage runs exists
+writes_declared,competitor-set,pass,a stage that is not a gate declares an output
+command_resolves,comparison: src/build_comparison.py,pass,the script the stage runs exists
+writes_declared,comparison,pass,a stage that is not a gate declares an output
+command_resolves,forecast: src/build_forecast.py,pass,the script the stage runs exists
+writes_declared,forecast,pass,a stage that is not a gate declares an output
+command_resolves,similarity: src/build_similarity.py,pass,the script the stage runs exists
+writes_declared,similarity,pass,a stage that is not a gate declares an output
+command_resolves,insights: src/build_insights.py,pass,the script the stage runs exists
+writes_declared,insights,pass,a stage that is not a gate declares an output
+command_resolves,presentation: src/build_presentation.py,pass,the script the stage runs exists
+writes_declared,presentation,pass,a stage that is not a gate declares an output
+command_resolves,tests,pass,"runs a module, not a repository script"
+command_resolves,validate-skills: src/validate_skill_extraction.py,pass,the script the stage runs exists
+writes_declared,validate-skills,pass,a stage that is not a gate declares an output
+command_resolves,validate-forecast: src/validate_forecast.py,pass,the script the stage runs exists
+writes_declared,validate-forecast,pass,a stage that is not a gate declares an output
+command_resolves,validate-similarity: src/validate_similarity.py,pass,the script the stage runs exists
+writes_declared,validate-similarity,pass,a stage that is not a gate declares an output
+command_resolves,validate-insights: src/validate_insights.py,pass,the script the stage runs exists
+writes_declared,validate-insights,pass,a stage that is not a gate declares an output
+command_resolves,validate-text: src/validate_text_pipeline.py,pass,the script the stage runs exists
+writes_declared,validate-text,pass,a stage that is not a gate declares an output
+requires_covers_reads,28 declared inputs,pass,a stage that reads another's output has at least one of its writers as an ancestor
+inputs_produced,28 declared inputs,pass,every input is produced upstream or committed
+task_covered,tasks 2-10,pass,every analysis task has at least one stage
+optional_not_required,5 optional stages,pass,nothing in the default run needs a stage the default run skips
+schedule_closed,1 unscheduled,pass,the scheduled subset depends on nothing outside itself
+contested_writes_ordered,9 contested paths,pass,"every path with two writers has them ordered, so one wins by declaration"
+contested_reads_pinned,41 reads,pass,every reader of a contested path is ordered against every writer of it
