@@ -248,8 +248,8 @@ def test_the_declared_pipeline_lints_clean(lint):
 
 def test_every_lint_rule_reports_a_summary_row(lint):
     for rule in ("dag_acyclic", "order_covers_registry", "requires_known",
-                 "order_is_topological", "outputs_unique",
-                 "requires_covers_reads", "inputs_produced", "task_covered",
+                 "order_is_topological", "contested_writes_ordered",
+                 "contested_reads_pinned", "requires_covers_reads", "inputs_produced", "task_covered",
                  "optional_not_required", "schedule_closed"):
         assert rule in set(lint.rule), rule
 
@@ -260,11 +260,103 @@ def test_lint_catches_a_dependency_on_a_stage_that_does_not_exist():
     assert "requires_known" in set(failures.rule)
 
 
-def test_lint_catches_two_stages_claiming_the_same_output():
-    a = pl.STAGES_BY_NAME["collect"]
-    b = replace(a, name="collect-again", requires=())
+def test_two_stages_may_write_one_path_when_the_dag_orders_them():
+    """The rule this replaces forbade it outright, and was wrong to.
+
+    This repository writes Google's feature frame twice on purpose: 848 rows
+    from `features`, then 846 from `competitor-set` once C4's exclusions are
+    applied. Both are correct, for different readers.
+    """
+    a = pl.Stage(name="a", task=1, title="a", kind="transform",
+                 command=("python", "src/pipeline.py"), writes=("out/x.csv",))
+    b = pl.Stage(name="b", task=1, title="b", kind="transform",
+                 command=("python", "src/pipeline.py"), requires=("a",),
+                 writes=("out/x.csv",))
     failures = pl.lint_violations(pl.lint_dag(_toy(a, b)))
-    assert "outputs_unique" in set(failures.rule)
+    assert "contested_writes_ordered" not in set(failures.rule)
+
+
+def test_lint_catches_two_unordered_writers_of_one_path():
+    a = pl.Stage(name="a", task=1, title="a", kind="transform",
+                 command=("python", "src/pipeline.py"), writes=("out/x.csv",))
+    b = pl.Stage(name="b", task=1, title="b", kind="transform",
+                 command=("python", "src/pipeline.py"), writes=("out/x.csv",))
+    failures = pl.lint_violations(pl.lint_dag(_toy(a, b)))
+    assert "contested_writes_ordered" in set(failures.rule)
+
+
+def test_lint_catches_a_reader_that_could_land_either_side_of_a_writer():
+    """The defect that reversed C4 across 116 files.
+
+    `r` reads what `a` wrote. `b` rewrites the same path with different
+    content. Nothing orders `r` against `b`, so `r` reads whichever version
+    the run order happens to leave — and both runs succeed.
+    """
+    a = pl.Stage(name="a", task=1, title="a", kind="transform",
+                 command=("python", "src/pipeline.py"), writes=("out/x.csv",))
+    r = pl.Stage(name="r", task=1, title="r", kind="analyse",
+                 command=("python", "src/pipeline.py"), requires=("a",),
+                 reads=("out/x.csv",), writes=("out/r.csv",))
+    b = pl.Stage(name="b", task=1, title="b", kind="transform",
+                 command=("python", "src/pipeline.py"), requires=("a",),
+                 writes=("out/x.csv",))
+    failures = pl.lint_violations(pl.lint_dag(_toy(a, r, b)))
+    assert "contested_reads_pinned" in set(failures.rule)
+
+    pinned = pl.lint_violations(pl.lint_dag(
+        _toy(a, r, replace(b, after=("r",)))))
+    assert "contested_reads_pinned" not in set(pinned.rule)
+
+
+def test_an_after_edge_orders_without_forcing_the_stage_into_the_run():
+    """`competitor-set` must follow `validate-skills`, which is optional.
+
+    A `requires` edge would break `optional_not_required`; an `after` edge
+    constrains the order and leaves selection alone.
+    """
+    assert pl.STAGES_BY_NAME["competitor-set"].after == ("validate-skills",)
+    order = pl.topological_order()
+    assert order.index("validate-skills") < order.index("competitor-set")
+
+    default = [s.name for s in pl.plan_run()]
+    assert "validate-skills" not in default
+    assert "competitor-set" in default
+    assert "optional_not_required" not in set(
+        pl.lint_violations(pl.lint_dag()).rule)
+
+
+def test_the_contested_google_frame_is_read_before_it_is_overwritten():
+    """Task 05 reports 848 and Task 06 reports 846, from one path.
+
+    This is the ordering the repository's committed numbers depend on, and
+    nothing declared it before Task 11. Reverse it and every Task 05 table
+    rebuilds against 846 while C4 says Tasks 02-05 keep their 848.
+    """
+    contested = pl.contested_artefacts()
+    row = contested[contested.path
+                    == "data/processed/google/google_features.parquet"]
+    assert len(row) == 1
+    sees = dict(part.split("=") for part in row.iloc[0].sees.split("; "))
+    assert sees["trends"] == "features"
+    assert sees["comparison"] == "competitor-set"
+    assert bool(row.iloc[0].writers_ordered)
+    assert bool(row.iloc[0].readers_pinned)
+
+
+def test_every_contested_path_is_ordered_and_pinned():
+    contested = pl.contested_artefacts()
+    assert len(contested) > 0
+    assert contested.writers_ordered.all()
+    assert contested.readers_pinned.all()
+
+
+def test_a_stage_that_reads_what_it_writes_is_not_ambiguous_to_itself():
+    """`comparison` reads the feasibility screen and rewrites it."""
+    contested = pl.contested_artefacts()
+    row = contested[contested.path.str.endswith(
+        "company-feasibility-screen.csv")]
+    sees = dict(part.split("=") for part in row.iloc[0].sees.split("; "))
+    assert sees["comparison"] == "competitor-set"
 
 
 def test_lint_catches_a_read_whose_producer_is_not_an_ancestor():

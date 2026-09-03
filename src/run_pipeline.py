@@ -380,6 +380,7 @@ def build(*, execute_stages: bool = False, only: tuple[str, ...] = (),
     figures: list[Path] = []
 
     lint = pl.lint_dag()
+    contested = pl.contested_artefacts()
     violations = pl.lint_violations(lint)
     if len(violations):
         for row in violations.itertuples():
@@ -396,6 +397,7 @@ def build(*, execute_stages: bool = False, only: tuple[str, ...] = (),
     written += [
         _write(pl.stage_table(), TABLES / "pipeline-stages.csv"),
         _write(pl.dag_edges(), TABLES / "pipeline-dag-edges.csv"),
+        _write(contested, TABLES / "pipeline-contested-artefacts.csv"),
         _write(lint, TABLES / "pipeline-lint.csv"),
         _write(audit, TABLES / "pipeline-audit.csv"),
         _write(refresh, TABLES / "source-refreshability.csv"),

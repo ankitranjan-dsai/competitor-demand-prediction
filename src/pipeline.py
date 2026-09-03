@@ -110,6 +110,14 @@ class Stage:
     kind: str
     command: tuple[str, ...]
     requires: tuple[str, ...] = ()
+    #: Stages that must finish first when they run at all, without being pulled
+    #: into the run if they would not otherwise be in it. `requires` says "I
+    #: need what this produced"; `after` says "if this runs, it runs before
+    #: me". The distinction exists because an *optional* stage can still hold
+    #: an ordering constraint: `validate-skills` reads a frame `competitor-set`
+    #: overwrites, so it must precede it — but making it a `requires` would
+    #: mean the default run depends on a stage the default run skips.
+    after: tuple[str, ...] = ()
     reads: tuple[str, ...] = ()
     writes: tuple[str, ...] = ()
     volatility: str = "deterministic"
@@ -195,18 +203,29 @@ STAGES: tuple[Stage, ...] = (
         title="Build the five rivals through the same pipeline",
         kind="transform",
         command=("python", "src/build_competitor_set.py"),
-        requires=("collect",),
+        requires=("collect", "trends"),
+        after=("validate-skills",),
         reads=("data/raw/google/_hf_data_jobs_full.parquet",),
         writes=("data/raw/task-06/",
                 "data/processed/",
+                # Named explicitly even though `data/processed/` already covers
+                # it, because this is the contested path: `features` writes 848
+                # Google rows here and this stage overwrites them with 846. A
+                # directory-shaped declaration hides that behind a prefix.
+                "data/processed/google/google_features.parquet",
+                "data/processed/google/google_skills_long.parquet",
                 "members/ankit-google/task-06-tables/company-feasibility-screen.csv",
                 "members/ankit-google/task-06-tables/employer-matching-audit.csv",
                 "members/ankit-google/task-06-tables/competitor-set-manifest.csv",
                 "members/ankit-google/task-06-tables/competitor-set-manifest.json"),
         volatility="clock_stamped",
-        note="Reads the full cache, not the Google slice. The `requires` edge "
-             "to collect is therefore about a file collect writes as a "
-             "by-product, which is exactly the kind of edge a README loses.",
+        note="Reads the full cache, not the Google slice, so the `requires` "
+             "edge to collect is about a file collect writes as a by-product "
+             "— exactly the kind of edge a README loses. The edge to trends "
+             "is not a data edge at all: this stage overwrites the Google "
+             "features frame with the 846-row selection (C4), and trends must "
+             "have already read the 848-row one Task 05 reported on. Run it "
+             "earlier and Task 05's committed numbers change.",
     ),
     Stage(
         name="comparison",
@@ -390,6 +409,7 @@ def stage_table(stages: tuple[Stage, ...] = STAGES) -> pd.DataFrame:
         "title": s.title,
         "command": " ".join(s.command),
         "requires": " ".join(s.requires),
+        "after": " ".join(s.after),
         "reads": len(s.reads),
         "writes": len(s.writes),
         "volatility": s.volatility,
@@ -408,6 +428,16 @@ class CycleError(ValueError):
     """Raised when the declared dependencies do not admit a run order."""
 
 
+def deps(stage: Stage) -> tuple[str, ...]:
+    """Everything that must precede a stage, for both reasons.
+
+    Ordering never distinguishes the two: a sequencing edge constrains the run
+    order exactly as hard as a data edge. Only selection distinguishes them,
+    and only in one direction — see `plan_run`.
+    """
+    return tuple(stage.requires) + tuple(stage.after)
+
+
 def topological_order(stages: tuple[Stage, ...] = STAGES) -> list[str]:
     """A deterministic run order, or `CycleError`.
 
@@ -418,10 +448,10 @@ def topological_order(stages: tuple[Stage, ...] = STAGES) -> list[str]:
     read.
     """
     index = {s.name: i for i, s in enumerate(stages)}
-    pending = {s.name: set(s.requires) for s in stages}
+    pending = {s.name: set(deps(s)) for s in stages}
     order: list[str] = []
     while pending:
-        ready = sorted((n for n, deps in pending.items() if not deps),
+        ready = sorted((n for n, waiting in pending.items() if not waiting),
                        key=index.__getitem__)
         if not ready:
             raise CycleError(
@@ -430,8 +460,8 @@ def topological_order(stages: tuple[Stage, ...] = STAGES) -> list[str]:
         for name in ready:
             order.append(name)
             del pending[name]
-        for deps in pending.values():
-            deps.difference_update(ready)
+        for waiting in pending.values():
+            waiting.difference_update(ready)
     return order
 
 
@@ -439,13 +469,14 @@ def dag_edges(stages: tuple[Stage, ...] = STAGES) -> pd.DataFrame:
     """Every declared edge, with the artefact that justifies it where there is one.
 
     An edge whose `via` is empty is a *sequencing* edge: the stage does not read
-    the upstream stage's output, it just may not run before it. `tests` is the
-    only one, and naming it as such stops it being read as a data dependency.
+    the upstream stage's output, it just may not run before it. Naming those
+    separately stops them being read as data dependencies — and stops the
+    reverse mistake, which is deleting one because "nothing flows along it".
     """
     by_name = {s.name: s for s in stages}
     rows = []
     for stage in stages:
-        for parent in stage.requires:
+        for parent in deps(stage):
             upstream = by_name.get(parent)
             shared: set[str] = set()
             if upstream is not None:
@@ -481,6 +512,87 @@ def _covers(written: str, read: str) -> bool:
     return read.startswith(written + "/") or written.startswith(read + "/")
 
 
+#: One row per path that more than one stage writes. `sees` is the column that
+#: matters: it names, per reader, whose content that reader actually gets.
+CONTESTED_COLUMNS = ("path", "writers", "winner", "readers", "sees",
+                     "writers_ordered", "readers_pinned")
+
+
+def contested_artefacts(stages: tuple[Stage, ...] = STAGES) -> pd.DataFrame:
+    """Paths with more than one writer, and which writer each reader sees.
+
+    A path two stages both write has no content of its own. What a reader gets
+    is whatever the last writer left, so the content is a property of the run
+    order rather than of any one stage. That is perfectly sound when the DAG
+    fixes the order and silently wrong when it does not — and "silently" is the
+    operative word, because nothing fails: you get a complete, plausible,
+    different number.
+
+    This repository has exactly one such path and it is load-bearing.
+    `data/processed/google/google_features.parquet` is written by `features`
+    with 848 Google rows and by `competitor-set` with 846, and the difference
+    is C4 — the correction that removed a reseller and a role string from the
+    denominator. Task 05 reported on 848 and Task 06 onward reports on 846, so
+    *both* contents are correct, for different readers. The repository is only
+    reproducible if `trends` reads before `competitor-set` writes.
+    """
+    order = topological_order(stages)
+    rank = {name: i for i, name in enumerate(order)}
+    writes = [(s.name, w) for s in stages for w in s.writes]
+
+    groups: dict[str, set[str]] = {}
+    for i, (a_stage, a_path) in enumerate(writes):
+        for b_stage, b_path in writes[i + 1:]:
+            if a_stage == b_stage or not _covers(a_path, b_path):
+                continue
+            # Key on the narrower path: `data/processed/` and
+            # `.../google_features.parquet` are the same contest, and naming it
+            # by the directory would lose which file is actually at stake.
+            groups.setdefault(max((a_path, b_path), key=len), set()).update(
+                {a_stage, b_stage})
+
+    rows = []
+    for path in sorted(groups):
+        writers = sorted(groups[path], key=lambda n: rank[n])
+        readers = sorted((s.name for s in stages
+                          if any(_covers(r, path) for r in s.reads)),
+                         key=lambda n: rank[n])
+
+        # Ordered means: for every pair, one is a transitive ancestor of the
+        # other. Anything less and the run order is an accident of list order.
+        ordered = all(w2 in ancestors(w1, stages) or w1 in ancestors(w2, stages)
+                      for i, w1 in enumerate(writers) for w2 in writers[i + 1:])
+
+        sees, pinned = [], True
+        for reader in readers:
+            anc = ancestors(reader, stages)
+            # A stage that reads a path it also writes reads the version that
+            # was there when it started, so its own write is never ambiguous to
+            # it. `comparison` does exactly this with the feasibility screen.
+            others = [w for w in writers if w != reader]
+            upstream = [w for w in others if w in anc]
+            # Otherwise a reader is pinned only if every writer is either
+            # upstream or downstream of it. A writer that is neither can land
+            # on either side, and then `sees` is a coin toss.
+            if any(w not in anc and reader not in ancestors(w, stages)
+                   for w in others):
+                pinned = False
+                sees.append(f"{reader}=undetermined")
+            else:
+                sees.append(f"{reader}={upstream[-1] if upstream else 'itself'}")
+
+        rows.append({
+            "path": path,
+            "writers": "; ".join(writers),
+            "winner": writers[-1] if ordered else "undetermined",
+            "readers": "; ".join(readers),
+            "sees": "; ".join(sees),
+            "writers_ordered": ordered,
+            "readers_pinned": pinned,
+        })
+    return pd.DataFrame(rows, columns=list(CONTESTED_COLUMNS))
+
+
 def plan_run(stages: tuple[Stage, ...] = STAGES, *,
              only: tuple[str, ...] = (),
              skip: tuple[str, ...] = (),
@@ -504,6 +616,9 @@ def plan_run(stages: tuple[Stage, ...] = STAGES, *,
             if name not in STAGES_BY_NAME:
                 raise KeyError(f"unknown stage {name!r}")
             wanted.add(name)
+            # `requires` only. Following `after` here would drag an optional
+            # validator into `--only comparison` to satisfy an ordering rule
+            # that is vacuous when the validator is not running.
             queue.extend(STAGES_BY_NAME[name].requires)
         chosen &= wanted
     chosen -= set(skip)
@@ -532,13 +647,13 @@ def ancestors(name: str, stages: tuple[Stage, ...] = STAGES) -> set[str]:
     """
     by_name = {s.name: s for s in stages}
     seen: set[str] = set()
-    queue = list(by_name[name].requires) if name in by_name else []
+    queue = list(deps(by_name[name])) if name in by_name else []
     while queue:
         current = queue.pop()
         if current in seen or current not in by_name:
             continue
         seen.add(current)
-        queue.extend(by_name[current].requires)
+        queue.extend(deps(by_name[current]))
     return seen
 
 
@@ -556,7 +671,7 @@ def blocked_by(failed: set[str], stages: tuple[Stage, ...] = STAGES) -> set[str]
         for stage in stages:
             if stage.name in failed or stage.name in blocked:
                 continue
-            if set(stage.requires) & (failed | blocked):
+            if set(deps(stage)) & (failed | blocked):
                 blocked.add(stage.name)
                 changed = True
     return blocked
@@ -900,7 +1015,7 @@ def lint_dag(stages: tuple[Stage, ...] = STAGES,
 
     position = {name: i for i, name in enumerate(order)}
     for stage in stages:
-        for parent in stage.requires:
+        for parent in deps(stage):
             if parent not in by_name:
                 rows.append(_l("requires_known", f"{stage.name} -> {parent}",
                                "fail", "depends on a stage that is not registered"))
@@ -909,7 +1024,7 @@ def lint_dag(stages: tuple[Stage, ...] = STAGES,
                                f"{stage.name} -> {parent}", "fail",
                                "runs no later than the stage it depends on"))
     rows.append(_l("requires_known",
-                   f"{sum(len(s.requires) for s in stages)} edges",
+                   f"{sum(len(deps(s)) for s in stages)} edges",
                    "fail" if any(r["rule"] == "requires_known"
                                  and r["status"] == "fail" for r in rows)
                    else "pass",
@@ -936,29 +1051,36 @@ def lint_dag(stages: tuple[Stage, ...] = STAGES,
                        "pass" if stage.writes else "fail",
                        "a stage that is not a gate declares an output"))
 
-    # -- outputs do not collide --------------------------------------------
-    owners: dict[str, list[str]] = {}
-    for stage in stages:
-        for path in stage.writes:
-            owners.setdefault(path, []).append(stage.name)
-    clashes = {p: o for p, o in owners.items() if len(o) > 1}
-    for path, who in sorted(clashes.items()):
-        rows.append(_l("outputs_unique", path, "fail",
-                       "written by " + " and ".join(who)))
-    rows.append(_l("outputs_unique", f"{len(owners)} declared outputs",
-                   "fail" if clashes else "pass",
-                   "no two stages declare the same output path"))
+    # There was an `outputs_unique` rule here, asserting that no two stages
+    # write the same path. It passed for one bad reason: `competitor-set`
+    # declared the directory `data/processed/` while `features` declared a file
+    # inside it, and the rule compared strings. Declaring the file honestly
+    # made the rule fail on nine paths, every one of them deliberate — this
+    # repository builds Google twice on purpose, once at 848 rows and once at
+    # 846 (C4). A rule that forbids a thing the design requires is not a rule,
+    # so it is gone, and `contested_writes_ordered` below carries the real
+    # constraint: two writers are fine, two *unordered* writers are not.
 
     # -- every input is accounted for --------------------------------------
-    produced = {w: s.name for s in stages for w in s.writes}
+    # A path may have several writers, so this maps to a set. As a dict of
+    # path -> one name it silently kept whichever stage came last in the
+    # registry, which made `trends` look like it read a frame only
+    # `competitor-set` produces when `features` produces it too.
+    produced: dict[str, set[str]] = {}
+    for stage in stages:
+        for path in stage.writes:
+            produced.setdefault(path, set()).add(stage.name)
     for stage in stages:
         for read in stage.reads:
             if read.startswith("http"):
                 continue
-            upstream = {n for w, n in produced.items()
-                        if _covers(w, read) and n != stage.name}
+            upstream = {n for w, names in produced.items() if _covers(w, read)
+                        for n in names if n != stage.name}
             if upstream:
                 reachable = ancestors(stage.name, stages)
+                # One ancestor is enough. A writer that runs *after* this
+                # stage is not its producer — it is the next version, and
+                # `contested_reads_pinned` is the rule that governs that.
                 if not (upstream & reachable):
                     rows.append(_l("requires_covers_reads",
                                    f"{stage.name} reads {read}", "fail",
@@ -973,8 +1095,8 @@ def lint_dag(stages: tuple[Stage, ...] = STAGES,
                    "fail" if any(r["rule"] == "requires_covers_reads"
                                  and r["status"] == "fail" for r in rows)
                    else "pass",
-                   "a stage that reads another's output has its producer as "
-                   "an ancestor"))
+                   "a stage that reads another's output has at least one of "
+                   "its writers as an ancestor"))
     rows.append(_l("inputs_produced",
                    f"{sum(len(s.reads) for s in stages)} declared inputs",
                    "fail" if any(r["rule"] == "inputs_produced"
@@ -1012,6 +1134,39 @@ def lint_dag(stages: tuple[Stage, ...] = STAGES,
     rows.append(_l("schedule_closed", f"{len(unscheduled)} unscheduled",
                    "fail" if leaks else "pass",
                    "the scheduled subset depends on nothing outside itself"))
+
+    # -- a path with two writers must have a declared winner ---------------
+    # This pair of rules is the whole reason section B grew `contested_artefacts`
+    # and Stage grew `after`. Nothing here fails loudly when it is violated: a
+    # stage reads a path that a later stage will overwrite, gets a complete and
+    # plausible frame, and reports a different number. The first version of this
+    # registry ordered `competitor-set` before `trends` and silently reversed
+    # C4 across 116 files. Neither rule existed then.
+    try:
+        contested = contested_artefacts(stages)
+    except CycleError:
+        contested = pd.DataFrame(columns=list(CONTESTED_COLUMNS))
+
+    for _, row in contested[~contested.writers_ordered].iterrows():
+        rows.append(_l("contested_writes_ordered", row.path, "fail",
+                       f"written by {row.writers} with no order between them; "
+                       "the surviving content is an accident of list order"))
+    rows.append(_l("contested_writes_ordered", f"{len(contested)} contested paths",
+                   "fail" if not contested.empty
+                   and not contested.writers_ordered.all() else "pass",
+                   "every path with two writers has them ordered, so one wins by "
+                   "declaration"))
+
+    for _, row in contested[~contested.readers_pinned].iterrows():
+        rows.append(_l("contested_reads_pinned", row.path, "fail",
+                       f"{row.sees} — a reader is unordered against a writer, so "
+                       "which content it reads depends on the run order"))
+    rows.append(_l("contested_reads_pinned",
+                   f"{contested.readers.str.count(';').sum() + len(contested) if not contested.empty else 0} reads",
+                   "fail" if not contested.empty
+                   and not contested.readers_pinned.all() else "pass",
+                   "every reader of a contested path is ordered against every "
+                   "writer of it"))
 
     return pd.DataFrame(rows, columns=list(LINT_COLUMNS))
 
