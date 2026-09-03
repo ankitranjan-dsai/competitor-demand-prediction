@@ -20,7 +20,7 @@
       "scraped_date"
     ],
     "file": "data/raw/google/google_jobs_hf_backfill_2023.parquet",
-    "collected_at": "2026-09-03T01:27:28+00:00",
+    "collected_at": "2026-09-03T01:38:38+00:00",
     "date_min": "2023-01-01",
     "date_max": "2023-12-31",
     "rebuild": "python src/collect_google_jobs.py hf-backfill"

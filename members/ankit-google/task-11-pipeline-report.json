@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-03T01:36:29+00:00",
-  "mode": "check",
+  "generated_at": "2026-09-03T01:39:11+00:00",
+  "mode": "run",
   "focus": "google",
   "stages_declared": 16,
   "stages_planned": [
@@ -61,11 +61,9 @@
   },
   "fact_drift": {
     "facts": 18,
-    "moved": 1,
-    "keys": [
-      "tests_total"
-    ],
-    "stale": true,
+    "moved": 0,
+    "keys": [],
+    "stale": false,
     "submission_ref": "24cb4dc",
     "moved_since_submission": 5,
     "keys_since_submission": [
@@ -77,12 +75,12 @@
     ]
   },
   "run": {
-    "state": "not_run",
-    "stages_run": 0,
+    "state": "clean",
+    "stages_run": 11,
     "failed": [],
     "blocked": [],
     "artefacts_changed": 0,
-    "artefacts_volatile_only": 0,
+    "artefacts_volatile_only": 10,
     "changed_paths": []
   },
   "tables": [
@@ -93,6 +91,8 @@
     "pipeline-failure-modes.csv",
     "pipeline-lint.csv",
     "pipeline-stages.csv",
+    "reproducibility-audit.csv",
+    "run-ledger.csv",
     "schedule-rationale.csv",
     "source-refreshability.csv"
   ],
@@ -100,6 +100,7 @@
     "deck-fact-drift.png",
     "pipeline-checks.png",
     "pipeline-dag.png",
+    "pipeline-run.png",
     "source-refreshability.png"
   ]
 }

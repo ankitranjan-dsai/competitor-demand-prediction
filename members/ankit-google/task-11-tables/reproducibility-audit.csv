@@ -190,7 +190,7 @@ members/ankit-google/task-10-tables/qa-lint.csv,identical,byte for byte
 members/ankit-google/task-10-tables/qa-shape.csv,identical,byte for byte
 members/ankit-google/task-10-tables/refusal-coverage.csv,identical,byte for byte
 members/ankit-google/task-10-tables/suite-growth.csv,identical,byte for byte
-members/ankit-google/task-10-tables/workspace-audit.csv,changed,content differs
+members/ankit-google/task-10-tables/workspace-audit.csv,identical,byte for byte
 members/ankit-google/task-11-figures/deck-fact-drift.png,identical,byte for byte
 members/ankit-google/task-11-figures/pipeline-checks.png,identical,byte for byte
 members/ankit-google/task-11-figures/pipeline-dag.png,identical,byte for byte

@@ -12,7 +12,7 @@ claims_refused,316,316,316,False,False,task-09-tables/insight-yield.csv#refused@
 claim_yield_pct,27.5,27.5,27.5,False,False,task-09-tables/insight-yield.csv#yield_pct@question=all
 distinctive_skills,48,48,48,False,False,task-09-tables/strategy-position.csv#distinctive_skills
 nearest_score,0.9174,0.9174,0.9174,False,False,task-09-tables/strategy-position.csv#nearest_score
-tests_total,647,742,746,True,True,pytest --collect-only over tests/
+tests_total,647,746,746,False,True,pytest --collect-only over tests/
 tasks_total,10,12,12,False,True,README.md task table
 corrections_total,9,10,10,False,True,docs/corrections.md headings
 tables_committed,127,138,138,False,True,members/*/task-*-tables/*.csv
