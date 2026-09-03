@@ -1137,17 +1137,34 @@ def pipeline_audit(stages: tuple[Stage, ...] = STAGES,
             "pass" if source.verdict == "refreshable" else "fail",
             f"{source.verdict}: {source.blocker}")
 
-    # -- credentials are absent, and that is a finding not a secret --------
-    env_file = repo_root / ".env"
+    # -- credentials are never committed -----------------------------------
     add("secrets", "env_untracked", ".env",
         "fail" if ".env" in tracked else "pass",
         "credentials are never committed; the workflow reads repository secrets")
-    add("secrets", "env_present_locally", ".env",
-        "pass" if env_file.exists() else "fail",
-        "a local .env exists for the collector to read" if env_file.exists()
-        else "no local .env; the collector runs backfill-only")
 
+    # Whether a local `.env` exists is deliberately *not* a row here. This
+    # table is committed and a CI rebuild must reproduce it byte for byte, so a
+    # check whose answer depends on the machine would make the committed
+    # version permanently wrong somewhere. Credential availability goes to the
+    # run report instead — see `credential_state`.
     return pd.DataFrame(rows, columns=list(AUDIT_COLUMNS))
+
+
+def credential_state(repo_root: Path = REPO_ROOT) -> dict:
+    """What this machine can authenticate to, for the report but not the table.
+
+    Reports presence, never a value. Task 01's rule is that credentials live in
+    a git-ignored `.env` and nothing else; a check that printed a key to a run
+    log would break that rule while appearing to enforce it.
+    """
+    import os
+    env_file = repo_root / ".env"
+    return {
+        "env_file_present": env_file.exists(),
+        "adzuna_credentials": bool(os.environ.get("ADZUNA_APP_ID")
+                                   and os.environ.get("ADZUNA_APP_KEY")),
+        "note": "presence only; no value is ever read into a report or a log",
+    }
 
 
 # ---------------------------------------------------------------------------

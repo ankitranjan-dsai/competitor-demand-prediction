@@ -447,6 +447,7 @@ def build(*, execute_stages: bool = False, only: tuple[str, ...] = (),
                   "finding_checks": sorted(set(
                       audit[audit.status == "fail"].check))},
         "sources": pl.refresh_verdict(),
+        "credentials": pl.credential_state(),
         "fact_drift": pl.drift_summary(drift),
         "run": verdict,
         "tables": sorted(p.name for p in written),

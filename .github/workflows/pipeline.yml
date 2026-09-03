@@ -1,0 +1,203 @@
+# The end-to-end pipeline, as GitHub runs it.
+#
+# Three triggers, and each one exists because it detects something the others
+# cannot.
+#
+#   push / pull_request  a code change that breaks a stage or moves a number
+#   schedule (weekly)    dependency drift — a pandas or numpy release that
+#                        changes a default under unchanged code
+#   workflow_dispatch    whatever a human is investigating
+#
+# There is deliberately no refresh schedule. No approved source can return a
+# posting this repository does not already hold: the Hugging Face backfill is a
+# frozen 2023 snapshot, Adzuna has no credentials and truncates descriptions to
+# 500 characters, The Muse lists no Google postings, and Google Careers was
+# rejected on robots.txt at Task 01. A nightly "refresh" would detect nothing
+# and would look like diligence. `src/run_pipeline.py` derives the cadence from
+# the sources and writes the reasoning to `schedule-rationale.csv`; if a source
+# ever becomes refreshable, that table adopts the monthly cadence and this file
+# gains a job rather than a comment.
+#
+# Nothing here commits. A workflow that pushes its own rebuild turns every run
+# into a commit carrying ten timestamp lines, and after a month nobody reads
+# the diffs — which is when a real change slips through. The verify job reports
+# instead, and a human decides.
+
+name: pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Mondays, 06:00 UTC. Verification, not refresh — see the note above.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      run_stages:
+        description: "Execute the stages, not just the checks"
+        type: boolean
+        default: false
+      include_optional:
+        description: "Also run the scipy cross-checks"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pipeline-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONHASHSEED: "0"        # the digests below must not depend on the run
+
+jobs:
+  # ---------------------------------------------------------------------
+  # Cheap, and the only job a pull request needs to pass. Runs no stage.
+  # ---------------------------------------------------------------------
+  check:
+    name: lint the DAG and audit the workspace
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # `fact_drift` reads `deck-facts.csv` at the pinned Task 10
+          # submission commit, so a shallow clone would lose the C10 evidence.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements.txt
+
+      - name: The pipeline definition must be valid
+        run: python src/run_pipeline.py
+
+      - name: The suite
+        run: python -m pytest tests/ -q
+
+      - name: The workspace must be as the pipeline left it
+        # `--check` rewrites Task 11's tables from the registry. If any differ
+        # from what is committed, the committed ones are stale: someone changed
+        # the registry without rebuilding.
+        #
+        # Tables only. Figure bytes are not reproducible across matplotlib and
+        # freetype versions — the same code on a different runner renders text
+        # a pixel differently — so diffing PNGs would fail for a reason that has
+        # nothing to do with this repository. The tables carry every number the
+        # figures draw, so nothing checkable is lost. The wall clock lives only
+        # in the JSON report, which is excluded rather than special-cased.
+        run: |
+          git diff --exit-code -- members/ankit-google/task-11-tables \
+          || {
+            echo "::error::committed Task 11 tables are stale; run 'python src/run_pipeline.py' and commit the result"
+            exit 1
+          }
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pipeline-check
+          path: |
+            members/ankit-google/task-11-tables/
+            members/ankit-google/task-11-figures/
+            members/ankit-google/task-11-pipeline-report.json
+          retention-days: 30
+
+  # ---------------------------------------------------------------------
+  # The full rebuild. Weekly, or on request — not on every push, because it
+  # downloads a 75 MB dataset and takes ~30s of compute to prove that nothing
+  # moved.
+  # ---------------------------------------------------------------------
+  verify:
+    name: rebuild everything and report what moved
+    if: >-
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_dispatch' &&
+       inputs.run_stages)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements.txt
+
+      - name: Run the scheduled plan end to end
+        # `--scheduled` drops `validate-text`, which samples three postings
+        # from a rolling public feed and so rewrites a committed document with
+        # different content on every run. That is `source_volatile`, and a
+        # scheduled job must not commit it.
+        env:
+          # Absent on a fork or a scheduled run without them; the collector
+          # falls back to the backfill, which is the committed dataset anyway.
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+        run: python src/run_pipeline.py --run --scheduled
+
+      - name: Say what the rebuild moved
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          report = json.loads(pathlib.Path(
+              "members/ankit-google/task-11-pipeline-report.json"
+          ).read_text())
+          run = report["run"]
+          print(f"## Pipeline verification — `{run['state']}`\n")
+          print(f"- stages run: {run['stages_run']}")
+          print(f"- artefacts whose content changed: {run['artefacts_changed']}")
+          print(f"- artefacts that moved only their clock: "
+                f"{run['artefacts_volatile_only']}")
+          drift = report["fact_drift"]
+          print(f"- deck facts stale: {drift['moved']} of {drift['facts']}")
+          if run["changed_paths"]:
+              print("\n<details><summary>changed</summary>\n")
+              for path in run["changed_paths"]:
+                  print(f"- `{path}`")
+              print("\n</details>")
+          if run["state"] == "drifted":
+              print("\n> On a frozen source, changed content means the code or "
+                    "its dependencies moved. Worth a look.")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pipeline-verify
+          path: |
+            members/ankit-google/task-11-tables/
+            members/ankit-google/task-11-figures/
+            members/ankit-google/task-11-pipeline-report.json
+          retention-days: 90
+
+      - name: Drift is a finding on a schedule, a failure on request
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, sys
+          report = json.loads(pathlib.Path(
+              "members/ankit-google/task-11-pipeline-report.json"
+          ).read_text())
+          run = report["run"]
+          if run["failed"]:
+              sys.exit(f"stages failed: {', '.join(run['failed'])}")
+          if run["state"] == "drifted" and os.environ["EVENT"] != "schedule":
+              sys.exit(f"{run['artefacts_changed']} artefacts changed content")
+          print(f"verdict: {run['state']}")
+          PY
+        env:
+          EVENT: ${{ github.event_name }}
