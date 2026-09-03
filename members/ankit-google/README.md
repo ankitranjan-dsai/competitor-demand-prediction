@@ -116,3 +116,24 @@ See `docs/task-01-data-sources-and-legal.md` for the full legal rationale.
       Task 09 §13 predicted this task's output could not be checked by a test;
       six of its instructions turned out to be properties of a file and are now
       named rules — what stays unchecked is the delivery, not the deck)
+- [x] Task 11 (optional) — Automated pipeline → `task-11-pipeline-report.md`
+      (the **run order written down**, not a new analysis: 16 stages as frozen
+      records, 22 edges — 14 data, 8 sequencing — and **13 rules over 42
+      checks**, all passing. Standard in
+      `docs/task-11-automated-pipeline-methods.md`; 5 new register tests,
+      **742 in the suite**; 11 tables + 5 figures. It found a defect the repo has carried
+      since Task 06: **nine committed paths have two writers apiece**, and
+      `google_features.parquet` is **848 rows** or **846** depending on which
+      ran last — `trends` reads the Task 04 build, everything from Task 06 on
+      reads the post-audit one, and getting the order wrong produces complete,
+      plausible, different numbers with no failure anywhere. Now pinned:
+      `features → trends → competitor-set → comparison/forecast/similarity/insights`.
+      Of 4 approved sources **0 are refreshable** — one frozen snapshot, two
+      blocked, one live but empty — so the schedule is `verify`, never
+      `refresh`, and neither CI job commits. Raised
+      [C10](../../docs/corrections.md#c10--fixing-the-seed-does-not-fix-the-input):
+      Task 08's fixed seeds pin the resampling, not the frame being resampled.
+      Also ships `deck-fact-drift.csv`, which reads Task 10's 18 registered
+      facts at three refs — submitted, committed, live — so a stale number can
+      be **named** and not just detected; 5 of the 18 moved during this task,
+      all of them its own doing)

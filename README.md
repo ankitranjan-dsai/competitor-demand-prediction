@@ -58,8 +58,8 @@ Roles rotate every week; decisions/blockers/progress are documented in
 | 08 | Company Similarity Scoring | Similarity tables + heatmaps/network graphs | ✅ Google done → `docs/task-08-company-similarity-methods.md` (team standard) + `members/ankit-google/task-08-similarity-report.md` (16 tables, 8 figures, 478 tests; five metrics against two nulls, **2 of 15 ranks identified**, Google–Meta the only robust pair, trajectory similarity refused) |
 | 09 | Insight Generation & Reporting | Insight report + visuals | ✅ Google done → `docs/task-09-insight-generation-methods.md` (team standard) + `members/ankit-google/task-09-insight-report.md` (25 tables, 8 figures, 557 tests; 436 claims generated and gated, **120 publishable — a 27.5% yield**, salary benchmarking refused, investors get nothing) |
 | 10 | Final Presentation & Mentor Review | Slides + finalised repo | ✅ Google done → `docs/task-10-final-presentation-methods.md` (team standard) + `members/ankit-google/task-10-presentation-report.md` (19-slide deck compiled from the claim ledger, 11 tables, 8 figures, 647 tests; 26 rules over the deck and a 21-question mentor bank in which **11 answers are refusals**; a workspace audit — 37 checks, all passing — that failed four of them on its first run and drove the repair) |
-| +  | _(Optional)_ Automated Pipeline | Scheduled end-to-end pipeline | ⬜ |
-| +  | _(Optional)_ Fine-Tune Skill Extraction Model | Fine-tuned model + metrics | ⬜ |
+| 11 | _(Optional)_ Automated Pipeline | Scheduled end-to-end pipeline | ✅ Google done → `docs/task-11-automated-pipeline-methods.md` (team standard) + `members/ankit-google/task-11-pipeline-report.md` (16 stages declared as data, run order derived not written; 13 rules over 42 checks, 11 tables, 5 figures, 742 tests; found **nine committed paths with two writers apiece** — one of them the Google feature frame, where the wrong stage order silently reverses C4 across every downstream table without failing anything — and a drift check that reads the deck's 18 registered facts at three refs, so a stale committed number can be named rather than merely detected; GitHub Actions `check` on push and `verify` weekly, neither of which commits) |
+| 12 | _(Optional)_ Fine-Tune Skill Extraction Model | Fine-tuned model + metrics | ⬜ |
 
 ## Repository Layout
 
@@ -88,14 +88,17 @@ competitor-demand-prediction/
 - **Corrections are recorded, not overwritten.** A task is submitted the moment
   it closes, so when a later task disproves an earlier claim the original
   wording stays put and gains a pointer to
-  [`docs/corrections.md`](docs/corrections.md). Nine claims have been
+  [`docs/corrections.md`](docs/corrections.md). Ten claims have been
   corrected so far — three by Task 05, one by Task 06, one by Task 07, two by
-  Task 08, one by Task 09, one by Task 10 — and each one is checked against its
-  evidence by `tests/test_corrections.py`. Seven are claims about the data; two
-  are claims about the project — one where a handover section named the next
-  task wrong and handed it instructions written for a task that does not exist,
-  and one where that same section predicted its own successor could not be
-  checked by a test.
+  Task 08, one by Task 09, one by Task 10, one by Task 11 — and each one is
+  checked against its evidence by `tests/test_corrections.py`. Seven are claims
+  about the data; two are claims about the project — one where a handover
+  section named the next task wrong and handed it instructions written for a
+  task that does not exist, and one where that same section predicted its own
+  successor could not be checked by a test. The last is a third kind, and it is
+  not about whether a number is right but about **when** it is right: a seed
+  pins the resampling and not the frame being resampled, so a file with two
+  writers has no content of its own until something fixes the order.
 
 ## Getting Started
 
