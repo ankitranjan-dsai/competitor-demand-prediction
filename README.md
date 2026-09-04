@@ -102,11 +102,25 @@ competitor-demand-prediction/
 
 ## Getting Started
 
+**Python 3.11 or newer** — 3.11 is the floor the CI installs and the suite is
+asserted against. It is declared in `PYTHON_FLOOR` (`src/pipeline.py`) and
+enforced by a scan that tokenises every source without importing it, so a
+developer on 3.11 is told *before* pushing — not after — that four Task 09 lines
+use 3.12-only syntax and are guarded accordingly. Library versions are pinned in
+`requirements.txt` for the same reason: the committed artefacts only rebuild
+byte-identically against the versions that built them.
+
 ```bash
 git clone <repo-url>
 cd competitor-demand-prediction
-python -m venv .venv && source .venv/bin/activate
+python3.11 -m venv .venv && source .venv/bin/activate   # 3.11 is the floor
 pip install -r requirements.txt
+```
+
+Assert the suite on the floor without a local 3.11 install:
+
+```bash
+uv run --python 3.11 --with-requirements requirements.txt python -m pytest   # 747 passing
 ```
 
 ## Legal & Ethical First
