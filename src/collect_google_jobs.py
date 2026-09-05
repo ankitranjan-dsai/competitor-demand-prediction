@@ -87,6 +87,60 @@ def polite_get(url: str, params: dict | None = None) -> requests.Response:
     return resp
 
 
+# The backfill download is the pipeline's least reliable step: 72 MB over one
+# unauthenticated GET, writing into a git-ignored directory that does not exist
+# on a fresh checkout, from an endpoint that rate-limits by IP — and a CI runner
+# shares that IP with every other job on the host. Create the directory, retry
+# the transient failures (429, 5xx, a dropped connection) with growing backoff,
+# and write through a temp file so an interrupted run never leaves — nor caches —
+# a truncated parquet. A genuine 4xx still fails fast.
+_RETRYABLE_STATUS = frozenset({429, 500, 502, 503, 504})
+
+
+def _retry_after(exc: Exception) -> float | None:
+    resp = getattr(exc, "response", None)
+    header = resp.headers.get("Retry-After") if resp is not None else None
+    if not header:
+        return None
+    try:
+        return min(120.0, float(header))
+    except ValueError:
+        return None
+
+
+def _download_to(url: str, dest: Path, *, attempts: int = 5) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    last: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        try:
+            resp = requests.get(
+                url,
+                headers={"User-Agent": USER_AGENT},
+                timeout=600,
+                allow_redirects=True,
+            )
+        except requests.RequestException as exc:
+            last = exc  # connection reset, timeout, a drop mid-download
+        else:
+            if resp.status_code not in _RETRYABLE_STATUS:
+                resp.raise_for_status()  # a genuine 4xx fails fast, not retried
+                tmp = dest.with_name(dest.name + ".part")
+                tmp.write_bytes(resp.content)
+                tmp.replace(dest)
+                return
+            last = requests.HTTPError(f"{resp.status_code} for {url}", response=resp)
+        if attempt == attempts:
+            break
+        delay = _retry_after(last) or min(60.0, 2.0**attempt)
+        print(
+            f"  backfill fetch {attempt}/{attempts} failed "
+            f"({last.__class__.__name__}); retrying in {delay:.0f}s",
+            file=sys.stderr,
+        )
+        time.sleep(delay)
+    raise RuntimeError(f"could not fetch {url} after {attempts} attempts") from last
+
+
 # --------------------------------------------------------------------------
 # Source: Hugging Face backfill (lukebarousse/data_jobs, Apache-2.0)
 # --------------------------------------------------------------------------
@@ -95,14 +149,7 @@ def collect_hf_backfill() -> pd.DataFrame:
     cache = RAW_DIR / "_hf_data_jobs_full.parquet"
     if not cache.exists():
         print(f"downloading {HF_PARQUET_URL} …")
-        resp = requests.get(
-            HF_PARQUET_URL,
-            headers={"User-Agent": USER_AGENT},
-            timeout=600,
-            allow_redirects=True,
-        )
-        resp.raise_for_status()
-        cache.write_bytes(resp.content)
+        _download_to(HF_PARQUET_URL, cache)
     df = pd.read_parquet(cache)
     print(f"full dataset: {len(df):,} rows")
 

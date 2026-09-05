@@ -136,6 +136,18 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: pip install -r requirements.txt
 
+      # The 72 MB backfill is a frozen 2023 snapshot: the same 785k rows every
+      # time. Download it once and reuse it across runs, so the weekly rebuild
+      # exercises dependency drift rather than re-pulling a frozen source — and
+      # never trips Hugging Face's per-IP rate limit on a shared runner. The
+      # static key is deliberate; bump the suffix only if the snapshot moves.
+      - name: Restore the frozen Hugging Face backfill
+        id: hf-backfill
+        uses: actions/cache/restore@v6
+        with:
+          path: data/raw/google/_hf_data_jobs_full.parquet
+          key: hf-backfill-lukebarousse-data_jobs-v1
+
       - name: Run the scheduled plan end to end
         # `--scheduled` drops `validate-text`, which samples three postings
         # from a rolling public feed and so rewrites a committed document with
@@ -147,6 +159,15 @@ jobs:
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
         run: python src/run_pipeline.py --run --scheduled
+
+      # Persist the download even if a later stage fails, so next week starts
+      # warm. Only on a miss — saving over an existing key is an error.
+      - name: Cache the backfill for next week
+        if: always() && steps.hf-backfill.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: data/raw/google/_hf_data_jobs_full.parquet
+          key: hf-backfill-lukebarousse-data_jobs-v1
 
       - name: Say what the rebuild moved
         if: always()
