@@ -1,0 +1,6 @@
+item,status,detail
+gate,cleared,learned micro-F1 0.6874 vs taxonomy 0.0175 (margin +0.6699)
+vocabulary_collapse,blocks adoption,learns 32 of 176 taxonomy skills — only those in >= 10 postings; the rest have too few examples to fit
+label_circularity,blocks adoption,"labels are the collector's source list, parsed from description text this repository does not hold; the model distils those labels from titles rather than extracting skills from a posting"
+no_text_path_input,blocks adoption,"0 of 848 postings carry description text, so a learned text extractor has no live input on Google — the gap it would fill is empty"
+decision,not adopted,taxonomy retained (rule taxonomy (src/skills.py)); the model is delivered with metrics as an experiment

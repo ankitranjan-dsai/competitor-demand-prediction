@@ -1,6 +1,6 @@
 {
   "task": 10,
-  "generated": "2026-09-03T01:55:33+00:00",
+  "generated": "2026-09-05T03:40:40+00:00",
   "focus": "google",
   "deck": {
     "slides": 19,
@@ -45,7 +45,7 @@
     "spent_in_bank": 17
   },
   "workspace": {
-    "checks": 41,
+    "checks": 44,
     "failing": 0,
     "failures": []
   },
@@ -63,11 +63,11 @@
     "claim_yield_pct": 27.5,
     "distinctive_skills": 48,
     "nearest_score": 0.9174,
-    "tests_total": 747,
+    "tests_total": 770,
     "tasks_total": 12,
     "corrections_total": 10,
-    "tables_committed": 138,
-    "figures_committed": 54
+    "tables_committed": 144,
+    "figures_committed": 58
   },
   "figures": [
     "01-deck-provenance.png",

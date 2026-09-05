@@ -1,0 +1,33 @@
+skill,category,support,precision,recall,f1
+Python,Programming Language,372,0.0,0.0,0.0
+SQL,Programming Language,255,0.0,0.0,0.0
+R,Programming Language,214,0.0,0.0,0.0
+Java,Programming Language,132,0.0,0.0,0.0
+C++,Programming Language,102,0.0,0.0,0.0
+Go,Programming Language,95,0.0,0.0,0.0
+JavaScript,Programming Language,73,0.0,0.0,0.0
+Looker,Analytics / BI,71,1.0,0.2113,0.3488
+TensorFlow,ML / AI,71,0.0,0.0,0.0
+BigQuery,Cloud Platform,62,0.0,0.0,0.0
+Hadoop,Data Engineering,58,0.0,0.0,0.0
+Linux,OS / Shell,54,0.0,0.0,0.0
+Scala,Programming Language,53,0.0,0.0,0.0
+NoSQL,Database,47,0.0,0.0,0.0
+C,Programming Language,36,0.0,0.0,0.0
+Spark,Data Engineering,36,0.0,0.0,0.0
+SAS,Analytics / BI,34,0.0,0.0,0.0
+MATLAB,Programming Language,30,0.0,0.0,0.0
+Tableau,Analytics / BI,30,0.0,0.0,0.0
+GCP,Cloud Platform,24,0.0,0.0,0.0
+MongoDB,Database,21,0.0,0.0,0.0
+Oracle,Database,20,0.0,0.0,0.0
+SAP,Analytics / BI,19,1.0,0.1579,0.2727
+PyTorch,ML / AI,18,0.0,0.0,0.0
+Perl,Programming Language,17,0.0,0.0,0.0
+pandas,Data Science Libraries,17,0.0,0.0,0.0
+Express,Web / Frontend,15,0.0,0.0,0.0
+Snowflake,Cloud Platform,15,0.0,0.0,0.0
+C#,Programming Language,14,0.0,0.0,0.0
+Shell,OS / Shell,14,0.0,0.0,0.0
+Kubernetes,DevOps / Infrastructure,12,0.0,0.0,0.0
+Airflow,Data Engineering,11,0.0,0.0,0.0

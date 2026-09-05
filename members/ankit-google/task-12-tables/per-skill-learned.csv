@@ -1,0 +1,33 @@
+skill,category,support,precision,recall,f1
+Python,Programming Language,372,0.8795,0.7849,0.8295
+SQL,Programming Language,255,0.8161,0.8353,0.8256
+R,Programming Language,214,0.8091,0.9112,0.8571
+Java,Programming Language,132,0.6461,0.8712,0.7419
+C++,Programming Language,102,0.4911,0.8137,0.6125
+Go,Programming Language,95,0.5816,0.8632,0.6949
+JavaScript,Programming Language,73,0.4496,0.7945,0.5743
+Looker,Analytics / BI,71,0.725,0.8169,0.7682
+TensorFlow,ML / AI,71,0.5825,0.8451,0.6897
+BigQuery,Cloud Platform,62,0.5,0.7742,0.6076
+Hadoop,Data Engineering,58,0.5696,0.7759,0.6569
+Linux,OS / Shell,54,0.5233,0.8333,0.6429
+Scala,Programming Language,53,0.5632,0.9245,0.7
+NoSQL,Database,47,0.6102,0.766,0.6792
+C,Programming Language,36,0.4054,0.8333,0.5455
+Spark,Data Engineering,36,0.3521,0.6944,0.4673
+SAS,Analytics / BI,34,0.7,0.8235,0.7568
+MATLAB,Programming Language,30,0.4423,0.7667,0.561
+Tableau,Analytics / BI,30,0.3125,0.6667,0.4255
+GCP,Cloud Platform,24,0.2885,0.625,0.3947
+MongoDB,Database,21,0.381,0.7619,0.5079
+Oracle,Database,20,0.3913,0.9,0.5455
+SAP,Analytics / BI,19,0.3256,0.7368,0.4516
+PyTorch,ML / AI,18,0.3333,0.7222,0.4561
+Perl,Programming Language,17,0.5556,0.8824,0.6818
+pandas,Data Science Libraries,17,0.8125,0.7647,0.7879
+Express,Web / Frontend,15,0.2791,0.8,0.4138
+Snowflake,Cloud Platform,15,0.2353,0.8,0.3636
+C#,Programming Language,14,0.1818,0.5714,0.2759
+Shell,OS / Shell,14,0.619,0.9286,0.7429
+Kubernetes,DevOps / Infrastructure,12,0.25,0.5,0.3333
+Airflow,Data Engineering,11,0.375,0.8182,0.5143

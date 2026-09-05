@@ -1,0 +1,105 @@
+{
+  "task": "12-fine-tune-skill-extractor",
+  "focus_company": "google",
+  "seed": 20260905,
+  "generated_at": "2026-09-05T03:34:32+00:00",
+  "dataset": {
+    "postings_scored": 554,
+    "postings_with_source_list": 567,
+    "postings_excluded_low_support": 13,
+    "skills_learnable": 32,
+    "skills_in_taxonomy": 176,
+    "min_support": 10,
+    "title_literal_coverage": 0.145,
+    "label_instances": 2042
+  },
+  "model": {
+    "family": "multilabel linear classifier (one-vs-rest)",
+    "vectoriser": "TF-IDF word n-grams (1, 2), min_df=2, lowercase",
+    "estimator": "LogisticRegression(class_weight=balanced, solver=liblinear)",
+    "input": "job title text",
+    "labels": "source-provenance skills in >= 10 postings",
+    "evaluation": "5-fold out-of-fold prediction",
+    "library": "scikit-learn (offline, deterministic)",
+    "seed": 20260905
+  },
+  "scores": {
+    "taxonomy_title_path": {
+      "micro": {
+        "precision": 1.0,
+        "recall": 0.0088,
+        "f1": 0.0175
+      },
+      "macro": {
+        "precision": 0.0625,
+        "recall": 0.0115,
+        "f1": 0.0194
+      },
+      "label_instances": 2042,
+      "predicted_instances": 18,
+      "true_positives": 18
+    },
+    "learned_model": {
+      "micro": {
+        "precision": 0.5931,
+        "recall": 0.8173,
+        "f1": 0.6874
+      },
+      "macro": {
+        "precision": 0.4996,
+        "recall": 0.7877,
+        "f1": 0.5971
+      },
+      "label_instances": 2042,
+      "predicted_instances": 2814,
+      "true_positives": 1669
+    }
+  },
+  "blockers": {
+    "vocabulary_collapse": {
+      "blocked": true,
+      "detail": "learns 32 of 176 taxonomy skills \u2014 only those in >= 10 postings; the rest have too few examples to fit"
+    },
+    "label_circularity": {
+      "blocked": true,
+      "detail": "labels are the collector's source list, parsed from description text this repository does not hold; the model distils those labels from titles rather than extracting skills from a posting"
+    },
+    "no_text_path_input": {
+      "blocked": true,
+      "detail": "0 of 848 postings carry description text, so a learned text extractor has no live input on Google \u2014 the gap it would fill is empty"
+    }
+  },
+  "verdict": {
+    "gate": "a learned extractor must beat the 176-skill rule taxonomy on the same postings before it replaces anything",
+    "metric": "micro-F1 over the source-skill label matrix, out of fold",
+    "taxonomy_micro_f1": 0.0175,
+    "learned_micro_f1": 0.6874,
+    "margin_micro_f1": 0.6699,
+    "taxonomy_macro_f1": 0.0194,
+    "learned_macro_f1": 0.5971,
+    "beats_micro": true,
+    "beats_macro": true,
+    "gate_cleared": true,
+    "adoption_blockers": [
+      "vocabulary_collapse",
+      "label_circularity",
+      "no_text_path_input"
+    ],
+    "adopted": false,
+    "retained": "rule taxonomy (src/skills.py)"
+  },
+  "tables": [
+    "adoption-gate.csv",
+    "contest-headline.csv",
+    "dataset-summary.csv",
+    "learned-title-associations.csv",
+    "per-skill-learned.csv",
+    "per-skill-taxonomy.csv"
+  ],
+  "figures": [
+    "01-contest-headline.png",
+    "02-per-skill-f1.png",
+    "03-association-gap.png",
+    "04-gate-scorecard.png"
+  ]
+}

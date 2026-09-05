@@ -1,0 +1,7 @@
+averaging,metric,taxonomy_title_path,learned_model,margin
+micro,precision,1.0,0.5931,-0.4069
+micro,recall,0.0088,0.8173,0.8085
+micro,f1,0.0175,0.6874,0.6699
+macro,precision,0.0625,0.4996,0.4371
+macro,recall,0.0115,0.7877,0.7762
+macro,f1,0.0194,0.5971,0.5777
