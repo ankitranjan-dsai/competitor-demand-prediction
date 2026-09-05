@@ -12,7 +12,7 @@ refused for stated reasons, not adopted because a number moved.
 
 - **Method rationale (team standard):** [`docs/task-12-skill-model-methods.md`](../../docs/task-12-skill-model-methods.md)
 - **Code:** [`src/skill_model.py`](../../src/skill_model.py) · [`src/build_skill_model.py`](../../src/build_skill_model.py)
-- **Tests:** [`tests/test_skill_model.py`](../../tests/test_skill_model.py) (23) — **770 in the suite**
+- **Tests:** [`tests/test_skill_model.py`](../../tests/test_skill_model.py) (23) — **775 in the suite**
 - **Machine-readable report:** [`task-12-skill-model-report.json`](task-12-skill-model-report.json)
 - **Tables:** [`task-12-tables/`](task-12-tables/) (6) · **Figures:** [`task-12-figures/`](task-12-figures/) (4)
 - **The bar it was held to:** the 176-skill rule taxonomy in [`src/skills.py`](../../src/skills.py), built and validated in [Task 04](../../docs/task-04-skill-taxonomy.md)
@@ -229,7 +229,7 @@ check are rebuilt so the committed numbers match the repository.
 | Machine-readable report | [`task-12-skill-model-report.json`](task-12-skill-model-report.json) |
 | Tables (6) | [`task-12-tables/`](task-12-tables/) |
 | Figures (4) | [`task-12-figures/`](task-12-figures/) |
-| Tests | [`tests/test_skill_model.py`](../../tests/test_skill_model.py) (23 of 770) |
+| Tests | [`tests/test_skill_model.py`](../../tests/test_skill_model.py) (23 of 775) |
 | Retained baseline | [`src/skills.py`](../../src/skills.py) — the 176-skill taxonomy |
 
 Row-level data stays git-ignored. All 6 tables pass the forbidden-column and

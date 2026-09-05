@@ -34,8 +34,8 @@ readme,task_row_backed,task 12,pass,✅ with 3 deliverable(s) on disk
 readme,task_row_path,docs/task-12-skill-model-methods.md,pass,path quoted in the task table
 readme,task_row_path,members/ankit-google/task-12-skill-model-report.md,pass,path quoted in the task table
 readme,task_row_path,src/skills.py,pass,path quoted in the task table
-readme,suite_size_current,task 12,pass,"quotes 770 tests, and the suite collects 770"
-docs,link_resolves,413 relative links,pass,413 of 413 resolve
+readme,suite_size_current,task 12,pass,"quotes 775 tests, and the suite collects 775"
+docs,link_resolves,435 relative links,pass,435 of 435 resolve
 members,member_readme,ankit-google,pass,a member folder carries its own README
 folders,working_dir_used,notebooks,pass,2 file(s) beyond the placeholder
 folders,working_dir_used,weekly-reports,pass,6 file(s) beyond the placeholder

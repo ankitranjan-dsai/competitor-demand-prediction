@@ -716,14 +716,72 @@ def raw_digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+#: Significant figures a numeric table is compared at. A float64 written in
+#: full — `0.500884621879673` — does not reproduce to its last digit across
+#: platforms: the Linux runner's BLAS and libm land a ULP away from macOS, so a
+#: byte comparison of a CSV reports a change that is not one, exactly as a
+#: wall-clock line does in a JSON report. Six figures is finer than anything the
+#: analysis reports (three to four decimals) and many orders coarser than that
+#: platform noise, so a real move survives and the noise does not.
+CSV_SIGNIFICANT_FIGURES = 6
+
+
+def _canonical_number(value) -> str:
+    """A float at the comparison precision, with the sign of zero removed."""
+    if pd.isna(value):
+        return "nan"
+    if value == 0:                      # -0.0 and 0.0 are the same number, and
+        return "0"                      # their sign is not reproducible either
+    return format(float(value), f".{CSV_SIGNIFICANT_FIGURES}g")
+
+
+def csv_content_digest(path: Path) -> str:
+    """SHA-256 of a table with its floats quantised to the reported precision.
+
+    Integer and text columns pass through untouched, so a changed label, a new
+    column or a different row count is still a change; only the trailing,
+    platform-dependent digits of a float are normalised away before hashing.
+    """
+    frame = pd.read_csv(path)
+    for column in frame.columns:
+        if pd.api.types.is_float_dtype(frame[column]):
+            frame[column] = frame[column].map(_canonical_number)
+    canonical = frame.to_csv(index=False)
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+#: A PNG's signature and IHDR chunk sit at a fixed offset and carry width,
+#: height, bit depth and colour type. `figsize * dpi` fixes those in the code,
+#: so they are identical on every runner; the pixels below them are not.
+PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+PNG_HEADER_BYTES = 33
+
+
+def figure_shape_digest(path: Path) -> str:
+    """SHA-256 of a figure's dimensions, not its pixels.
+
+    Figure bytes are not reproducible across matplotlib and freetype builds —
+    the same code renders text a pixel differently on another runner — which is
+    why the workflow's check job diffs the tables and not the figures: the
+    tables carry every number a figure draws. A figure that changes *shape* (a
+    stage added to a diagram, a row count moved) still moves its IHDR, and is
+    still a change.
+    """
+    header = path.read_bytes()[:PNG_HEADER_BYTES]
+    if len(header) < PNG_HEADER_BYTES or not header.startswith(PNG_SIGNATURE):
+        return raw_digest(path)
+    return hashlib.sha256(header).hexdigest()
+
+
 def stable_digest(path: Path) -> str:
-    """SHA-256 of the artefact's *content*, clock fields removed.
+    """SHA-256 of the artefact's *content*, with platform noise removed.
 
     JSON is parsed and re-serialised canonically, so key order and whitespace
-    cannot masquerade as a change. Markdown drops whole lines that are nothing
-    but a generation stamp. Everything else — CSV, PNG — is hashed as bytes,
-    because those formats carry no timestamp in this repository and a byte
-    change in them is a real change.
+    cannot masquerade as a change, and registered clock fields are dropped.
+    Markdown drops whole lines that are nothing but a generation stamp. A CSV's
+    floats are quantised to the precision the analysis reports, because their
+    last digit is not reproducible across platforms. A figure is reduced to its
+    dimensions, because its pixels are not. Anything else is hashed as bytes.
     """
     suffix = path.suffix.lower()
     if suffix == ".json":
@@ -741,6 +799,17 @@ def stable_digest(path: Path) -> str:
             return raw_digest(path)
         kept = [ln for ln in text.splitlines() if not VOLATILE_LINE.match(ln)]
         return hashlib.sha256("\n".join(kept).encode("utf-8")).hexdigest()
+    if suffix == ".csv":
+        try:
+            return csv_content_digest(path)
+        except (OSError, ValueError, pd.errors.ParserError,
+                pd.errors.EmptyDataError):
+            return raw_digest(path)
+    if suffix == ".png":
+        try:
+            return figure_shape_digest(path)
+        except OSError:
+            return raw_digest(path)
     return raw_digest(path)
 
 

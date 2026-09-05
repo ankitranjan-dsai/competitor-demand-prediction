@@ -10,7 +10,7 @@ brief's deliverable is "fine-tuned model + metrics"; the metrics are the point,
 and one of them is a refusal.
 
 - **Code:** [`src/skill_model.py`](../src/skill_model.py) · [`src/build_skill_model.py`](../src/build_skill_model.py)
-- **Tests:** [`tests/test_skill_model.py`](../tests/test_skill_model.py) (23; 770 in the suite)
+- **Tests:** [`tests/test_skill_model.py`](../tests/test_skill_model.py) (23; 775 in the suite)
 - **Google findings:** [`members/ankit-google/task-12-skill-model-report.md`](../members/ankit-google/task-12-skill-model-report.md)
 - **The baseline it is held to:** [`src/skills.py`](../src/skills.py), built in [`docs/task-04-skill-taxonomy.md`](task-04-skill-taxonomy.md) and validated in [`docs/task-04-skill-extraction-validation.md`](task-04-skill-extraction-validation.md)
 - **Inherited from:** Task 02's data reality (no Google description text) and Task 04's provenance-tagged extraction (`google_skills_long.parquet`)

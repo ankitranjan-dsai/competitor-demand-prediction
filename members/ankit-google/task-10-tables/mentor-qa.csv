@@ -41,7 +41,7 @@ q-investor,14,What would you tell an investor?,1,plain,,,,"That is a finding abo
 q-useful,13,So what is any of it actually good for?,0,claim,skillgap-spark-google-databricks,published,,"Databricks asks for Spark in a larger share of its skilled postings than Google does, by 0.6655 pooled, holding in 5 of 5 job functions — share of skilled postings within matched job functions; a stack difference, not a capability difference"
 q-useful,13,So what is any of it actually good for?,1,fact,,,,"120 sentences publish out of 436 generated, and the skill-profile ones are where the yield concentrates."
 q-useful,13,So what is any of it actually good for?,2,plain,,,,"Skill profiles and stack differences survive; volume, pay, and prediction do not."
-q-reproduce,16,Could someone else rebuild this?,0,fact,,,,"Yes — 770 tests, 144 committed tables and 58 figures, and the core modules import no solver library."
+q-reproduce,16,Could someone else rebuild this?,0,fact,,,,"Yes — 775 tests, 144 committed tables and 58 figures, and the core modules import no solver library."
 q-reproduce,16,Could someone else rebuild this?,1,plain,,,,"The statistics are hand-rolled and cross-checked against a library in separate validation scripts, so a rebuild does not depend on matching a version."
 q-next,18,What is the single change that would help most?,0,plain,,,,"More months. Almost every refusal here traces to one year of one source: no seasonality, no backtest worth the name, and a panel thin enough to decide the sign."
 q-next,18,What is the single change that would help most?,1,plain,,,,"More publishers per month is second, because it is the panel treatment, not the company, that currently determines the volume direction."

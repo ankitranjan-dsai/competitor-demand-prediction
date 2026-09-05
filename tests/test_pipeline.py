@@ -479,12 +479,60 @@ def test_key_order_is_not_a_change(tmp_path):
     assert pl.stable_digest(first) == pl.stable_digest(second)
 
 
-def test_a_csv_byte_change_is_always_a_change(tmp_path):
+def test_a_meaningful_csv_change_is_a_change(tmp_path):
     first = tmp_path / "a.csv"
     second = tmp_path / "b.csv"
     first.write_text("skill,share\nsql,0.51\n")
     second.write_text("skill,share\nsql,0.52\n")
     assert pl.stable_digest(first) != pl.stable_digest(second)
+
+
+def test_platform_float_noise_in_a_csv_is_not_a_change(tmp_path):
+    # The same number written on two runners: float64 in full does not
+    # reproduce to its last digit, so the bytes differ but the value does not.
+    first = tmp_path / "a.csv"
+    second = tmp_path / "b.csv"
+    first.write_text("metric,value\nrmse,0.500884621879673\n")
+    second.write_text("metric,value\nrmse,0.500884621879674\n")
+    assert pl.raw_digest(first) != pl.raw_digest(second)
+    assert pl.stable_digest(first) == pl.stable_digest(second)
+
+
+def test_a_changed_label_survives_float_normalisation(tmp_path):
+    # Only float columns are quantised; a text cell is still compared verbatim.
+    first = tmp_path / "a.csv"
+    second = tmp_path / "b.csv"
+    first.write_text("skill,share\nsql,0.5008846\n")
+    second.write_text("skill,share\npython,0.5008846\n")
+    assert pl.stable_digest(first) != pl.stable_digest(second)
+
+
+def test_a_figures_pixels_are_not_a_change(tmp_path):
+    # Identical dimensions (a shared IHDR), different pixels below it.
+    header = pl.PNG_SIGNATURE + bytes(pl.PNG_HEADER_BYTES - len(pl.PNG_SIGNATURE))
+    first = tmp_path / "a.png"
+    second = tmp_path / "b.png"
+    first.write_bytes(header + b"rendered-on-macos")
+    second.write_bytes(header + b"rendered-on-linux")
+    assert pl.raw_digest(first) != pl.raw_digest(second)
+    assert pl.stable_digest(first) == pl.stable_digest(second)
+
+
+def test_a_figure_that_changes_shape_is_a_change(tmp_path):
+    # A different IHDR — a stage added to a diagram, a taller table — moves the
+    # dimensions, and that is a change.
+    tail = b"same-pixels-below"
+    first = tmp_path / "a.png"
+    second = tmp_path / "b.png"
+    first.write_bytes(pl.PNG_SIGNATURE + bytes([13]) + bytes(24) + tail)
+    second.write_bytes(pl.PNG_SIGNATURE + bytes([17]) + bytes(24) + tail)
+    assert pl.stable_digest(first) != pl.stable_digest(second)
+
+
+def test_a_png_suffix_that_is_not_a_png_falls_back_to_the_bytes(tmp_path):
+    impostor = tmp_path / "a.png"
+    impostor.write_text("this is not a PNG, and is comfortably past the header.\n")
+    assert pl.stable_digest(impostor) == pl.raw_digest(impostor)
 
 
 def test_a_markdown_generation_stamp_is_not_a_change(tmp_path):
