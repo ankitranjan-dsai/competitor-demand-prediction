@@ -4,12 +4,28 @@ An NLP + forecasting system that turns public job-posting data into competitive
 intelligence — predicting competitor demand, skill trends, and market direction
 across the tech / AI / data sector.
 
-> **One sector · four companies · one unified model.**
+> **One sector · six companies · one unified model.**
 > Job postings are a *forward-looking* signal — they reveal future intent, not
 > past performance. This project forecasts competitor demand and emerging tech
 > trends from that signal.
 
 ---
+
+## Status
+
+**Completed solo** — CadetX Learning ML Engineer Virtual Work Experience
+Programme (Certificate ID: CX-2026-U0P7,
+[verify](https://www.cadetx.co.uk/verify/CX-2026-U0P7)), Jun–Sep 2026. The
+other three specialist seats below were never filled, so every task —
+including the full six-company comparison set — was scoped, built and tested
+independently.
+
+**Headline numbers:** 848 Google job postings collected and cleaned · 2,340
+skill rows / 91 unique skills extracted · 6-company comparison (Google, Meta,
+Microsoft, Snowflake, Databricks, NVIDIA) across 33 tables · 747 passing
+tests in a CI-tested automated pipeline (GitHub Actions) · all 10 core tasks
+plus both optional advanced tasks (automated pipeline, fine-tuned skill
+model) completed.
 
 ## Team & Company Ownership
 
